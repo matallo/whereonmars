@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Easy example | CartoDB.js</title>
+<title>Where on Mars?</title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
@@ -22,13 +22,13 @@ margin: 0;
 function main() {
 cartodb.createVis('map', 'http://planetocentric.cartodb.com/api/v2/viz/24f75ab4-63a4-11e4-9dd2-0e4fddd5de28/viz.json', {
 shareable: true,
-title: true,
+title: false,
 description: true,
-search: true,
+search: false,
 tiles_loader: true,
-center_lat: 0,
-center_lon: 0,
-zoom: 2
+center_lat: -45.0400,
+center_lon: 11.8000,
+zoom: 4
 })
 .done(function(vis, layers) {
 // layer 0 is the base layer, layer 1 is cartodb layer
