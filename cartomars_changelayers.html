@@ -1,0 +1,138 @@
+<html>
+<head>
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
+  <style>
+    html, body {
+    width:100%;
+     height:100%; 
+     padding: 0; 
+     margin: 0;
+     }
+    #map { 
+    width: 100%; 
+    height:100%;
+    background: black;
+    }
+    #menu  ul{
+    list-style-type: none;
+     position: absolute; 
+     top: 5px; 
+     margin: 0px;
+     padding: 0px;
+     right: 10px; 
+     width: 400px; 
+     height:60px; 
+     background: 
+     transparent; 
+     z-index:10;
+     }
+     
+     #menu ul li a{
+     
+      margin: 15px 10px 0 0;
+      float: right;
+      vertical-align: baseline;
+      width: 70px;
+      padding: 10px 10px 10px 20px;
+      text-align: center;
+      font: bold 11px "Helvetica",Arial;
+      line-height: normal;
+      color: #555;
+      border-radius: 4px;
+      
+      background: #ffffff;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+     
+     
+     }
+  
+    #menu ul li a.selected,
+    #menu ul li a:hover { 
+      color: #F84F40;
+    }
+  </style>
+
+  <script>
+  var map;
+  function init(){
+    // initiate leaflet map
+    map = new L.Map('map', { 
+      center: [20,-20],
+      zoom: 3,
+      zoomControl: true,
+      minZoom: 4,
+      maxZoom:5
+    })
+
+    L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
+      attribution: 'GISLAB'
+    }).addTo(map);
+	
+	var layerUrl = 'http://whereonmars.cartodb.com/api/v2/viz/bffe068c-c0d0-11e4-a559-0e4fddd5de28/viz.json';
+
+var sublayers = [];
+
+cartodb.createLayer(map, layerUrl)
+  .addTo(map)
+  .on('done', function(layer) {
+    // change the query for the first layer
+    var subLayerOptions = {
+      sql: "SELECT * FROM sites",
+      //cartocss: "#ne_10m_populated_places_simple{marker-fill: #F84F40; marker-width: 8; marker-line-color: white; marker-line-width: 2; marker-clip: false; marker-allow-overlap: true;}"
+    }
+
+    var sublayer = layer.getSubLayer(0);
+
+    sublayer.set(subLayerOptions);
+
+    sublayers.push(sublayer);
+  }).on('error', function() {
+    //log the error
+  });
+  // función que se activa cada vez que se pulsa un botón
+  
+  $('.button').click(function() {
+  $('.button').removeClass('selected');
+  $(this).addClass('selected');
+  LayerActions[$(this).attr('id')]();
+});
+
+// define LayerActions variable
+var LayerActions = {
+  overview: function(){
+    sublayers[0].setSQL("SELECT * FROM sites"); 
+    return true;
+  },
+  aram: function(){
+    sublayers[0].setSQL("SELECT * FROM sites WHERE id = 0");
+    return true;
+  },
+  hypanis: function(){
+    sublayers[0].setSQL("SELECT * FROM sites WHERE id = 1");
+    return true;
+  }
+}
+
+
+	//busca un objeto con el mismo id que los botones
+  LayerActions[$(this).attr('id')]();
+	
+  }
+ 
+  </script>
+</head>
+
+<body onload="init()">
+  <div id='map'></div>
+  <div id='menu'>
+  <ul>
+    <li><a href="#hypanis" id="hypanis" class="button megacities">HYPANIS VALLIS</a></li> 
+    <li><a href="#aram" id="aram" class="button capitals">ARAM DORSUM</a> </li> 
+    <li><a href="#overview" id="overview" class="button all">OVERVIEW</a></li> 
+  </ul>
+  </div>
+</body>
+</html>
