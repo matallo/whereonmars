@@ -1,7 +1,9 @@
 <html>
 <head>
   <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
+  
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
+  <!-- <script src = "L.Control.MousePosition.js"></script> -->
   <style>
     html, body {
     width:100%;
@@ -60,45 +62,98 @@
   function init(){
     // initiate leaflet map
     map = new L.Map('map', { 
-      center: [20,-20],
+      center: [15,-10],
       zoom: 3,
       zoomControl: true,
-      minZoom: 4,
+      minZoom: 3,
       maxZoom:5
     })
 
-    L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
-      attribution: 'GISLAB'
-    }).addTo(map);
-	
+  var MOLA_grey = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
+  attribution: 'GISLAB',
+  noWrap: true,
+  zIndex: 0,
+  unloadInvisibleTiles: true,
+  reuseTiles: true,
+  
+  }).addTo(map).bringToBack().setUrl('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png');
+   // add basemaps with some opacity beacuse it add it to 
+  var other = L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png').setOpacity(0.3).setZIndex(0).setUrl('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png');
+  var example =  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').setOpacity(0.35).setZIndex(0).setUrl('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+  
+  
+  
+  var basemap = {
+  	
+    
+    "GreyScale MOLA": other,
+    "OSM": example,
+
+    }
+  
 	var layerUrl = 'http://whereonmars.cartodb.com/api/v2/viz/03ec7c7c-bc6a-11e4-b600-0e4fddd5de28/viz.json';
+	var sublayers = [];
 
-var sublayers = [];
-
-cartodb.createLayer(map, layerUrl)
-  .addTo(map)
-  .on('done', function(layer) {
+// create layer from cartoDB table
+	var LS = cartodb.createLayer(map,layerUrl)
+	 //layerUrl
+ 		  .addTo(map)
+		  .on('done', function(layer) {
+		  
     // change the query for the first layer
     var subLayerOptions = {
       sql: "SELECT * FROM sites",
       //cartocss: "#ne_10m_populated_places_simple{marker-fill: #F84F40; marker-width: 8; marker-line-color: white; marker-line-width: 2; marker-clip: false; marker-allow-overlap: true;}"
     }
-
+	 // add scale
+    L.control.scale({position: 'topleft'}).addTo(map);
+        
+     // basemap layer control 
+    L.control.layers(null, basemap,{collapsed: true}).addTo(map);
+    
+    // show the coordinates of the mouse position  
+       L.control.mousePosition({lngFirst: true}).addTo(map);
+       
+       
+       
+       
+    // bounding box for the landing sites
+    
+    var ADsouthwest = L.latLng(5.87,-13.2),
+    	ADnortheast = L.latLng(9.87,9.20),
+    	bounds = (L.latLngBounds(ADsouthwest, ADnortheast));
+    	var rect = L.rectangle(bounds, {color: 'blue', weight: 1})
+      
+    // get sublayer from map
     var sublayer = layer.getSubLayer(0);
 
     sublayer.set(subLayerOptions);
 
     sublayers.push(sublayer);
+  
+  
+  
+ 
+  
+  
+  
+  
+  
+  // error  
   }).on('error', function() {
     //log the error
   });
-  // función que se activa cada vez que se pulsa un botón
+  // finish on.done dunction
+  
+  // when you click a button, this function will activate
   
   $('.button').click(function() {
   $('.button').removeClass('selected');
   $(this).addClass('selected');
   LayerActions[$(this).attr('id')]();
 });
+
+   
 
 // define LayerActions variable
 var LayerActions = {
@@ -107,32 +162,39 @@ var LayerActions = {
     return true;
   },
   aram: function(){
-    sublayers[0].setSQL("SELECT * FROM sites WHERE id = 0");
+    sublayers[0].setSQL("SELECT * FROM sites WHERE  id IN(1,11)" );
     return true;
   },
   hypanis: function(){
-    sublayers[0].setSQL("SELECT * FROM sites WHERE id = 1");
+    sublayers[0].setSQL("SELECT * FROM sites WHERE id IN(2,12)");
     return true;
   }
 }
 
 
-	//busca un objeto con el mismo id que los botones
-  LayerActions[$(this).attr('id')]();
+	//search an object with the same ID than the bottons
+  	LayerActions[$(this).attr('id')]();
 	
   }
- 
+  
+
+
   </script>
 </head>
 
 <body onload="init()">
   <div id='map'></div>
+  
+ 
+	
   <div id='menu'>
   <ul>
     <li><a href="#hypanis" id="hypanis" class="button hypanis">HYPANIS VALLIS</a></li> 
     <li><a href="#aram" id="aram" class="button aram">ARAM DORSUM</a> </li> 
     <li><a href="#overview" id="overview" class="button overview">OVERVIEW</a></li> 
+    
   </ul>
   </div>
+  
 </body>
 </html>
