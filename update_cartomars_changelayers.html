@@ -3,7 +3,7 @@
   <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
   
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
-  <!-- <script src = "L.Control.MousePosition.js"></script> -->
+  
   <style>
     html, body {
     width:100%;
@@ -21,7 +21,7 @@
     #menu  ul{
      list-style-type: none;
      position: absolute; 
-     left: -200px;
+     left: 0px;
      top: 5px; 
      margin: 0px;
      padding: 0px;
@@ -43,6 +43,7 @@
       color: #555;
       border-radius: 4px;
       
+      
       background: #ffffff;
       text-decoration: none;
       display: block;
@@ -63,9 +64,9 @@
     // initiate leaflet map
     map = new L.Map('map', { 
       center: [15,-10],
-      zoom: 3,
+      zoom: 4,
       zoomControl: true,
-      minZoom: 0,
+      minZoom: 4,
       maxZoom:10
     })
 
@@ -91,22 +92,42 @@
 // Load an overlay, but it only shows the part of the tile layer that is defined by “bounds” feature 
   var Aram =  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
   maxZoom: 10,
-  minZoom: 6,
+  minZoom: 7,
+  unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    bounds: L.latLngBounds(
- L.latLng(5.96, -13.49), // southwest part of the BBox
- L.latLng(8.88, -9.79)) // northeast part of the BBox
-}).addTo(map).setZIndex(1);
+ L.latLng(5.87, -13.8), // southwest part of the BBox
+ L.latLng(9.87, -9.2))
+  // northeast part of the BBox
+}).addTo(map).setZIndex(1); 
   
  // Load an overlay, but it only shows the part of the tile layer that is defined by “bounds” feature  
-  var Hypanis =  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+ var Hypanis =  L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
+  tms:true,
   maxZoom: 10,
-  minZoom: 6,
+  minZoom: 7,
+  unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    bounds: L.latLngBounds(
  L.latLng(9.8, -47.04),// southwest part of the BBox
  L.latLng(13.8, -43.04)) // northeast part of the BBox
 }).addTo(map).setZIndex(1);
   
+// “bouding box” of the different landing sites  
+
+var boundsMawrth = [[20.25,-20], [24.25,-16]];
+L.rectangle(boundsMawrth, {color:"#ff7800", weight: 0.1,opacity: 0.3}).addTo(map);
+
+
+var boundsOxia = [[16.2,-26.55], [20.2,-22.55]];
+L.rectangle(boundsOxia, {color:"#ff7800", weight: 0.1,opacity: 0.3}).addTo(map);
   
+var boundsAram = [[5.87,-13.2], [9.87,-9.2]];
+  
+L.rectangle(boundsAram, {color:"#ff7800", weight: 0.1,opacity: 0.3}).addTo(map);
+  
+var boundsHypanis = [[9.8, -47.04], [13.8, -43.04]];
+L.rectangle(boundsHypanis, {color:"#ff7800", weight: 0.1, opacity: 0.3}).addTo(map);
   
  // basemap is a variable to group the several base layers in a single variable. This variable is later called with the L.layer.control 
   
@@ -135,7 +156,7 @@
 		  layer.setZIndex(100);
 // change the query for the first layer
     var subLayerOptions = {
-      sql: "SELECT * FROM sites",
+      sql: "SELECT * FROM exomars_landing_sites_ellipses",
       //cartocss: "#ne_10m_populated_places_simple{marker-fill: #F84F40; marker-width: 8; marker-line-color: white; marker-line-width: 2; marker-clip: false; marker-allow-overlap: true;}"
     }
 
@@ -149,7 +170,7 @@
 
 // add scale in the map object
     
-    L.control.scale({position: 'topleft'}).addTo(map);
+    L.control.scale({position: 'topleft', imperial: false}).addTo(map);
   
 // basemap layer control, put it here if not it will hide the sublayers. 
 // collapsed: false it indicates that  the leaflet control of the layers it will be opened by default 
@@ -165,24 +186,32 @@
   
 // when you click a button, this(click) function will activate
   
-  $('.button').click(function() {
-  $('.button').removeClass('selected');
-  $(this).addClass('selected');
-  LayerActions[$(this).attr('id')]();
-});
+  $('.button').click(function() { // mouse event, when click button do something ( this something is inside the brackets)
+  $('.button').removeClass('selected'); // when click button  remove the class selected
+  $(this).addClass('selected'); // when click  button, add class selected
+  LayerActions[$(this).attr('id')](); // call LayerAction function and get the id attribute of the element
+}); // end of click event
 
 // define LayerActions variable
 var LayerActions = {
   overview: function(){
-    sublayers[0].setSQL("SELECT * FROM sites"); 
+    sublayers[0].setSQL("SELECT * FROM exomars_landing_sites_ellipses"); 
     return true;
   },
   aram: function(){
-    sublayers[0].setSQL("SELECT * FROM sites WHERE  id IN(1,11)" );
+    sublayers[0].setSQL("SELECT * FROM exomars_landing_sites_ellipses WHERE  id = 1" );
     return true;
   },
   hypanis: function(){
-    sublayers[0].setSQL("SELECT * FROM sites WHERE id IN(2,12)");
+    sublayers[0].setSQL("SELECT * FROM exomars_landing_sites_ellipses WHERE  id = 2");
+    return true;
+  },
+  oxia: function(){
+    sublayers[0].setSQL("SELECT * FROM exomars_landing_sites_ellipses WHERE  id = 4"); 
+    return true;
+  },
+  mawrth: function(){
+    sublayers[0].setSQL("SELECT * FROM exomars_landing_sites_ellipses WHERE  id = 5"); 
     return true;
   }
 } // end of LayerActions variable
@@ -199,6 +228,8 @@ var LayerActions = {
   
   <div id='menu'>
   <ul>
+  	<li><a href="#mawrth" id="mawrth" class="button mawrth">MAWRTH VALLIS</a></li> 
+  	<li><a href="#oxia" id="oxia" class="button oxia">OXIA PLANUM</a></li> 
     <li><a href="#hypanis" id="hypanis" class="button hypanis">HYPANIS VALLIS</a></li> 
     <li><a href="#aram" id="aram" class="button aram">ARAM DORSUM</a> </li> 
     <li><a href="#overview" id="overview" class="button overview">OVERVIEW</a></li> 
