@@ -1,0 +1,386 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Odyssey ExoMars</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://cartodb.github.io/odyssey.js/sandbox/css/slides.css"> 
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
+   <link rel="stylesheet" href="L.Control.Pan.css" />
+  
+  </head>
+  <body>
+   
+    
+  
+  <!--Define objects -->
+      <div id="map" style="width: 100%; height: 100%;"></div>
+      
+
+      <div id="slides_container" style="display:block;">
+        <div id="dots"></div>
+
+        <div id="slides"></div>
+
+        <ul id="navButtons">
+          <li><a class="prev"></a></li>
+          <li><a class="next"></a></li>
+        </ul>
+      </div>
+      
+      
+           
+
+      <!-- JavaScript libraries -->
+	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
+    <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>
+<!-- script of odyssey.js, defining slides -->
+      <script>
+
+        var resizePID,slides;
+
+         var map;
+
+      
+        // trigger a custom event called SlideChange
+        var emitSlideChange = O.Action( function() {
+         $(document).trigger('slideChange', function() {
+          console.log(seq.current())
+         });
+        });
+
+        // listen for the slideChange event to be triggered
+        function listenSlideChange() {
+          $(document).on('slideChange', function() {
+            
+          });
+        }        
+
+        function clearResize() {
+          clearTimeout(resizePID);
+          resizePID = setTimeout(function() { adjustSlides(); }, 100);
+        }
+
+        if (!window.addEventListener) {
+          window.attachEvent("resize", function load(event) {
+            clearResize();
+          });
+        } else {
+          window.addEventListener("resize", function load(event) {
+            clearResize();
+          });
+        }
+
+        function adjustSlides() {
+          var container = document.getElementById("slides_container"),
+              slide = document.querySelectorAll('.selected_slide')[0];
+
+          if (slide) {
+            if (slide.offsetHeight+169+40+80 >= window.innerHeight) {
+              container.style.bottom = "80px";
+
+              var h = container.offsetHeight;
+
+              slide.style.height = h-169+"px";
+              slide.classList.add("scrolled");
+            } else {
+              container.style.bottom = "auto";
+              container.style.minHeight = "0";
+
+              slide.style.height = "auto";
+              slide.classList.remove("scrolled");
+            }
+          }
+        }
+
+        var resizeAction = O.Action(function() {
+          function imageLoaded() {
+            counter--;
+
+            if (counter === 0) {
+              adjustSlides();
+            }
+          }
+          var images = $('img');
+          var counter = images.length;
+
+          images.each(function() {
+            if (this.complete) {
+              imageLoaded.call( this );
+            } else {
+              $(this).one('load', imageLoaded);
+            }
+          });
+        });
+
+       
+        function click(el) {
+          var element = O.Core.getElement(el);
+          var t = O.Trigger();
+
+          // TODO: clean properly
+          function click() {
+            // console.log(el);
+            t.trigger();
+          }
+
+          if (element) element.onclick = click;
+
+          return t;
+        }
+
+        listenSlideChange();
+
+        O.Template({
+          init: function() {
+            var seq = O.Triggers.Sequential();   
+
+            var baseurl = this.baseurl = 'http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png';
+           // defining map with limits in the zoom level
+            var map = this.map = new L.Map('map', { 
+     				 center: [15,-10],
+     				 zoom: 4,
+     				 zoomControl: true,
+     				 minZoom: 4,
+      				maxZoom:10
+  			  });
+  		
+  		// start to define basemaps and overlays
+  			  
+        var MOLA_grey = this.MOLA_grey = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
+  							attribution: 'GISLAB',
+ 							maxZoom: 6,
+  							minZoom: 4,
+
+  		}).addTo(map).setZIndex(0);
+  
+		// base map that you can select in the layer control  when you load the html.  It’s in zIndex = 0 ( the lower layer from all the layers and at the same level that MOLA_grey layer)
+  		var example =  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').setZIndex(0);
+
+		// Overlays 1 = Future HRSC layers (by now are OpenStreetMap tile layers to experiment with it):
+
+
+		/* The next  Overlays are from the same tile layer but it’s necessary to load it twice to have to bounding box of the tile layer 
+ 		in two different places of the map object. The overlays are in zIndex = 1 ( they are above the basemap layers)*/
+
+		// Load an overlay, but it only shows the part of the tile layer that is defined by “bounds” feature 
+  		var Aram =  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+ 			 maxZoom: 10,
+ 			 minZoom: 7,
+ 			 unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+ 			 updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+ 			  bounds: L.latLngBounds(
+				 L.latLng(5.87, -13.8), // southwest part of the BBox
+ 				L.latLng(9.87, -9.2))
+ 		 // northeast part of the BBox
+			}).addTo(map).setZIndex(1); 
+  
+ 		// Load an overlay, but it only shows the part of the tile layer that is defined by “bounds” feature  
+ 			var Hypanis =  L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
+  			tms:true,
+  			maxZoom: 10,
+  			minZoom: 7,
+  			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+  			 bounds: L.latLngBounds(
+ 				L.latLng(9.8, -47.04),// southwest part of the BBox
+ 				L.latLng(13.8, -43.04)) // northeast part of the BBox
+			}).addTo(map).setZIndex(1);
+  
+		// visual “bouding box” of the different landing sites  
+
+			var boundsMawrth = [[20.25,-20], [24.25,-16]];
+			L.rectangle(boundsMawrth, {color:"#ff7800", weight: 0.1,opacity: 0.3}).addTo(map);
+
+
+			var boundsOxia = [[16.2,-26.55], [20.2,-22.55]];
+			L.rectangle(boundsOxia, {color:"#ff7800", weight: 0.1,opacity: 0.3}).addTo(map);
+  
+			var boundsAram = [[5.87,-13.2], [9.87,-9.2]];
+  
+			L.rectangle(boundsAram, {color:"#ff7800", weight: 0.1,opacity: 0.3}).addTo(map);
+  
+			var boundsHypanis = [[9.8, -47.04], [13.8, -43.04]];
+			L.rectangle(boundsHypanis, {color:"#ff7800", weight: 0.1, opacity: 0.3}).addTo(map);
+			
+  // finish to defining overlays
+  
+  // basemap is a variable to group the several base layers in a single variable. This variable is later called with the L.layer.control 
+  
+  var basemap ={
+  "MOLA grayscale" : MOLA_grey,
+  "OSM" : example   
+  
+  };
+  
+            // enanle keys to move
+            O.Keys().on('map').left().then(seq.prev, seq)
+            O.Keys().on('map').right().then(seq.next, seq)            
+
+            click(document.querySelectorAll('.next')).then(seq.next, seq)
+            click(document.querySelectorAll('.prev')).then(seq.prev, seq)
+
+            var slides = O.Actions.Slides('slides');
+            var story = O.Story()
+
+            this.story = story;
+
+            cur = O.Sequential().current();      
+            this.seq = seq;
+            this.slides = slides;
+            this.progress = O.UI.DotProgress('dots').count(0);        
+          },
+
+          update: function(actions) {
+
+            var self = this;
+
+            if (!actions.length) return;
+
+            this.story.clear();
+
+            if (this.baseurl && (this.baseurl !== actions.global.baseurl)) {
+              this.baseurl = actions.global.baseurl || 'http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png';
+
+              this.basemap.setUrl(this.baseurl);
+            }
+
+            if (this.cartoDBLayer && ("http://"+self.cartoDBLayer.options.user_name+".cartodb.com/api/v2/viz/"+self.cartoDBLayer.options.layer_definition.stat_tag+"/viz.json" !== actions.global.vizjson)) {
+              this.map.removeLayer(this.cartoDBLayer);
+
+              this.cartoDBLayer = null;
+              this.created = false;
+            }
+
+            if (actions.global.vizjson && !this.cartoDBLayer) {
+              if (!this.created) { // sendCode debounce < vis loader
+                cdb.vis.Loader.get(actions.global.vizjson, function(vizjson) {
+                  self.map.fitBounds(vizjson.bounds);
+                  
+// create layer, call SQL from cartoDB table
+                  cartodb.createLayer(self.map, vizjson)
+                    .done(function(layer) {
+                      self.cartoDBLayer = layer;
+
+                     var sublayer = layer.getSubLayer(0),
+                          layer_name = layer.layers[0].options.layer_name,
+                          filter = actions.global.cartodb_filter ? " WHERE "+actions.global.cartodb_filter : "";
+
+                      sublayer.setSQL("SELECT * FROM "+layer_name+filter);
+
+                      self.map.addLayer(layer);
+						
+                      self._resetActions(actions);
+                      sublayers.push(sublayer);
+                    }).on('error', function(err) {
+                      console.log("some error occurred: " + err);
+                    });
+                });
+
+                this.created = true;
+              }
+
+              return;
+            }            
+            
+            this._resetActions(actions);
+          },
+
+          _resetActions: function(actions) {
+          
+           
+
+            var sl = actions;
+
+            document.getElementById('slides').innerHTML = ''
+            this.progress.count(sl.length);
+
+            // create new story
+            for (var i = 0; i < sl.length; ++i) {
+              var slide = sl[i];
+              var tmpl = "<div class='slide' style='diplay:none'>";
+
+              tmpl += slide.html();
+              tmpl += "</div>";
+              document.getElementById('slides').innerHTML += tmpl;
+
+              this.progress.step(i).then(this.seq.step(i), this.seq)
+
+              var actions = O.Parallel(
+                this.slides.activate(i),
+                slide(this),
+                this.progress.activate(i),
+                
+                emitSlideChange,
+                resizeAction                
+              );
+
+              actions.on("finish.app", function() {
+                adjustSlides();
+              });
+
+              this.story.addState(
+                this.seq.step(i),
+                actions
+              );
+
+            } // end for loop
+
+            this.story.go(this.seq.current());            
+            // console.log(this.seq.current()); // only logs 0 when map loads
+          },
+
+          changeSlide: function(n) {            
+            this.seq.current(n);            
+          }
+
+        });
+</script>
+
+
+
+<!-- Defining what it will be seen in the slides when change -->     
+<script id="md_template" type="text/template">
+```
+-vizjson:"http://whereonmars.cartodb.com/api/v2/viz/03ec7c7c-bc6a-11e4-b600-0e4fddd5de28/viz.json"
+-baseurl: "http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png"
+-title: "Odyssey ExoMars"
+-author: "ESAC-Gislab"
+```
+
+#Mars Landing sites
+
+Great explanation inside this chapter
+```
+- center: [15,-24]
+-zoom : 4
+```
+# Aram Dorsum
+Great explanation inside this chapter
+```
+- center: [7.87,-11.2]
+-zoom : 7
+```
+
+# Hypanis Vallis
+Great explanation inside this chapter
+```
+- center: [11.9748, -46.1591]
+- zoom: 7
+```
+# Oxia Planum
+Great explanation inside this chapter
+```
+- center: [18.2, -24.55]
+- zoom:7
+```
+# Mawrth Vallis
+Great explanation inside this chapter
+```
+- center: [22.16, -17.95]
+- zoom:7
+```
+
+</script>
+</body>
+</html>
