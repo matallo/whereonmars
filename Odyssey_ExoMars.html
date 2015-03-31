@@ -135,33 +135,36 @@
     		// define basemap
     		el.basemap = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
  			attribution: 'GISLAB',
-  			maxZoom: 5,
   			minZoom: 0,
-  		    noWrap: true,
-  		    unloadInvisibleTiles: false, // If true, all the tiles that are not visible after panning are removed 
-  			updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
-			}).addTo(el.map).setZIndex(0).bringToBack();
+  			maxZoom: 5,
+  			
+  			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  			updateWhenIdle: true // If true, all the tiles that are not visible after panning are removed 
+			}).addTo(el.map).setZIndex(0);
+			
 			
 			/*  The overlays are in zIndex = 1 ( they are above the basemap layers)*/
 			
 			// define overlays 
 			el.tileLayerAram = new L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-  			maxZoom: 10,
   			minZoom: 7,
+  			maxZoom: 10,
+  			
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+  			//updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
  				L.latLng(5.87, -13.8), // southwest part of the BBox
  				L.latLng(9.87, -9.2)) // northeast part of the BBox
 			}).addTo(el.map).setZIndex(1); 
 		
 		
-			el.tileLayerHypanis = new	L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
+			el.tileLayerHypanis = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
  			tms:true,
-  			maxZoom: 10,
   			minZoom: 7,
+  			maxZoom: 10,
+  			
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+  			//updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
  				L.latLng(9.8, -47.04),// southwest part of the BBox
  				L.latLng(13.8, -43.04)) // northeast part of the BBox
@@ -214,7 +217,7 @@
 		  		el.latConstraint.hide();
 		  		el.ellipses.hide();
 		  		// add cartoDB layers into the map
-		  		el.map.addLayer(layer);
+		  		el.map.addLayer(layer, false);
 		  		});
 		}
 		  		
@@ -266,63 +269,55 @@
     function checkIndex(index) {
       switch(index){
 
-        case 0: console.log('first slide!'), slideOne(); 
+        case 0: console.log('overview'), slideZero(); 
         break;
-        case 1: console.log('second slide!'), slideTwo();
+        case 1: console.log('latconstraint'), slideOne();
         break;
-        case 2: console.log('third slide!'), slideThree();
+        case 2: console.log('ellipses'), slideTwo();
         break;
-        case 3: console.log('fourth slide'), slideFour();
+        case 3: console.log('aram dorsum'), slideThree();
         break;
-        case 4: console.log('fifth slide'), slideFive();
+        case 4: console.log('hypanis vallis');
         break;
-        case 5: console.log('sixth slide'), slideSix();
+        case 5: console.log('oxia planum');
         break;
-        case 6: console.log('seventh slide'), slideSeven();
+        case 6: console.log('mawrth vallis');
         break;
-        case 7: console.log('first slide'), slideOne();
-        break;    
+        case 7: console.log('the end'), slideSeven();
+        break;
             
-        default: console.log('other'), slideOne();  
+            
+        default: console.log('other');  
       }
     }
     
-    function slideOne() {
+    function slideZero() {
       // only show landing sites
      el.landingSite.show();
 	 el.latConstraint.hide();
 	 el.ellipses.hide();
     }
 
-    function slideTwo() {      
+    function slideOne() {      
     //add the latitude constraint
       el.latConstraint.show();  
          
     }
 
-    function slideThree() {
+    function slideTwo() {
      //add the ellipses
      el.landingSite.hide();  
      el.ellipses.show();   
     }
 
-    function slideFour() {
+    function slideThree() {
      el.landingSite.show();  
      el.latConstraint.hide();
      el.ellipses.hide();
      
     }
 
-    function slideFive() {
-     el.landingSite.show();  
-     el.latConstraint.show(); 
-     el.ellipses.hide();
-    }
-    function slideSix() {
-     el.landingSite.show();  
-     el.latConstraint.show(); 
-     el.ellipses.hide();
-    }
+   
     function slideSeven() {
      el.landingSite.show();  
      el.latConstraint.show(); 
@@ -346,19 +341,27 @@
 
       var slides = O.Actions.Slides('slides');
       
-      el.story = new O.Story()
+      el.story =  O.Story()
         .addState(
           seq.step(0),
-          O.Parallel(   
-
-            slides.activate(0),
+          O.Parallel(  
+          
+          //setting setView here I assure that when the user zoom to a center or the landing sites
+          // coordinates, it will go to the coordinates
+          //There's a "bug" in leaflet that if you put panTo() and setZoom()
+          // it won't go to the coordinates requested
+          
+            el.map.actions.setView(el.center,4), 
+			slides.activate(0),
             emitSlideChange
           )
         )
         .addState(
           seq.step(1),
           O.Parallel(
-            
+          // setting setView here I assure that if the user clicl prev button,
+          // it will show the overview and not the Aram Dorsum view ( step 3())
+            el.map.actions.setView(el.center,4), 
             slides.activate(1),
             emitSlideChange
           )
@@ -366,7 +369,9 @@
         .addState(
           seq.step(2),
           O.Parallel(
-                        
+           // setting setView here I assure that if the user clicl prev button,
+          // it will show the overview and not the Aram Dorsum view ( step 3())
+            el.map.actions.setView(el.center,4),            
             slides.activate(2),
             emitSlideChange
           )
@@ -374,8 +379,7 @@
         .addState(
           seq.step(3),
           O.Parallel(                        
-            el.map.actions.panTo(el.Aram),
-            el.map.actions.setZoom(7,{animate: true}),
+            el.map.actions.setView(el.Aram,7),
             slides.activate(3),
             emitSlideChange
           )
@@ -383,8 +387,7 @@
         .addState(
           seq.step(4),
           O.Parallel(            
-           el.map.actions.panTo(el.Hypanis),
-            el.map.actions.setZoom(7),
+            el.map.actions.setView(el.Hypanis,7),
             slides.activate(4),
             emitSlideChange         
           )
@@ -392,8 +395,7 @@
         .addState(
           seq.step(5),
           O.Parallel(            
-            el.map.actions.panTo(el.Oxia),
-            el.map.actions.setZoom(7),
+            el.map.actions.setView(el.Oxia,7),
             slides.activate(5),
             emitSlideChange       
           )
@@ -401,8 +403,7 @@
         .addState(
           seq.step(6),
           O.Parallel(         
-          el.map.actions.panTo(el.Mawrth),
-            el.map.actions.setZoom(7),
+            el.map.actions.setView(el.Mawrth,7),
             slides.activate(6),
             emitSlideChange       
           )
@@ -410,8 +411,8 @@
         .addState(
           seq.step(7),
           O.Parallel(
-            el.map.actions.panTo(el.center,{animate: true} ),
-            el.map.actions.setZoom(4, {animate: true}),
+          	
+            el.map.actions.setView(el.center,4),
             slides.activate(7),
             emitSlideChange)
           );
@@ -424,14 +425,13 @@
 	function init() {
       initMap();
       cartodbData();
-      console.log(O);
       initOdyssey(O);
       listenSlideChange();            
     } 
 
     return {
       init : init,
-      
+      el: el
     }	
 		
 	
@@ -439,7 +439,7 @@
 	
 	// 3. when the document has been completely loaded and parsed it applies the function to the window element  
 	
-	window.addEventListener('load', function(){
+	window.addEventListener("DOMContentLoaded", function(){
     app.odysseyTest.init();
   });
 	
