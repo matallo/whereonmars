@@ -177,7 +177,7 @@
 
 
 
-      // Trying to add Oxia Planum mosaic
+      // Trying to add Oxia Planum mosaic (Nicolas)
       //
 			el.tileLayerOxiaHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_oxia-planum/{z}/{x}/{y}.png',{
  			tms:true,
@@ -207,18 +207,15 @@
 			///////////////////////////////////////////
 			// define overlays HiRISE
 			
-			
-		
-			el.tileLayerHypanisHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
- 			tms:true,
-  			minZoom: 6,
-  			//maxZoom: 10,
-  			
+			// Attempt to load HIRISE Layer (Nicolas)
+			el.tileLayerMawrthHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise-ExoMawrth_1_25cm_o/{z}/{x}/{y}.png',{
+ 			  //minZoom: 6,
+ 			  //maxZoom: 10,
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			//updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
- 				L.latLng(9.8, -47.04),// southwest part of the BBox
- 				L.latLng(13.8, -43.04)) // northeast part of the BBox
+ 				L.latLng(20.16, -19.95),// southwest part of the BBox
+ 				L.latLng(24.16, -15.95)) // northeast part of the BBox
 			}).addTo(el.map).setZIndex(2);
 		
 		
@@ -250,7 +247,7 @@
 		  	   	});
 		  	   	el.latConstraint = layer.createSubLayer({
 		  			sql: "SELECT * FROM lat_constraints",
-		  			cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}'
+		  			cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 0;line-opacity: 1;}'
 
 		  		
 		  		    });
@@ -404,7 +401,7 @@
           //There's a "bug" in leaflet that if you put panTo() and setZoom()
           // it won't go to the coordinates requested
           
-            el.map.actions.setView(el.center,4), 
+            el.map.actions.setView(el.center,3, true), 
 			slides.activate(0),
             emitSlideChange
           )
