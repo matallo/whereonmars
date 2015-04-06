@@ -141,8 +141,8 @@
   			minZoom: 0,
   			//maxZoom: 5,
   			
-  			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  			updateWhenIdle: false // If true, all the tiles that are not visible after panning are removed 
+  			//unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  			//updateWhenIdle: false // If true, all the tiles that are not visible after panning are removed 
 			}).addTo(el.map).setZIndex(0);
 			
 			
@@ -186,21 +186,12 @@
 			}).addTo(el.map).setZIndex(1);
 			///////////////////////////////////////////
 			// define overlays HiRISE
-			el.tileLayerAramHiRISE = new L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-  			minZoom: 8,
-  			//maxZoom: 10,
-  			
-  			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  			//updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
-   			bounds: L.latLngBounds(
- 				L.latLng(5.87, -13.8), // southwest part of the BBox
- 				L.latLng(9.87, -9.2)) // northeast part of the BBox
-			}).addTo(el.map).setZIndex(2); 
+			
 			
 		
 			el.tileLayerHypanisHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
  			tms:true,
-  			minZoom: 8,
+  			minZoom: 6,
   			//maxZoom: 10,
   			
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
@@ -424,7 +415,7 @@
         .addState(
           seq.step(3),
           O.Parallel(                        
-            el.map.actions.setView(el.Aram,7),
+            el.map.actions.setView(el.Aram,5),
             slides.activate(3),
             emitSlideChange
           )
@@ -432,7 +423,7 @@
         .addState(
           seq.step(4),
           O.Parallel(            
-            el.map.actions.setView(el.Hypanis,7),
+            el.map.actions.setView(el.Hypanis,5),
             slides.activate(4),
             emitSlideChange         
           )
@@ -440,7 +431,7 @@
         .addState(
           seq.step(5),
           O.Parallel(            
-            el.map.actions.setView(el.Oxia,7),
+            el.map.actions.setView(el.Oxia,5),
             slides.activate(5),
             emitSlideChange       
           )
@@ -448,7 +439,7 @@
         .addState(
           seq.step(6),
           O.Parallel(         
-            el.map.actions.setView(el.Mawrth,7),
+            el.map.actions.setView(el.Mawrth,5),
             slides.activate(6),
             emitSlideChange       
           )
