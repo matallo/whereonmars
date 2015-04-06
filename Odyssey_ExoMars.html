@@ -129,7 +129,7 @@
 			// define map
 			el.map =  new L.Map('map', { 
       		center: [15,-10],
-      		zoom: 4,
+      		zoom: 3,
       		zoomControl: true,
       		//minZoom: 4,
             //maxZoom:10
@@ -347,7 +347,7 @@
     function slideThree() {
      el.landingSite.show();  
      el.latConstraint.hide();
-     el.ellipses.hide();
+     el.ellipses.show();
      
     }
 
@@ -416,7 +416,7 @@
         .addState(
           seq.step(3),
           O.Parallel(                        
-            el.map.actions.setView(el.Aram,7),
+            el.map.actions.setView(el.Aram,9),
             slides.activate(3),
             emitSlideChange
           )
@@ -424,7 +424,7 @@
         .addState(
           seq.step(4),
           O.Parallel(            
-            el.map.actions.setView(el.Hypanis,7),
+            el.map.actions.setView(el.Hypanis,9),
             slides.activate(4),
             emitSlideChange         
           )
@@ -432,7 +432,7 @@
         .addState(
           seq.step(5),
           O.Parallel(            
-            el.map.actions.setView(el.Oxia,7),
+            el.map.actions.setView(el.Oxia,9),
             slides.activate(5),
             emitSlideChange       
           )
@@ -440,7 +440,7 @@
         .addState(
           seq.step(6),
           O.Parallel(         
-            el.map.actions.setView(el.Mawrth,7),
+            el.map.actions.setView(el.Mawrth,9),
             slides.activate(6),
             emitSlideChange       
           )
@@ -449,7 +449,7 @@
           seq.step(7),
           O.Parallel(
           	
-            el.map.actions.setView(el.center,4,true),
+            el.map.actions.setView(el.center,3,true),
             slides.activate(7),
             emitSlideChange)
           );
