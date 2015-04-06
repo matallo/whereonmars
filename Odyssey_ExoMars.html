@@ -105,6 +105,7 @@
 			story: null,
 			tileLayerAramHiRISE: null, 
 			tileLayerAramHrsc: null,
+			tileLayerOxiaHrsc: null,
 			tileLayerHypanisHiRISE: null, 
 			tileLayerHypanisHrsc: null,
 			tileLayerMawrthHrsc: null,
@@ -173,7 +174,25 @@
  				L.latLng(9.8, -47.04),// southwest part of the BBox
  				L.latLng(13.8, -43.04)) // northeast part of the BBox
 			}).addTo(el.map).setZIndex(1);
-			
+
+
+
+      // Trying to add Oxia Planum mosaic
+      //
+			el.tileLayerOxiaHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_oxia-planum/{z}/{x}/{y}.png',{
+ 			tms:true,
+  			minZoom: 5,
+  			//maxZoom: 10,
+  			
+  			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+   			bounds: L.latLngBounds(
+ 				L.latLng(16.2, -26.55),// southwest part of the BBox
+ 				L.latLng(20.2, -22.55)) // northeast part of the BBox
+			}).addTo(el.map).setZIndex(1);
+
+
+
 			el.tileLayerMawrthHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_mawrth-vallis/{z}/{x}/{y}.png',{
  			tms:true,
   			minZoom: 5,
@@ -237,7 +256,7 @@
 		  		    });
 		  		  el.ellipses = layer.createSubLayer({
 		  			sql: "SELECT * FROM exomars_landing_sites_ellipses",
-		  			cartocss: '#exomars_landing_sites_ellipses{polygon-fill: #FF6600;polygon-opacity: 0.7;line-color: #FFF; line-width: 1;line-opacity: 1;}'
+		  			cartocss: '#exomars_landing_sites_ellipses{polygon-fill: #FF6600;polygon-opacity: 0.0;line-color: #FFF; line-width: 1;line-opacity: 1;}'
 		  	
  
 		
