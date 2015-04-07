@@ -5,11 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Odyssey ExoMars</title>
-
+  <!-- call css styles -->
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
   <link rel="stylesheet" href="http://cartodb.github.io/odyssey.js/sandbox/css/slides.css"> 
   <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
+  <link rel="stylesheet" href="http://azavea.github.io/Leaflet.zoomdisplay/css/leaflet.zoomdisplay.css" />
   
+  <!-- call javascript libraries -->
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
+  <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>		
  
 </head>
 <body>
@@ -33,38 +38,33 @@
 					<p>Great explanation of the constraints</br>with some incredible images and data</p>
 					
 				</div>
-				<!-- SLIDE #2 -->
-			<div class="slide">
-					<h1 id="general2">Mars Landing Sites</h1>
-					<p>Great explanation of the constraints</br>with some incredible images and data</p>
-					
-				</div>
 			
-				<!-- SLIDE #3 -->
+			
+				<!-- SLIDE #2 -->
 			<div class="slide">
 					<h1 id="Aram">Aram Dorsum</h1>
 					<p>Great explanation inside this chapter</br>with some incredible images and data</p>
 					
 				</div>
-				<!-- SLIDE #4 -->
+				<!-- SLIDE #3 -->
 			<div class="slide">
 					<h1 id="Hypanis">Hypanis Vallis</h1>
 					<p>Great explanation inside this chapter</br>with some incredible images and data</p>
 					
 				</div>
-				<!-- SLIDE #5 -->
+				<!-- SLIDE #4 -->
 				<div class="slide">
 					<h1 id="Oxia">Oxia Planum</h1>
 					<p>Great explanation inside this chapter</br>with some incredible images and data</p>
 					
 				</div>
-				<!-- SLIDE #6 -->
+				<!-- SLIDE #5-->
 				<div class="slide">
 					<h1 id="Mawrth">Mawrth Vallis</h1>
 					<p>Great explanation inside this chapter</br>with some incredible images and data</p>
 					
 				</div>	
-				<!-- SLIDE #7 -->
+				<!-- SLIDE #6 -->
 				<div class="slide">
 					<h1 id="end">The End</h1>
 					<p>Great explanation inside this chapter</br>with some incredible images and data</p>
@@ -78,14 +78,6 @@
 	    </ul>	
 	</div>
 	
-	
-	
-	<!-- call javascript libraries -->
-	
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
-    <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>			
-			
 	<script>
 	
 	
@@ -105,7 +97,6 @@
 			story: null,
 			tileLayerAramHiRISE: null, 
 			tileLayerAramHrsc: null,
-			tileLayerOxiaHrsc: null,
 			tileLayerHypanisHiRISE: null, 
 			tileLayerHypanisHrsc: null,
 			tileLayerMawrthHrsc: null,
@@ -140,6 +131,7 @@
     		el.basemap = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
  			attribution: 'GISLAB',
  			tms:true,
+ 			maxNativeZoom: 9,
   			minZoom: 0,
   			//maxZoom: 5,
   			
@@ -153,9 +145,9 @@
 			
 			el.tileLayerAramHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_aram-dorsum/{z}/{x}/{y}.png',{
   			tms:true,
+  			maxNativeZoom: 10,
   			minZoom: 5,
-  			//maxZoom: 10,
-  			
+  			//maxZoom: 10,  			
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
@@ -166,38 +158,34 @@
 			el.tileLayerHypanisHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_hypanis/{z}/{x}/{y}.png',{
  			tms:true,
   			minZoom: 5,
-  			//maxZoom: 10,
-  			
+  			maxNativeZoom: 10,
+  			//maxZoom: 10,  			
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
  				L.latLng(9.8, -47.04),// southwest part of the BBox
  				L.latLng(13.8, -43.04)) // northeast part of the BBox
 			}).addTo(el.map).setZIndex(1);
-
-
-
-      // Trying to add Oxia Planum mosaic (Nicolas)
-      //
+			
+		    // Trying to add Oxia Planum mosaic (Nicolas)
+      
 			el.tileLayerOxiaHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_oxia-planum/{z}/{x}/{y}.png',{
  			tms:true,
   			minZoom: 5,
-  			//maxZoom: 10,
-  			
+  			maxNativeZoom: 10,
+  			//maxZoom: 10,  			
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
  				L.latLng(16.2, -26.55),// southwest part of the BBox
  				L.latLng(20.2, -22.55)) // northeast part of the BBox
 			}).addTo(el.map).setZIndex(1);
-
-
-
+			
 			el.tileLayerMawrthHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_mawrth-vallis/{z}/{x}/{y}.png',{
  			tms:true,
   			minZoom: 5,
   			//maxZoom: 10,
-  			reuseTiles: false,
+  			maxNativeZoom: 10,
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
@@ -208,28 +196,31 @@
 			// define overlays HiRISE
 			
 			// Attempt to load HIRISE Layer (Nicolas)
-// 			el.tileLayerMawrthHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise-ExoMawrth_1_25cm_o/{z}/{x}/{y}.png',{
-//  			  //minZoom: 6,
-//  			  //maxZoom: 10,
-//   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-//   			//updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
-//    			bounds: L.latLngBounds(
-//  				L.latLng(20.16, -19.95),// southwest part of the BBox
-//  				L.latLng(24.16, -15.95)) // northeast part of the BBox
-// 			}).addTo(el.map).setZIndex(2);
-		
-			// Attempt to load HIRISE Layer (Nicolas)
 			el.tileLayerMawrthHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_036872-2025-25cm_mawrth-vallis/{z}/{x}/{y}.png',{
-        tms:true,
- 			  //minZoom: 6,
+ 			  tms:true,
+ 			  //minZoom: 9,
  			  //maxZoom: 10,
-  			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  			//unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			//updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
  				L.latLng(20.16, -19.95),// southwest part of the BBox
  				L.latLng(24.16, -15.95)) // northeast part of the BBox
 			}).addTo(el.map).setZIndex(2);
 			
+		
+			el.tileLayerHypanisHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
+ 			tms:true,
+  			minZoom: 9,
+  			//maxZoom: 10,
+  			
+  			//unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  			//updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+   			bounds: L.latLngBounds(
+ 				L.latLng(9.8, -47.04),// southwest part of the BBox
+ 				L.latLng(13.8, -43.04)) // northeast part of the BBox
+			}).addTo(el.map).setZIndex(2);
+		
+		
 			el.Aram = new L.LatLng(7.87, -11.2);
 			el.Hypanis = new L.LatLng(11.8, -45.04);
 			el.Oxia = new L.LatLng(18.2, -24.55);
@@ -258,13 +249,13 @@
 		  	   	});
 		  	   	el.latConstraint = layer.createSubLayer({
 		  			sql: "SELECT * FROM lat_constraints",
-		  			cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 0;line-opacity: 1;}'
+		  			cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}'
 
 		  		
 		  		    });
 		  		  el.ellipses = layer.createSubLayer({
 		  			sql: "SELECT * FROM exomars_landing_sites_ellipses",
-		  			cartocss: '#exomars_landing_sites_ellipses{polygon-fill: #FF6600;polygon-opacity: 0.0;line-color: #FFF; line-width: 1;line-opacity: 1;}'
+		  			cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
 		  	
  
 		
@@ -331,32 +322,29 @@
         case 0: console.log('overview'), slideZero(); 
         break;
         case 1: console.log('latconstraint'), slideOne();
+        break;        
+        case 2: console.log('aram dorsum'), slideTwo();
         break;
-        case 2: console.log('ellipses'), slideTwo();
+        case 3: console.log('hypanis vallis');
         break;
-        case 3: console.log('aram dorsum'), slideThree();
+        case 4: console.log('oxia planum');
         break;
-        case 4: console.log('hypanis vallis');
+        case 5: console.log('mawrth vallis');
         break;
-        case 5: console.log('oxia planum');
-        break;
-        case 6: console.log('mawrth vallis');
-        break;
-        case 7: console.log('the end'), slideSeven();
-        break;
-            
+        case 6: console.log('the end'), slideSix();
+        break;            
             
         default: console.log('other');  
       }
     }
-    
+    // overview
     function slideZero() {
       // only show landing sites
      el.landingSite.show();
 	 el.latConstraint.hide();
 	 el.ellipses.hide();
     }
-
+	//overview with lat constraints
     function slideOne() {      
     //add the latitude constraint
       el.latConstraint.show();  
@@ -364,22 +352,15 @@
       el.landingSite.show();
          
     }
-
+    // Focus on the landing sites
     function slideTwo() {
-     //add the ellipses
-     el.landingSite.hide();  
-     el.ellipses.show();   
-    }
-
-    function slideThree() {
      el.landingSite.show();  
      el.latConstraint.hide();
      el.ellipses.show();
      
     }
-
-   
-    function slideSeven() {
+   // End of the story
+    function slideSix() {
      el.landingSite.show();  
      el.latConstraint.hide(); 
      el.ellipses.hide();
@@ -412,7 +393,7 @@
           //There's a "bug" in leaflet that if you put panTo() and setZoom()
           // it won't go to the coordinates requested
           
-            el.map.actions.setView(el.center,3, true), 
+            el.map.actions.setView(el.center,3), 
 			slides.activate(0),
             emitSlideChange
           )
@@ -422,7 +403,7 @@
           O.Parallel(
           // setting setView here I assure that if the user click prev button,
           // it will show the overview 
-            el.map.actions.setView(el.center,4), 
+            el.map.actions.setView(el.center,3), 
             slides.activate(1),
             emitSlideChange
           )
@@ -430,54 +411,45 @@
         // setview(coordinates to pan, zoom level, true: "reset the map view"(without animations of panning)) If true is not added, it will
         // load the overlays that should disappear when the user change the slide. For example: if the minZoom it's 7 and the user change to
         // a slide where the the minZoom is 5 it keeps the tile layer even if the layer minZoom is 7
+        
         .addState(
           seq.step(2),
-          O.Parallel(
-           // setting setView here I assure that if the user clicl prev button,
-          // it will show the overview and not the Aram Dorsum view ( step 3())
-            el.map.actions.setView(el.center,4,true),            
-            slides.activate(2),
-            emitSlideChange
-          )
-        )
-        .addState(
-          seq.step(3),
           O.Parallel(                        
             el.map.actions.setView(el.Aram,9),
-            slides.activate(3),
+            slides.activate(2),
             emitSlideChange
           )
         )                  
         .addState(
-          seq.step(4),
+          seq.step(3),
           O.Parallel(            
             el.map.actions.setView(el.Hypanis,9),
-            slides.activate(4),
+            slides.activate(3),
             emitSlideChange         
           )
         )
         .addState(
-          seq.step(5),
+          seq.step(4),
           O.Parallel(            
             el.map.actions.setView(el.Oxia,9),
-            slides.activate(5),
+            slides.activate(4),
             emitSlideChange       
           )
         )
         .addState(
-          seq.step(6),
+          seq.step(5),
           O.Parallel(         
             el.map.actions.setView(el.Mawrth,9),
-            slides.activate(6),
+            slides.activate(5),
             emitSlideChange       
           )
         )                
         .addState(
-          seq.step(7),
+          seq.step(6),
           O.Parallel(
           	
             el.map.actions.setView(el.center,3,true),
-            slides.activate(7),
+            slides.activate(6),
             emitSlideChange)
           );
         
