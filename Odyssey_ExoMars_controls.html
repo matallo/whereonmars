@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Odyssey ExoMars full control</title>
+  <title>Odyssey ExoMars</title>
   <!-- call css styles -->
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
   <link rel="stylesheet" href="http://cartodb.github.io/odyssey.js/sandbox/css/slides.css"> 
@@ -14,14 +14,49 @@
   <!-- call javascript libraries -->
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
-  <script src="http://azavea.github.io/Leaflet.zoomdisplay/js/leaflet.zoomdisplay.js"></script>
   <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>		
- 
+ <style>
+    
+    
+    #menu_options { position:relative; top: 5px; right: 10px; width: 400px; height:60px; background: transparent; z-index:10;}
+    #menu_options a { 
+      margin: 15px 10px 0 0;
+      float: right;
+      vertical-align: baseline;
+      width: 70px;
+      padding: 10px;
+      text-align: center;
+      font: bold 11px "Helvetica",Arial;
+      line-height: normal;
+      color: #555;
+      border-radius: 4px;
+      border: 1px solid #777777;
+      background: #ffffff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    #menu_options a.selected,
+    #menu_options a:hover { 
+      color: #F84F40;
+    }
+  </style>
 </head>
 <body>
+		<div></div>
 <!-- define element with id = map -->
 		<div id = "map" style="width: 100%; height: 100%;"></div> 
-		
+		<div id="menu_container">
+		<div id = "menu_options" align="center">
+			<ul>
+   			 <li>
+   			 	<li><a href="#constraint1" id="constraint1" class="button constraint1">Latitude constraint</a></li> 
+  			 </li>
+  			 <li>
+  			 	<li><a href="#ellipses" id="ellipses" class="button ellipses">ellipses</a></li> 
+   			 </li>
+   			</ul>
+  		</div>
+  		</div>
 		 <!-- define element with id = slides -->
 		<div id = "slides_container" style="display:block;">
 		
@@ -78,14 +113,12 @@
 			<li><a class = "next"></a></li>		
 	    </ul>	
 	</div>
-	
+		
 	<script>
 	
 	
 	var app =  {};
 
-
-	
 	// 2. define odyssey as a property of the ExoMars object. The value of the property is a function.
 	
 	app.odysseyTest = (function(w,d,$,O){
@@ -112,6 +145,8 @@
 			landingSite: null,
 			latConstraint: null,
 			ellipses: null,
+			LayerActions: null
+			
 			};
 	
 	
@@ -131,14 +166,14 @@
     		// define basemap
     		el.basemap = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
  			attribution: 'GISLAB',
- 			maxNativeZoom: 9,
  			tms:true,
+ 			maxNativeZoom: 9,
   			minZoom: 0,
   			//maxZoom: 5,
-  			reuseTiles: true,
+  			
   			//unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			//updateWhenIdle: false // If true, all the tiles that are not visible after panning are removed 
-			}).addTo(el.map).setZIndex(-1);
+			}).addTo(el.map).setZIndex(0);
 			
 			
 			/*  The overlays are in zIndex = 1 ( they are above the basemap layers)*/
@@ -146,10 +181,9 @@
 			
 			el.tileLayerAramHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_aram-dorsum/{z}/{x}/{y}.png',{
   			tms:true,
-  			minZoom: 5,
   			maxNativeZoom: 10,
-  			//maxZoom: 10,
-  			reuseTiles: true,
+  			minZoom: 5,
+  			//maxZoom: 10,  			
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
@@ -159,10 +193,9 @@
 			
 			el.tileLayerHypanisHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_hypanis/{z}/{x}/{y}.png',{
  			tms:true,
- 			maxNativeZoom: 10,
   			minZoom: 5,
-  			//maxZoom: 10,
-  			reuseTiles: true,
+  			maxNativeZoom: 10,
+  			//maxZoom: 10,  			
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
@@ -170,14 +203,13 @@
  				L.latLng(13.8, -43.04)) // northeast part of the BBox
 			}).addTo(el.map).setZIndex(1);
 			
-			// Trying to add Oxia Planum mosaic (Nicolas)
+		    // Trying to add Oxia Planum mosaic (Nicolas)
       
 			el.tileLayerOxiaHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_oxia-planum/{z}/{x}/{y}.png',{
  			tms:true,
- 			maxNativeZoom: 10,
   			minZoom: 5,
-  			//maxZoom: 10,
-  			reuseTiles: true,
+  			maxNativeZoom: 10,
+  			//maxZoom: 10,  			
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
@@ -188,9 +220,8 @@
 			el.tileLayerMawrthHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_mawrth-vallis/{z}/{x}/{y}.png',{
  			tms:true,
   			minZoom: 5,
-  			maxNativeZoom: 10,
   			//maxZoom: 10,
-  			reuseTiles: true,
+  			maxNativeZoom: 10,
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
@@ -200,27 +231,29 @@
 			///////////////////////////////////////////
 			// define overlays HiRISE
 			
-			el.tileLayerHypanisHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
- 			tms:true,
-  			minZoom: 6,
-  			//maxZoom: 10,
-  			
-  			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  			//updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
-   			bounds: L.latLngBounds(
- 				L.latLng(9.8, -47.04),// southwest part of the BBox
- 				L.latLng(13.8, -43.04)) // northeast part of the BBox
-			}).addTo(el.map).setZIndex(2);
-			
+			// Attempt to load HIRISE Layer (Nicolas)
 			el.tileLayerMawrthHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_036872-2025-25cm_mawrth-vallis/{z}/{x}/{y}.png',{
  			  tms:true,
- 			  minZoom: 6,
+ 			  //minZoom: 9,
  			  //maxZoom: 10,
   			//unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			//updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
  				L.latLng(20.16, -19.95),// southwest part of the BBox
  				L.latLng(24.16, -15.95)) // northeast part of the BBox
+			}).addTo(el.map).setZIndex(2);
+			
+		
+			el.tileLayerHypanisHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
+ 			tms:true,
+  			minZoom: 9,
+  			//maxZoom: 10,
+  			
+  			//unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  			//updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+   			bounds: L.latLngBounds(
+ 				L.latLng(9.8, -47.04),// southwest part of the BBox
+ 				L.latLng(13.8, -43.04)) // northeast part of the BBox
 			}).addTo(el.map).setZIndex(2);
 		
 		
@@ -229,24 +262,25 @@
 			el.Oxia = new L.LatLng(18.2, -24.55);
 			el.Mawrth = new L.LatLng(22.16, -17.95);
 			el.center = new L.LatLng(15,-10);
+			
 	    }
 		
-	// define a function that loads cartoDB data into the map
-	
-		var cartodbData = function(){
+  			var cartodbData = function(){
 			
 			var layerURL = 'http://whereonmars.cartodb.com/api/v2/viz/03ec7c7c-bc6a-11e4-b600-0e4fddd5de28/viz.json';
+			
+			
 			// create cartoDB layer from vizjson url
 			 
 			var LS = cartodb.createLayer(el.map, layerURL)
 				.on('done', function(layer) {
 		  		
 		  		 layer.setZIndex(100); // all cartoDB layer will be above all the baselayers
-		  		 var sublayer =layer.getSubLayer(0);
-		  		 
+		  		var sublayer =layer.getSubLayer(0);
+		  		
 		  	   	el.landingSite = layer.createSubLayer({
 		  	   	sql: "SELECT * FROM exomars_landing_sites_four",
-		  		cartocss: '#exomars_landing_sites_four{marker-line-color: #FFF; marker-line-width: 1.5;  marker-line-opacity: 1;marker-placement: point;marker-type: ellipse;  marker-width: 10;marker-fill: #FF6600;  marker-allow-overlap: true;}'
+		  		cartocss: '#exomars_landing_sites_four{marker-fill-opacity: 0.9;marker-line-color: #FFF; marker-line-width: 1.5;  marker-line-opacity: 1;marker-placement: point;marker-type: ellipse;  marker-width: 10;marker-fill: #FF6600;  marker-allow-overlap: true;}'
 
  	   	
 		  	   	});
@@ -256,26 +290,61 @@
 
 		  		
 		  		    });
-		  		  el.ellipses = layer.createSubLayer({
+		  		el.ellipses = layer.createSubLayer({
 		  			sql: "SELECT * FROM exomars_landing_sites_ellipses",
 		  			cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
 		  	
  
 		
 		  		    });
-		  		
-		  		
-		  		
+		  		// define LayerAction to add or remove the layers
+		  		el.LayerActions = {
+		  			constraint1 : function() {
+      					sublayer.set({
+    					sql: "SELECT * FROM lat_constraints",
+    					cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}'
+    					})
+     			
+     
+      			return true;
+    },
+    			ellipses: function(){
+    				sublayer.set({
+    					sql: "SELECT * FROM exomars_landing_sites_ellipses",
+    					cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
+    					})
+     			
+     
+      			return true;
+    }
+		  
+}
 		  		// hide layers when load the map element
 		  		el.landingSite.show();
 		  		el.latConstraint.hide();
 		  		el.ellipses.hide();
+		  		
 		  		// add cartoDB layers into the map
 		  		el.map.addLayer(layer, false);
-		  		
+		  		 
 		  		});
+		  	
+		   
 		}
+		 
+
+		  
 		  		
+
+
+// when you click a button, this(click) function will activate
+  
+  $('.button').click(function() { // mouse event, when click button do something ( this something is inside the brackets)
+  $('.button').removeClass('selected'); // when click button  remove the class selected
+  $(this).addClass('selected'); // when click  button, add class selected
+  el.LayerActions[$(this).attr('id')](); // call LayerAction function and get the id attribute of the element
+}); // end of click event
+
 	
  function click(el) {
       var element = O.Core.getElement(el);
@@ -487,4 +556,6 @@
 	</script>	
 
 </body>
-</html>	
+</html>		
+		
+		
