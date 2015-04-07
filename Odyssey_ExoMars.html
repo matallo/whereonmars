@@ -208,7 +208,19 @@
 			// define overlays HiRISE
 			
 			// Attempt to load HIRISE Layer (Nicolas)
-			el.tileLayerMawrthHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise-ExoMawrth_1_25cm_o/{z}/{x}/{y}.png',{
+// 			el.tileLayerMawrthHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise-ExoMawrth_1_25cm_o/{z}/{x}/{y}.png',{
+//  			  //minZoom: 6,
+//  			  //maxZoom: 10,
+//   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+//   			//updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+//    			bounds: L.latLngBounds(
+//  				L.latLng(20.16, -19.95),// southwest part of the BBox
+//  				L.latLng(24.16, -15.95)) // northeast part of the BBox
+// 			}).addTo(el.map).setZIndex(2);
+		
+			// Attempt to load HIRISE Layer (Nicolas)
+			el.tileLayerMawrthHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_036872-2025-25cm_mawrth-vallis/{z}/{x}/{y}.png',{
+        tms:true,
  			  //minZoom: 6,
  			  //maxZoom: 10,
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
@@ -217,8 +229,7 @@
  				L.latLng(20.16, -19.95),// southwest part of the BBox
  				L.latLng(24.16, -15.95)) // northeast part of the BBox
 			}).addTo(el.map).setZIndex(2);
-		
-		
+			
 			el.Aram = new L.LatLng(7.87, -11.2);
 			el.Hypanis = new L.LatLng(11.8, -45.04);
 			el.Oxia = new L.LatLng(18.2, -24.55);
