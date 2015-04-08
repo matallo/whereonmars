@@ -16,48 +16,122 @@
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
   <script src="http://azavea.github.io/Leaflet.zoomdisplay/js/leaflet.zoomdisplay.js"></script>
   <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>		
+ 
  <style>
     
+    #menu_options { position:absolute; top: 5px; right: 10px; width: 100px; height:100px; z-index:10;}
+    #menu_options ul {
+    text-align: left;
+  	 display: block;
+ 	 
+  	 
+  	 list-style: none;
+  	 }
+    #menu_options ul li{
+    float: left;
+    list-style: none;
+    text-align: center;
+    background-color: #e5f5f9;
+    margin-right: 50px;
+    width: 100px;
+    line-height: 30px;
+    opacity: 1;
     
-    #menu_options { position:relative; top: 5px; right: 10px; width: 400px; height:60px; background: transparent; z-index:10;}
-    #menu_options a { 
-      margin: 15px 10px 0 0;
-      float: right;
-      vertical-align: baseline;
-      width: 70px;
-      padding: 10px;
-      text-align: center;
-      font: bold 11px "Helvetica",Arial;
-      line-height: normal;
-      color: #555;
-      border-radius: 4px;
-      border: 1px solid #777777;
-      background: #ffffff;
-      text-decoration: none;
-      cursor: pointer;
     }
-    #menu_options a.selected,
-    #menu_options a:hover { 
-      color: #F84F40;
-    }
+        
+    #menu_options ul li a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    background-color: #2ca25f;
+	}
+	#menu_options ul li a:hover{
+    text-decoration: none;
+    color: white;
+    
+   
+	}
+     #menu_options ul li ul{
+  		
+  		position: relative;
+  		width: auto;
+  		height: auto;
+   		display: none;
+  		visibility: hidden;
+ 
+	}
+	 #menu_options ul li ul li{
+  		
+  		text-decoration: none;
+   		color: white;
+    
+ 
+	}
+	#menu_options ul li ul li a{ 
+  		background-color: #8C8C8C; 
+  		 
+  		}
+	  
+    #menu_options ul li ul li a:hover{ 
+  		background-color: #e5f5f9; 
+  		display: block; 
+  		color: red;
+  		
+
+	}
+
+ 	#menu_options ul li:hover ul {
+  	display: block;
+ 	opacity: 0.8;
+  	visibility: visible;
+  	
+	}
+   
+    
   </style>
 </head>
 <body>
-		<div></div>
+		
 <!-- define element with id = map -->
 		<div id = "map" style="width: 100%; height: 100%;"></div> 
-		<div id="menu_container">
-		<div id = "menu_options" align="center">
+		<!-- define buttons-->
+		
+		
+		<div id = "menu_options">
 			<ul>
-   			 <li>
-   			 	<li><a href="#constraint1" id="constraint1" class="button constraint1">Latitude constraint</a></li> 
-  			 </li>
-  			 <li>
-  			 	<li><a href="#ellipses" id="ellipses" class="button ellipses">ellipses</a></li> 
-   			 </li>
-   			</ul>
-  		</div>
-  		</div>
+				<li><a href ="#">Base maps</a>
+					<ul>
+   				 		<li><a href="#" id="MOLA" class="button MOLA">MOLA</a></li>
+   				 	</ul>
+   				</li>
+   				<li><a href ="#">Hrsc Images</a>
+					<ul>
+   				 		<li><a href="#" id="hrsc1" class="button hrsc1">Hrsc Aram Dorsum</a></li>
+   				 		<li><a href="#" id="hrsc2" class="button hrsc2">Hrsc Hypanis Vallis</a></li>
+   				 		<li><a href="#" id="hrsc3" class="button hrsc3">Hrsc Oxia Planum</a></li>
+   				 		<li><a href="#" id="hrsc4" class="button hrsc4">Hrsc Mawrth Vallis</a></li>
+   				 	</ul>
+   				</li>
+   				
+				<li><a href ="#">Constraints</a>
+					<ul>
+   				 		<li><a href="#constraint1" id="constraint1" class="button constraint1">Latitude constraint</a></li>
+   				 	</ul>
+   				</li>
+   				 <li><a href ="#">Landing sites</a>
+   				 	<ul>
+   				 	<li><a href="#ellipses1" id="ellipses1" class="button ellipses1">Aram Dorsum</a></li>
+   				 	<li><a href="#ellipses2" id="ellipses2" class="button ellipses2">Hypanis Vallis</a></li>
+   				 	<li><a href="#ellipses3" id="ellipses3" class="button ellipses3">Oxia Planum</a></li>
+   				 	<li><a href="#ellipses4" id="ellipses4" class="button ellipses4">Mawrth Vallis</a></li>
+   				 	</ul>
+  				</li>
+  			</ul>	
+   		</div>
+  		
+ 		  		
+  		
+  		
 		 <!-- define element with id = slides -->
 		<div id = "slides_container" style="display:block;">
 		
@@ -114,6 +188,8 @@
 			<li><a class = "next"></a></li>		
 	    </ul>	
 	</div>
+	
+	
 		
 	<script>
 	
@@ -183,7 +259,7 @@
 			el.tileLayerAramHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_aram-dorsum/{z}/{x}/{y}.png',{
   			tms:true,
   			maxNativeZoom: 10,
-  			minZoom: 5,
+  			minZoom: 7,
   			//maxZoom: 10,  			
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
@@ -194,7 +270,7 @@
 			
 			el.tileLayerHypanisHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_hypanis/{z}/{x}/{y}.png',{
  			tms:true,
-  			minZoom: 5,
+  			minZoom: 7,
   			maxNativeZoom: 10,
   			//maxZoom: 10,  			
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
@@ -208,7 +284,7 @@
       
 			el.tileLayerOxiaHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_oxia-planum/{z}/{x}/{y}.png',{
  			tms:true,
-  			minZoom: 5,
+  			minZoom: 7,
   			maxNativeZoom: 10,
   			//maxZoom: 10,  			
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
@@ -220,7 +296,7 @@
 			
 			el.tileLayerMawrthHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_mawrth-vallis/{z}/{x}/{y}.png',{
  			tms:true,
-  			minZoom: 5,
+  			minZoom: 7,
   			//maxZoom: 10,
   			maxNativeZoom: 10,
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
@@ -244,6 +320,17 @@
  				L.latLng(24.16, -15.95)) // northeast part of the BBox
 			}).addTo(el.map).setZIndex(2);
 			
+			// Attempt to load HIRISE Layer (Nicolas)
+			el.tileLayerOxiaHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_oxia-planum_037558_1985_25cm/{z}/{x}/{y}.png',{
+ 			  tms:true,
+ 			  //minZoom: 9,
+ 			  //maxZoom: 10,
+  			//unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  			//updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+   			bounds: L.latLngBounds(
+ 				L.latLng(16.0, -26.0), // southwest part of the BBox
+ 				L.latLng(20.0, -22.0)) // northeast part of the BBox
+			}).addTo(el.map).setZIndex(2);
 		
 			el.tileLayerHypanisHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
  			tms:true,
@@ -298,8 +385,19 @@
  
 		
 		  		    });
+		 /////////////////////////////// 		    
 		  		// define LayerAction to add or remove the layers
 		  		el.LayerActions = {
+		  		
+		  		MOLA: function(){
+					if(map.hasLayer(el.basemap)){
+						map.removeLayer(el.basemap)
+					} else {
+						map.addLayer(el.basemap);
+					
+					}
+				
+				} ,
 		  			constraint1 : function() {
       					sublayer.set({
     					sql: "SELECT * FROM lat_constraints",
@@ -309,17 +407,46 @@
      
       			return true;
     },
-    			ellipses: function(){
+    			ellipses1: function(){
     				sublayer.set({
-    					sql: "SELECT * FROM exomars_landing_sites_ellipses",
+    					sql: "SELECT * FROM exomars_landing_sites_ellipses WHERE id = 1",
+    					cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
+    					})
+     			
+     
+      			return true;
+    },
+   			 ellipses2: function(){
+    				sublayer.set({
+    					sql: "SELECT * FROM exomars_landing_sites_ellipses WHERE id = 2",
+    					cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
+    					})
+     			
+     
+      			return true;
+    },
+     		ellipses3: function(){
+    				sublayer.set({
+    					sql: "SELECT * FROM exomars_landing_sites_ellipses WHERE id = 4",
+    					cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
+    					})
+     			
+     
+      			return true;
+    },
+    		ellipses4: function(){
+    				sublayer.set({
+    					sql: "SELECT * FROM exomars_landing_sites_ellipses WHERE id = 5",
     					cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
     					})
      			
      
       			return true;
     }
+				   
 		  
 }
+        ////////////////////////////////
 		  		// hide layers when load the map element
 		  		el.landingSite.show();
 		  		el.latConstraint.hide();
@@ -333,19 +460,15 @@
 		   
 		}
 		 
-
-		  
-		  		
-
-
-// when you click a button, this(click) function will activate
+////////
+	// when you click a button, this(click) function will activate
   
   $('.button').click(function() { // mouse event, when click button do something ( this something is inside the brackets)
   $('.button').removeClass('selected'); // when click button  remove the class selected
   $(this).addClass('selected'); // when click  button, add class selected
   el.LayerActions[$(this).attr('id')](); // call LayerAction function and get the id attribute of the element
 }); // end of click event
-
+/////////
 	
  function click(el) {
       var element = O.Core.getElement(el);
