@@ -36,7 +36,7 @@
     margin-right: 50px;
     width: 200px;
     line-height: 30px;
-    opacity: 1;
+    
     border-radius: 25px;
     
     }
@@ -105,15 +105,15 @@
 			<ul>
 				<li><a href ="#">Base maps</a>
 					<ul>
-   				 		<li><a href="#" id="MOLA" class="button MOLA">MOLA</a></li>
+   				 		<li><a href="#MOLA" id="MOLA" class="button MOLA">MOLA</a></li>
    				 	</ul>
    				</li>
    				<li><a href ="#">Hrsc Images</a>
 					<ul>
-   				 		<li><a href="#" id="hrsc1" class="button hrsc1">Hrsc Aram Dorsum</a></li>
-   				 		<li><a href="#" id="hrsc2" class="button hrsc2">Hrsc Hypanis Vallis</a></li>
-   				 		<li><a href="#" id="hrsc3" class="button hrsc3">Hrsc Oxia Planum</a></li>
-   				 		<li><a href="#" id="hrsc4" class="button hrsc4">Hrsc Mawrth Vallis</a></li>
+   				 		<li><a href="#hrscAram" id="hrscAram" class="button hrscAram">Hrsc Aram Dorsum</a></li>
+   				 		<li><a href="#hrscHypanis" id="hrscHypanis" class="button hrscHypanis">Hrsc Hypanis Vallis</a></li>
+   				 		<li><a href="#hrscOxia" id="hrscOxia" class="button hrscOxia">Hrsc Oxia Planum</a></li>
+   				 		<li><a href="#hrscMawrth" id="hrscMawrth" class="button hrscMawrth">Hrsc Mawrth Vallis</a></li>
    				 	</ul>
    				</li>
    				
@@ -385,14 +385,67 @@
 		  		el.LayerActions = {
 		  		
 		  		MOLA: function(){
-					if(map.hasLayer(el.basemap)){
-						map.removeLayer(el.basemap)
-					} else {
-						map.addLayer(el.basemap);
-					
-					}
-				
+		  			var base = el.basemap;
+		  			var map = el.map;
+		  			if (map.hasLayer(base)){
+		  			map.removeLayer(base);
+		  				}else{
+		  				map.addLayer(base)
+		  		
+		  			};
+		  	
 				} ,
+				
+				hrscAram: function(){
+		  			var hrscAram = el.tileLayerAramHrsc;
+		  			var map = el.map;
+		  			if (map.hasLayer(hrscAram)){
+		  			map.removeLayer(hrscAram);
+		  				}else{
+		  				map.addLayer(hrscAram)
+		  		
+		  			};
+		  		
+					
+				} ,
+				hrscHypanis: function(){
+		  			var hrscHypanis = el.tileLayerHypanisHrsc;
+		  			var map = el.map;
+		  			if (map.hasLayer(hrscHypanis)){
+		  			map.removeLayer(hrscHypanis);
+		  				}else{
+		  				map.addLayer(hrscHypanis)
+		  		
+		  			};
+		  		
+					
+				} ,
+				hrscOxia: function(){
+		  			var hrscOxia = el.tileLayerOxiaHrsc;
+		  			var map = el.map;
+		  			if (map.hasLayer(hrscOxia)){
+		  			map.removeLayer(hrscOxia);
+		  				}else{
+		  				map.addLayer(hrscOxia)
+		  		
+		  			};
+		  		
+					
+				} ,
+				hrscMawrth: function(){
+		  			var hrscMawrth = el.tileLayerMawrthHrsc;
+		  			var map = el.map;
+		  			if (map.hasLayer(hrscMawrth)){
+		  			map.removeLayer(hrscMawrth);
+		  				}else{
+		  				map.addLayer(hrscMawrth)
+		  		
+		  			};
+		  		
+					
+				} ,
+				
+				
 		  		constraint1 : function() {
       					
       					sublayer.set({
