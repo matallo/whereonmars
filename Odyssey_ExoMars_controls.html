@@ -19,7 +19,7 @@
  <style>
     #menu_options { 
     position:absolute;
-    top:5px;
+    top:40px;
     right:10px;
     width:200px;
     z-index:10;
@@ -77,6 +77,15 @@
   	visibility: visible;
   	
 	}
+	#slides_container {
+    display:block;
+    position:absolute;
+    top:40px;
+    left:40px;
+    opacity: 0.7;
+    background-color:#e5f5f9;
+    z-index:100;
+    
     </style>
 </head>
 <body>
@@ -123,7 +132,7 @@
   			</ul>	
    		</div>
   		<!-- define element with id = slides -->
-		<div id = "slides_container" style="display:block;">
+		<div id = "slides_container">
 		
 			<div id= "dots"></div> 
 			<div id = "slides">
@@ -178,6 +187,7 @@
 			<li><a class = "next"></a></li>		
 	    </ul>	
 	</div>
+	
 	<script>
 	var app =  {};
 	// 2. define odyssey as a property of the ExoMars object. The value of the property is a function.
@@ -239,7 +249,7 @@
   			tms:true,
   			maxNativeZoom: 10,
   			minZoom: 7,
-  			//maxZoom: 10,  			
+  			opacity: 0.7, 			
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
@@ -251,7 +261,7 @@
  			tms:true,
   			minZoom: 7,
   			maxNativeZoom: 10,
-  			//maxZoom: 10,  			
+  			opacity: 0.7, 			
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
@@ -263,8 +273,8 @@
       		el.tileLayerOxiaHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_oxia-planum/{z}/{x}/{y}.png',{
  			tms:true,
   			minZoom: 7,
+  			opacity: 0.7,
   			maxNativeZoom: 10,
-  			//maxZoom: 10,  			
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    			bounds: L.latLngBounds(
@@ -275,7 +285,7 @@
 			el.tileLayerMawrthHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_mawrth-vallis/{z}/{x}/{y}.png',{
  			tms:true,
   			minZoom: 7,
-  			//maxZoom: 10,
+  			opacity: 0.7,
   			maxNativeZoom: 9,
   			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   			updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
@@ -288,6 +298,7 @@
 			el.tileLayerHypanisHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
  			tms:true,
   			minZoom: 9,
+  			opacity: 0.5,
   			bounds: L.latLngBounds(
  				L.latLng(9.8, -47.04),// southwest part of the BBox
  				L.latLng(13.8, -43.04)) // northeast part of the BBox
@@ -296,6 +307,7 @@
 			// Attempt to load HIRISE Layer (Nicolas)
 			el.tileLayerOxiaHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_oxia-planum_037558_1985_25cm/{z}/{x}/{y}.png',{
  			tms:true,
+ 			opacity: 0.5,
  			bounds: L.latLngBounds(
  				L.latLng(16.0, -26.0), // southwest part of the BBox
  				L.latLng(20.0, -22.0)) // northeast part of the BBox
@@ -304,20 +316,19 @@
 			// Attempt to load HIRISE Layer (Nicolas)
 			el.tileLayerMawrthHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_036872-2025-25cm_mawrth-vallis/{z}/{x}/{y}.png',{
  			tms:true,
+ 			opacity: 0.5,
  			bounds: L.latLngBounds(
  				L.latLng(20.16, -19.95),// southwest part of the BBox
  				L.latLng(24.16, -15.95)) // northeast part of the BBox
 			}).addTo(el.map).setZIndex(2);
 			
-			
-				
 			el.Aram = new L.LatLng(7.87, -11.2);
 			el.Hypanis = new L.LatLng(11.8, -45.04);
 			el.Oxia = new L.LatLng(18.2, -24.55);
 			el.Mawrth = new L.LatLng(22.16, -17.95);
 			el.center = new L.LatLng(15,-10);
 		}
-			var cartodbData = function(){
+	  		var cartodbData = function(){
 			var layerURL = 'http://whereonmars.cartodb.com/api/v2/viz/03ec7c7c-bc6a-11e4-b600-0e4fddd5de28/viz.json';
 			// create cartoDB layer from vizjson url
 			cartodb.createLayer(el.map, layerURL)
@@ -359,29 +370,43 @@
 		  			cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
 	
  	  		    });
+ 	  		    var base = el.basemap;
+ 	  		    var baseColor = el.basemapColor;
+ 	  		    var map = el.map;
 		 		// define LayerAction to add or remove the layers
 		  		el.LayerActions = {
 		  			MOLA: function(){
-		  				var base = el.basemap;
-		  				var map = el.map;
+		  				
+		  				
 		  				if (map.hasLayer(base)){
 		  					map.removeLayer(base);
 		  				}else{
 		  					map.addLayer(base)
 		  				};
+		  				if (map.hasLayer(baseColor)){
+		  					map.removeLayer(baseColor);
+		  				}else{
+		  					map.addLayer(base)
+		  				};
 		  			},
 					MOLA_color: function(){
-					var baseColor = el.basemapColor;
-		  				var map = el.map;
+					
+		  				
 		  				if (map.hasLayer(baseColor)){
 		  					map.removeLayer(baseColor);
 		  				}else{
 		  					map.addLayer(baseColor)
-		  				}
+		  				};
+		  				if (map.hasLayer(base)){
+		  					map.removeLayer(base);
+		  				}else{
+		  					map.addLayer(baseColor)
+		  				};
+		  				
 					},
 					hrscAram: function(){
 		  				var hrscAram = el.tileLayerAramHrsc;
-		  				var map = el.map;
+		  				
 		  				if (map.hasLayer(hrscAram)){
 		  					map.removeLayer(hrscAram);
 		  				}else{
@@ -390,7 +415,7 @@
 		  			},
 					hrscHypanis: function(){
 		  				var hrscHypanis = el.tileLayerHypanisHrsc;
-		  				var map = el.map;
+		  				
 		  				if (map.hasLayer(hrscHypanis)){
 		  					map.removeLayer(hrscHypanis);
 		  				}else{
@@ -399,7 +424,7 @@
 		  			},
 					hrscOxia: function(){
 		  				var hrscOxia = el.tileLayerOxiaHrsc;
-		  				var map = el.map;
+		  				
 		  				if (map.hasLayer(hrscOxia)){
 		  					map.removeLayer(hrscOxia);
 		  				}else{
@@ -408,7 +433,7 @@
 		  			},
 					hrscMawrth: function(){
 		  				var hrscMawrth = el.tileLayerMawrthHrsc;
-		  				var map = el.map;
+		  				
 		  				if (map.hasLayer(hrscMawrth)){
 		  					map.removeLayer(hrscMawrth);
 		  				}else{
@@ -417,7 +442,7 @@
 		  			},
 		  			HiRISEOxia: function(){
 		  				var HiRISEOxia = el.tileLayerOxiaHiRISE;
-		  				var map = el.map;
+		  				
 		  				if (map.hasLayer(HiRISEOxia)){
 		  					map.removeLayer(HiRISEOxia);
 		  				}else{
@@ -426,7 +451,7 @@
 		  			},
 		  			HiRISEMawrth: function(){
 		  				var HiRISEMawrth = el.tileLayerMawrthHiRISE;
-		  				var map = el.map;
+		  				
 		  				if (map.hasLayer(HiRISEMawrth)){
 		  					map.removeLayer(HiRISEMawrth);
 		  				}else{
@@ -475,8 +500,7 @@
   		el.LayerActions[$(this).attr('id')](); // call LayerAction function and get the id attribute of the element
 		}); // end of click event
 
-	
- 	  function click(el) {
+	  function click(el) {
       	var element = O.Core.getElement(el);
       	var t = O.Trigger();
 
@@ -532,8 +556,8 @@
         default: console.log('other');  
       }
     }
-    // overview
-    function slideZero() {
+      // overview
+      function slideZero() {
       // only show landing sites
      	el.landingSite.show();
 	 	el.latConstraint.hide();
@@ -543,8 +567,8 @@
 	 	el.ellipses3.hide();
 	 	el.ellipses4.hide();
     }
-	//overview with lat constraints
-    function slideOne() {      
+	  //overview with lat constraints
+      function slideOne() {      
     //add the latitude constraint
     	el.latConstraint.show();  
     	el.landingSite.show();
@@ -554,8 +578,8 @@
 	 	el.ellipses3.hide();
 	 	el.ellipses4.hide();
     }
-    // Aram Dorsum
-    function slideTwo() {
+      // Aram Dorsum
+      function slideTwo() {
      	el.landingSite.show();  
      	el.latConstraint.hide();
      	el.ellipses.hide();
@@ -565,8 +589,8 @@
 	 	el.ellipses4.hide();
      
     }
-    // Hypanis Vallis
-    function slideThree() {
+      // Hypanis Vallis
+      function slideThree() {
      	el.landingSite.show();  
      	el.latConstraint.hide();
      	el.ellipses.hide();
@@ -576,8 +600,8 @@
 	 	el.ellipses4.hide();
      
     }
-    // Oxia Planum
-    function slideFour() {
+      // Oxia Planum
+      function slideFour() {
      	el.landingSite.show();  
      	el.latConstraint.hide();
      	el.ellipses.hide();
@@ -587,8 +611,8 @@
 	 	el.ellipses4.hide();
      
     }
-    //Mawrth Vallis
-    function slideFive() {
+      //Mawrth Vallis
+      function slideFive() {
      	el.landingSite.show();  
      	el.latConstraint.hide();
      	el.ellipses.hide();
@@ -598,8 +622,8 @@
 	 	el.ellipses4.show();
      
     }
-    // End of the story/overview
-    function slideSix() {
+      // End of the story/overview
+      function slideSix() {
      	el.landingSite.show();  
      	el.latConstraint.hide(); 
      	el.ellipses.hide();
@@ -608,8 +632,8 @@
 	 	el.ellipses3.hide();
 	 	el.ellipses4.hide();
     }
-         
-    function initOdyssey(O) {
+        
+      function initOdyssey(O) {
 
       // O is for Odyssey
       var map = el.map;
@@ -700,20 +724,20 @@
       el.story.go(0);
     }  	
 		
-	function init() {
+	  function init() {
       initMap();
       cartodbData();
       initOdyssey(O);
       listenSlideChange();            
     } 
 
-    return {
+      return {
       init : init,
       el: el
     }	
 		
 	
-	})(window, document, jQuery,O);
+  })(window, document, jQuery,O);
 	
 	// 3. when the document has been completely loaded and parsed it applies the function to the window element  
 	
