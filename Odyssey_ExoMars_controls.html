@@ -1,198 +1,206 @@
 <!DOCTYPE html>
 <head>  
-  <meta charset="utf-8" />
+  <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Odyssey ExoMars</title>
   <!-- call css styles -->
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-  <link rel="stylesheet" href="http://cartodb.github.io/odyssey.js/sandbox/css/slides.css"> 
+  <link rel="stylesheet" href="http://cartodb.github.io/odyssey.js/sandbox/css/slides.css"/> 
   <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
   <link rel="stylesheet" href="http://azavea.github.io/Leaflet.zoomdisplay/css/leaflet.zoomdisplay.css" />
-  
   <!-- call javascript libraries -->
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
   <script src="http://azavea.github.io/Leaflet.zoomdisplay/js/leaflet.zoomdisplay.js"></script>
   <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>		
- 
- <style>
+  <style>
+	#map{
+		width: 100%; 
+		height: 100%;
+	}  
     #menu_options { 
-    position:absolute;
-    top:40px;
-    right:10px;
-    width:200px;
-    z-index:10;
+    	position:absolute;
+    	top:40px;
+    	right:10px;
+    	width:200px;
+    	height: 220px;
+    	z-index:10;
+    	padding-top:10px;
+    	background-color:#B7AFA3;
+    	border-radius: 25px;
+    	border: 3px solid #a1a1a1;
+    	opacity: 0.7;
+    }
+    #menu_options h3{ 
+    	text-align: center;
+    	font-family:"AleoBold";
     }
     #menu_options ul {
-    text-align: left;
-  	display: block;
-  	list-style: none;
-	border-style: solid;
+    	text-align: left;
+  		display: block;
+  		font-family:AleoRegular, Serif;
     }
     #menu_options ul li{
-    float: left;
-    list-style: none;
-    text-align: center;
-    background-color: #e5f5f9;
-    margin-right: 50px;
-    width: 200px;
-    line-height: 30px;
-    border-radius: 25px;
+    	float: left;
+    	list-style: none;
+    	text-align: center;
+    	margin-right: 50px;
+    	width: 200px;
+    	line-height: 30px;
     }
+    #menu_options ul li:hover ul {
+  		display: block;
+ 		opacity: 1;
+  		visibility: visible;
+	}
     #menu_options ul li a{
-    text-decoration: none;
-    color: white;
-    display: block;
-    width: 100%;
-    padding: 2px 0px 2px 0px;
-    background-color: #2ca25f;
+    	text-decoration: none;
+    	color: white;
+    	display: block;
+    	width: 100%;
+    	padding: 2px 0px 2px 0px;
+    	background-color: #B7AFA3; 	
 	}
 	#menu_options ul li a:hover{
-    text-decoration: none;
-    color: white;
+    	text-decoration: none;
+    	color: white;
+    	background-color:#1A62A3;		
     }
     #menu_options ul li ul{
-  	position: relative;
-  	width: auto;
-  	height: auto;
-   	display: none;
-  	visibility: hidden;
+  		position: relative;
+  		width: auto;
+  		height: auto;
+   		display: none;
+  		visibility: hidden;
  	}
 	#menu_options ul li ul li{
-  	text-decoration: none;
-   	color: white;
+  		text-decoration: none;	
     }
 	#menu_options ul li ul li a{ 
-  	background-color: #8C8C8C; 
+  		background-color: #F7F6F4; 
+  		color: #000000;
 	}
 	#menu_options ul li ul li a:hover{ 
-  	background-color: #e5f5f9; 
-  	display: block; 
-  	color: red;
-	}
- 	#menu_options ul li:hover ul {
-  	display: block;
- 	opacity: 0.8;
-  	visibility: visible;
-  	
+  		background-color: #F7F6F4; 
+  		display: block; 
+  		color: red;
 	}
 	#slides_container {
-    display:block;
-    position:absolute;
-    top:40px;
-    left:40px;
-    opacity: 0.7;
-    background-color:#e5f5f9;
-    z-index:100;
-    
-    </style>
+    	display:block;
+    	position:absolute;
+    	top:40px;
+    	left:40px;
+    	opacity: 0.7;
+    	background-color:#B7AFA3;
+    	z-index:100;
+    	border-radius: 25px;
+    	border: 3px solid #a1a1a1;
+    }
+   
+  </style>
 </head>
 <body>
 <!-- define element with id = map -->
-		<div id = "map" style="width: 100%; height: 100%;"></div> 
+	<div id = "map"></div> 
 		<!-- define buttons-->
-		<div id = "menu_options">
-			
-			<ul>
-				<li><a href ="#">Base maps</a>
-					<ul>
-   				 		<li><a href="#MOLA" id="MOLA" class="button MOLA">MOLA</a></li>
-   				 		<li><a href="#MOLA_color" id="MOLA_color" class="button MOLA_color">MOLA Color</a>
-   				 	</ul>
+	<div id = "menu_options">
+		<h3>Drop-down menu</h3>
+		<hr>
+		<ul>
+			<li class = "item1"><a href ="#">Base maps</a>
+				<ul>
+   					<li><a href="#MOLA" id="MOLA" class="button MOLA">MOLA</a></li>
+   					<li><a href="#MOLA_color" id="MOLA_color" class="button MOLA_color">MOLA Color</a>
+   				</ul>
    				</li>
-   				<li><a href ="#">Hrsc Images</a>
-					<ul>
-   				 		<li><a href="#hrscAram" id="hrscAram" class="button hrscAram">Hrsc Aram Dorsum</a></li>
-   				 		<li><a href="#hrscHypanis" id="hrscHypanis" class="button hrscHypanis">Hrsc Hypanis Vallis</a></li>
-   				 		<li><a href="#hrscOxia" id="hrscOxia" class="button hrscOxia">Hrsc Oxia Planum</a></li>
-   				 		<li><a href="#hrscMawrth" id="hrscMawrth" class="button hrscMawrth">Hrsc Mawrth Vallis</a></li>
-   				 	</ul>
-   				</li>
-   				<li><a href ="#">HiRISE Images</a>
-   					<ul>
-   				 		<li><a href="#HiRISEOxia" id="HiRISEOxia" class="button HiRISEOxia">HiRISE Oxia Planum</a></li>
-   				 		<li><a href="#HiRISEMawrth" id="HiRISEMawrth" class="button HiRISEMawrth">HiRISE Mawrth Vallis</a></li>
-   				 	</ul>
-   				
-   				</li>
-				<li><a href ="#">Constraints</a>
-					<ul>
-   				 		<li><a href="#constraint1" id="constraint1" class="button constraint1">Latitude constraint</a></li>
-   				 	</ul>
-   				 </li>
-   				 <li><a href ="#">Landing sites</a>
-   				 	<ul>
-   				 		<li><a href="#ellipses1" id="ellipses1" class="button ellipses1">Aram Dorsum</a></li>
-   				 		<li><a href="#ellipses2" id="ellipses2" class="button ellipses2">Hypanis Vallis</a></li>
-   				 		<li><a href="#ellipses3" id="ellipses3" class="button ellipses3">Oxia Planum</a></li>
-   				 		<li><a href="#ellipses4" id="ellipses4" class="button ellipses4">Mawrth Vallis</a></li>
-   				 	</ul>
-  				</li>
-  			</ul>	
-   		</div>
+   			<li class = "item2"><a href ="#">Hrsc Images</a>
+				<ul>
+   					<li><a href="#hrscAram" id="hrscAram" class="button hrscAram">Hrsc Aram Dorsum</a></li>
+   					<li><a href="#hrscHypanis" id="hrscHypanis" class="button hrscHypanis">Hrsc Hypanis Vallis</a></li>
+   					<li><a href="#hrscOxia" id="hrscOxia" class="button hrscOxia">Hrsc Oxia Planum</a></li>
+   					<li><a href="#hrscMawrth" id="hrscMawrth" class="button hrscMawrth">Hrsc Mawrth Vallis</a></li>
+   				</ul>
+   			</li>
+   			<li class = "item3"><a href ="#">HiRISE Images</a>
+   				<ul>
+   					<li><a href="#HiRISEOxia" id="HiRISEOxia" class="button HiRISEOxia">HiRISE Oxia Planum</a></li>
+   				 	<li><a href="#HiRISEMawrth" id="HiRISEMawrth" class="button HiRISEMawrth">HiRISE Mawrth Vallis</a></li>
+   				 </ul>
+   			</li>
+			<li class = "item4"><a href ="#">Constraints</a>
+				<ul>
+   					<li><a href="#constraint1" id="constraint1" class="button constraint1">Latitude constraint</a></li>
+   				</ul>
+   			</li>
+   			<li class = "item5"><a href ="#">Landing sites</a>
+   				 <ul>
+   				 	<li><a href="#ellipses1" id="ellipses1" class="button ellipses1">Aram Dorsum</a></li>
+   				 	<li><a href="#ellipses2" id="ellipses2" class="button ellipses2">Hypanis Vallis</a></li>
+   				 	<li><a href="#ellipses3" id="ellipses3" class="button ellipses3">Oxia Planum</a></li>
+   				 	<li><a href="#ellipses4" id="ellipses4" class="button ellipses4">Mawrth Vallis</a></li>
+   				 </ul>
+  			</li>
+  		</ul>	
+   	</div>
   		<!-- define element with id = slides -->
-		<div id = "slides_container">
-		
+	<div id = "slides_container">
 			<div id= "dots"></div> 
 			<div id = "slides">
 			<!-- SLIDE #0 -->
 				<div class="slide">
 					<h1 id="general0">Mars Landing Sites</h1>
-					<p>Great explanation inside this chapter</br>with some incredible images and data</p>
-					
+					<p>ExoMars is a joint two-mission endeavour between ESA and Russia's Roscosmos space agency. The Trace Gas Orbiter and an entry, descent and landing demonstrator module, Schiaparelli, will be launched in January 2016, arriving at Mars nine months later. The Rover and Surface Platform will depart in May 2018, with touchdown on Mars in January 2019.</p>
+					<p>The search for a suitable landing site for the second mission began in December 2013, when the science community was asked to propose candidates.</p>
 				</div>
 				<!-- SLIDE #1 -->
-			<div class="slide">
+				<div class="slide">
 					<h1 id="general1">Mars Landing Sites</h1>
-					<p>Great explanation of the constraints</br>with some incredible images and data</p>
-					
+					<p>The sites – Mawrth Vallis, Oxia Planum, Hypanis Vallis and Aram Dorsum – are all located relatively close to the equator</p>
 				</div>
-			
-			
 				<!-- SLIDE #2 -->
-			<div class="slide">
+				<div class="slide">
 					<h1 id="Aram">Aram Dorsum</h1>
-					<p>Great explanation inside this chapter</br>with some incredible images and data</p>
+					<p>It is the highest and the closest site to the Martian equator</p>
+					<p>The Aram Dorsum site receives its name from the Aram Dorsum channel, curving from northeast to west across the landing location. The sedimentary rocks around the channel are interpreted to be alluvial sediments deposited much like those around Earth's River Nile.</p>
 					
 				</div>
 				<!-- SLIDE #3 -->
-			<div class="slide">
+				<div class="slide">
 					<h1 id="Hypanis">Hypanis Vallis</h1>
-					<p>Great explanation inside this chapter</br>with some incredible images and data</p>
-					
+					<p>Hypanis Vallis is one of several valleys situated between two large outflow channels, Maja Vallis in the west and Shalbatana Vallis in the east.</p>
+					<p>The valleys are thought to have been formed by groundwater seepage or surface runoff. Several of the valleys, including Hypanis Vallis, have fan-shaped deposits at their termini. These fluvial deposits are interpreted as the remnants of a delta that formed in a lake. They are characterised by distinct layering at their margins, providing access to the various sedimentary layers.</p>
 				</div>
 				<!-- SLIDE #4 -->
 				<div class="slide">
 					<h1 id="Oxia">Oxia Planum</h1>
-					<p>Great explanation inside this chapter</br>with some incredible images and data</p>
-					
+					<p>The region is characterised by ancient highland cratered terrains that become increasingly eroded towards the highland-lowland boundary.</p>
+					<p>The candidate landing site area in Oxia Planum is located inside a shallow basin, at the outlet of the Coogoon Valles system. The region was chosen to include extensive, layered exposures rich in iron and magnesium phyllosilicates.</p>
+					<p>The main scientific concern for this site relates to the lack of precise information regarding the geologic context and origin of the clay-bearing unit. However, the phyllosilicate deposits are seen as the key to the study of aqueous activity on early Mars and the search for evidence of habitable environments early in the planet’s history.</p>
 				</div>
 				<!-- SLIDE #5-->
 				<div class="slide">
 					<h1 id="Mawrth">Mawrth Vallis</h1>
-					<p>Great explanation inside this chapter</br>with some incredible images and data</p>
-					
+					<p>This area contains a large outflow channel known as Mawrth Vallis, which once discharged huge amounts of water onto the northern plains. The proposed ExoMars landing site is situated just south of this channel.</p>
+					<p>The region surrounding Mawrth Vallis contains one of the largest exposures of phyllosilicates (clay minerals produced by chemical weathering) detected on Mars. These deposits provide a unique opportunity to evaluate aqueous activity on early Mars and point to the possibility that habitable environments may have existed during the Noachian period (from the formation of the planet to perhaps 3.6 billion years ago). Other deposits and outcrops in the region show the highest degree of mineral alteration identified so far on Mars.</p>
+				
 				</div>	
 				<!-- SLIDE #6 -->
 				<div class="slide">
 					<h1 id="end">The End</h1>
 					<p>Great explanation inside this chapter</br>with some incredible images and data</p>
-					
 				</div>			
 			</div>
-			
-		<ul id="navButtons" style="position:relative;">
+		<ul id="navButtons">
 			<li><a class = "prev"></a></li>
 			<li><a class = "next"></a></li>		
 	    </ul>	
 	</div>
-	
-	<script>
+<script>
 	var app =  {};
 	// 2. define odyssey as a property of the ExoMars object. The value of the property is a function.
-		app.odysseyTest = (function(w,d,$,O){
-		// define object that have all the elements and layers 
+	app.odysseyTest = (function(w,d,$,O){
+			// define object that have all the elements and layers 
 			var el = {
 				map: null,
 				basemap: null, // MOLA basemap grey_scale
@@ -225,528 +233,476 @@
 			};
 			// 	define function that initiates the map element
 			var initMap = function(){
-			// define map
-			el.map =  new L.Map('map', { 
-      		center: [15,-10],
-      		zoom: 3,
-      		zoomControl: true,
-      		});    		
-    		// define basemap
-    		el.basemap = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
- 			attribution: 'GISLAB',
- 			tms:true,
- 			maxNativeZoom: 9,
-  			}).addTo(el.map).setZIndex(0);
+				// define map
+				el.map =  new L.Map('map', { 
+      				center: [15,-20],
+      				zoom: 3,
+      				zoomControl: true,
+      			});    		
+    			// define basemap
+    			el.basemap = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
+ 					attribution: 'GISLAB',
+ 					tms:true,
+ 					maxNativeZoom: 9,
+  				}).addTo(el.map).setZIndex(0);
   			
-  			el.basemapColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-color/{z}/{x}/{y}.png', {
- 			attribution: 'GISLAB',
- 			maxNativeZoom: 7,
-  			}).setZIndex(0);
+  				el.basemapColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-color/{z}/{x}/{y}.png', {
+ 					attribution: 'GISLAB',
+ 					maxNativeZoom: 7,
+  				}).setZIndex(0);
   			
-			/*  The overlays are in zIndex = 1 ( they are above the basemap layers)*/
-			// define overlays Hrsc
-			el.tileLayerAramHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_aram-dorsum/{z}/{x}/{y}.png',{
-  			tms:true,
-  			maxNativeZoom: 10,
-  			minZoom: 7,
-  			opacity: 0.7, 			
-  			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
-   			bounds: L.latLngBounds(
- 				L.latLng(5.87, -13.8), // southwest part of the BBox
- 				L.latLng(9.87, -9.2)) // northeast part of the BBox
-			}).addTo(el.map).setZIndex(1); 
+				/*  The overlays are in zIndex = 1 ( they are above the basemap layers)*/
+				// define overlays Hrsc
+				el.tileLayerAramHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_aram-dorsum/{z}/{x}/{y}.png',{
+  					tms:true,
+  					minZoom: 7,
+  					opacity: 0.7, 			
+  					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  					updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+   					bounds: L.latLngBounds(
+ 						L.latLng(5.87, -13.8), // southwest part of the BBox
+ 						L.latLng(9.87, -9.2)) // northeast part of the BBox
+				}).addTo(el.map).setZIndex(1); 
 			
-			el.tileLayerHypanisHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_hypanis/{z}/{x}/{y}.png',{
- 			tms:true,
-  			minZoom: 7,
-  			maxNativeZoom: 10,
-  			opacity: 0.7, 			
-  			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
-   			bounds: L.latLngBounds(
- 				L.latLng(9.8, -47.04),// southwest part of the BBox
- 				L.latLng(13.8, -43.04)) // northeast part of the BBox
-			}).addTo(el.map).setZIndex(1);
+				el.tileLayerHypanisHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_hypanis/{z}/{x}/{y}.png',{
+ 					tms:true,
+  					minZoom: 7,
+  					opacity: 0.7, 			
+  					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  					updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+   					bounds: L.latLngBounds(
+ 						L.latLng(9.8, -47.04),// southwest part of the BBox
+ 						L.latLng(13.8, -43.04)) // northeast part of the BBox
+				}).addTo(el.map).setZIndex(1);
 			
-		    // Trying to add Oxia Planum mosaic (Nicolas)
-      		el.tileLayerOxiaHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_oxia-planum/{z}/{x}/{y}.png',{
- 			tms:true,
-  			minZoom: 7,
-  			opacity: 0.7,
-  			maxNativeZoom: 10,
-  			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  			updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
-   			bounds: L.latLngBounds(
- 				L.latLng(16.2, -26.55),// southwest part of the BBox
- 				L.latLng(20.2, -22.55)) // northeast part of the BBox
-			}).addTo(el.map).setZIndex(1);
+		    	// load Oxia Planum mosaic (Nicolas)
+      			el.tileLayerOxiaHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_oxia-planum/{z}/{x}/{y}.png',{
+ 					tms:true,
+  					minZoom: 7,
+  					opacity: 0.7,
+  					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  					updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+   					bounds: L.latLngBounds(
+ 						L.latLng(16.2, -26.55),// southwest part of the BBox
+ 						L.latLng(20.2, -22.55)) // northeast part of the BBox
+				}).addTo(el.map).setZIndex(1);
 			
-			el.tileLayerMawrthHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_mawrth-vallis/{z}/{x}/{y}.png',{
- 			tms:true,
-  			minZoom: 7,
-  			opacity: 0.7,
-  			maxNativeZoom: 9,
-  			unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  			updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
-   			bounds: L.latLngBounds(
- 				L.latLng(20.16, -19.95),// southwest part of the BBox
- 				L.latLng(24.16, -15.95)) // northeast part of the BBox
-			}).addTo(el.map).setZIndex(1);
-			// define overlays HiRISE
+				el.tileLayerMawrthHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_mawrth-vallis/{z}/{x}/{y}.png',{
+ 					tms:true,
+  					minZoom: 7,
+  					opacity: 0.7,
+  					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  					updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+   					bounds: L.latLngBounds(
+ 						L.latLng(20.16, -19.95),// southwest part of the BBox
+ 						L.latLng(24.16, -15.95)) // northeast part of the BBox
+				}).addTo(el.map).setZIndex(1);
 				
-			el.tileLayerHypanisHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
- 			tms:true,
-  			minZoom: 9,
-  			opacity: 0.5,
-  			bounds: L.latLngBounds(
- 				L.latLng(9.8, -47.04),// southwest part of the BBox
- 				L.latLng(13.8, -43.04)) // northeast part of the BBox
-			}).addTo(el.map).setZIndex(2);
+				// define overlays HiRISE
+				el.tileLayerHypanisHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
+ 				tms:true,
+  				minZoom: 9,
+  				opacity: 0.5,
+  				bounds: L.latLngBounds(
+ 					L.latLng(9.8, -47.04),// southwest part of the BBox
+ 					L.latLng(13.8, -43.04)) // northeast part of the BBox
+				}).addTo(el.map).setZIndex(2);
 			
-			// Attempt to load HIRISE Layer (Nicolas)
-			el.tileLayerOxiaHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_oxia-planum_037558_1985_25cm/{z}/{x}/{y}.png',{
- 			tms:true,
- 			opacity: 0.5,
- 			bounds: L.latLngBounds(
- 				L.latLng(16.0, -26.0), // southwest part of the BBox
- 				L.latLng(20.0, -22.0)) // northeast part of the BBox
-			}).addTo(el.map).setZIndex(2);
+				// load HIRISE Layer (Nicolas)
+				el.tileLayerOxiaHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_oxia-planum_037558_1985_25cm/{z}/{x}/{y}.png',{
+ 					tms:true,
+ 					opacity: 0.5,
+ 					bounds: L.latLngBounds(
+ 						L.latLng(16.0, -26.0), // southwest part of the BBox
+ 						L.latLng(20.0, -22.0)) // northeast part of the BBox
+				}).addTo(el.map).setZIndex(2);
+
+				//  load HIRISE Layer (Nicolas)
+				el.tileLayerMawrthHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_036872-2025-25cm_mawrth-vallis/{z}/{x}/{y}.png',{
+ 					tms:true,
+ 					opacity: 0.5,
+ 					bounds: L.latLngBounds(
+ 						L.latLng(20.16, -19.95),// southwest part of the BBox
+ 						L.latLng(24.16, -15.95)) // northeast part of the BBox
+				}).addTo(el.map).setZIndex(2);
 			
-			// Attempt to load HIRISE Layer (Nicolas)
-			el.tileLayerMawrthHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_036872-2025-25cm_mawrth-vallis/{z}/{x}/{y}.png',{
- 			tms:true,
- 			opacity: 0.5,
- 			bounds: L.latLngBounds(
- 				L.latLng(20.16, -19.95),// southwest part of the BBox
- 				L.latLng(24.16, -15.95)) // northeast part of the BBox
-			}).addTo(el.map).setZIndex(2);
-			
-			el.Aram = new L.LatLng(7.87, -11.2);
-			el.Hypanis = new L.LatLng(11.8, -45.04);
-			el.Oxia = new L.LatLng(18.2, -24.55);
-			el.Mawrth = new L.LatLng(22.16, -17.95);
-			el.center = new L.LatLng(15,-10);
-		}
+				el.Aram = new L.LatLng(7.87, -11.2);
+				el.Hypanis = new L.LatLng(11.8, -45.04);
+				el.Oxia = new L.LatLng(18.2, -24.55);
+				el.Mawrth = new L.LatLng(22.16, -17.95);
+				el.center = new L.LatLng(15,-20);
+			}
 	  		var cartodbData = function(){
-			var layerURL = 'http://whereonmars.cartodb.com/api/v2/viz/03ec7c7c-bc6a-11e4-b600-0e4fddd5de28/viz.json';
-			// create cartoDB layer from vizjson url
-			cartodb.createLayer(el.map, layerURL)
-			.on('done', function(layer) {
-		  		layer.setZIndex(100); // all cartoDB layer will be above all the baselayers
-		  		var sublayer =layer.getSubLayer(0);
-		  		
-		  	   	el.landingSite = layer.createSubLayer({
+				var layerURL = 'http://whereonmars.cartodb.com/api/v2/viz/03ec7c7c-bc6a-11e4-b600-0e4fddd5de28/viz.json';
+				// create cartoDB layer from vizjson url
+				cartodb.createLayer(el.map, layerURL)
+				.on('done', function(layer) {
+		  			layer.setZIndex(100); // all cartoDB layer will be above all the baselayers
+		  			var sublayer =layer.getSubLayer(0);
+		  	   		el.landingSite = layer.createSubLayer({
 		  	   	sql: "SELECT * FROM exomars_landing_sites_four",
-		  		cartocss: '#exomars_landing_sites_four{marker-fill-opacity: 0.9;marker-line-color: #FFF; marker-line-width: 1.5;  marker-line-opacity: 1;marker-placement: point;marker-type: ellipse;  marker-width: 10;marker-fill: #FF6600;  marker-allow-overlap: true;}'
+		  		cartocss: '#exomars_landing_sites_four{marker-line-color: #FFF; marker-line-width: 1;  marker-line-opacity: 1;marker-placement: point;marker-type: ellipse;  marker-width: 10;marker-fill: #FF6600;  marker-allow-overlap: true;}'
 
 		  	   	});
-		  	   	el.latConstraint = layer.createSubLayer({
+		  	   		el.latConstraint = layer.createSubLayer({
 		  			sql: "SELECT * FROM lat_constraints",
 		  			cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}'
 		  		});
-		  		el.ellipses = layer.createSubLayer({
+		  			el.ellipses = layer.createSubLayer({
 		  			sql: "SELECT * FROM exomars_landing_sites_ellipses",
 		  			cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
 	
  	  		    });
- 	  		    el.ellipses1 = layer.createSubLayer({
+ 	  		    	el.ellipses1 = layer.createSubLayer({
 		  			sql: "SELECT * FROM exomars_landing_sites_ellipses WHERE id = 1",
 		  			cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
 	
  	  		    });
- 	  		    el.ellipses2 = layer.createSubLayer({
+ 	  		    	el.ellipses2 = layer.createSubLayer({
 		  			sql: "SELECT * FROM exomars_landing_sites_ellipses WHERE id = 2",
 		  			cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
 	
  	  		    });
- 	  		    el.ellipses3 = layer.createSubLayer({
+ 	  		    	el.ellipses3 = layer.createSubLayer({
 		  			sql: "SELECT * FROM exomars_landing_sites_ellipses WHERE id = 4",
 		  			cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
 	
  	  		    });
- 	  		    el.ellipses4 = layer.createSubLayer({
+ 	  		    	el.ellipses4 = layer.createSubLayer({
 		  			sql: "SELECT * FROM exomars_landing_sites_ellipses WHERE id = 5",
 		  			cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
 	
  	  		    });
- 	  		    var base = el.basemap;
- 	  		    var baseColor = el.basemapColor;
- 	  		    var map = el.map;
-		 		// define LayerAction to add or remove the layers
-		  		el.LayerActions = {
-		  			MOLA: function(){
-		  				
-		  				
-		  				if (map.hasLayer(base)){
-		  					map.removeLayer(base);
-		  				}else{
-		  					map.addLayer(base)
-		  				};
-		  				if (map.hasLayer(baseColor)){
-		  					map.removeLayer(baseColor);
-		  				}else{
-		  					map.addLayer(base)
-		  				};
-		  			},
-					MOLA_color: function(){
-					
-		  				
-		  				if (map.hasLayer(baseColor)){
-		  					map.removeLayer(baseColor);
-		  				}else{
-		  					map.addLayer(baseColor)
-		  				};
-		  				if (map.hasLayer(base)){
-		  					map.removeLayer(base);
-		  				}else{
-		  					map.addLayer(baseColor)
-		  				};
-		  				
-					},
-					hrscAram: function(){
-		  				var hrscAram = el.tileLayerAramHrsc;
-		  				
-		  				if (map.hasLayer(hrscAram)){
-		  					map.removeLayer(hrscAram);
-		  				}else{
-		  					map.addLayer(hrscAram)
-		  				};
-		  			},
-					hrscHypanis: function(){
-		  				var hrscHypanis = el.tileLayerHypanisHrsc;
-		  				
-		  				if (map.hasLayer(hrscHypanis)){
-		  					map.removeLayer(hrscHypanis);
-		  				}else{
-		  					map.addLayer(hrscHypanis)
-		  				};
-		  			},
-					hrscOxia: function(){
-		  				var hrscOxia = el.tileLayerOxiaHrsc;
-		  				
-		  				if (map.hasLayer(hrscOxia)){
-		  					map.removeLayer(hrscOxia);
-		  				}else{
-		  					map.addLayer(hrscOxia)
-		  				};
-		  			},
-					hrscMawrth: function(){
-		  				var hrscMawrth = el.tileLayerMawrthHrsc;
-		  				
-		  				if (map.hasLayer(hrscMawrth)){
-		  					map.removeLayer(hrscMawrth);
-		  				}else{
-		  					map.addLayer(hrscMawrth)
-		  				};
-		  			},
-		  			HiRISEOxia: function(){
-		  				var HiRISEOxia = el.tileLayerOxiaHiRISE;
-		  				
-		  				if (map.hasLayer(HiRISEOxia)){
-		  					map.removeLayer(HiRISEOxia);
-		  				}else{
-		  					map.addLayer(HiRISEOxia)
-		  				};
-		  			},
-		  			HiRISEMawrth: function(){
-		  				var HiRISEMawrth = el.tileLayerMawrthHiRISE;
-		  				
-		  				if (map.hasLayer(HiRISEMawrth)){
-		  					map.removeLayer(HiRISEMawrth);
-		  				}else{
-		  					map.addLayer(HiRISEMawrth)
-		  				};
-		  			},		
-		  			constraint1 : function() {
-      					el.latConstraint.toggle();
-      				},
-    				ellipses: function(){
-    					el.ellipses.toggle();
-    				},
-   					ellipses1: function(){
-    					el.ellipses1.toggle();
-    				},
-     				ellipses2: function(){
-    					el.ellipses2.toggle();
-    				},
-    				ellipses3: function(){
-    					el.ellipses3.toggle();
-    				},
-    				ellipses4: function(){
-    					el.ellipses4.toggle();
-    				}
-				}
-        
-		  		// hide layers when load the map element
-		  		el.landingSite.show();
-		  		el.latConstraint.hide();
-		  		el.ellipses.hide();
-		  		el.ellipses1.hide();
-		  		el.ellipses2.hide();
-		  		el.ellipses3.hide();
-		  		el.ellipses4.hide();
-		  		
-		  		// add cartoDB layers into the map
-		  		el.map.addLayer(layer, false);
-		  		 
+ 	  		    	var base = el.basemap;
+ 	  		    	var baseColor = el.basemapColor;
+ 	  		    	var map = el.map;
+		 			// define LayerAction to add or remove the layers
+		  			el.LayerActions = {
+		  				MOLA: function(){		
+		  					if (map.hasLayer(base)){
+		  						map.removeLayer(base);
+		  					}else{
+		  						map.addLayer(base)
+		  					};
+		  					if (map.hasLayer(baseColor)){
+		  						map.removeLayer(baseColor);
+		  					}else{
+		  						map.addLayer(base)
+		  					};
+		  				},
+						MOLA_color: function(){	  				
+		  					if (map.hasLayer(baseColor)){
+		  						map.removeLayer(baseColor);
+		  					}else{
+		  						map.addLayer(baseColor)
+		  					};
+		  					if (map.hasLayer(base)){
+		  						map.removeLayer(base);
+		  					}else{
+		  						map.addLayer(baseColor)
+		  					};	
+						},
+						hrscAram: function(){
+		  					var hrscAram = el.tileLayerAramHrsc;
+		  					if (map.hasLayer(hrscAram)){
+		  						map.removeLayer(hrscAram);
+		  					}else{
+		  						map.addLayer(hrscAram)
+		  					};
+		  				},
+						hrscHypanis: function(){
+		  					var hrscHypanis = el.tileLayerHypanisHrsc;	
+		  					if (map.hasLayer(hrscHypanis)){
+		  						map.removeLayer(hrscHypanis);
+		  					}else{
+		  						map.addLayer(hrscHypanis)
+		  					};
+		  				},
+						hrscOxia: function(){
+		  					var hrscOxia = el.tileLayerOxiaHrsc;	
+		  					if (map.hasLayer(hrscOxia)){
+		  						map.removeLayer(hrscOxia);
+		  					}else{
+		  						map.addLayer(hrscOxia)
+		  					};
+		  				},
+						hrscMawrth: function(){
+		  					var hrscMawrth = el.tileLayerMawrthHrsc;
+		  					if (map.hasLayer(hrscMawrth)){
+		  						map.removeLayer(hrscMawrth);
+		  					}else{
+		  						map.addLayer(hrscMawrth)
+		  					};
+		  				},
+		  				HiRISEOxia: function(){
+		  					var HiRISEOxia = el.tileLayerOxiaHiRISE;
+		  					if (map.hasLayer(HiRISEOxia)){
+		  						map.removeLayer(HiRISEOxia);
+		  					}else{
+		  						map.addLayer(HiRISEOxia)
+		  					};
+		  				},
+		  				HiRISEMawrth: function(){
+		  					var HiRISEMawrth = el.tileLayerMawrthHiRISE;
+		  					if (map.hasLayer(HiRISEMawrth)){
+		  						map.removeLayer(HiRISEMawrth);
+		  					}else{
+		  						map.addLayer(HiRISEMawrth)
+		  					};
+		  				},		
+		  				constraint1 : function() {
+      						el.latConstraint.toggle();
+      					},
+    					ellipses: function(){
+    						el.ellipses.toggle();
+    					},
+   						ellipses1: function(){
+    						el.ellipses1.toggle();
+    					},
+     					ellipses2: function(){
+    						el.ellipses2.toggle();
+    					},
+    					ellipses3: function(){
+    						el.ellipses3.toggle();
+    					},
+    					ellipses4: function(){
+    						el.ellipses4.toggle();
+    					}
+					}
+		  			// hide layers when load the map element
+		  			el.landingSite.show();
+		  			el.latConstraint.hide();
+		  			el.ellipses.hide();
+		  			el.ellipses1.hide();
+		  			el.ellipses2.hide();
+		  			el.ellipses3.hide();
+		  			el.ellipses4.hide();
+		  			// add cartoDB layers into the map
+		  			el.map.addLayer(layer, false); 
 		  		});
 		 	} 
-
-	  // when you click a button, this(click) function will activate
-  	  $('.button').click(function() { // mouse event, when click button do something ( this something is inside the brackets)
-  		$('.button').removeClass('selected'); // when click button  remove the class selected
-  		$(this).addClass('selected'); // when click  button, add class selected
-  		el.LayerActions[$(this).attr('id')](); // call LayerAction function and get the id attribute of the element
-		}); // end of click event
-
-	  function click(el) {
-      	var element = O.Core.getElement(el);
-      	var t = O.Trigger();
-
-      	function click() {
-			t.trigger();
-      	}
-     	if (element) element.onclick = click;
-	    	return t;
-   		}
-	  // trigger a custom event called SlideChange
-      var emitSlideChange = O.Action( function() {
-     		$(document).trigger('slideChange', function(){
-      			trackCurrentSlide();
-     		});
-    	});  	
-	
-	  // listen for the slideChange event to be triggered
-      function listenSlideChange() {
-      		$(document).on('slideChange', function() {
-				trackCurrentSlide();
-      		});
-    	}
-    
-      // fire "this" each time the user changes a slide
-      function trackCurrentSlide(){
-    	slides = $('#slides').children(); // creates an array of slides
-    	slides.each(function(i){
-    		if ($(this).hasClass('selected')){ 
-        		console.log('index: ', i);
-    			checkIndex(i);
+	  		// when you click a button, this(click) function will activate
+  	  		$('.button').click(function() { // mouse event, when click button do something ( this something is inside the brackets)
+  				$('.button').removeClass('selected'); // when click button  remove the class selected
+  				$(this).addClass('selected'); // when click  button, add class selected
+  				el.LayerActions[$(this).attr('id')](); // call LayerAction function and get the id attribute of the element
+			}); // end of click event
+	  		function click(el) {
+      			var element = O.Core.getElement(el);
+      			var t = O.Trigger();
+      			function click() {
+					t.trigger();
+      			}
+     			if (element) element.onclick = click;
+	    			return t;
+   			}
+	  		// trigger a custom event called SlideChange
+      		var emitSlideChange = O.Action( function() {
+     			$(document).trigger('slideChange', function(){
+      				trackCurrentSlide();
+     			});
+    		});  	
+	  		// listen for the slideChange event to be triggered
+      		function listenSlideChange() {
+      			$(document).on('slideChange', function() {
+					trackCurrentSlide();
+      			});
     		}
-    	}); 
-      }
-       
-      // check the index being returned by trackCurrentSlide()
-      function checkIndex(index) {
-      	switch(index){
-
-        case 0: console.log('overview'), slideZero(); 
-        break;
-        case 1: console.log('latconstraint'), slideOne();
-        break;        
-        case 2: console.log('aram dorsum'), slideTwo();
-        break;
-        case 3: console.log('hypanis vallis'), slideThree();
-        break;
-        case 4: console.log('oxia planum'), slideFour();
-        break;
-        case 5: console.log('mawrth vallis'), slideFive();
-        break;
-        case 6: console.log('the end'), slideSix();
-        break;      
-        default: console.log('other');  
-      }
-    }
-      // overview
-      function slideZero() {
-      // only show landing sites
-     	el.landingSite.show();
-	 	el.latConstraint.hide();
-	 	el.ellipses.hide();
-	 	el.ellipses1.hide();
-	 	el.ellipses2.hide();
-	 	el.ellipses3.hide();
-	 	el.ellipses4.hide();
-    }
-	  //overview with lat constraints
-      function slideOne() {      
-    //add the latitude constraint
-    	el.latConstraint.show();  
-    	el.landingSite.show();
-     	el.ellipses.hide();
-	 	el.ellipses1.hide();
-	 	el.ellipses2.hide();
-	 	el.ellipses3.hide();
-	 	el.ellipses4.hide();
-    }
-      // Aram Dorsum
-      function slideTwo() {
-     	el.landingSite.show();  
-     	el.latConstraint.hide();
-     	el.ellipses.hide();
-	 	el.ellipses1.show();
-	 	el.ellipses2.hide();
-	 	el.ellipses3.hide();
-	 	el.ellipses4.hide();
-     
-    }
-      // Hypanis Vallis
-      function slideThree() {
-     	el.landingSite.show();  
-     	el.latConstraint.hide();
-     	el.ellipses.hide();
-	 	el.ellipses1.hide();
-	 	el.ellipses2.show();
-	 	el.ellipses3.hide();
-	 	el.ellipses4.hide();
-     
-    }
-      // Oxia Planum
-      function slideFour() {
-     	el.landingSite.show();  
-     	el.latConstraint.hide();
-     	el.ellipses.hide();
-	 	el.ellipses1.hide();
-	 	el.ellipses2.hide();
-	 	el.ellipses3.show();
-	 	el.ellipses4.hide();
-     
-    }
-      //Mawrth Vallis
-      function slideFive() {
-     	el.landingSite.show();  
-     	el.latConstraint.hide();
-     	el.ellipses.hide();
-	 	el.ellipses1.hide();
-	 	el.ellipses2.hide();
-	 	el.ellipses3.hide();
-	 	el.ellipses4.show();
-     
-    }
-      // End of the story/overview
-      function slideSix() {
-     	el.landingSite.show();  
-     	el.latConstraint.hide(); 
-     	el.ellipses.hide();
-	 	el.ellipses1.hide();
-	 	el.ellipses2.hide();
-	 	el.ellipses3.hide();
-	 	el.ellipses4.hide();
-    }
-        
-      function initOdyssey(O) {
-
-      // O is for Odyssey
-      var map = el.map;
-
-      var seq = O.Triggers.Sequential();
-
-      // enable keys to move slides
-      O.Triggers.Keys().left().then(seq.prev, seq)
-      O.Triggers.Keys().right().then(seq.next, seq)
-      // set up triggers for slide arrows 
-      click(document.querySelectorAll('.next')).then(seq.next, seq)
-      click(document.querySelectorAll('.prev')).then(seq.prev, seq)  
-
-      var slides = O.Actions.Slides('slides');
-      
-      el.story =  O.Story()
-        .addState(
-          seq.step(0),
-          O.Parallel(  
-          
-          //setting setView here I assure that when the user zoom to a center or the landing sites
-          // coordinates, it will go to the coordinates
-          //There's a "bug" in leaflet that if you put panTo() and setZoom()
-          // it won't go to the coordinates requested
-          
-            el.map.actions.setView(el.center,3), 
-			slides.activate(0),
-            emitSlideChange
-          )
-        )
-        .addState(
-          seq.step(1),
-          O.Parallel(
-          // setting setView here I assure that if the user click prev button,
-          // it will show the overview 
-            el.map.actions.setView(el.center,3), 
-            slides.activate(1),
-            emitSlideChange
-          )
-        )
-        // setview(coordinates to pan, zoom level, true: "reset the map view"(without animations of panning)) If true is not added, it will
-        // load the overlays that should disappear when the user change the slide. For example: if the minZoom it's 7 and the user change to
-        // a slide where the the minZoom is 5 it keeps the tile layer even if the layer minZoom is 7
-        
-        .addState(
-          seq.step(2),
-          O.Parallel(                        
-            el.map.actions.setView(el.Aram,9),
-            slides.activate(2),
-            emitSlideChange
-          )
-        )                  
-        .addState(
-          seq.step(3),
-          O.Parallel(            
-            el.map.actions.setView(el.Hypanis,9),
-            slides.activate(3),
-            emitSlideChange         
-          )
-        )
-        .addState(
-          seq.step(4),
-          O.Parallel(            
-            el.map.actions.setView(el.Oxia,9),
-            slides.activate(4),
-            emitSlideChange       
-          )
-        )
-        .addState(
-          seq.step(5),
-          O.Parallel(         
-            el.map.actions.setView(el.Mawrth,9),
-            slides.activate(5),
-            emitSlideChange       
-          )
-        )                
-        .addState(
-          seq.step(6),
-          O.Parallel(
-          	
-            el.map.actions.setView(el.center,3,true),
-            slides.activate(6),
-            emitSlideChange)
-          );
-        
-           
-        
-      el.story.go(0);
-    }  	
-		
-	  function init() {
-      initMap();
-      cartodbData();
-      initOdyssey(O);
-      listenSlideChange();            
-    } 
-
-      return {
-      init : init,
-      el: el
-    }	
-		
-	
-  })(window, document, jQuery,O);
-	
+      		// fire "this" each time the user changes a slide
+      		function trackCurrentSlide(){
+    			slides = $('#slides').children(); // creates an array of slides
+    			slides.each(function(i){
+    				if ($(this).hasClass('selected')){ 
+        				checkIndex(i);
+    				}
+    			}); 
+      		}
+      		// check the index being returned by trackCurrentSlide()
+      		function checkIndex(index) {
+      			switch(index){
+        			case 0: slideZero(); 
+        			break;
+        			case 1: slideOne();
+        			break;        
+        			case 2: slideTwo();
+        			break;
+        			case 3: slideThree();
+        			break;
+        			case 4: slideFour();
+        			break;
+        			case 5: slideFive();
+        			break;
+        			case 6: slideSix();
+        			break;      
+        			
+      			}
+   			 }
+      		// overview
+      		function slideZero() {
+      			// only show landing sites
+     			el.landingSite.show();
+	 			el.latConstraint.hide();
+	 			el.ellipses.hide();
+	 			el.ellipses1.hide();
+	 			el.ellipses2.hide();
+	 			el.ellipses3.hide();
+	 			el.ellipses4.hide();
+    		}
+	  		//overview with lat constraints
+      		function slideOne() {      
+    			//add the latitude constraint
+    			el.latConstraint.show();  
+    			el.landingSite.show();
+     			el.ellipses.hide();
+	 			el.ellipses1.hide();
+	 			el.ellipses2.hide();
+	 			el.ellipses3.hide();
+	 			el.ellipses4.hide();
+    		}
+      		// Aram Dorsum
+      		function slideTwo() {
+     			el.landingSite.show();  
+     			el.latConstraint.hide();
+     			el.ellipses.hide();
+	 			el.ellipses1.show();
+	 			el.ellipses2.hide();
+	 			el.ellipses3.hide();
+	 			el.ellipses4.hide();
+    		}
+      		// Hypanis Vallis
+      		function slideThree() {
+     			el.landingSite.show();  
+     			el.latConstraint.hide();
+     			el.ellipses.hide();
+	 			el.ellipses1.hide();
+	 			el.ellipses2.show();
+	 			el.ellipses3.hide();
+	 			el.ellipses4.hide();
+    		}
+      		// Oxia Planum
+      		function slideFour() {
+     			el.landingSite.show();  
+     			el.latConstraint.hide();
+     			el.ellipses.hide();
+	 			el.ellipses1.hide();
+	 			el.ellipses2.hide();
+	 			el.ellipses3.show();
+	 			el.ellipses4.hide();
+    		}
+      		//Mawrth Vallis
+      		function slideFive() {
+     			el.landingSite.show();  
+     			el.latConstraint.hide();
+     			el.ellipses.hide();
+	 			el.ellipses1.hide();
+	 			el.ellipses2.hide();
+	 			el.ellipses3.hide();
+	 			el.ellipses4.show();
+    		}
+      		// End of the story/overview
+      		function slideSix() {
+     			el.landingSite.show();  
+     			el.latConstraint.hide(); 
+     			el.ellipses.hide();
+	 			el.ellipses1.hide();
+	 			el.ellipses2.hide();
+	 			el.ellipses3.hide();
+	 			el.ellipses4.hide();
+    		}
+      		function initOdyssey(O) {
+      			// O is for Odyssey
+      			var map = el.map;
+      			var seq = O.Triggers.Sequential();
+      			// enable keys to move slides
+      			O.Triggers.Keys().left().then(seq.prev, seq)
+      			O.Triggers.Keys().right().then(seq.next, seq)
+      			// set up triggers for slide arrows 
+      			click(document.querySelectorAll('.next')).then(seq.next, seq)
+      			click(document.querySelectorAll('.prev')).then(seq.prev, seq)  
+      			var slides = O.Actions.Slides('slides');
+        		//setting setView here I assure that when the user zoom to a center or the landing sites
+        		// coordinates, it will go to the coordinates
+        		//There's a "bug" in leaflet that if you put panTo() and setZoom()
+        		//it won't go to the coordinates requested
+      			el.story =  O.Story()
+        			.addState(
+          		seq.step(0),
+          		O.Parallel(       
+            		el.map.actions.setView(el.center,3), 
+					slides.activate(0),
+            		emitSlideChange
+          		)
+        	)
+        			// setting setView here I assure that if the user click prev button,
+          			// it will show the overview 
+        			.addState(
+          		seq.step(1),
+          		O.Parallel(
+            		el.map.actions.setView(el.center,3), 
+            		slides.activate(1),
+            		emitSlideChange
+          		)
+        	)
+        			// setview(coordinates to pan, zoom level, true: "reset the map view"(without animations of panning)) If true is not added, it will
+        			// load the overlays that should disappear when the user change the slide. For example: if the minZoom it's 7 and the user change to
+        			// a slide where the the minZoom is 5 it keeps the tile layer even if the layer minZoom is 7        
+        			.addState(
+          		seq.step(2),
+          		O.Parallel(                        
+            		el.map.actions.setView(el.Aram,10),
+            		slides.activate(2),
+            		emitSlideChange
+          		)
+        	)                  
+        			.addState(
+          		seq.step(3),
+          		O.Parallel(            
+            		el.map.actions.setView(el.Hypanis,10),
+            		slides.activate(3),
+            		emitSlideChange         
+          		)
+        	)
+        			.addState(
+          		seq.step(4),
+          		O.Parallel(            
+            		el.map.actions.setView(el.Oxia,10),
+            		slides.activate(4),
+            		emitSlideChange       
+          		)
+        	)
+        			.addState(
+          		seq.step(5),
+          		O.Parallel(         
+            		el.map.actions.setView(el.Mawrth,10),
+            		slides.activate(5),
+            		emitSlideChange       
+          		)
+        	)                
+        			.addState(
+          		seq.step(6),
+          		O.Parallel(
+            		el.map.actions.setView(el.center,3,true),
+            		slides.activate(6),
+            		emitSlideChange
+            	)
+          	)
+      			el.story.go(0);
+      		}  	
+	  		function init() {
+      			initMap();
+      			cartodbData();
+      			initOdyssey(O);
+      			listenSlideChange();            
+      		}
+      		return {
+      			init : init,
+      		}			
+  	})(window, document, jQuery,O);
 	// 3. when the document has been completely loaded and parsed it applies the function to the window element  
-	
 	window.addEventListener("DOMContentLoaded", function(){
-    app.odysseyTest.init();
+    	app.odysseyTest.init();
   });
-	
-	</script>	
-
+</script>	
 </body>
 </html>		
 		
