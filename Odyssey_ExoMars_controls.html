@@ -73,13 +73,16 @@
   		height: auto;
    		display: none;
   		visibility: hidden;
+  		
  	}
 	#menu_options ul li ul li{
   		text-decoration: none;	
+  		
     }
 	#menu_options ul li ul li a{ 
   		background-color: #F7F6F4; 
   		color: #000000;
+  		border-radius: 5px;
 	}
 	#menu_options ul li ul li a:hover{ 
   		background-color: #F7F6F4; 
@@ -235,8 +238,10 @@
 			var initMap = function(){
 				// define map
 				el.map =  new L.Map('map', { 
-      				center: [15,-20],
+      				center: [15,-11],
       				zoom: 3,
+      				minZoom: 3,
+      				maxZoom: 18,
       				zoomControl: true,
       			});    		
     			// define basemap
@@ -256,7 +261,7 @@
 				el.tileLayerAramHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_aram-dorsum/{z}/{x}/{y}.png',{
   					tms:true,
   					minZoom: 7,
-  					opacity: 0.7, 			
+  					opacity: 0.5, 			
   					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   					updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    					bounds: L.latLngBounds(
@@ -267,7 +272,7 @@
 				el.tileLayerHypanisHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_hypanis/{z}/{x}/{y}.png',{
  					tms:true,
   					minZoom: 7,
-  					opacity: 0.7, 			
+  					opacity: 0.5, 			
   					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   					updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    					bounds: L.latLngBounds(
@@ -279,7 +284,7 @@
       			el.tileLayerOxiaHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_oxia-planum/{z}/{x}/{y}.png',{
  					tms:true,
   					minZoom: 7,
-  					opacity: 0.7,
+  					opacity: 0.5,
   					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   					updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    					bounds: L.latLngBounds(
@@ -290,7 +295,7 @@
 				el.tileLayerMawrthHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_mawrth-vallis/{z}/{x}/{y}.png',{
  					tms:true,
   					minZoom: 7,
-  					opacity: 0.7,
+  					opacity: 0.5,
   					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   					updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
    					bounds: L.latLngBounds(
@@ -330,7 +335,7 @@
 				el.Hypanis = new L.LatLng(11.8, -45.04);
 				el.Oxia = new L.LatLng(18.2, -24.55);
 				el.Mawrth = new L.LatLng(22.16, -17.95);
-				el.center = new L.LatLng(15,-20);
+				el.center = new L.LatLng(15,-11);
 			}
 	  		var cartodbData = function(){
 				var layerURL = 'http://whereonmars.cartodb.com/api/v2/viz/03ec7c7c-bc6a-11e4-b600-0e4fddd5de28/viz.json';
@@ -349,28 +354,28 @@
 		  			cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}'
 		  		});
 		  			el.ellipses = layer.createSubLayer({
-		  			sql: "SELECT * FROM exomars_landing_sites_ellipses",
-		  			cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
+		  			sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected",
+		  			cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FFF; line-width: 1;line-opacity: 1;}'
 	
  	  		    });
  	  		    	el.ellipses1 = layer.createSubLayer({
-		  			sql: "SELECT * FROM exomars_landing_sites_ellipses WHERE id = 1",
-		  			cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
+		  			sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE id IN (1, 6)",
+		  			cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FFF; line-width: 1;line-opacity: 1;}'
 	
  	  		    });
  	  		    	el.ellipses2 = layer.createSubLayer({
-		  			sql: "SELECT * FROM exomars_landing_sites_ellipses WHERE id = 2",
-		  			cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
+		  			sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE id IN (2, 7)",
+		  			cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FFF; line-width: 1;line-opacity: 1;}'
 	
  	  		    });
  	  		    	el.ellipses3 = layer.createSubLayer({
-		  			sql: "SELECT * FROM exomars_landing_sites_ellipses WHERE id = 4",
-		  			cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
+		  			sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE id IN (4, 8)",
+		  			cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FFF; line-width: 1;line-opacity: 1;}'
 	
  	  		    });
  	  		    	el.ellipses4 = layer.createSubLayer({
-		  			sql: "SELECT * FROM exomars_landing_sites_ellipses WHERE id = 5",
-		  			cartocss: '#exomars_landing_sites_ellipses{line-color: #FFF; line-width: 1;line-opacity: 1;}'
+		  			sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE  id IN (5, 9)",
+		  			cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FFF; line-width: 1;line-opacity: 1;}'
 	
  	  		    });
  	  		    	var base = el.basemap;
