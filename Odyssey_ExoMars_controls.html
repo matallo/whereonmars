@@ -15,10 +15,12 @@
   <script src="http://azavea.github.io/Leaflet.zoomdisplay/js/leaflet.zoomdisplay.js"></script>
   <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>		
   <style>
+	
 	#map{
 		width: 100%; 
 		height: 100%;
 	}  
+    
     #menu_options { 
     	position:absolute;
     	top:40px;
@@ -35,7 +37,9 @@
     #menu_options h3{ 
     	text-align: center;
     	font-family:"AleoBold";
+    		
     }
+    
     #menu_options ul {
     	text-align: left;
   		display: block;
@@ -49,7 +53,7 @@
     	width: 200px;
     	line-height: 30px;
     }
-    #menu_options ul li:hover ul {
+    #menu_options ul li:hover > ul {
   		display: block;
  		opacity: 1;
   		visibility: visible;
@@ -67,18 +71,14 @@
     	color: white;
     	background-color:#1A62A3;		
     }
+    
     #menu_options ul li ul{
   		position: relative;
   		width: auto;
   		height: auto;
    		display: none;
   		visibility: hidden;
-  		
  	}
-	#menu_options ul li ul li{
-  		text-decoration: none;	
-  		
-    }
 	#menu_options ul li ul li a{ 
   		background-color: #F7F6F4; 
   		color: #000000;
@@ -89,6 +89,32 @@
   		display: block; 
   		color: red;
 	}
+	
+	
+	#menu_options ul li  ul li ul{
+		position: relative;
+  		width: auto;
+  		height: auto;
+   		display: none;
+  		visibility: hidden;
+	}
+	#menu_options ul li ul li ul > li{
+		text-decoration: none;
+    	color: white;
+    	background-color:#1A62A3;
+	}
+	#menu_options ul li ul li ul li > a{
+		background-color:  #F7F6F4; 	 
+  		color: #000000;
+  		border-radius: 5px;
+	}
+	#menu_options ul li ul li ul li > a:hover{
+		background-color: #F7F6F4; 
+  		display: block; 
+  		color: red;
+  		visibility: visible;
+	}
+	
 	#slides_container {
     	display:block;
     	position:absolute;
@@ -111,13 +137,13 @@
 		<h3>Drop-down menu</h3>
 		<hr>
 		<ul>
-			<li class = "item1"><a href ="#">Base maps</a>
+			<li><a href ="#">Base maps</a>
 				<ul>
    					<li><a href="#MOLA" id="MOLA" class="button MOLA">MOLA</a></li>
-   					<li><a href="#MOLA_color" id="MOLA_color" class="button MOLA_color">MOLA Color</a>
+   					<li><a href="#MOLA_color" id="MOLA_color" class="button MOLA_color">MOLA Color</a></li>
    				</ul>
    				</li>
-   			<li class = "item2"><a href ="#">Hrsc Images</a>
+   			<li><a href ="#">Hrsc Images</a>
 				<ul>
    					<li><a href="#hrscAram" id="hrscAram" class="button hrscAram">Hrsc Aram Dorsum</a></li>
    					<li><a href="#hrscHypanis" id="hrscHypanis" class="button hrscHypanis">Hrsc Hypanis Vallis</a></li>
@@ -125,25 +151,46 @@
    					<li><a href="#hrscMawrth" id="hrscMawrth" class="button hrscMawrth">Hrsc Mawrth Vallis</a></li>
    				</ul>
    			</li>
-   			<li class = "item3"><a href ="#">HiRISE Images</a>
+   			<li><a href ="#">HiRISE Images</a>
    				<ul>
    					<li><a href="#HiRISEOxia" id="HiRISEOxia" class="button HiRISEOxia">HiRISE Oxia Planum</a></li>
    				 	<li><a href="#HiRISEMawrth" id="HiRISEMawrth" class="button HiRISEMawrth">HiRISE Mawrth Vallis</a></li>
    				 </ul>
    			</li>
-			<li class = "item4"><a href ="#">Constraints</a>
+			<li><a href ="#">Constraints</a>
 				<ul>
    					<li><a href="#constraint1" id="constraint1" class="button constraint1">Latitude constraint</a></li>
    				</ul>
    			</li>
-   			<li class = "item5"><a href ="#">Landing sites</a>
+   			<li><a href ="#">Landing sites</a>
    				 <ul>
-   				 	<li><a href="#ellipses1" id="ellipses1" class="button ellipses1">Aram Dorsum</a></li>
-   				 	<li><a href="#ellipses2" id="ellipses2" class="button ellipses2">Hypanis Vallis</a></li>
-   				 	<li><a href="#ellipses3" id="ellipses3" class="button ellipses3">Oxia Planum</a></li>
-   				 	<li><a href="#ellipses4" id="ellipses4" class="button ellipses4">Mawrth Vallis</a></li>
+   				 	<li class = "submenu"><a href ="#">Aram Dorsum</a>
+   				 		<ul>
+   				 			<li><a href="#ellipses1" id="ellipses1" class="button ellipses1">Landing 2018</a></li>
+   				 			<li><a href="#ellipses5" id="ellipses5" class="button ellipses5">Landing 2020</a></li>
+   				 		</ul>	
+   				 	</li>
+   				 	<li class = "submenu"><a href ="#">Hypanis Vallis</a>
+   				 		<ul>
+   				 			<li><a href="#ellipses2" id="ellipses2" class="button ellipses2">Landing 2018</a></li>
+   				 			<li><a href="#ellipses6" id="ellipses6" class="button ellipses6">Landing 2020</a></li>
+   				 		</ul>	
+   				 	</li>
+   				 	<li class = "submenu"><a href ="#">Oxia Planum</a>
+   				 		<ul>
+   				 			<li><a href="#ellipses3" id="ellipses3" class="button ellipses3">Landing 2018</a></li>
+   				 			<li><a href="#ellipses7" id="ellipses7" class="button ellipses7">Landing 2020</a></li>
+   				 		</ul>	
+   				 	</li>
+   				 	<li class = "submenu"><a href ="#">Mawrth Vallis</a>
+   				 		<ul>
+   				 			<li><a href="#ellipses4" id="ellipses4" class="button ellipses4">Landing 2018</a></li>
+   				 			<li><a href="#ellipses8" id="ellipses8" class="button ellipses8">Landing 2020</a></li>
+   				 		</ul>	
+   				 	</li>
    				 </ul>
   			</li>
+  			
   		</ul>	
    	</div>
   		<!-- define element with id = slides -->
@@ -163,32 +210,59 @@
 				</div>
 				<!-- SLIDE #2 -->
 				<div class="slide">
-					<h1 id="Aram">Aram Dorsum</h1>
+					<h1 id="Aram">Aram Dorsum 2018</h1>
 					<p>It is the highest and the closest site to the Martian equator</p>
 					<p>The Aram Dorsum site receives its name from the Aram Dorsum channel, curving from northeast to west across the landing location. The sedimentary rocks around the channel are interpreted to be alluvial sediments deposited much like those around Earth's River Nile.</p>
 					
 				</div>
 				<!-- SLIDE #3 -->
 				<div class="slide">
-					<h1 id="Hypanis">Hypanis Vallis</h1>
-					<p>Hypanis Vallis is one of several valleys situated between two large outflow channels, Maja Vallis in the west and Shalbatana Vallis in the east.</p>
-					<p>The valleys are thought to have been formed by groundwater seepage or surface runoff. Several of the valleys, including Hypanis Vallis, have fan-shaped deposits at their termini. These fluvial deposits are interpreted as the remnants of a delta that formed in a lake. They are characterised by distinct layering at their margins, providing access to the various sedimentary layers.</p>
+					<h1 id="Aram">Aram Dorsum 2020</h1>
+					<p>It is the highest and the closest site to the Martian equator</p>
+					<p>The Aram Dorsum site receives its name from the Aram Dorsum channel, curving from northeast to west across the landing location. The sedimentary rocks around the channel are interpreted to be alluvial sediments deposited much like those around Earth's River Nile.</p>
+					
 				</div>
 				<!-- SLIDE #4 -->
 				<div class="slide">
-					<h1 id="Oxia">Oxia Planum</h1>
+					<h1 id="Hypanis">Hypanis Vallis 2018</h1>
+					<p>Hypanis Vallis is one of several valleys situated between two large outflow channels, Maja Vallis in the west and Shalbatana Vallis in the east.</p>
+					<p>The valleys are thought to have been formed by groundwater seepage or surface runoff. Several of the valleys, including Hypanis Vallis, have fan-shaped deposits at their termini. These fluvial deposits are interpreted as the remnants of a delta that formed in a lake. They are characterised by distinct layering at their margins, providing access to the various sedimentary layers.</p>
+				</div>
+				<!-- SLIDE #5 -->
+				<div class="slide">
+					<h1 id="Hypanis">Hypanis Vallis 2020</h1>
+					<p>Hypanis Vallis is one of several valleys situated between two large outflow channels, Maja Vallis in the west and Shalbatana Vallis in the east.</p>
+					<p>The valleys are thought to have been formed by groundwater seepage or surface runoff. Several of the valleys, including Hypanis Vallis, have fan-shaped deposits at their termini. These fluvial deposits are interpreted as the remnants of a delta that formed in a lake. They are characterised by distinct layering at their margins, providing access to the various sedimentary layers.</p>
+				</div>
+				<!-- SLIDE #6 -->
+				<div class="slide">
+					<h1 id="Oxia">Oxia Planum 2018</h1>
 					<p>The region is characterised by ancient highland cratered terrains that become increasingly eroded towards the highland-lowland boundary.</p>
 					<p>The candidate landing site area in Oxia Planum is located inside a shallow basin, at the outlet of the Coogoon Valles system. The region was chosen to include extensive, layered exposures rich in iron and magnesium phyllosilicates.</p>
 					<p>The main scientific concern for this site relates to the lack of precise information regarding the geologic context and origin of the clay-bearing unit. However, the phyllosilicate deposits are seen as the key to the study of aqueous activity on early Mars and the search for evidence of habitable environments early in the planet’s history.</p>
 				</div>
-				<!-- SLIDE #5-->
+				<!-- SLIDE #7 -->
 				<div class="slide">
-					<h1 id="Mawrth">Mawrth Vallis</h1>
+					<h1 id="Oxia">Oxia Planum 2020</h1>
+					<p>The region is characterised by ancient highland cratered terrains that become increasingly eroded towards the highland-lowland boundary.</p>
+					<p>The candidate landing site area in Oxia Planum is located inside a shallow basin, at the outlet of the Coogoon Valles system. The region was chosen to include extensive, layered exposures rich in iron and magnesium phyllosilicates.</p>
+					<p>The main scientific concern for this site relates to the lack of precise information regarding the geologic context and origin of the clay-bearing unit. However, the phyllosilicate deposits are seen as the key to the study of aqueous activity on early Mars and the search for evidence of habitable environments early in the planet’s history.</p>
+				</div>
+				<!-- SLIDE #8-->
+				<div class="slide">
+					<h1 id="Mawrth">Mawrth Vallis 2018</h1>
+					<p>This area contains a large outflow channel known as Mawrth Vallis, which once discharged huge amounts of water onto the northern plains. The proposed ExoMars landing site is situated just south of this channel.</p>
+					<p>The region surrounding Mawrth Vallis contains one of the largest exposures of phyllosilicates (clay minerals produced by chemical weathering) detected on Mars. These deposits provide a unique opportunity to evaluate aqueous activity on early Mars and point to the possibility that habitable environments may have existed during the Noachian period (from the formation of the planet to perhaps 3.6 billion years ago). Other deposits and outcrops in the region show the highest degree of mineral alteration identified so far on Mars.</p>
+				
+				</div>
+				<!-- SLIDE #9-->
+				<div class="slide">
+					<h1 id="Mawrth">Mawrth Vallis 2020</h1>
 					<p>This area contains a large outflow channel known as Mawrth Vallis, which once discharged huge amounts of water onto the northern plains. The proposed ExoMars landing site is situated just south of this channel.</p>
 					<p>The region surrounding Mawrth Vallis contains one of the largest exposures of phyllosilicates (clay minerals produced by chemical weathering) detected on Mars. These deposits provide a unique opportunity to evaluate aqueous activity on early Mars and point to the possibility that habitable environments may have existed during the Noachian period (from the formation of the planet to perhaps 3.6 billion years ago). Other deposits and outcrops in the region show the highest degree of mineral alteration identified so far on Mars.</p>
 				
 				</div>	
-				<!-- SLIDE #6 -->
+				<!-- SLIDE #10 -->
 				<div class="slide">
 					<h1 id="end">The End</h1>
 					<p>Great explanation inside this chapter</br>with some incredible images and data</p>
@@ -199,6 +273,9 @@
 			<li><a class = "next"></a></li>		
 	    </ul>	
 	</div>
+
+
+
 <script>
 	var app =  {};
 	// 2. define odyssey as a property of the ExoMars object. The value of the property is a function.
@@ -232,7 +309,12 @@
 				ellipses2: null,
 				ellipses3: null,
 				ellipses4: null,
+				ellipses5: null,
+				ellipses6: null,
+				ellipses7: null,
+				ellipses8: null,
 				LayerActions: null
+				
 			};
 			// 	define function that initiates the map element
 			var initMap = function(){
@@ -242,8 +324,11 @@
       				zoom: 3,
       				minZoom: 3,
       				maxZoom: 18,
-      				zoomControl: true,
-      			});    		
+      				zoomControl: false
+      			}); 
+      			   
+      			new L.control.zoom({position : 'bottomright'}).addTo(el.map);		
+    			
     			// define basemap
     			el.basemap = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
  					attribution: 'GISLAB',
@@ -345,39 +430,49 @@
 		  			layer.setZIndex(100); // all cartoDB layer will be above all the baselayers
 		  			var sublayer =layer.getSubLayer(0);
 		  	   		el.landingSite = layer.createSubLayer({
-		  	   	sql: "SELECT * FROM exomars_landing_sites_four",
-		  		cartocss: '#exomars_landing_sites_four{marker-line-color: #FFF; marker-line-width: 1;  marker-line-opacity: 1;marker-placement: point;marker-type: ellipse;  marker-width: 10;marker-fill: #FF6600;  marker-allow-overlap: true;}'
-
-		  	   	});
+		  	   			sql: "SELECT * FROM exomars_landing_sites_four",
+		  				cartocss: '#exomars_landing_sites_four{marker-line-color: #FFF; marker-line-width: 1;  marker-line-opacity: 1;marker-placement: point;marker-type: ellipse;  marker-width: 10;marker-fill: #FF6600;  marker-allow-overlap: false;}'
+		  	   		});
 		  	   		el.latConstraint = layer.createSubLayer({
-		  			sql: "SELECT * FROM lat_constraints",
-		  			cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}'
-		  		});
+		  				sql: "SELECT * FROM lat_constraints",
+		  				cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}'
+		  			});
 		  			el.ellipses = layer.createSubLayer({
-		  			sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected",
-		  			cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FFF; line-width: 1;line-opacity: 1;}'
-	
- 	  		    });
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected",
+		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FFF; line-width: 1;line-opacity: 0;}'
+ 	  		    	});
  	  		    	el.ellipses1 = layer.createSubLayer({
-		  			sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE id IN (1, 6)",
-		  			cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FFF; line-width: 1;line-opacity: 1;}'
-	
- 	  		    });
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE id IN (1, 6)",
+		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
+ 	  		    	});
  	  		    	el.ellipses2 = layer.createSubLayer({
-		  			sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE id IN (2, 7)",
-		  			cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FFF; line-width: 1;line-opacity: 1;}'
-	
- 	  		    });
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE id IN (2, 7)",
+		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
+ 	  		   		});
  	  		    	el.ellipses3 = layer.createSubLayer({
-		  			sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE id IN (4, 8)",
-		  			cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FFF; line-width: 1;line-opacity: 1;}'
-	
- 	  		    });
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE id IN (4, 8)",
+		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
+ 	  		    	});
  	  		    	el.ellipses4 = layer.createSubLayer({
-		  			sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE  id IN (5, 9)",
-		  			cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FFF; line-width: 1;line-opacity: 1;}'
-	
- 	  		    });
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE  id IN (5, 9)",
+		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
+ 	  		    	});
+ 	  		    	el.ellipses5 = layer.createSubLayer({
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE  id IN (10, 15, 19, 23)",
+		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
+ 	  		    	});
+ 	  		    	el.ellipses6 = layer.createSubLayer({
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE  id IN (11, 16, 20, 24)",
+		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
+ 	  		    	});
+ 	  		    	el.ellipses7 = layer.createSubLayer({
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE  id IN (12, 17, 21, 25)",
+		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
+ 	  		    	});
+ 	  		    	el.ellipses8 = layer.createSubLayer({
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE  id IN (13, 18, 22, 26)",
+		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
+ 	  		    	});
  	  		    	var base = el.basemap;
  	  		    	var baseColor = el.basemapColor;
  	  		    	var map = el.map;
@@ -472,6 +567,18 @@
     					},
     					ellipses4: function(){
     						el.ellipses4.toggle();
+    					},
+    					ellipses5: function(){
+    						el.ellipses5.toggle();
+    					},
+    					ellipses6: function(){
+    						el.ellipses6.toggle();
+    					},
+    					ellipses7: function(){
+    						el.ellipses7.toggle();
+    					},
+    					ellipses8: function(){
+    						el.ellipses8.toggle();
     					}
 					}
 		  			// hide layers when load the map element
@@ -482,6 +589,10 @@
 		  			el.ellipses2.hide();
 		  			el.ellipses3.hide();
 		  			el.ellipses4.hide();
+		  			el.ellipses5.hide();
+					el.ellipses6.hide();
+					el.ellipses7.hide();
+					el.ellipses8.hide();
 		  			// add cartoDB layers into the map
 		  			el.map.addLayer(layer, false); 
 		  		});
@@ -525,95 +636,93 @@
       		// check the index being returned by trackCurrentSlide()
       		function checkIndex(index) {
       			switch(index){
-        			case 0: slideZero(); 
+        			case 0: slideZero(); //overview
         			break;
-        			case 1: slideOne();
+        			case 1: slideOne(); // constraints
         			break;        
-        			case 2: slideTwo();
+        			case 2: slideTwo(); // aram dorsum
         			break;
-        			case 3: slideThree();
+        			case 3: slideThree(); // aram dorsum
+        			break
+        			case 4: slideFour(); // Hypanis Vallis
         			break;
-        			case 4: slideFour();
+        			case 5: slideFive(); // Hypanis Vallis
         			break;
-        			case 5: slideFive();
+        			case 6: slideSix(); // Oxia Planum
         			break;
-        			case 6: slideSix();
-        			break;      
-        			
-      			}
+        			case 7: slideSeven(); // Oxia Planum
+        			break;  
+        			case 8: slideEight(); // Mawrth Vallis
+        			break; 
+        			case 9: slideNine(); // Mawrth Vallis
+        			break; 
+        			case 10: slideTen(); // End
+        			break;     
+      			};
    			 }
       		// overview
       		function slideZero() {
       			// only show landing sites
      			el.landingSite.show();
-	 			el.latConstraint.hide();
-	 			el.ellipses.hide();
-	 			el.ellipses1.hide();
-	 			el.ellipses2.hide();
-	 			el.ellipses3.hide();
-	 			el.ellipses4.hide();
-    		}
+     			el.latConstraint.hide();
+    		};
 	  		//overview with lat constraints
       		function slideOne() {      
     			//add the latitude constraint
-    			el.latConstraint.show();  
-    			el.landingSite.show();
-     			el.ellipses.hide();
-	 			el.ellipses1.hide();
-	 			el.ellipses2.hide();
-	 			el.ellipses3.hide();
-	 			el.ellipses4.hide();
-    		}
-      		// Aram Dorsum
-      		function slideTwo() {
-     			el.landingSite.show();  
+    			el.latConstraint.show();
+    			el.ellipses1.hide(); 
+    		};
+      		// Aram Dorsum 2018
+      		function slideTwo() { 
      			el.latConstraint.hide();
-     			el.ellipses.hide();
 	 			el.ellipses1.show();
-	 			el.ellipses2.hide();
-	 			el.ellipses3.hide();
-	 			el.ellipses4.hide();
-    		}
-      		// Hypanis Vallis
-      		function slideThree() {
-     			el.landingSite.show();  
-     			el.latConstraint.hide();
-     			el.ellipses.hide();
+	 			el.ellipses5.hide();
+    		};
+    		//Aram Dorsum 2020
+    		function slideThree() {
 	 			el.ellipses1.hide();
-	 			el.ellipses2.show();
-	 			el.ellipses3.hide();
-	 			el.ellipses4.hide();
-    		}
-      		// Oxia Planum
+	 			el.ellipses2.hide();
+	 			el.ellipses5.show();
+    		};
+      		// Hypanis Vallis 2018
       		function slideFour() {
-     			el.landingSite.show();  
-     			el.latConstraint.hide();
-     			el.ellipses.hide();
-	 			el.ellipses1.hide();
-	 			el.ellipses2.hide();
-	 			el.ellipses3.show();
-	 			el.ellipses4.hide();
-    		}
-      		//Mawrth Vallis
+	 			el.ellipses2.show();
+	 			el.ellipses5.hide();
+	 			el.ellipses6.hide();
+    		};
+    		// Hypanis Vallis 2020
       		function slideFive() {
-     			el.landingSite.show();  
-     			el.latConstraint.hide();
-     			el.ellipses.hide();
-	 			el.ellipses1.hide();
 	 			el.ellipses2.hide();
 	 			el.ellipses3.hide();
-	 			el.ellipses4.show();
-    		}
-      		// End of the story/overview
+	 			el.ellipses6.show();
+    		};
+      		// Oxia Planum 2018
       		function slideSix() {
-     			el.landingSite.show();  
-     			el.latConstraint.hide(); 
-     			el.ellipses.hide();
-	 			el.ellipses1.hide();
-	 			el.ellipses2.hide();
+	 			el.ellipses3.show();
+	 			el.ellipses6.hide();
+	 			el.ellipses7.hide();
+    		};
+    		// Oxia Planum 2020
+      		function slideSeven() {
 	 			el.ellipses3.hide();
 	 			el.ellipses4.hide();
-    		}
+	 			el.ellipses7.show();
+    		};
+      		// Mawrth Vallis 2018
+      		function slideEight() {
+	 			el.ellipses4.show();
+	 			el.ellipses7.hide();
+	 			el.ellipses8.hide();
+    		};
+    		// Mawrth Vallis 2020
+    		function slideNine() {
+	 			el.ellipses4.hide();
+	 			el.ellipses8.show();
+    		};
+      		// End of the story/overview
+      		function slideTen() {
+	 			el.ellipses8.hide();
+    		};
       		function initOdyssey(O) {
       			// O is for Odyssey
       			var map = el.map;
@@ -658,36 +767,68 @@
             		slides.activate(2),
             		emitSlideChange
           		)
-        	)                  
+        	)    
         			.addState(
           		seq.step(3),
+          		O.Parallel(                        
+            		el.map.actions.setView(el.Aram,10),
+            		slides.activate(3),
+            		emitSlideChange
+          		)
+        	)               
+        			.addState(
+          		seq.step(4),
           		O.Parallel(            
             		el.map.actions.setView(el.Hypanis,10),
-            		slides.activate(3),
+            		slides.activate(4),
             		emitSlideChange         
           		)
         	)
         			.addState(
-          		seq.step(4),
+          		seq.step(5),
+          		O.Parallel(            
+            		el.map.actions.setView(el.Hypanis,10),
+            		slides.activate(5),
+            		emitSlideChange         
+          		)
+        	)
+        			.addState(
+          		seq.step(6),
           		O.Parallel(            
             		el.map.actions.setView(el.Oxia,10),
-            		slides.activate(4),
+            		slides.activate(6),
             		emitSlideChange       
           		)
         	)
         			.addState(
-          		seq.step(5),
-          		O.Parallel(         
-            		el.map.actions.setView(el.Mawrth,10),
-            		slides.activate(5),
+          		seq.step(7),
+          		O.Parallel(            
+            		el.map.actions.setView(el.Oxia,10),
+            		slides.activate(7),
             		emitSlideChange       
           		)
-        	)                
+        	)
         			.addState(
-          		seq.step(6),
+          		seq.step(8),
+          		O.Parallel(         
+            		el.map.actions.setView(el.Mawrth,10),
+            		slides.activate(8),
+            		emitSlideChange       
+          		)
+        	)
+        			.addState(
+          		seq.step(9),
+          		O.Parallel(         
+            		el.map.actions.setView(el.Mawrth,10),
+            		slides.activate(9),
+            		emitSlideChange       
+          		)
+        	)                   
+        			.addState(
+          		seq.step(10),
           		O.Parallel(
             		el.map.actions.setView(el.center,3,true),
-            		slides.activate(6),
+            		slides.activate(10),
             		emitSlideChange
             	)
           	)
