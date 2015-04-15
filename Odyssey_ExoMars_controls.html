@@ -85,7 +85,7 @@
   		border-radius: 5px;
 	}
 	#menu_options ul li ul li a:hover{ 
-  		background-color: #F7F6F4; 
+  		background-color: #d7e9f9; 
   		display: block; 
   		color: red;
 	}
@@ -104,14 +104,14 @@
     	background-color:#1A62A3;
 	}
 	#menu_options ul li ul li ul li > a{
-		background-color:  #F7F6F4; 	 
+		background-color:  #f9fcfe; 	 
   		color: #000000;
   		border-radius: 5px;
 	}
 	#menu_options ul li ul li ul li > a:hover{
-		background-color: #F7F6F4; 
+		background-color: #e8f2fb; 
   		display: block; 
-  		color: red;
+  		color: blue;
   		visibility: visible;
 	}
 	
@@ -273,9 +273,6 @@
 			<li><a class = "next"></a></li>		
 	    </ul>	
 	</div>
-
-
-
 <script>
 	var app =  {};
 	// 2. define odyssey as a property of the ExoMars object. The value of the property is a function.
@@ -442,36 +439,36 @@
 		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FFF; line-width: 1;line-opacity: 0;}'
  	  		    	});
  	  		    	el.ellipses1 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE id IN (1, 6)",
-		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id =1 ",
+		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
  	  		    	});
  	  		    	el.ellipses2 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE id IN (2, 7)",
-		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id = 2",
+		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
  	  		   		});
  	  		    	el.ellipses3 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE id IN (4, 8)",
-		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id =3",
+		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
  	  		    	});
  	  		    	el.ellipses4 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE  id IN (5, 9)",
-		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 4",
+		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
  	  		    	});
  	  		    	el.ellipses5 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE  id IN (10, 15, 19, 23)",
-		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 5",
+		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
  	  		    	});
  	  		    	el.ellipses6 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE  id IN (11, 16, 20, 24)",
-		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 6",
+		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
  	  		    	});
  	  		    	el.ellipses7 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE  id IN (12, 17, 21, 25)",
-		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 7",
+		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
  	  		    	});
  	  		    	el.ellipses8 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected WHERE  id IN (13, 18, 22, 26)",
-		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
+		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 8",
+		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
  	  		    	});
  	  		    	var base = el.basemap;
  	  		    	var baseColor = el.basemapColor;
