@@ -11,16 +11,33 @@
   <link rel="stylesheet" href="http://azavea.github.io/Leaflet.zoomdisplay/css/leaflet.zoomdisplay.css" />
   <!-- call javascript libraries -->
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/3.13/cartodb.core.js"></script>
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
   <script src="http://azavea.github.io/Leaflet.zoomdisplay/js/leaflet.zoomdisplay.js"></script>
-  <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>		
+  <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>
+  		
   <style>
 	
 	#map{
 		width: 100%; 
 		height: 100%;
-	}  
-    
+	} 
+	
+	.leaflet-left .leaflet-control-scale {
+		margin-left: 5px;
+	}
+	.leaflet-bottom .leaflet-control-scale {
+		margin-bottom: 40px;
+	}
+	
+	
+     .leaflet-control-scale-line {
+		-moz-box-sizing: content-box;
+		box-sizing: content-box;
+		border: 3px solid #000000;
+		border-top: none;
+		
+	}
     #menu_options { 
     	position:absolute;
     	top:40px;
@@ -127,6 +144,7 @@
     	border: 3px solid #a1a1a1;
     }
    
+   
   </style>
 </head>
 <body>
@@ -195,9 +213,10 @@
    	</div>
   		<!-- define element with id = slides -->
 	<div id = "slides_container">
-			<div id= "dots"></div> 
+			
+			
 			<div id = "slides">
-			<!-- SLIDE #0 -->
+				<!-- SLIDE #0 -->
 				<div class="slide">
 					<h1 id="general0">Mars Landing Sites</h1>
 					<p>ExoMars is a joint two-mission endeavour between ESA and Russia's Roscosmos space agency. The Trace Gas Orbiter and an entry, descent and landing demonstrator module, Schiaparelli, will be launched in January 2016, arriving at Mars nine months later. The Rover and Surface Platform will depart in May 2018, with touchdown on Mars in January 2019.</p>
@@ -213,7 +232,9 @@
 					<h1 id="Aram">Aram Dorsum 2018</h1>
 					<p>It is the highest and the closest site to the Martian equator</p>
 					<p>The Aram Dorsum site receives its name from the Aram Dorsum channel, curving from northeast to west across the landing location. The sedimentary rocks around the channel are interpreted to be alluvial sediments deposited much like those around Earth's River Nile.</p>
-					
+					<p>The High Resolution Stereo Camera (HRSC) is a camera experiment on Mars Express.At an altitude of 250 km from Mars, HRSC can produce images with a resolution of 2.3 meters/pixel of 2.35 kilometers square Mars Terrain</p>
+					<p>Click the button to see the difference between MOLA and HRSC resolution</p>
+					<div style="padding-top:10px;left: 50px;text-align: center;width:150px; background-color: #FFF; color: #000000"><a href="#hrscAram" id="hrscAram" class="button hrscAram">Hrsc Aram Dorsum</a></div>
 				</div>
 				<!-- SLIDE #3 -->
 				<div class="slide">
@@ -240,6 +261,8 @@
 					<p>The region is characterised by ancient highland cratered terrains that become increasingly eroded towards the highland-lowland boundary.</p>
 					<p>The candidate landing site area in Oxia Planum is located inside a shallow basin, at the outlet of the Coogoon Valles system. The region was chosen to include extensive, layered exposures rich in iron and magnesium phyllosilicates.</p>
 					<p>The main scientific concern for this site relates to the lack of precise information regarding the geologic context and origin of the clay-bearing unit. However, the phyllosilicate deposits are seen as the key to the study of aqueous activity on early Mars and the search for evidence of habitable environments early in the planet’s history.</p>
+					<p>Click the button to see the difference between HRSC and HiRISE resolution</p>
+					<div style="padding-top:10px;left: 50px;text-align: center;width:150px; background-color: #FFF; color: #000000"><a href="#HiRISEOxia" id="HiRISEOxia" class="button HiRISEOxia">HiRISE Oxia Planum</a></div>
 				</div>
 				<!-- SLIDE #7 -->
 				<div class="slide">
@@ -275,14 +298,16 @@
 	</div>
 <script>
 	var app =  {};
-	// 2. define odyssey as a property of the ExoMars object. The value of the property is a function.
-	app.odysseyTest = (function(w,d,$,O){
+	// 2. define ExoMars object. The value of the property is a function.
+	app.exomars = (function(w,d,$,O){
 			// define object that have all the elements and layers 
 			var el = {
 				map: null,
 				basemap: null, // MOLA basemap grey_scale
 				basemapColor: null,
 				story: null,
+				tile: null,
+				hrsc: null,
 				tileLayerAramHiRISE: null, 
 				tileLayerAramHrsc: null,
 				tileLayerHypanisHiRISE: null, 
@@ -320,94 +345,85 @@
       				center: [15,-11],
       				zoom: 3,
       				minZoom: 3,
-      				maxZoom: 18,
+      				//maxZoom: 18,
       				zoomControl: false
       			}); 
-      			   
       			new L.control.zoom({position : 'bottomright'}).addTo(el.map);		
-    			
+    			new L.control.scale({metric: true,imperial: false}).addTo(el.map);
     			// define basemap
     			el.basemap = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
  					attribution: 'GISLAB',
  					tms:true,
  					maxNativeZoom: 9,
   				}).addTo(el.map).setZIndex(0);
-  			
+				// define color basemap 
   				el.basemapColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-color/{z}/{x}/{y}.png', {
  					attribution: 'GISLAB',
  					maxNativeZoom: 7,
   				}).setZIndex(0);
-  			
-				/*  The overlays are in zIndex = 1 ( they are above the basemap layers)*/
-				// define overlays Hrsc
-				el.tileLayerAramHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_aram-dorsum/{z}/{x}/{y}.png',{
-  					tms:true,
-  					minZoom: 7,
-  					opacity: 0.5, 			
-  					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  					updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
-   					bounds: L.latLngBounds(
+  				
+  				// define overlays from cartodb database
+  				var sql = new cartodb.SQL({ user: 'whereonmars'});
+		 		sql.execute("SELECT url FROM hrsc_table")
+		 		
+		 		.done(function(data){
+		 			el.tile = [];
+		 			el.hrsc = {};
+		 			// loop that read each row of cartodb table and add each hrsc layer 
+       				for (i = 0; i < data.total_rows; i++){
+      					el.tile = data.rows[i].url;
+      					console.log(el.tile);
+      						for (j = 0; j < data.rows.length; j++){
+      							el.hrsc[j]= L.tileLayer(data.rows[j].url,{
+  									tms:true,
+  									minZoom: 7,
+  									opacity: 0.5, 			
+  									unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  									updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+  									maxNativeZoom: 10
+								}).addTo(el.map).setZIndex(1);
+      						}
+      				}
+      				console.log(el.hrsc)
+
+      			});
+      			
+  				//Aram dorsum bounds
+  				/*bounds: L.latLngBounds(
  						L.latLng(5.87, -13.8), // southwest part of the BBox
- 						L.latLng(9.87, -9.2)) // northeast part of the BBox
-				}).addTo(el.map).setZIndex(1); 
-			
-				el.tileLayerHypanisHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_hypanis/{z}/{x}/{y}.png',{
- 					tms:true,
-  					minZoom: 7,
-  					opacity: 0.5, 			
-  					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  					updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
-   					bounds: L.latLngBounds(
- 						L.latLng(9.8, -47.04),// southwest part of the BBox
- 						L.latLng(13.8, -43.04)) // northeast part of the BBox
-				}).addTo(el.map).setZIndex(1);
-			
-		    	// load Oxia Planum mosaic (Nicolas)
-      			el.tileLayerOxiaHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_oxia-planum/{z}/{x}/{y}.png',{
- 					tms:true,
-  					minZoom: 7,
-  					opacity: 0.5,
-  					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  					updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
-   					bounds: L.latLngBounds(
- 						L.latLng(16.2, -26.55),// southwest part of the BBox
- 						L.latLng(20.2, -22.55)) // northeast part of the BBox
-				}).addTo(el.map).setZIndex(1);
-			
-				el.tileLayerMawrthHrsc = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hrsc_mosaic_mawrth-vallis/{z}/{x}/{y}.png',{
- 					tms:true,
-  					minZoom: 7,
-  					opacity: 0.5,
-  					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  					updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
-   					bounds: L.latLngBounds(
- 						L.latLng(20.16, -19.95),// southwest part of the BBox
- 						L.latLng(24.16, -15.95)) // northeast part of the BBox
-				}).addTo(el.map).setZIndex(1);
-				
+ 						L.latLng(9.87, -9.2)) // northeast part of the BBox*/
 				// define overlays HiRISE
-				el.tileLayerHypanisHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
+				/*el.tileLayerHypanisHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
  				tms:true,
   				minZoom: 9,
   				opacity: 0.5,
+  				maxNativeZoom: 18,
   				bounds: L.latLngBounds(
  					L.latLng(9.8, -47.04),// southwest part of the BBox
  					L.latLng(13.8, -43.04)) // northeast part of the BBox
-				}).addTo(el.map).setZIndex(2);
+				}).addTo(el.map).setZIndex(2);*/
 			
 				// load HIRISE Layer (Nicolas)
 				el.tileLayerOxiaHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_oxia-planum_037558_1985_25cm/{z}/{x}/{y}.png',{
  					tms:true,
  					opacity: 0.5,
+ 					maxNativeZoom: 18,
+ 					minZoom: 9,
+ 					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  					updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
  					bounds: L.latLngBounds(
  						L.latLng(16.0, -26.0), // southwest part of the BBox
  						L.latLng(20.0, -22.0)) // northeast part of the BBox
-				}).addTo(el.map).setZIndex(2);
+				}).setZIndex(2);
 
 				//  load HIRISE Layer (Nicolas)
 				el.tileLayerMawrthHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_036872-2025-25cm_mawrth-vallis/{z}/{x}/{y}.png',{
  					tms:true,
  					opacity: 0.5,
+ 					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  					updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+ 					maxNativeZoom: 18,
+ 					minZoom: 9,
  					bounds: L.latLngBounds(
  						L.latLng(20.16, -19.95),// southwest part of the BBox
  						L.latLng(24.16, -15.95)) // northeast part of the BBox
@@ -419,6 +435,7 @@
 				el.Mawrth = new L.LatLng(22.16, -17.95);
 				el.center = new L.LatLng(15,-11);
 			}
+	  		// call data from cartoDB 
 	  		var cartodbData = function(){
 				var layerURL = 'http://whereonmars.cartodb.com/api/v2/viz/03ec7c7c-bc6a-11e4-b600-0e4fddd5de28/viz.json';
 				// create cartoDB layer from vizjson url
@@ -428,7 +445,7 @@
 		  			var sublayer =layer.getSubLayer(0);
 		  	   		el.landingSite = layer.createSubLayer({
 		  	   			sql: "SELECT * FROM exomars_landing_sites_four",
-		  				cartocss: '#exomars_landing_sites_four{marker-line-color: #FFF; marker-line-width: 1;  marker-line-opacity: 1;marker-placement: point;marker-type: ellipse;  marker-width: 10;marker-fill: #FF6600;  marker-allow-overlap: false;}'
+		  				cartocss: '#exomars_landing_sites_four{marker-line-color: #FFF; marker-line-width: 0.5;  marker-line-opacity: 1;marker-placement: point;marker-type: ellipse;  marker-width: 7;marker-fill: #F00;  marker-allow-overlap: true;}'
 		  	   		});
 		  	   		el.latConstraint = layer.createSubLayer({
 		  				sql: "SELECT * FROM lat_constraints",
@@ -470,6 +487,7 @@
 		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 8",
 		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
  	  		    	});
+ 	  		    	
  	  		    	var base = el.basemap;
  	  		    	var baseColor = el.basemapColor;
  	  		    	var map = el.map;
@@ -500,7 +518,7 @@
 		  					};	
 						},
 						hrscAram: function(){
-		  					var hrscAram = el.tileLayerAramHrsc;
+		  					var hrscAram = el.hrsc[2];
 		  					if (map.hasLayer(hrscAram)){
 		  						map.removeLayer(hrscAram);
 		  					}else{
@@ -508,7 +526,7 @@
 		  					};
 		  				},
 						hrscHypanis: function(){
-		  					var hrscHypanis = el.tileLayerHypanisHrsc;	
+		  					var hrscHypanis = el.hrsc[3];	
 		  					if (map.hasLayer(hrscHypanis)){
 		  						map.removeLayer(hrscHypanis);
 		  					}else{
@@ -516,7 +534,7 @@
 		  					};
 		  				},
 						hrscOxia: function(){
-		  					var hrscOxia = el.tileLayerOxiaHrsc;	
+		  					var hrscOxia = el.hrsc[1];	
 		  					if (map.hasLayer(hrscOxia)){
 		  						map.removeLayer(hrscOxia);
 		  					}else{
@@ -524,7 +542,7 @@
 		  					};
 		  				},
 						hrscMawrth: function(){
-		  					var hrscMawrth = el.tileLayerMawrthHrsc;
+		  					var hrscMawrth = el.hrsc[0];
 		  					if (map.hasLayer(hrscMawrth)){
 		  						map.removeLayer(hrscMawrth);
 		  					}else{
@@ -578,6 +596,7 @@
     						el.ellipses8.toggle();
     					}
 					}
+					console.log(el.LayerActions)
 		  			// hide layers when load the map element
 		  			el.landingSite.show();
 		  			el.latConstraint.hide();
@@ -594,6 +613,8 @@
 		  			el.map.addLayer(layer, false); 
 		  		});
 		 	} 
+		 	
+		 	
 	  		// when you click a button, this(click) function will activate
   	  		$('.button').click(function() { // mouse event, when click button do something ( this something is inside the brackets)
   				$('.button').removeClass('selected'); // when click button  remove the class selected
@@ -843,7 +864,7 @@
   	})(window, document, jQuery,O);
 	// 3. when the document has been completely loaded and parsed it applies the function to the window element  
 	window.addEventListener("DOMContentLoaded", function(){
-    	app.odysseyTest.init();
+    	app.exomars.init();
   });
 </script>	
 </body>
