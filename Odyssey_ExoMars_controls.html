@@ -30,8 +30,7 @@
 		margin-bottom: 40px;
 	}
 	
-	
-     .leaflet-control-scale-line {
+    .leaflet-control-scale-line {
 		-moz-box-sizing: content-box;
 		box-sizing: content-box;
 		border: 3px solid #000000;
@@ -46,9 +45,9 @@
     	height: 220px;
     	z-index:10;
     	padding-top:10px;
-    	background-color:#B7AFA3;
+    	background-color:#ffc966;
     	border-radius: 25px;
-    	border: 3px solid #a1a1a1;
+    	border: 3px solid #fff;
     	opacity: 0.7;
     }
     #menu_options h3{ 
@@ -60,7 +59,7 @@
     #menu_options ul {
     	text-align: left;
   		display: block;
-  		font-family:AleoRegular, Serif;
+  		font-family:'Hoefler Text', Georgia, 'Times New Roman', serif;
     }
     #menu_options ul li{
     	float: left;
@@ -77,15 +76,15 @@
 	}
     #menu_options ul li a{
     	text-decoration: none;
-    	color: white;
+    	color: #000000;
     	display: block;
     	width: 100%;
     	padding: 2px 0px 2px 0px;
-    	background-color: #B7AFA3; 	
+    	background-color: #ffc966; 	
 	}
 	#menu_options ul li a:hover{
     	text-decoration: none;
-    	color: white;
+    	color: #FFF;
     	background-color:#1A62A3;		
     }
     
@@ -135,13 +134,14 @@
 	#slides_container {
     	display:block;
     	position:absolute;
+    	font-family:'Hoefler Text', Georgia, 'Times New Roman', serif;
     	top:40px;
     	left:40px;
     	opacity: 0.7;
-    	background-color:#B7AFA3;
+    	background-color:#ffc966;
     	z-index:100;
     	border-radius: 25px;
-    	border: 3px solid #a1a1a1;
+    	border: 3px solid #fff;
     }
    
    
@@ -213,81 +213,103 @@
    	</div>
   		<!-- define element with id = slides -->
 	<div id = "slides_container">
-			
-			
 			<div id = "slides">
 				<!-- SLIDE #0 -->
 				<div class="slide">
-					<h1 id="general0">Mars Landing Sites</h1>
+					<h1>Introduction to ExoMars 2018</h1>
 					<p>ExoMars is a joint two-mission endeavour between ESA and Russia's Roscosmos space agency. The Trace Gas Orbiter and an entry, descent and landing demonstrator module, Schiaparelli, will be launched in January 2016, arriving at Mars nine months later. The Rover and Surface Platform will depart in May 2018, with touchdown on Mars in January 2019.</p>
-					<p>The search for a suitable landing site for the second mission began in December 2013, when the science community was asked to propose candidates.</p>
+					<p>The ExoMars programme's scientific objectives are: </br></br> 1. To search for signs of past and present life on Mars </br>2. To investigate the water/geochemical environment as a function of depth in the shallow subsurface </br>3. To study martian atmospheric trace gases and their sources </br>4. To characterise the surface environment</p>
+					<p>Click the right button to learn more !</p>
 				</div>
 				<!-- SLIDE #1 -->
 				<div class="slide">
-					<h1 id="general1">Mars Landing Sites</h1>
-					<p>The sites – Mawrth Vallis, Oxia Planum, Hypanis Vallis and Aram Dorsum – are all located relatively close to the equator</p>
+					<h1>MOLA</h1>
+					<p>The Mars Orbiter Laser Altimeter (MOLA), is an instrument on the Mars Global Surveyor (MGS), a spacecraft that was launched on November 7, 1996. MGS carried a laser altimeter on board to determinate the height of surface on Mars</p>
+					<p>MOLA collected altimetry data until June 30,2001. Then it operated as a radiometer until October 7, 2006.</p>
+					<p>Click here to change from gray to  color MOLA map.</p>
+					<div style="padding-top:10px;margin-left: 70px;text-align: center;width:150px; background-color: #FFF; color: #000000; border: 1px solid #000000;"><a href="#MOLA" id="MOLA" class="button MOLA">MOLA Grayscale</a></div><div style="padding-top:10px;margin-left: 70px;text-align: center;width:150px; background-color: #FFF; color: #000000; border: 1px solid #000000;"><a href="#MOLA_color" id="MOLA_color" class="button MOLA_color">MOLA Color</a></div>
+					<p>Click the right button to learn more !</p>
+				</div>
+				<!-- SLIDE #1.1 -->
+				<div class="slide">
+					<h1>Landing Site Selection Working Group</h1>
+					<p>During October 2013, the European Space Agency (ESA) and the Space Reasearch Institute of the Russian Academy of Sciences (IKI) [on behalf of the Russian Federal Space Agency (Roscosmos)], agreed to appoint a Landing Site Selection Working Group (LSSWG) to make recommendation to the agencies regarding landing sites for the ExoMars 2018 mission.</p>
+					<p>The final landing site(s) recommendation for the 2018 mission will be produced by the LSSWG prior ro the mission's Flight Acceptance Review (FAR), currently planned on October 2017. This recommendation will be delivered to ESA's Director of Science and Robotic Exploration and the appropriate Russian authorities. Roscosmos and ESA will the follow the applicable approval procedure with their Governing Bodies</p>
+					<p>Click the right button to learn more !</p>
+				</div>
+				<!-- SLIDE #1.2 -->
+				<div class="slide">
+					<h1>Mars Landing Sites</h1>
+					<p>At first, eight landing sites were proposed:</p> <ul><li>Mawrth Vallis 1</li><li>Mawrth Vallis 2<li><li>Oxia Planum 1</li><li>Oxia Planum 2</li><li>Coogoon Valles</li><li>Hypanis Vallis</li><li>Simud Vallis</li><li>Aram Dorsum</li><li>Southern Isidis</li></ul>
+					</br>
+					<p>Click the right button to learn more !</p>
 				</div>
 				<!-- SLIDE #2 -->
 				<div class="slide">
-					<h1 id="Aram">Aram Dorsum 2018</h1>
+					<h1>Aram Dorsum 2018</h1>
 					<p>It is the highest and the closest site to the Martian equator</p>
 					<p>The Aram Dorsum site receives its name from the Aram Dorsum channel, curving from northeast to west across the landing location. The sedimentary rocks around the channel are interpreted to be alluvial sediments deposited much like those around Earth's River Nile.</p>
 					<p>The High Resolution Stereo Camera (HRSC) is a camera experiment on Mars Express.At an altitude of 250 km from Mars, HRSC can produce images with a resolution of 2.3 meters/pixel of 2.35 kilometers square Mars Terrain</p>
 					<p>Click the button to see the difference between MOLA and HRSC resolution</p>
 					<div style="padding-top:10px;left: 50px;text-align: center;width:150px; background-color: #FFF; color: #000000"><a href="#hrscAram" id="hrscAram" class="button hrscAram">Hrsc Aram Dorsum</a></div>
+					<p>Click the right button to learn more !</p>
 				</div>
 				<!-- SLIDE #3 -->
 				<div class="slide">
-					<h1 id="Aram">Aram Dorsum 2020</h1>
+					<h1>Aram Dorsum 2020</h1>
 					<p>It is the highest and the closest site to the Martian equator</p>
 					<p>The Aram Dorsum site receives its name from the Aram Dorsum channel, curving from northeast to west across the landing location. The sedimentary rocks around the channel are interpreted to be alluvial sediments deposited much like those around Earth's River Nile.</p>
-					
+					<p>Click the right button to learn more !</p>
 				</div>
 				<!-- SLIDE #4 -->
 				<div class="slide">
-					<h1 id="Hypanis">Hypanis Vallis 2018</h1>
+					<h1>Hypanis Vallis 2018</h1>
 					<p>Hypanis Vallis is one of several valleys situated between two large outflow channels, Maja Vallis in the west and Shalbatana Vallis in the east.</p>
 					<p>The valleys are thought to have been formed by groundwater seepage or surface runoff. Several of the valleys, including Hypanis Vallis, have fan-shaped deposits at their termini. These fluvial deposits are interpreted as the remnants of a delta that formed in a lake. They are characterised by distinct layering at their margins, providing access to the various sedimentary layers.</p>
+					<p>Click the right button to learn more !</p>
 				</div>
 				<!-- SLIDE #5 -->
 				<div class="slide">
-					<h1 id="Hypanis">Hypanis Vallis 2020</h1>
+					<h1>Hypanis Vallis 2020</h1>
 					<p>Hypanis Vallis is one of several valleys situated between two large outflow channels, Maja Vallis in the west and Shalbatana Vallis in the east.</p>
 					<p>The valleys are thought to have been formed by groundwater seepage or surface runoff. Several of the valleys, including Hypanis Vallis, have fan-shaped deposits at their termini. These fluvial deposits are interpreted as the remnants of a delta that formed in a lake. They are characterised by distinct layering at their margins, providing access to the various sedimentary layers.</p>
+					<p>Click the right button to learn more !</p>
 				</div>
 				<!-- SLIDE #6 -->
 				<div class="slide">
-					<h1 id="Oxia">Oxia Planum 2018</h1>
+					<h1>Oxia Planum 2018</h1>
 					<p>The region is characterised by ancient highland cratered terrains that become increasingly eroded towards the highland-lowland boundary.</p>
 					<p>The candidate landing site area in Oxia Planum is located inside a shallow basin, at the outlet of the Coogoon Valles system. The region was chosen to include extensive, layered exposures rich in iron and magnesium phyllosilicates.</p>
 					<p>The main scientific concern for this site relates to the lack of precise information regarding the geologic context and origin of the clay-bearing unit. However, the phyllosilicate deposits are seen as the key to the study of aqueous activity on early Mars and the search for evidence of habitable environments early in the planet’s history.</p>
 					<p>Click the button to see the difference between HRSC and HiRISE resolution</p>
 					<div style="padding-top:10px;left: 50px;text-align: center;width:150px; background-color: #FFF; color: #000000"><a href="#HiRISEOxia" id="HiRISEOxia" class="button HiRISEOxia">HiRISE Oxia Planum</a></div>
+					<p>Click the right button to learn more !</p>
 				</div>
 				<!-- SLIDE #7 -->
 				<div class="slide">
-					<h1 id="Oxia">Oxia Planum 2020</h1>
+					<h1>Oxia Planum 2020</h1>
 					<p>The region is characterised by ancient highland cratered terrains that become increasingly eroded towards the highland-lowland boundary.</p>
 					<p>The candidate landing site area in Oxia Planum is located inside a shallow basin, at the outlet of the Coogoon Valles system. The region was chosen to include extensive, layered exposures rich in iron and magnesium phyllosilicates.</p>
 					<p>The main scientific concern for this site relates to the lack of precise information regarding the geologic context and origin of the clay-bearing unit. However, the phyllosilicate deposits are seen as the key to the study of aqueous activity on early Mars and the search for evidence of habitable environments early in the planet’s history.</p>
+					<p>Click the right button to learn more !</p>
 				</div>
 				<!-- SLIDE #8-->
 				<div class="slide">
-					<h1 id="Mawrth">Mawrth Vallis 2018</h1>
+					<h1>Mawrth Vallis 2018</h1>
 					<p>This area contains a large outflow channel known as Mawrth Vallis, which once discharged huge amounts of water onto the northern plains. The proposed ExoMars landing site is situated just south of this channel.</p>
 					<p>The region surrounding Mawrth Vallis contains one of the largest exposures of phyllosilicates (clay minerals produced by chemical weathering) detected on Mars. These deposits provide a unique opportunity to evaluate aqueous activity on early Mars and point to the possibility that habitable environments may have existed during the Noachian period (from the formation of the planet to perhaps 3.6 billion years ago). Other deposits and outcrops in the region show the highest degree of mineral alteration identified so far on Mars.</p>
-				
+					<p>Click the right button to learn more !</p>
 				</div>
 				<!-- SLIDE #9-->
 				<div class="slide">
-					<h1 id="Mawrth">Mawrth Vallis 2020</h1>
+					<h1>Mawrth Vallis 2020</h1>
 					<p>This area contains a large outflow channel known as Mawrth Vallis, which once discharged huge amounts of water onto the northern plains. The proposed ExoMars landing site is situated just south of this channel.</p>
 					<p>The region surrounding Mawrth Vallis contains one of the largest exposures of phyllosilicates (clay minerals produced by chemical weathering) detected on Mars. These deposits provide a unique opportunity to evaluate aqueous activity on early Mars and point to the possibility that habitable environments may have existed during the Noachian period (from the formation of the planet to perhaps 3.6 billion years ago). Other deposits and outcrops in the region show the highest degree of mineral alteration identified so far on Mars.</p>
-				
+					<p>Click the right button to learn more !</p>
 				</div>	
 				<!-- SLIDE #10 -->
 				<div class="slide">
-					<h1 id="end">The End</h1>
+					<h1>The End</h1>
 					<p>Great explanation inside this chapter</br>with some incredible images and data</p>
 				</div>			
 			</div>
@@ -396,43 +418,6 @@
       					}		
       				}
       			});
-      			
-  				//Aram dorsum bounds
-  				/*bounds: L.latLngBounds(
- 						L.latLng(5.87, -13.8), // southwest part of the BBox
- 						L.latLng(9.87, -9.2)) // northeast part of the BBox*/
-				// define overlays HiRISE
-				/*el.tileLayerHypanisHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/h0894_0000_nd4/{z}/{x}/{y}.png',{
- 				tms:true,
-  				minZoom: 9,
-  				opacity: 0.5,
-  				maxNativeZoom: 18,
-  				bounds: L.latLngBounds(
- 					L.latLng(9.8, -47.04),// southwest part of the BBox
- 					L.latLng(13.8, -43.04)) // northeast part of the BBox
-				}).addTo(el.map).setZIndex(2);*/
-			
-				// load HIRISE Layer (Nicolas)
-				/*el.tileLayerOxiaHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_oxia-planum_037558_1985_25cm/{z}/{x}/{y}.png',{
- 					tms:true,
- 					opacity: 0.5,
- 					minZoom: 9,
- 					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  					updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
- 					maxNativeZoom: 18
-				}).setZIndex(2);
-
-				//  load HIRISE Layer (Nicolas)
-				el.tileLayerMawrthHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_036872-2025-25cm_mawrth-vallis/{z}/{x}/{y}.png',{
- 					tms:true,
- 					opacity: 0.5,
- 					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  					updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
- 					minZoom: 9,
- 					maxNativeZoom: 18
- 					
-				}).addTo(el.map).setZIndex(2);*/
-			
 				el.Aram = new L.LatLng(7.87, -11.2);
 				el.Hypanis = new L.LatLng(11.8, -45.04);
 				el.Oxia = new L.LatLng(18.2, -24.55);
@@ -602,7 +587,7 @@
 					}
 					
 		  			// hide layers when load the map element
-		  			el.landingSite.show();
+		  			el.landingSite.hide();
 		  			el.latConstraint.hide();
 		  			el.ellipses.hide();
 		  			el.ellipses1.hide();
@@ -659,36 +644,53 @@
         			case 0: slideZero(); //overview
         			break;
         			case 1: slideOne(); // constraints
-        			break;        
-        			case 2: slideTwo(); // aram dorsum
+        			break;       
+        			case 2: slideOne2(); // constraints
         			break;
-        			case 3: slideThree(); // aram dorsum
+        			case 3: slideOne3(); // constraints
+        			break;
+        			case 4: slideTwo(); // aram dorsum
+        			break;
+        			case 5: slideThree(); // aram dorsum
         			break
-        			case 4: slideFour(); // Hypanis Vallis
+        			case 6: slideFour(); // Hypanis Vallis
         			break;
-        			case 5: slideFive(); // Hypanis Vallis
+        			case 7: slideFive(); // Hypanis Vallis
         			break;
-        			case 6: slideSix(); // Oxia Planum
+        			case 8: slideSix(); // Oxia Planum
         			break;
-        			case 7: slideSeven(); // Oxia Planum
+        			case 9: slideSeven(); // Oxia Planum
         			break;  
-        			case 8: slideEight(); // Mawrth Vallis
+        			case 10: slideEight(); // Mawrth Vallis
         			break; 
-        			case 9: slideNine(); // Mawrth Vallis
+        			case 11: slideNine(); // Mawrth Vallis
         			break; 
-        			case 10: slideTen(); // End
+        			case 12: slideTen(); // End
         			break;     
       			};
    			 }
       		// overview
       		function slideZero() {
       			// only show landing sites
-     			el.landingSite.show();
+     			el.landingSite.hide();
      			el.latConstraint.hide();
     		};
 	  		//overview with lat constraints
       		function slideOne() {      
     			//add the latitude constraint
+    			el.landingSite.hide()
+    			el.latConstraint.hide();
+    			el.ellipses1.hide(); 
+    		};
+    		function slideOne2() {      
+    			//add the latitude constraint
+    			el.landingSite.show()
+    			el.latConstraint.show();
+    			el.ellipses1.hide(); 
+    		};
+    		function slideOne3() {      
+    			//add the latitude constraint
+    			el.landingSite.show()
     			el.latConstraint.show();
     			el.ellipses1.hide(); 
     		};
@@ -759,99 +761,115 @@
         		//There's a "bug" in leaflet that if you put panTo() and setZoom()
         		//it won't go to the coordinates requested
       			el.story =  O.Story()
-        			.addState(
-          		seq.step(0),
-          		O.Parallel(       
-            		el.map.actions.setView(el.center,3), 
-					slides.activate(0),
-            		emitSlideChange
+        		.addState(
+          			seq.step(0),
+          				O.Parallel(       
+            				el.map.actions.setView(el.center,3), 
+							slides.activate(0),
+            				emitSlideChange
+          				)
+        		)
+        		// setting setView here I assure that if the user click prev button,
+          		// it will show the overview 
+        		.addState(
+          			seq.step(1),
+          				O.Parallel(
+            				el.map.actions.setView(el.center,3), 
+            				slides.activate(1),
+            				emitSlideChange
+          				)
+        		)
+        		.addState(
+          			seq.step(2),
+          				O.Parallel(
+            				el.map.actions.setView(el.center,3), 
+            				slides.activate(2),
+            				emitSlideChange
+          				)
+        		)
+        		.addState(
+          			seq.step(3),
+          				O.Parallel(
+            				el.map.actions.setView(el.center,3), 
+            				slides.activate(3),
+            				emitSlideChange
+          				)
+        		)
+        		// setview(coordinates to pan, zoom level, true: "reset the map view"(without animations of panning)) If true is not added, it will
+        		// load the overlays that should disappear when the user change the slide. For example: if the minZoom it's 7 and the user change to
+        		// a slide where the the minZoom is 5 it keeps the tile layer even if the layer minZoom is 7        
+        		.addState(
+          			seq.step(4),
+          				O.Parallel(                        
+            				el.map.actions.setView(el.Aram,10),
+            				slides.activate(4),
+            				emitSlideChange
+          				)
+        		)    
+        		.addState(
+          			seq.step(5),
+          				O.Parallel(                        
+            				el.map.actions.setView(el.Aram,10),
+            				slides.activate(5),
+            				emitSlideChange
+          				)
+        		)               
+        		.addState(
+          			seq.step(6),
+          				O.Parallel(            
+            				el.map.actions.setView(el.Hypanis,10),
+            				slides.activate(6),
+            				emitSlideChange         
+          				)
+        		)
+        		.addState(
+          			seq.step(7),
+          				O.Parallel(            
+            				el.map.actions.setView(el.Hypanis,10),
+            				slides.activate(7),
+            				emitSlideChange         
+          				)
+        		)
+        		.addState(
+          			seq.step(8),
+          				O.Parallel(            
+            				el.map.actions.setView(el.Oxia,10),
+            				slides.activate(8),
+            				emitSlideChange       
+          				)
+        		)
+        		.addState(
+          			seq.step(9),
+          				O.Parallel(            
+            				el.map.actions.setView(el.Oxia,10),
+            				slides.activate(9),
+            				emitSlideChange       
+          				)
+        		)
+        		.addState(
+          			seq.step(10),
+          				O.Parallel(         
+            				el.map.actions.setView(el.Mawrth,10),
+            				slides.activate(10),
+            				emitSlideChange       
+          				)
+        		)
+        		.addState(
+          			seq.step(11),
+          				O.Parallel(         
+            			el.map.actions.setView(el.Mawrth,10),
+            			slides.activate(11),
+            			emitSlideChange       
+          				)
+        		)                   
+        		.addState(
+          			seq.step(12),
+          				O.Parallel(
+            				el.map.actions.setView(el.center,3,true),
+            				slides.activate(12),
+            				emitSlideChange
+            			)
           		)
-        	)
-        			// setting setView here I assure that if the user click prev button,
-          			// it will show the overview 
-        			.addState(
-          		seq.step(1),
-          		O.Parallel(
-            		el.map.actions.setView(el.center,3), 
-            		slides.activate(1),
-            		emitSlideChange
-          		)
-        	)
-        			// setview(coordinates to pan, zoom level, true: "reset the map view"(without animations of panning)) If true is not added, it will
-        			// load the overlays that should disappear when the user change the slide. For example: if the minZoom it's 7 and the user change to
-        			// a slide where the the minZoom is 5 it keeps the tile layer even if the layer minZoom is 7        
-        			.addState(
-          		seq.step(2),
-          		O.Parallel(                        
-            		el.map.actions.setView(el.Aram,10),
-            		slides.activate(2),
-            		emitSlideChange
-          		)
-        	)    
-        			.addState(
-          		seq.step(3),
-          		O.Parallel(                        
-            		el.map.actions.setView(el.Aram,10),
-            		slides.activate(3),
-            		emitSlideChange
-          		)
-        	)               
-        			.addState(
-          		seq.step(4),
-          		O.Parallel(            
-            		el.map.actions.setView(el.Hypanis,10),
-            		slides.activate(4),
-            		emitSlideChange         
-          		)
-        	)
-        			.addState(
-          		seq.step(5),
-          		O.Parallel(            
-            		el.map.actions.setView(el.Hypanis,10),
-            		slides.activate(5),
-            		emitSlideChange         
-          		)
-        	)
-        			.addState(
-          		seq.step(6),
-          		O.Parallel(            
-            		el.map.actions.setView(el.Oxia,10),
-            		slides.activate(6),
-            		emitSlideChange       
-          		)
-        	)
-        			.addState(
-          		seq.step(7),
-          		O.Parallel(            
-            		el.map.actions.setView(el.Oxia,10),
-            		slides.activate(7),
-            		emitSlideChange       
-          		)
-        	)
-        			.addState(
-          		seq.step(8),
-          		O.Parallel(         
-            		el.map.actions.setView(el.Mawrth,10),
-            		slides.activate(8),
-            		emitSlideChange       
-          		)
-        	)
-        			.addState(
-          		seq.step(9),
-          		O.Parallel(         
-            		el.map.actions.setView(el.Mawrth,10),
-            		slides.activate(9),
-            		emitSlideChange       
-          		)
-        	)                   
-        			.addState(
-          		seq.step(10),
-          		O.Parallel(
-            		el.map.actions.setView(el.center,3,true),
-            		slides.activate(10),
-            		emitSlideChange
-            	)
-          	)
       			el.story.go(0);
       		}  	
 	  		function init() {
