@@ -306,7 +306,7 @@
 				basemap: null, // MOLA basemap grey_scale
 				basemapColor: null,
 				story: null,
-				tile: null,
+				hirise: null,
 				hrsc: null,
 				tileLayerAramHiRISE: null, 
 				tileLayerAramHrsc: null,
@@ -345,7 +345,6 @@
       				center: [15,-11],
       				zoom: 3,
       				minZoom: 3,
-      				//maxZoom: 18,
       				zoomControl: false
       			}); 
       			new L.control.zoom({position : 'bottomright'}).addTo(el.map);		
@@ -364,28 +363,38 @@
   				
   				// define overlays from cartodb database
   				var sql = new cartodb.SQL({ user: 'whereonmars'});
-		 		sql.execute("SELECT url FROM hrsc_table")
-		 		
+		 		sql.execute("SELECT * FROM overlays_table")
 		 		.done(function(data){
-		 			el.tile = [];
 		 			el.hrsc = {};
+		 			el.hirise = {};
 		 			// loop that read each row of cartodb table and add each hrsc layer 
        				for (i = 0; i < data.total_rows; i++){
-      					el.tile = data.rows[i].url;
-      					console.log(el.tile);
-      						for (j = 0; j < data.rows.length; j++){
-      							el.hrsc[j]= L.tileLayer(data.rows[j].url,{
-  									tms:true,
-  									minZoom: 7,
-  									opacity: 0.5, 			
-  									unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
-  									updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
-  									maxNativeZoom: 10
-								}).addTo(el.map).setZIndex(1);
-      						}
+      					if (i < 4){
+      						el.hrsc[i]= L.tileLayer(data.rows[i].url,{
+  								tms:true,
+  								minZoom: 7,
+  								opacity: 0.5, 			
+  								unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  								updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+  								maxNativeZoom: 10
+								}).setZIndex(1);	
+									if(i > 0){
+										el.hrsc[i].addTo(el.map);
+									}; 	
+      					} else {
+      						el.hirise[i] = new L.tileLayer(data.rows[i].url,{
+ 								tms:true,
+ 								opacity: 0.5,
+ 								minZoom: 9,
+ 								unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
+  								updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+ 								maxNativeZoom: 18
+							}).setZIndex(2);
+      							if(i > 4){
+									el.hirise[i].addTo(el.map);
+								};
+      					}		
       				}
-      				console.log(el.hrsc)
-
       			});
       			
   				//Aram dorsum bounds
@@ -404,16 +413,13 @@
 				}).addTo(el.map).setZIndex(2);*/
 			
 				// load HIRISE Layer (Nicolas)
-				el.tileLayerOxiaHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_oxia-planum_037558_1985_25cm/{z}/{x}/{y}.png',{
+				/*el.tileLayerOxiaHiRISE = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/hirise_oxia-planum_037558_1985_25cm/{z}/{x}/{y}.png',{
  					tms:true,
  					opacity: 0.5,
- 					maxNativeZoom: 18,
  					minZoom: 9,
  					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   					updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
- 					bounds: L.latLngBounds(
- 						L.latLng(16.0, -26.0), // southwest part of the BBox
- 						L.latLng(20.0, -22.0)) // northeast part of the BBox
+ 					maxNativeZoom: 18
 				}).setZIndex(2);
 
 				//  load HIRISE Layer (Nicolas)
@@ -422,12 +428,10 @@
  					opacity: 0.5,
  					unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed 
   					updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
- 					maxNativeZoom: 18,
  					minZoom: 9,
- 					bounds: L.latLngBounds(
- 						L.latLng(20.16, -19.95),// southwest part of the BBox
- 						L.latLng(24.16, -15.95)) // northeast part of the BBox
-				}).addTo(el.map).setZIndex(2);
+ 					maxNativeZoom: 18
+ 					
+				}).addTo(el.map).setZIndex(2);*/
 			
 				el.Aram = new L.LatLng(7.87, -11.2);
 				el.Hypanis = new L.LatLng(11.8, -45.04);
@@ -518,7 +522,7 @@
 		  					};	
 						},
 						hrscAram: function(){
-		  					var hrscAram = el.hrsc[2];
+		  					var hrscAram = el.hrsc[0];
 		  					if (map.hasLayer(hrscAram)){
 		  						map.removeLayer(hrscAram);
 		  					}else{
@@ -526,7 +530,7 @@
 		  					};
 		  				},
 						hrscHypanis: function(){
-		  					var hrscHypanis = el.hrsc[3];	
+		  					var hrscHypanis = el.hrsc[1];	
 		  					if (map.hasLayer(hrscHypanis)){
 		  						map.removeLayer(hrscHypanis);
 		  					}else{
@@ -534,7 +538,7 @@
 		  					};
 		  				},
 						hrscOxia: function(){
-		  					var hrscOxia = el.hrsc[1];	
+		  					var hrscOxia = el.hrsc[2];	
 		  					if (map.hasLayer(hrscOxia)){
 		  						map.removeLayer(hrscOxia);
 		  					}else{
@@ -542,7 +546,7 @@
 		  					};
 		  				},
 						hrscMawrth: function(){
-		  					var hrscMawrth = el.hrsc[0];
+		  					var hrscMawrth = el.hrsc[3];
 		  					if (map.hasLayer(hrscMawrth)){
 		  						map.removeLayer(hrscMawrth);
 		  					}else{
@@ -550,7 +554,7 @@
 		  					};
 		  				},
 		  				HiRISEOxia: function(){
-		  					var HiRISEOxia = el.tileLayerOxiaHiRISE;
+		  					var HiRISEOxia = el.hirise[4];
 		  					if (map.hasLayer(HiRISEOxia)){
 		  						map.removeLayer(HiRISEOxia);
 		  					}else{
@@ -558,7 +562,7 @@
 		  					};
 		  				},
 		  				HiRISEMawrth: function(){
-		  					var HiRISEMawrth = el.tileLayerMawrthHiRISE;
+		  					var HiRISEMawrth = el.hirise[5];
 		  					if (map.hasLayer(HiRISEMawrth)){
 		  						map.removeLayer(HiRISEMawrth);
 		  					}else{
@@ -596,7 +600,7 @@
     						el.ellipses8.toggle();
     					}
 					}
-					console.log(el.LayerActions)
+					
 		  			// hide layers when load the map element
 		  			el.landingSite.show();
 		  			el.latConstraint.hide();
@@ -613,8 +617,6 @@
 		  			el.map.addLayer(layer, false); 
 		  		});
 		 	} 
-		 	
-		 	
 	  		// when you click a button, this(click) function will activate
   	  		$('.button').click(function() { // mouse event, when click button do something ( this something is inside the brackets)
   				$('.button').removeClass('selected'); // when click button  remove the class selected
