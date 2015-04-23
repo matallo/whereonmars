@@ -220,7 +220,7 @@
 					<p>The Mars Orbiter Laser Altimeter (MOLA), is an instrument on the Mars Global Surveyor (MGS), a spacecraft that was launched on November 7, 1996. MGS carried a laser altimeter on board to determinate the height of surface on Mars</p>
 					<p>MOLA collected altimetry data until June 30,2001. Then it operated as a radiometer until October 7, 2006. Right now, you are looking at the map generated from MOLA data</p>
 					<p>If you don't like the grayscale map, click the "MOLA Color" button to put some color in it !</p>
-					<div style="padding-top:10px;margin-left: 70px;text-align: center;width:150px; background-color: #FFF; color: #000000; border: 1px solid #000000;"><a href="#MOLA" id="MOLA" class="button MOLA">MOLA Grayscale</a></div></br><div style="padding-top:10px;margin-left: 70px;text-align: center;width:150px; background-color: #FFF; color: #000000; border: 1px solid #000000;"><a href="#MOLA_color" id="MOLA_color" class="button MOLA_color">MOLA Color</a></div>
+					<div style="padding-top:10px;margin-left: 50px;text-align: center;width:150px; background-color: #FFF; color: #000000; border: 1px solid #000000;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#MOLA" id="MOLA" class="button MOLA">MOLA Grayscale</a></div></br><div style="padding-top:10px;margin-left: 50px;text-align: center;width:150px; background-color: #FFF; color: #000000; border: 1px solid #000000;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#MOLA_color" id="MOLA_color" class="button MOLA_color">MOLA Color</a></div>
 					</br>
 					<p>Click the right button to learn more !</p>
 				</div>
@@ -276,7 +276,7 @@
 					<p>Before continue with the explanation, you should know that the MOLA is not the only data that we have to see and analyze Mars. We are glad to present you the High Resolution Stereo Camera</p>
 					<p>The High Resolution Stereo Camera (HRSC) is a camera experiment on Mars Express.At an altitude of 250 km from Mars, HRSC can produce images with a resolution of 2.3 meters/pixel of 2.35 kilometers square Mars Terrain.</p>
 					<p>If you want to see Mars with new eyes...click the button to see the great difference between MOLA and HRSC resolution !</p>
-					<div style="padding-top:10px;margin-left: 70px;text-align: center;width:150px; background-color: #FFF; color: #000000;border: 1px solid #000000;"><a href="#hrscAram" id="hrscAram" class="button hrscAram">HRSC</a></div>
+					<div style="padding-top:10px;margin-left: 50px;text-align: center;width:150px; background-color: #FFF; color: #000000;border: 1px solid #000000;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#hrscAram" id="hrscAram" class="button hrscAram">HRSC</a></div>
 					</br>
 					<p>Click the right button to learn more !</p>
 				</div>
@@ -323,7 +323,7 @@
 					<p>Before continue with the explanation, you should know that MOLA data and HRSC are not the only data that we have to see and analyze Mars. We introduce you now the High Resolution Imaging Science Experiment.</p>
 					<p>The High Resolution Imaging Science Experiment (HiRISE) is a camera on board the Mars Reconnaissance Orbiter (MRO) and have a resolution of 0.3 m from an altitude of 300 km. One of the main goals of the MRO is to map the Martian landscape with it's high-resolution cameras in order to choose landing sites. </p>
 					<p>If you want to see Mars in high resolution...click the button and zoom to see the great difference between HRSC and HiRISE resolution ! </p>
-					<div style="padding-top:10px;margin-left: 70px;text-align: center;width:150px; background-color: #FFF; color: #000000;border: 1px solid #000000;"><a href="#HiRISEOxia" id="HiRISEOxia" class="button HiRISEOxia">HiRISE Oxia Planum</a></div>
+					<div style="padding-top:10px;margin-left: 50px;text-align: center;width:150px; background-color: #FFF; color: #000000;border: 1px solid #000000;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#HiRISEOxia" id="HiRISEOxia" class="button HiRISEOxia">HiRISE Oxia Planum</a></div>
 					</br>
 					<p>Click the right button to learn more !</p>
 				</div>
@@ -427,9 +427,6 @@
  					attribution: 'GISLAB',
  					maxNativeZoom: 7,
   				}).setZIndex(0);
-  				
-  				
-  				
   				// define overlays from cartodb database
   				var sql = new cartodb.SQL({ user: 'whereonmars'});
 		 		sql.execute("SELECT * FROM overlays_table")
@@ -470,10 +467,7 @@
 				el.Oxia = new L.LatLng(18.2, -24.55);
 				el.Mawrth = new L.LatLng(22.16, -17.95);
 				el.center = new L.LatLng(15,-11);
-			}
-	  		
-	  		
-	  		
+			}	
 	  		// call data from cartoDB 
 	  		var cartodbData = function(){
 				var layerURL = 'http://whereonmars.cartodb.com/api/v2/viz/03ec7c7c-bc6a-11e4-b600-0e4fddd5de28/viz.json';
@@ -484,18 +478,16 @@
 		  			var sublayer =layer.getSubLayer(0);
 		  	   		el.landingSite8 = layer.createSubLayer({
 		  	   			sql: "SELECT * FROM exomars_landing_sites_eight",
-		  				cartocss: '#exomars_landing_sites_four{marker-line-color: #FFF; marker-line-width: 0.5;  marker-line-opacity: 1;marker-placement: point;marker-type: ellipse;  marker-width: 7;marker-fill: #F00;  marker-allow-overlap: true;}',
-		  				interactivity: 'name'
+		  				cartocss: '#exomars_landing_sites_four{marker-file: url(http://com.cartodb.users-assets.production.s3.amazonaws.com/maki-icons/circle-stroked-18.svg);marker-width: 25; marker-fill: #F11810 ;}'
 		  	   		});
 		  	   		
 		  	   		el.landingSite = layer.createSubLayer({
 		  	   			sql: "SELECT * FROM exomars_landing_sites_four",
-		  				cartocss: '#exomars_landing_sites_four{marker-line-color: #FFF; marker-line-width: 0.5;  marker-line-opacity: 1;marker-placement: point;marker-type: ellipse;  marker-width: 7;marker-fill: #F00;  marker-allow-overlap: true;}',
-		  	   			interactivity: 'name'
+		  				cartocss: '#exomars_landing_sites_four{marker-file: url(http://com.cartodb.users-assets.production.s3.amazonaws.com/maki-icons/circle-stroked-18.svg);marker-width: 25; marker-fill: #F11810 ;}'
 		  	   		});
 		  	   		// allows infowindow when click on the points
-		  	   		cdb.vis.Vis.addInfowindow(el.map, el.landingSite8, ['name'])
-		  	   		cdb.vis.Vis.addInfowindow(el.map, el.landingSite, ['name'])
+		  	   		cdb.vis.Vis.addInfowindow(el.map, el.landingSite8, ['name','coordinates'])
+		  	   		cdb.vis.Vis.addInfowindow(el.map, el.landingSite, ['name','coordinates'])
 					el.landingSite8.setInteraction(true);
 					el.landingSite.setInteraction(true);
 		  	   		
