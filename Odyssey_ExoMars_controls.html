@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="http://azavea.github.io/Leaflet.zoomdisplay/css/leaflet.zoomdisplay.css" />
   <!-- call javascript libraries -->
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="http://libs.cartocdn.com/cartodb.js/v3/3.13/cartodb.core.js"></script>
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
   <script src="http://azavea.github.io/Leaflet.zoomdisplay/js/leaflet.zoomdisplay.js"></script>
   <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>
@@ -131,13 +130,15 @@
   		visibility: visible;
 	}
 	
-	#slides_container {
+	#slides_container{
     	display:block;
     	position:absolute;
     	font-family:'Hoefler Text', Georgia, 'Times New Roman', serif;
     	top:40px;
     	left:40px;
     	opacity: 0.7;
+    	height: 400px;
+    	overflow-y: auto;
     	background-color:#ffc966;
     	z-index:1000;
     	border-radius: 25px;
