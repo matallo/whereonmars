@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang = "en">
 <head>  
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +10,15 @@
   <link rel="stylesheet" href="http://cartodb.github.io/odyssey.js/sandbox/css/slides.css"/> 
   <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
   <link rel="stylesheet" href="http://azavea.github.io/Leaflet.zoomdisplay/css/leaflet.zoomdisplay.css" />
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
   <!-- call javascript libraries -->
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
   <script src="http://azavea.github.io/Leaflet.zoomdisplay/js/leaflet.zoomdisplay.js"></script>
   <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>
+  
   		
   <style>
 	
@@ -33,14 +38,30 @@
 		border: 3px solid #000000;
 		border-top: none;	
 	}
+	.cartodb-popup{
+		opacity: 0.7;
+		
+
+	
+	}
+	.cartodb-popup-content-wrapper,
+	.cartodb-popup-content {
+        box-sizing: content-box; 
+    	-webkit-box-sizing: content-box;
+   		-moz-box-sizing: content-box;
+   		
+   		
+	}
+	
     #menu_options { 
     	position:absolute;
     	top:40px;
     	right:10px;
-    	width:200px;
-    	height: 220px;
+    	width:220px;
+    	height: 320px;
     	z-index:10;
     	padding-top:10px;
+    	padding-left: 10px;
     	background-color:#ffc966;
     	border-radius: 25px;
     	border: 3px solid #fff;
@@ -124,21 +145,36 @@
 	#slides_container{
     	display:block;
     	position:absolute;
-    	font-family:'Hoefler Text', Georgia, 'Times New Roman', serif;
-    	top:40px;
-    	left:40px;
-    	opacity: 0.7;
+    	top:30px;
+    	left:30px;
+    	opacity: 0.9;
     	height: 400px;
     	overflow-y: auto;
-    	background-color:#ffc966;
+    	background-color:#fff;
     	z-index:1000;
     	border-radius: 25px;
     	border: 4px solid #fff;
+    	padding-top: 5px;
+    	padding-left: 25px;
+    	background: linear-gradient(to bottom,#337ab7,#fff); 
     }
-   
+    #slides_container h1{
+    	color: #fff;
+    	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+    #slides_container p{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+    #slides_container .slide .button{
+    	color: #fff;
+    	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    	font-size:13px;
+    	background-color: #337ab7;
+ 	}
   </style>
 </head>
 <body>
+	
 	<!-- define element with id = map -->
 	<div id = "map"></div> 
 	<!-- define buttons-->	
@@ -220,7 +256,8 @@
 					<p>The Mars Orbiter Laser Altimeter (MOLA), is an instrument on the Mars Global Surveyor (MGS), a spacecraft that was launched on November 7, 1996. MGS carried a laser altimeter on board to determinate the height of surface on Mars</p>
 					<p>MOLA collected altimetry data until June 30,2001. Then it operated as a radiometer until October 7, 2006. Right now, you are looking at the map generated from MOLA data</p>
 					<p>If you don't like the grayscale map, click the "MOLA Color" button to put some color in it !</p>
-					<div style="padding-top:10px;margin-left: 50px;text-align: center;width:150px; background-color: #FFF; color: #000000; border: 1px solid #000000;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#MOLA" id="MOLA" class="button MOLA">MOLA Grayscale</a></div></br><div style="padding-top:10px;margin-left: 50px;text-align: center;width:150px; background-color: #FFF; color: #000000; border: 1px solid #000000;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#MOLA_color" id="MOLA_color" class="button MOLA_color">MOLA Color</a></div>
+					<div class ="button" style="padding-top:10px;margin-left: 40px;text-align: center;width:150px;  border: 2px solid #ddd;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#MOLA" id="MOLA" class="button MOLA">MOLA Grayscale</a></div></br>
+					<div class = "button" style="padding-top:10px;margin-left: 40px;text-align: center;width:150px; background-color: #337ab7; border: 2px solid #ddd;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#MOLA_color" id="MOLA_color" class="button MOLA_color">MOLA Color</a></div>
 					</br>
 					<p>Click the right button to learn more !</p>
 				</div>
@@ -276,7 +313,7 @@
 					<p>Before continue with the explanation, you should know that the MOLA is not the only data that we have to see and analyze Mars. We are glad to present you the High Resolution Stereo Camera</p>
 					<p>The High Resolution Stereo Camera (HRSC) is a camera experiment on Mars Express.At an altitude of 250 km from Mars, HRSC can produce images with a resolution of 2.3 meters/pixel of 2.35 kilometers square Mars Terrain.</p>
 					<p>If you want to see Mars with new eyes...click the button to see the great difference between MOLA and HRSC resolution !</p>
-					<div style="padding-top:10px;margin-left: 50px;text-align: center;width:150px; background-color: #FFF; color: #000000;border: 1px solid #000000;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#hrscAram" id="hrscAram" class="button hrscAram">HRSC</a></div>
+					<div class="button" style="padding-top:10px;margin-left: 40px;text-align: center;width:150px;border: 1px solid #000000;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#hrscAram" id="hrscAram" class="button hrscAram">HRSC</a></div>
 					</br>
 					<p>Click the right button to learn more !</p>
 				</div>
@@ -323,7 +360,7 @@
 					<p>Before continue with the explanation, you should know that MOLA data and HRSC are not the only data that we have to see and analyze Mars. We introduce you now the High Resolution Imaging Science Experiment.</p>
 					<p>The High Resolution Imaging Science Experiment (HiRISE) is a camera on board the Mars Reconnaissance Orbiter (MRO) and have a resolution of 0.3 m from an altitude of 300 km. One of the main goals of the MRO is to map the Martian landscape with it's high-resolution cameras in order to choose landing sites. </p>
 					<p>If you want to see Mars in high resolution...click the button and zoom to see the great difference between HRSC and HiRISE resolution ! </p>
-					<div style="padding-top:10px;margin-left: 50px;text-align: center;width:150px; background-color: #FFF; color: #000000;border: 1px solid #000000;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#HiRISEOxia" id="HiRISEOxia" class="button HiRISEOxia">HiRISE Oxia Planum</a></div>
+					<div class="button" style="padding-top:10px;margin-left: 40px;text-align: center;width:150px;border: 1px solid #000000;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#HiRISEOxia" id="HiRISEOxia" class="button HiRISEOxia">HiRISE</a></div>
 					</br>
 					<p>Click the right button to learn more !</p>
 				</div>
