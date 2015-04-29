@@ -467,59 +467,84 @@
 		  			var sublayer =layer.getSubLayer(0);
 		  	   		el.landingSite8 = layer.createSubLayer({
 		  	   			sql: "SELECT * FROM exomars_landing_sites_eight",
-		  				cartocss: '#exomars_landing_sites_four{marker-file: url(http://com.cartodb.users-assets.production.s3.amazonaws.com/maki-icons/circle-stroked-18.svg);marker-width: 25; marker-fill: #F11810 ;}'
+		  				cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #F11810;marker-width: 15; marker-line-opacity: 1;marker-line-width: 3;marker-type: ellipse;marker-fill: #F11810;marker-fill-opacity: 0;}'
 		  	   		});
-		  	   		
 		  	   		el.landingSite = layer.createSubLayer({
 		  	   			sql: "SELECT * FROM exomars_landing_sites_four",
-		  				cartocss: '#exomars_landing_sites_four{marker-file: url(http://com.cartodb.users-assets.production.s3.amazonaws.com/maki-icons/circle-stroked-18.svg);marker-width: 25; marker-fill: #F11810 ;}'
+		  				cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #F11810;marker-width: 15; marker-line-opacity: 1;marker-line-width: 3;marker-type: ellipse;marker-fill: #F11810;marker-fill-opacity: 0;}'
 		  	   		});
-		  	   		// allows infowindow when click on the points
-		  	   		cdb.vis.Vis.addInfowindow(el.map, el.landingSite8, ['name','coordinates'])
-		  	   		cdb.vis.Vis.addInfowindow(el.map, el.landingSite, ['name','coordinates'])
-					el.landingSite8.setInteraction(true);
-					el.landingSite.setInteraction(true);
-		  	   		
 		  	   		el.latConstraint = layer.createSubLayer({
 		  				sql: "SELECT * FROM lat_constraints",
 		  				cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}'
 		  			});
-		  			el.ellipses = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_corrected",
-		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FFF; line-width: 1;line-opacity: 0;}'
- 	  		    	});
+		  			
  	  		    	el.ellipses1 = layer.createSubLayer({
 		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id =1 ",
-		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
+		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+		  				interactivity: ['name'] 
  	  		    	});
  	  		    	el.ellipses2 = layer.createSubLayer({
 		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id = 2",
-		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
+		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+		  				interactivity: ['name'] 
  	  		   		});
  	  		    	el.ellipses3 = layer.createSubLayer({
 		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id =3",
-		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
+		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+		  				interactivity: ['name'] 
  	  		    	});
  	  		    	el.ellipses4 = layer.createSubLayer({
 		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 4",
-		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 1;line-opacity: 1;}'
+		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+		  				interactivity: ['name'] 
  	  		    	});
  	  		    	el.ellipses5 = layer.createSubLayer({
 		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 5",
-		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
+		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+		  				interactivity: ['name'] 
  	  		    	});
  	  		    	el.ellipses6 = layer.createSubLayer({
 		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 6",
-		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
+		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+		  				interactivity: ['name'] 
  	  		    	});
  	  		    	el.ellipses7 = layer.createSubLayer({
 		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 7",
-		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
+		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+		  				interactivity: ['name'] 
  	  		    	});
  	  		    	el.ellipses8 = layer.createSubLayer({
 		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 8",
-		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 1;line-opacity: 1;}'
+		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+		  				interactivity: ['name'] 
  	  		    	});
+ 	  		    	
+ 	  		    	// allows infowindow when click on the points
+ 	  		    	el.landingSite8.setInteraction(true);
+					el.landingSite.setInteraction(true);
+ 	  		    	el.ellipses1.setInteraction(true);
+ 	  		    	el.ellipses2.setInteraction(true);
+ 	  		    	el.ellipses3.setInteraction(true);
+ 	  		    	el.ellipses4.setInteraction(true);
+ 	  		    	el.ellipses5.setInteraction(true);
+ 	  		    	el.ellipses6.setInteraction(true);
+ 	  		    	el.ellipses7.setInteraction(true);
+ 	  		    	el.ellipses8.setInteraction(true);
+ 	  		    	
+ 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.landingSite8, ['name','coordinates'])
+		  	   		cdb.vis.Vis.addInfowindow(el.map, el.landingSite, ['name','coordinates'])
+ 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses1, ['name'])
+ 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses2, ['name'])
+ 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses3, ['name'])
+ 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses4, ['name'])
+ 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses5, ['name'])
+ 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses6, ['name'])
+ 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses7, ['name'])
+ 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses8, ['name'])
+ 	  		    	
+ 	  		    	
+ 	  		    	
+ 	  		    	
  	  		    	
  	  		    	var base = el.basemap;
  	  		    	var baseColor = el.basemapColor;
@@ -634,7 +659,7 @@
 		  			el.landingSite8.hide();
 		  			el.landingSite.hide();
 		  			el.latConstraint.hide();
-		  			el.ellipses.hide();
+		  		
 		  			el.ellipses1.hide();
 		  			el.ellipses2.hide();
 		  			el.ellipses3.hide();
@@ -647,18 +672,16 @@
 		  			el.map.addLayer(layer, false); 
 		  		});
 		 	} 
-	  		
 	  		// when click the nav buttons, the scroll up to the y = 0 position of the slides_containers
 	  		$("#navButtons").click(function() {
   		 		$('#slides_container').scrollTop(0);
  			});
-	  		
   	  		$('.button').click(function() { 
   				$('.button').removeClass('selected'); 
   				$(this).addClass('selected'); 
   				el.LayerActions[$(this).attr('id')](); 
 			}); // end of click event
-	  		
+			
 	  		function click(el) {
       			var element = O.Core.getElement(el);
       			var t = O.Trigger();
