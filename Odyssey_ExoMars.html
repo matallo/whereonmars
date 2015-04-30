@@ -17,8 +17,7 @@
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
   <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>
-  
-  		
+   		
   <style>
 	
 	#map{ 		
@@ -33,7 +32,6 @@
 	}
 	.progress{
 		height: 10px;
-		""" margin-top: 1090px; """
 	}
 	
 	.leaflet-left .leaflet-control-scale {
@@ -58,100 +56,7 @@
    		-moz-box-sizing: content-box;
 	}
 	
-    #menu_options { 
-    	position:absolute;
-    	top:40px;
-    	right:10px;
-    	width:220px;
-    	height: 320px;
-    	z-index:10;
-    	padding-top:10px;
-    	padding-left: 10px;
-    	background: linear-gradient(to bottom,#003F87,#fff); 
-    	border-radius: 25px;
-    	border: 3px solid #fff;
-    	opacity: 0.7;
-    }
-    #menu_options h3{ 
-    	text-align: center;
-    	font-family:"AleoBold";
-    }
-    #menu_options ul {
-    	text-align: left;
-  		
-  		font-family:'Hoefler Text', Georgia, 'Times New Roman', serif;
-  		opacity: 0.5;
-  		
-    }
-    #menu_options ul li{
-    	float: left;
-    	list-style: none;
-    	text-align: center;
-    	margin-right: 50px;
-    	width: 200px;
-    	line-height: 30px;
-    
-    }
-    #menu_options ul li:hover > ul {
-  		display: block;
- 		opacity: 1;
-  		visibility: visible;
-	}
-    #menu_options ul li a{
-    	text-decoration: none;
-    	color: #000000;
-    	display: block;
-    	width: 100%;
-    	padding: 2px 0px 2px 0px;
-    	background-color: #003F87;
-    	 
-    	
-	}
-	#menu_options ul li a:hover{
-    	text-decoration: none;
-    	color: #FFF;
-    	background-color:#1A62A3;		
-    }
-    #menu_options ul li ul{
-  		position: relative;
-  		width: auto;
-  		height: auto;
-   		display: none;
-  		visibility: hidden;
- 	}
-	#menu_options ul li ul li a{ 
-  		background-color: #F7F6F4; 
-  		color: #000000;
-  		border-radius: 5px;
-	}
-	#menu_options ul li ul li a:hover{ 
-  		background-color: #d7e9f9; 
-  		display: block; 
-  		color: red;
-	}
-	#menu_options ul li  ul li ul{
-		position: relative;
-  		width: auto;
-  		height: auto;
-   		display: none;
-  		visibility: hidden;
-	}
-	#menu_options ul li ul li ul > li{
-		text-decoration: none;
-    	color: white;
-    	background-color:#1A62A3;
-	}
-	#menu_options ul li ul li ul li > a{
-		background-color:  #f9fcfe; 	 
-  		color: #000000;
-  		border-radius: 5px;
-	}
-	#menu_options ul li ul li ul li > a:hover{
-		background-color: #e8f2fb; 
-  		display: block; 
-  		color: blue;
-  		visibility: visible;
-	}
+   
 	#slides_container{
     	display:block;
     	position:absolute;
@@ -166,14 +71,20 @@
     	border: 4px solid #fff;
     	padding-top: 5px;
     	padding-left: 25px;
-    	background: linear-gradient(to bottom,#003F87,#fff); 
+    	background: #003F87; 
+    	color: white;
     }
     #slides_container h1{
     	color: #fff;
-    	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;	
+    }
+     #slides_container h3{
+    	color: #fff;
+    	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;	
     }
     #slides_container p{
     font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #fff;
     }
     #slides_container .slide .button{
     	color: #fff;
@@ -363,14 +274,6 @@
 				story: null,
 				hirise: null,
 				hrsc: null,
-				tileLayerAramHiRISE: null, 
-				tileLayerAramHrsc: null,
-				tileLayerHypanisHiRISE: null, 
-				tileLayerHypanisHrsc: null,
-				tileLayerMawrthHrsc: null,
-				tileLayerMawrthHiRISE: null,
-				tileLayerOxiaHrsc: null,
-				tileLayerOxiaHiRISE: null,
 				// landing sites
 				Aram: null,
 				Hypanis:null,
@@ -382,7 +285,6 @@
 				landingSite: null,
 				landingSite8: null,
 				latConstraint: null,
-				ellipses: null,
 				ellipses1: null,
 				ellipses2: null,
 				ellipses3: null,
@@ -465,17 +367,20 @@
 				.on('done', function(layer) {
 		  			layer.setZIndex(100); // all cartoDB layer will be above all the baselayers
 		  			var sublayer =layer.getSubLayer(0);
+		  			
 		  	   		el.landingSite8 = layer.createSubLayer({
 		  	   			sql: "SELECT * FROM exomars_landing_sites_eight",
-		  				cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #F11810;marker-width: 15; marker-line-opacity: 1;marker-line-width: 3;marker-type: ellipse;marker-fill: #F11810;marker-fill-opacity: 0;}'
+		  				cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #F11810;marker-width: 15; marker-line-opacity: 1;marker-line-width: 3;marker-type: ellipse;marker-fill: #F11810;marker-fill-opacity: 0;}',
+		  				interactivity: ['name','coordinates']
 		  	   		});
 		  	   		el.landingSite = layer.createSubLayer({
 		  	   			sql: "SELECT * FROM exomars_landing_sites_four",
-		  				cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #F11810;marker-width: 15; marker-line-opacity: 1;marker-line-width: 3;marker-type: ellipse;marker-fill: #F11810;marker-fill-opacity: 0;}'
+		  				cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #F11810;marker-width: 15; marker-line-opacity: 1;marker-line-width: 3;marker-type: ellipse;marker-fill: #F11810;marker-fill-opacity: 0;}',
+		  				interactivity: ['name','coordinates']
 		  	   		});
 		  	   		el.latConstraint = layer.createSubLayer({
 		  				sql: "SELECT * FROM lat_constraints",
-		  				cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}'
+		  				cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}',
 		  			});
 		  			
  	  		    	el.ellipses1 = layer.createSubLayer({
@@ -483,6 +388,7 @@
 		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
 		  				interactivity: ['name'] 
  	  		    	});
+ 	  		    	
  	  		    	el.ellipses2 = layer.createSubLayer({
 		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id = 2",
 		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
@@ -531,18 +437,16 @@
  	  		    	el.ellipses7.setInteraction(true);
  	  		    	el.ellipses8.setInteraction(true);
  	  		    	
- 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.landingSite8, ['name','coordinates'])
-		  	   		cdb.vis.Vis.addInfowindow(el.map, el.landingSite, ['name','coordinates'])
- 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses1, ['name'])
- 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses2, ['name'])
- 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses3, ['name'])
- 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses4, ['name'])
- 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses5, ['name'])
- 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses6, ['name'])
- 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses7, ['name'])
- 	  		    	cdb.vis.Vis.addInfowindow(el.map, el.ellipses8, ['name'])
  	  		    	
  	  		    	
+ 	  		    	var i = new cdb.geo.ui.Tooltip({
+                	layer: layer,
+                	template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><h4>{{name}}</h4><p>{{coordinates}}</p></div></div>', 
+                	width: 200,
+                	position: 'top|right'
+            		});
+            		
+            		$('body').append(i.render().el);
  	  		    	
  	  		    	
  	  		    	
