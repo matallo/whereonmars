@@ -1,0 +1,89 @@
+#map{ 		
+		z-index:-10;
+		height: 100%;
+		width: 100%		
+	} 
+	.progress-bar{
+		border-radius: 25px;
+		height: 10px;
+	
+	}
+	.progress{
+		height: 10px;
+	}
+	
+	.leaflet-left .leaflet-control-scale {
+		margin-left: 5px;
+	}
+	.leaflet-bottom .leaflet-control-scale {
+		margin-bottom: 40px;
+	}
+    .leaflet-control-scale-line {
+		-moz-box-sizing: content-box;
+		box-sizing: content-box;
+		border: 3px solid #000000;
+		border-top: none;	
+	}
+	.cartodb-popup{
+		opacity: 0.7;
+	}
+	.cartodb-popup-content-wrapper,
+	.cartodb-popup-content {
+        box-sizing: content-box; 
+    	-webkit-box-sizing: content-box;
+   		-moz-box-sizing: content-box;
+	}
+	
+	#slides_container{
+    	display:block;
+    	position:absolute;
+    	opacity: 0.9;
+    	height: 500px;
+    	background-color:#fff;
+    	z-index:1000;
+    	border-radius: 15px;
+    	border: 1px solid #000000;
+    	padding-top: 5px;
+    	padding-left: 25px;
+    	
+    	color: #000000;
+    }
+    #slides_container #slides{
+    	display:block;
+    	position:absolute;
+    	opacity: 0.9;
+    	height: 430px;
+    	overflow-y: auto;
+    	background-color: #FFF;
+    	z-index:1000;
+		margin-right: 20px;
+		margin-top: 10px;
+    	color: #000000;
+    	border-bottom: 1px solid red;
+    
+    }
+    ul#navButtons{
+     	padding-top: 445px;
+     	padding-left: 100px;
+  		margin: 0;
+  		border: 0;
+     }
+    
+    #slides_container h1{
+    	color: #000000;
+    	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;	
+    }
+     #slides_container h3{
+    	color: #000000;
+    	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;	
+    }
+    #slides_container p{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #000000;
+    }
+    #slides_container .slide .button{
+    	color: #000000;
+    	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    	font-size:13px;
+    	background-color: #337ab7;
+ 	}
