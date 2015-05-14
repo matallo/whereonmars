@@ -5,6 +5,7 @@
 			var el = {
 				map: null,
 				basemap: null, // MOLA basemap grey_scale
+				basemap2: null,
 				basemapColor: null,
 				story: null,
 				hirise: null,
@@ -28,6 +29,7 @@
 				ellipses6: null,
 				ellipses7: null,
 				ellipses8: null,
+				nomenclator: null,
 				LayerActions: null
 			};
 			// 	define function that initiates the map element
@@ -38,15 +40,23 @@
       				zoom: 3,
       				minZoom: 3,
       				zoomControl: false
+      			
       			}); 
       			new L.control.zoom({position : 'bottomright'}).addTo(el.map);		
     			new L.control.scale({metric: true,imperial: false}).addTo(el.map);
+    			
     			// define basemap
     			el.basemap = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
  					attribution: 'GISLAB',
  					tms:true,
  					maxNativeZoom: 9,
   				}).addTo(el.map).setZIndex(0);
+  				el.basemap2 = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
+ 					attribution: 'GISLAB',
+ 					tms:true,
+ 					maxNativeZoom: 9,
+  				});
+  				new L.Control.MiniMap(el.basemap2, { position: 'topright'  }).addTo(el.map);
 				// define color basemap 
   				el.basemapColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-color/{z}/{x}/{y}.png', {
  					attribution: 'GISLAB',
@@ -158,6 +168,11 @@
 		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
 		  				interactivity: ['name'] 
  	  		    	});
+ 	  		    	el.nomenclator = layer.createSubLayer({
+ 	  		    		sql: "SELECT * FROM mars_nomenclature_webmercator_ls",
+ 	  		    		cartocss: '#mars_nomenclature_webmercator_ls{marker-placement: point;marker-line-color: #FFF;marker-width: 15; marker-line-opacity: 0.9;marker-line-width: 1;marker-type: ellipse;marker-fill:  #FF2900;marker-fill-opacity: 0.9;}',
+						interactivity: ['name'] 	  		    	
+ 	  		    	});
  	  		    	
  	  		    	// allows infowindow when click on the points
  	  		    	el.landingSite8.setInteraction(true);
@@ -170,6 +185,7 @@
  	  		    	el.ellipses6.setInteraction(true);
  	  		    	el.ellipses7.setInteraction(true);
  	  		    	el.ellipses8.setInteraction(true);
+ 	  		    	el.nomenclator.setInteraction(true);
  	  		    	
  	  		    	
  	  		    	// infowindow appears when hover on the landing sites layer and the ellipses layer
@@ -297,7 +313,7 @@
 		  			el.landingSite8.hide();
 		  			el.landingSite.hide();
 		  			el.latConstraint.hide();
-		  		
+		  			el.nomenclator.hide();
 		  			el.ellipses1.hide();
 		  			el.ellipses2.hide();
 		  			el.ellipses3.hide();
@@ -312,9 +328,8 @@
 		 	} 
 	  		// when click the nav buttons, the scroll up to the y = 0 position of the slides_containers
 	  		$("#navButtons").click(function() {
-	  		
   		 		$('#slides_container #slides').scrollTop(0);
-  		 		console.log("test");
+  		 		
  			});
   	  		$('.button').click(function() { 
   				$('.button').removeClass('selected'); 
@@ -406,12 +421,14 @@
     			el.landingSite.show()
     			el.latConstraint.show();
     			el.landingSite8.hide();
+    			el.nomenclator.hide()
     		};
       		// Aram Dorsum 
       		function slideFour() { 
      			el.latConstraint.hide();
 	 			el.ellipses1.hide();
 	 			el.ellipses5.hide();
+	 			el.nomenclator.show()
     		};
     		// HRSC / Aram Dorsum
     		function slideFive() {
@@ -474,6 +491,7 @@
 	 			el.ellipses4.hide();
 	 			el.ellipses8.hide();
 	 			el.landingSite.show();
+	 			el.nomenclator.hide()
     		};
       		function initOdyssey(O) {
       			// O is for Odyssey
@@ -484,7 +502,6 @@
       			O.Triggers.Keys().right().then(seq.next, seq)
       			// set up triggers for slide arrows 
       			click(document.querySelectorAll('.next')).then(seq.next, seq)
-      			console.log($("#navButtons"));
       			click(document.querySelectorAll('.prev')).then(seq.prev, seq)  
       			var slides = O.Actions.Slides('slides');
       			el.story =  O.Story()

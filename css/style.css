@@ -38,7 +38,7 @@
     	display:block;
     	position:absolute;
     	opacity: 0.9;
-    	height: 500px;
+    	height: 600px;
     	background-color:#fff;
     	z-index:1000;
     	border-radius: 15px;
@@ -52,7 +52,7 @@
     	display:block;
     	position:absolute;
     	opacity: 0.9;
-    	height: 430px;
+    	height: 530px;
     	overflow-y: auto;
     	background-color: #FFF;
     	z-index:1000;
@@ -63,7 +63,7 @@
     
     }
     ul#navButtons{
-     	padding-top: 445px;
+     	padding-top: 550px;
      	padding-left: 100px;
   		margin: 0;
   		border: 0;
