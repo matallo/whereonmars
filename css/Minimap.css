@@ -4,6 +4,7 @@
     border-radius: 3px;
     background: #f8f8f9;
     transition: all .2s;
+    top: 25px;
 }
 
 .leaflet-control-minimap a {

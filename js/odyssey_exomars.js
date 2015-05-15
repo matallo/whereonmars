@@ -29,7 +29,6 @@
 				ellipses6: null,
 				ellipses7: null,
 				ellipses8: null,
-				nomenclator: null,
 				LayerActions: null
 			};
 			// 	define function that initiates the map element
@@ -51,17 +50,22 @@
  					tms:true,
  					maxNativeZoom: 9,
   				}).addTo(el.map).setZIndex(0);
+  				
+  				// basemap2 is the map used to create the mini map
   				el.basemap2 = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
  					attribution: 'GISLAB',
  					tms:true,
  					maxNativeZoom: 9,
   				});
+  				
+  				// create a Mini map of the basemap2 layer
   				new L.Control.MiniMap(el.basemap2, { position: 'topright'  }).addTo(el.map);
 				// define color basemap 
   				el.basemapColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-color/{z}/{x}/{y}.png', {
  					attribution: 'GISLAB',
  					maxNativeZoom: 7,
   				}).setZIndex(0);
+  				
   				// define overlays from cartodb database
   				var sql = new cartodb.SQL({ user: 'whereonmars'});
 		 		sql.execute("SELECT * FROM overlays_table")
@@ -114,12 +118,12 @@
 		  			
 		  	   		el.landingSite8 = layer.createSubLayer({
 		  	   			sql: "SELECT * FROM exomars_landing_sites_eight",
-		  				cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #F11810;marker-width: 15; marker-line-opacity: 1;marker-line-width: 3;marker-type: ellipse;marker-fill: #F11810;marker-fill-opacity: 0;}',
+		  				cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #31a354;marker-width: 15; marker-line-opacity: 1;marker-line-width: 3;marker-type: ellipse;marker-fill: #fc9272;marker-fill-opacity: 0;}',
 		  				interactivity: ['name','coordinates']
 		  	   		});
 		  	   		el.landingSite = layer.createSubLayer({
 		  	   			sql: "SELECT * FROM exomars_landing_sites_four",
-		  				cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #F11810;marker-width: 15; marker-line-opacity: 1;marker-line-width: 3;marker-type: ellipse;marker-fill: #F11810;marker-fill-opacity: 0;}',
+		  				cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #31a354;marker-width: 15; marker-line-opacity: 1;marker-line-width: 3;marker-type: ellipse;marker-fill: #fc9272;marker-fill-opacity: 0;}',
 		  				interactivity: ['name','coordinates']
 		  	   		});
 		  	   		el.latConstraint = layer.createSubLayer({
@@ -168,11 +172,7 @@
 		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
 		  				interactivity: ['name'] 
  	  		    	});
- 	  		    	el.nomenclator = layer.createSubLayer({
- 	  		    		sql: "SELECT * FROM mars_nomenclature_webmercator_ls",
- 	  		    		cartocss: '#mars_nomenclature_webmercator_ls{marker-placement: point;marker-line-color: #FFF;marker-width: 15; marker-line-opacity: 0.9;marker-line-width: 1;marker-type: ellipse;marker-fill:  #FF2900;marker-fill-opacity: 0.9;}',
-						interactivity: ['name'] 	  		    	
- 	  		    	});
+ 	  		    	
  	  		    	
  	  		    	// allows infowindow when click on the points
  	  		    	el.landingSite8.setInteraction(true);
@@ -185,7 +185,6 @@
  	  		    	el.ellipses6.setInteraction(true);
  	  		    	el.ellipses7.setInteraction(true);
  	  		    	el.ellipses8.setInteraction(true);
- 	  		    	el.nomenclator.setInteraction(true);
  	  		    	
  	  		    	
  	  		    	// infowindow appears when hover on the landing sites layer and the ellipses layer
@@ -313,7 +312,6 @@
 		  			el.landingSite8.hide();
 		  			el.landingSite.hide();
 		  			el.latConstraint.hide();
-		  			el.nomenclator.hide();
 		  			el.ellipses1.hide();
 		  			el.ellipses2.hide();
 		  			el.ellipses3.hide();
@@ -421,14 +419,14 @@
     			el.landingSite.show()
     			el.latConstraint.show();
     			el.landingSite8.hide();
-    			el.nomenclator.hide()
+    			
     		};
       		// Aram Dorsum 
       		function slideFour() { 
      			el.latConstraint.hide();
 	 			el.ellipses1.hide();
 	 			el.ellipses5.hide();
-	 			el.nomenclator.show()
+	 			
     		};
     		// HRSC / Aram Dorsum
     		function slideFive() {
@@ -491,7 +489,7 @@
 	 			el.ellipses4.hide();
 	 			el.ellipses8.hide();
 	 			el.landingSite.show();
-	 			el.nomenclator.hide()
+	 			
     		};
       		function initOdyssey(O) {
       			// O is for Odyssey
@@ -540,7 +538,7 @@
         		.addState(
           			seq.step(4),
           				O.Parallel(                        
-            				el.map.actions.setView(el.Aram,9),
+            				el.map.actions.setView(el.Aram,8),
             				slides.activate(4),
             				emitSlideChange
           				)
@@ -548,7 +546,7 @@
         		.addState(
           			seq.step(5),
           				O.Parallel(                        
-            				el.map.actions.setView(el.Aram,9),
+            				el.map.actions.setView(el.Aram,8),
             				slides.activate(5),
             				emitSlideChange
           				)
@@ -580,7 +578,7 @@
         		.addState(
           			seq.step(9),
           				O.Parallel(            
-            				el.map.actions.setView(el.Oxia,9),
+            				el.map.actions.setView(el.Oxia,8),
             				slides.activate(9),
             				emitSlideChange       
           				)
