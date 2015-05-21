@@ -9,9 +9,12 @@
 	
 	}
 	.progress{
-		height: 8px;
+		height: 4%;
 	}
+	.cartodb-timeslider{
+		display: none!important;
 	
+	}
 	.leaflet-left .leaflet-control-scale {
 		margin-left: 5px;
 	}
@@ -38,7 +41,7 @@
     	display:block;
     	position:absolute;
     	opacity: 0.9;
-    	height: 600px;
+    	height: 80%;
     	background-color:#fff;
     	z-index:1000;
     	border-radius: 15px;
@@ -49,9 +52,9 @@
     }
     #slides_container #slides{
     	display:block;
-    	position:absolute;
+    	position:relative;
     	opacity: 0.9;
-    	height: 530px;
+    	height: 90%;
     	overflow-y: auto;
     	background-color: #FFF;
     	z-index:1000;
@@ -59,13 +62,10 @@
 		margin-top: 10px;
     	color: #000000;
     	border-bottom: 1px solid red;
-    
     }
-    ul#navButtons{
-     	padding-top: 550px;
+    #slides_container ul#navButtons{
+    	position: relative;
      	padding-left: 100px;
-  		margin: 0;
-  		border: 0;
      }
     
     #slides_container h1{
