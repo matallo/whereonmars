@@ -62,12 +62,14 @@ var app =  {};
   				});
 
   				// create a Mini map of the basemap2 layer
-  				new L.Control.MiniMap(el.basemap2, { position: 'topright'  }).addTo(el.map);
+  				new L.Control.MiniMap(el.basemap2, { position: 'topright' }).addTo(el.map);
 					// define color basemap
   				el.basemapColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-color/{z}/{x}/{y}.png', {
  					attribution: 'GISLAB',
  					maxNativeZoom: 7,
   				}).setZIndex(0);
+
+
 
 
 
@@ -105,8 +107,45 @@ var app =  {};
 										};
       					}
       				}
-
-
+							var baseMaps = [{
+								groupName:"MOLA maps",
+								expanded: true,
+								layers :{
+									"Grayscale map": el.basemap,
+									"Color map" : el.basemapColor
+								}
+							}];
+							var overLays = [{
+								groupName: "HRSC images",
+								expanded: true,
+								layers :{
+									"Aram Dorsum" : el.hrsc[0],
+									"Hypanis Vallis" : el.hrsc[1],
+									"Oxia Planum" : el.hrsc[2],
+									"Mawrth Vallis" : el.hrsc[3]
+								}
+							},{
+								groupName: "HIRISE images",
+								expanded: true,
+								layers:{
+									"Oxia Planum": el.hirise[4],
+									"Mawrth Vallis ": el.hirise[5]
+								}
+							}];
+							var options = {
+								container_width: "300px",
+								group_maxHeight : "30%",
+								//container_maxHeight : "350px",
+								exclusive       	: false
+							};
+							var control = L.Control.styledLayerControl(baseMaps,overLays,options);
+							el.map.addControl(control);
+							console.log(control);
+							console.log(options);
+							console.log(baseMaps);
+							console.log(overLays);
+							console.log(el.basemap);
+							console.log(el.hrsc[0]);
       		});
 
 
@@ -273,16 +312,6 @@ var app =  {};
  	  		    	var base = el.basemap;
  	  		    	var baseColor = el.basemapColor;
  	  		    	var map = el.map;
-							// define layer switch control
-							var basemaps = {
-								"MOLA_grayscale" : base,
-								"MOLA color" : baseColor
-							}
-							var allOverLays = {
-								"HRSC" : el.hrsc
-							}
-							// layer switch control (basemaps)
-							L.control.layers(basemaps,null).addTo(map);
 		 			// define LayerAction to add or remove the layers
 		  			el.LayerActions = {
 		  				MOLA: function(){
@@ -390,6 +419,7 @@ var app =  {};
 
 					}
 
+
 		  			// hide layers when load the map element
 
 		  			el.landingSite8.hide();
@@ -407,12 +437,12 @@ var app =  {};
 		  			// add cartoDB layers into the map
 		  			el.map.addLayer(layer, false);
 		  		});
-		 	}
+		 		}
 	  		// when click the nav buttons, the scroll up to the y = 0 position of the slides_containers
 	  		$("#navButtons").click(function() {
   		 			$('#slides_container #slides').scrollTop(0);
  				});
- 			// buttons inside slide container
+ 				// buttons inside slide container
   	  		$('.button').click(function() {
   				$('.button').removeClass('selected');
   				$(this).addClass('selected');
