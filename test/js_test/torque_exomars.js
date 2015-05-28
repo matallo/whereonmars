@@ -23,6 +23,7 @@ var app =  {};
 				landingSite: null,
 				landingSite8: null,
 				latConstraint: null,
+				geoConstraint: null,
 				ellipses1: null,
 				ellipses2: null,
 				ellipses3: null,
@@ -162,7 +163,7 @@ var app =  {};
     					el.torqueLayer  = layer;
     				});
 
-						// we define the torque layer for the landing ellipses
+						// we define the torque layer for the landing ellipses in Aram Dorsum
 						cartodb.createLayer(el.map,{
 						type: "torque",
 						options: {
@@ -197,7 +198,11 @@ var app =  {};
 		  	   		el.latConstraint = layer.createSubLayer({
 		  				sql: "SELECT * FROM lat_constraints",
 		  				cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}',
-		  			});
+		  				});
+							el.geoConstraint = layer.createSubLayer({
+								sql: "SELECT * FROM restricted_geology_latitude_webmercator",
+								cartocss: '#restricted_geology_latitude_webmercator{polygon-fill:  #5CA2D1;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}'
+							})
 
  	  		    	el.ellipses1 = layer.createSubLayer({
 		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id =1 ",
@@ -390,6 +395,7 @@ var app =  {};
 		  			el.landingSite8.hide();
 		  			el.landingSite.hide();
 		  			el.latConstraint.hide();
+						el.geoConstraint.hide();
 		  			el.ellipses1.hide();
 		  			el.ellipses2.hide();
 		  			el.ellipses3.hide();
@@ -492,6 +498,7 @@ var app =  {};
     			el.landingSite8.hide();
     			el.torqueLayer.hide();
     			el.torqueLayer.stop();
+
     		};
     		// LSSWG
     		function slideTwo() {
@@ -503,18 +510,21 @@ var app =  {};
     			el.torqueLayer.play();
     			el.landingSite.hide();
     			el.latConstraint.hide();
+					el.geoConstraint.hide();
     		};
     		// 4 landing sites
     		function slideThree() {
     			el.landingSite.show();
     			el.latConstraint.show();
+					el.geoConstraint.show();
     			el.landingSite8.hide();
     			el.torqueLayer.hide();
-    			el.torqueLayer.stop();
+    			  el.torqueLayer.stop();
     		};
       	// Aram Dorsum
       	function slideFour() {
      			el.latConstraint.hide();
+					el.geoConstraint.hide();
 	 				el.ellipses1.hide();
 	 				el.ellipses5.hide();
 
