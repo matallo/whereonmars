@@ -167,15 +167,15 @@ var app =  {};
 						type: "torque",
 						options: {
 							user_name: "whereonmars",
-							table_name: "perimeter_ellipses_ls_2018",
+							table_name: "ls_ellipses_2018_aram",
 							cartocss:
 							'Map { '
 											+'  -torque-frame-count:512; '
 											+'  -torque-animation-duration:20; -torque-time-attribute:"cartodb_id"; '
 											+'  -torque-aggregation-function:"count(cartodb_id)"; '
 											+' -torque-resolution:2; -torque-data-aggregation:linear} '
-							+'#perimeter_ellipses_ls_2018{ '
-											+'  comp-op: lighter; marker-fill-opacity: 0.9; '
+							+'#ls_ellipses_2018_aram{ '
+											+'  comp-op: xor; marker-fill-opacity: 0.9; '
 											+'  marker-line-color: #FFF; marker-line-width: 1.5; '
 											+'  marker-line-opacity: 1; marker-type: ellipse; '
 											+'  marker-width: 6; marker-fill: #F11810; }'
