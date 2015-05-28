@@ -131,21 +131,22 @@ var app =  {};
 									"Oxia Planum": el.hirise[4],
 									"Mawrth Vallis ": el.hirise[5]
 								}
+							},{
+								groupName : "blabla",
+								expanded: true,
+								layers:{
+									"test":el.landingSite
+								}
 							}];
 							var options = {
 								container_width: "300px",
 								group_maxHeight : "30%",
 								//container_maxHeight : "350px",
-								exclusive       	: false
+								exclusive: false
 							};
 							var control = L.Control.styledLayerControl(baseMaps,overLays,options);
 							el.map.addControl(control);
-							console.log(control);
-							console.log(options);
-							console.log(baseMaps);
-							console.log(overLays);
-							console.log(el.basemap);
-							console.log(el.hrsc[0]);
+
       		});
 
 
@@ -231,58 +232,58 @@ var app =  {};
 
 		  	   		el.landingSite = layer.createSubLayer({
 		  	   			sql: "SELECT * FROM exomars_landing_sites_four",
-		  				cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #31a354;marker-width: 15; marker-line-opacity: 1;marker-line-width: 3;marker-type: ellipse;marker-fill: #fc9272;marker-fill-opacity: 0;}',
-		  				interactivity: ['name','coordinates']
+		  					cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #31a354;marker-width: 15; marker-line-opacity: 1;marker-line-width: 3;marker-type: ellipse;marker-fill: #fc9272;marker-fill-opacity: 0;}',
+		  					interactivity: ['name','coordinates']
 		  	   		});
 		  	   		el.latConstraint = layer.createSubLayer({
-		  				sql: "SELECT * FROM lat_constraints",
-		  				cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}',
+		  					sql: "SELECT * FROM lat_constraints",
+		  					cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}',
 		  				});
 							el.geoConstraint = layer.createSubLayer({
-								sql: "SELECT * FROM restricted_geology_latitude_webmercator",
-								cartocss: '#restricted_geology_latitude_webmercator{polygon-fill:  #5CA2D1;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}'
+									sql: "SELECT * FROM restricted_geology_latitude_webmercator",
+									cartocss: '#restricted_geology_latitude_webmercator{polygon-fill:  #5CA2D1;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}'
 							})
 
  	  		    	el.ellipses1 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id =1 ",
-		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
-		  				interactivity: ['name']
+		  					sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id =1 ",
+		  					cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+		  					interactivity: ['name']
  	  		    	});
 
  	  		    	el.ellipses2 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id = 2",
-		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
-		  				interactivity: ['name']
+		  					sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id = 2",
+		  					cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+		  					interactivity: ['name']
  	  		   		});
  	  		    	el.ellipses3 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id =3",
-		  				cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
-		  				interactivity: ['name']
+		  					sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id =3",
+		  					cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+		  					interactivity: ['name']
  	  		    	});
  	  		    	el.ellipses4 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 4",
-		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
-		  				interactivity: ['name']
+		  					sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 4",
+		  					cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+		  					interactivity: ['name']
  	  		    	});
  	  		    	el.ellipses5 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 5",
-		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
-		  				interactivity: ['name']
+		  					sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 5",
+		  					cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+		  					interactivity: ['name']
  	  		    	});
  	  		    	el.ellipses6 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 6",
-		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
-		  				interactivity: ['name']
+		  					sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 6",
+		  					cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+		  					interactivity: ['name']
  	  		    	});
  	  		    	el.ellipses7 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 7",
-		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
-		  				interactivity: ['name']
+		  					sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 7",
+		  					cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+		  					interactivity: ['name']
  	  		    	});
  	  		    	el.ellipses8 = layer.createSubLayer({
-		  				sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 8",
-		  				cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
-		  				interactivity: ['name']
+		  					sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 8",
+		  					cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+		  					interactivity: ['name']
  	  		    	});
 
 
@@ -418,10 +419,7 @@ var app =  {};
     					}
 
 					}
-
-
 		  			// hide layers when load the map element
-
 		  			el.landingSite8.hide();
 		  			el.landingSite.hide();
 		  			el.latConstraint.hide();
@@ -434,14 +432,19 @@ var app =  {};
 						el.ellipses6.hide();
 						el.ellipses7.hide();
 						el.ellipses8.hide();
-		  			// add cartoDB layers into the map
+
+						// add cartoDB layers into the map
 		  			el.map.addLayer(layer, false);
 		  		});
+
 		 		}
 	  		// when click the nav buttons, the scroll up to the y = 0 position of the slides_containers
 	  		$("#navButtons").click(function() {
   		 			$('#slides_container #slides').scrollTop(0);
  				});
+				$("#hide_story").click(function(){
+					$("#slides_container #slides").toggle();
+				});
  				// buttons inside slide container
   	  		$('.button').click(function() {
   				$('.button').removeClass('selected');
@@ -609,29 +612,29 @@ var app =  {};
       		function slideEleven() {
 	 			el.ellipses3.show();
 	 			el.ellipses4.hide();
-	 			el.ellipses7.show();
+	 				el.ellipses7.show();
     		};
       		// Mawrth Vallis
       		function slideTwelve() {
-	 			el.ellipses3.hide();
-	 			el.ellipses4.hide();
-	 			el.ellipses7.hide();
-	 			el.ellipses8.hide();
+	 				el.ellipses3.hide();
+	 				el.ellipses4.hide();
+	 				el.ellipses7.hide();
+	 				el.ellipses8.hide();
     		};
     		// Mawrth Vallis
     		function slideThirteen() {
-	 			el.ellipses4.show();
-	 			el.ellipses8.show();
+	 				el.ellipses4.show();
+	 				el.ellipses8.show();
 
     		};
       		// End of the story/overview
-      		function slideFourteen() {
-	 			el.ellipses4.hide();
-	 			el.ellipses8.hide();
-	 			el.landingSite.show();
+      	function slideFourteen() {
+	 				el.ellipses4.hide();
+	 				el.ellipses8.hide();
+	 				el.landingSite.show();
 
     		};
-      		function initOdyssey(O) {
+      	function initOdyssey(O) {
       			// O is for Odyssey
       			var map = el.map;
       			var seq = O.Triggers.Sequential();
