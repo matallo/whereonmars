@@ -128,7 +128,7 @@ var app =  {};
 									"Oxia Planum": el.hirise[4],
 									"Mawrth Vallis ": el.hirise[5]
 								}
-							}
+
 							}];
 							var options = {
 								container_width: "300px",
@@ -136,8 +136,11 @@ var app =  {};
 								//container_maxHeight : "350px",
 								exclusive: false
 							};
-							var control = L.Control.styledLayerControl(baseMaps,overLays,options);
-							el.map.addControl(control);
+
+
+
+							/*var control = L.Control.styledLayerControl(baseMaps,overLays,options);
+							el.map.addControl(control);*/
       		});
 
 				// define coordinates of the center of the different Landing Sites
@@ -288,6 +291,27 @@ var app =  {};
  	  		    	el.ellipses7.setInteraction(true);
  	  		    	el.ellipses8.setInteraction(true);
 
+							// attach layers to the checkbox
+								//activate checkboxes for all layer that have the name LS
+							var checkbox = $('input.LS:checkbox'),
+							$landingSite4 = $('#landingSite4') // calls the checkbox with the id = landingSite4
+								$landingSite4.change(function(){
+									if ($landingSite4.is(':checked')){ // if checkbox is selected, then show layer
+										el.landingSite.show();
+									}else{ // else (not selected), hide layer
+										el.landingSite.hide();
+									}
+								});
+							$ellipsesAram = $('#ellipsesAram')
+							$ellipsesAram.change(function(){
+								if ($ellipsesAram.is(':checked')){
+									el.ellipses1.show();
+
+								}else{
+									el.ellipses1.hide();
+
+								}
+							});
 
 
  	  		    	// infowindow appears when hover on the landing sites layer and the ellipses layer
@@ -303,7 +327,7 @@ var app =  {};
  	  		    	var base = el.basemap;
  	  		    	var baseColor = el.basemapColor;
  	  		    	var map = el.map;
-		 			// define LayerAction to add or remove the layers
+		 				// define LayerAction to add or remove the layers
 		  			el.LayerActions = {
 							// raster data
 		  				MOLA: function(){
@@ -454,20 +478,37 @@ var app =  {};
 							heightNormal();
 							widthNormal();
 						}
-					})
+					});
+					// when click the hide/show option it toggles the menu
+					$("#hide_menu a").bind('mouseup',function(){
+						if ($('#menu').css('display') != 'none'){
+							$('#menu').css({
+								display: 'none'
+							});
+							heightSmallMenu();
+							widthSmallMenu();
+						} else{
+							$('#menu').css({
+								display:'block'
+							});
+							heightNormalMenu();
+							widthNormalMenu();
+						}
+					});
 
 				function heightSmall(){
 					$('#slides_container').height('5%')
 				};
 				function widthSmall(){
-					$('#slides_container').width(120)
+					$('#slides_container').width(110)
 				}
 				function heightNormal(){
 					$('#slides_container').height('80%')
 				};
 				function widthNormal(){
 					$('#slides_container').width(350)
-				}
+				};
+				
  				// buttons inside slide container
   	  		$('.button').click(function() {
   				$('.button').removeClass('selected');
@@ -575,7 +616,7 @@ var app =  {};
 					el.geoConstraint.show();
     			el.landingSite8.hide();
     			el.torqueLayer.hide();
-    			  el.torqueLayer.stop();
+    			el.torqueLayer.stop();
     		};
       	// Aram Dorsum
       	function slideFour() {

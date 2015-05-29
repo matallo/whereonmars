@@ -36,7 +36,7 @@
   <!-- define element slides container -->
   <div id = "slides_container">
     <div id = "hide_story"><a href="#">Hide/Show</a></div>
-    <hr/>
+
 			<div id = "slides">
 				<!-- SLIDE 0 -->
 				<div class="slide">
@@ -198,22 +198,24 @@
 	   	</ul>
 	</div> <!-- End slides_container-->
 <div id = "layerMenu">
+    
 
-    <ul>
-      <h4>Contraints</h4>
-      <li><a href="#constraint1" id="constraint1" class="button constraint1">Latitude Constraint</a></li>
-      <li><a href="#constraint2" id="constraint2" class="button constraint2">Geological Constraint</a></li>
-      <h4>Other</h4>
-
-
-
-    </ul>
-
-  <!--
-  <input type= "checkbox" name="test" class="test" value="testCDBLayer" id = "test1">
-    <label for="test1"></label>
-  <span style ="display: inline-block;">Test1</span>
-</input>-->
+      <div id = "menu">
+        <ul>
+          <h4>Contraints</h4>
+          <li><a href="#constraint1" id="constraint1" class="button constraint1">Latitude Constraint</a></li>
+          <li><a href="#constraint2" id="constraint2" class="button constraint2">Geological Constraint</a></li>
+        </ul>
+        <h4>Center of landing sites</h4>
+        <input type= "checkbox" name = "LS" id = "landingSite4"></input>
+        <label for="landingSite4"></label>
+        <span style ="display: inline-block;">Current Candidate Landing Sites</span>
+        <br/>
+        <h4>Landing sites</h4>
+        <input type= "checkbox" name = "LS" id = "ellipsesAram"></input>
+        <label for="ellipsesAram"></label>
+        <span style ="display: inline-block;">Ellipses Aram Dorsum 2018</span>
+      </div>
 </div>
 	<script src ="js_test/torque_exomars.js"></script>
 
