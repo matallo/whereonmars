@@ -70,9 +70,6 @@ var app =  {};
   				}).setZIndex(0);
 
 
-
-
-
   			// define overlays from cartodb database
   			var sql = new cartodb.SQL({ user: 'whereonmars'});
 		 		sql.execute("SELECT * FROM overlays_table")
@@ -146,10 +143,9 @@ var app =  {};
 							};
 							var control = L.Control.styledLayerControl(baseMaps,overLays,options);
 							el.map.addControl(control);
-
       		});
 
-
+				// define coordinates of the center of the different Landing Sites
 				el.Aram = new L.LatLng(7.87, -11.2);
 				el.Hypanis = new L.LatLng(11.8, -45.04);
 				el.Oxia = new L.LatLng(18.2, -24.55);
@@ -228,8 +224,6 @@ var app =  {};
 							el.torqueEllipses = layer;
 					});
 
-
-
 		  	   		el.landingSite = layer.createSubLayer({
 		  	   			sql: "SELECT * FROM exomars_landing_sites_four",
 		  					cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #31a354;marker-width: 15; marker-line-opacity: 1;marker-line-width: 3;marker-type: ellipse;marker-fill: #fc9272;marker-fill-opacity: 0;}',
@@ -300,6 +294,7 @@ var app =  {};
  	  		    	el.ellipses8.setInteraction(true);
 
 
+
  	  		    	// infowindow appears when hover on the landing sites layer and the ellipses layer
  	  		    	var i = new cdb.geo.ui.Tooltip({
                 	layer: layer,
@@ -315,6 +310,7 @@ var app =  {};
  	  		    	var map = el.map;
 		 			// define LayerAction to add or remove the layers
 		  			el.LayerActions = {
+							// raster data
 		  				MOLA: function(){
 		  					if (map.hasLayer(base)){
 		  						map.removeLayer(base);
@@ -387,9 +383,13 @@ var app =  {};
 		  						map.addLayer(HiRISEMawrth)
 		  					};
 		  				},
+							// vector/CartoDB data
 		  				constraint1 : function() {
       						el.latConstraint.toggle();
       					},
+							constraint2 : function() {
+								el.geoConstraint.toggle();
+	      			},
     					ellipses: function(){
     						el.ellipses.toggle();
     					},

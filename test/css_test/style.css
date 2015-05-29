@@ -5,11 +5,11 @@
 	}
 	.progress-bar{
 		border-radius: 25px;
-		height: 8px;
+		height: 2px;
 
 	}
 	.progress{
-		height: 4%;
+		height: 2%;
 	}
 	.cartodb-timeslider{
 		display: none!important;
@@ -91,5 +91,17 @@
     	font-size:13px;
     	background-color: #337ab7;
  	}
-
- 	fbar
+	#layerMenu {
+		position:absolute;
+		top:200px;
+		right:10px;
+		width:220px;
+		height: 320px;
+		z-index:10;
+		padding-top:10px;
+		padding-left: 10px;
+		background-color:#fff;
+		border-radius: 25px;
+		border: 3px solid #fff;
+		opacity: 0.7;
+	}
