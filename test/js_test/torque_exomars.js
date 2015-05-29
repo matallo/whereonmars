@@ -128,12 +128,7 @@ var app =  {};
 									"Oxia Planum": el.hirise[4],
 									"Mawrth Vallis ": el.hirise[5]
 								}
-							},{
-								groupName : "blabla",
-								expanded: true,
-								layers:{
-									"test":el.landingSite
-								}
+							}
 							}];
 							var options = {
 								container_width: "300px",
