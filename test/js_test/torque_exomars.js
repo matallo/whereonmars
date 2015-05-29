@@ -439,12 +439,40 @@ var app =  {};
 
 		 		}
 	  		// when click the nav buttons, the scroll up to the y = 0 position of the slides_containers
-	  		$("#navButtons").click(function() {
+
+					$("#navButtons").click(function() {
   		 			$('#slides_container #slides').scrollTop(0);
- 				});
-				$("#hide_story").click(function(){
-					$("#slides_container #slides").toggle();
-				});
+ 					});
+
+					// when click the hide/show option it toggles the slides_container
+					$("#hide_story a").bind('mouseup',function(){
+						if ($('#slides').css('display') != 'none'){
+							$('#slides,#navButtons').css({
+								display: 'none'
+							});
+							heightSmall();
+							widthSmall();
+						} else{
+							$('#slides,#navButtons').css({
+								display:'block'
+							});
+							heightNormal();
+							widthNormal();
+						}
+					})
+
+				function heightSmall(){
+					$('#slides_container').height('5%')
+				};
+				function widthSmall(){
+					$('#slides_container').width(120)
+				}
+				function heightNormal(){
+					$('#slides_container').height('80%')
+				};
+				function widthNormal(){
+					$('#slides_container').width(350)
+				}
  				// buttons inside slide container
   	  		$('.button').click(function() {
   				$('.button').removeClass('selected');
