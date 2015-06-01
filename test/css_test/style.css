@@ -46,7 +46,7 @@
     	display:block;
     	position:absolute;
     	opacity: 0.9;
-    	height: 80%;
+    	height: 70%;
     	background-color:#fff;
     	z-index:1000;
     	border-radius: 15px;
@@ -76,6 +76,7 @@
     #slides_container h1{
     	color: #000000;
     	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+
     }
      #slides_container h3{
     	color: #000000;
@@ -91,9 +92,12 @@
     	font-size:13px;
     	background-color: #337ab7;
  	}
+	#slides_container #slides h1{
+		font-size: 30px;
+	}
 	#layerMenu {
 		position:absolute;
-		top:200px;
+		top:50px;
 		right:10px;
 		width:270px;
 		height: 320px;
@@ -101,11 +105,11 @@
 		padding-top:10px;
 		padding-left: 10px;
 		background-color:#fff;
-		border-radius: 25px;
+		border-radius: 15px;
 		border: 1px solid #000000;
 		opacity: 1;
 	}
-	#layerMenu #hide_menu {
-		margin-left: 150px;
+	#layerMenu h4{
+		text-align: center;
 
 	}

@@ -62,7 +62,7 @@ var app =  {};
   				});
 
   				// create a Mini map of the basemap2 layer
-  				new L.Control.MiniMap(el.basemap2, { position: 'topright' }).addTo(el.map);
+  				var miniMap = new L.Control.MiniMap(el.basemap2, { toggleDisplay: true, position: 'bottomright' }).addTo(el.map);
 					// define color basemap
   				el.basemapColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-color/{z}/{x}/{y}.png', {
  					attribution: 'GISLAB',
@@ -468,6 +468,11 @@ var app =  {};
 						if ($('#slides').css('display') != 'none'){
 							$('#slides,#navButtons').css({
 								display: 'none'
+							}),
+							$("#hide_story").css({
+								align : "center",
+								"margin-top" : 10,
+								"margin-left": -5
 							});
 							heightSmall();
 							widthSmall();
@@ -484,18 +489,23 @@ var app =  {};
 						if ($('#menu').css('display') != 'none'){
 							$('#menu').css({
 								display: 'none'
+							}),
+							$("#hide_menu").css({
+								"margin-top" : 5,
+								"margin-left": 10
 							});
 							heightSmallMenu();
 							widthSmallMenu();
 						} else{
 							$('#menu').css({
 								display:'block'
-							});
+							})
 							heightNormalMenu();
 							widthNormalMenu();
+
 						}
 					});
-
+					// functions to resize the slide_container
 				function heightSmall(){
 					$('#slides_container').height('5%')
 				};
@@ -508,7 +518,21 @@ var app =  {};
 				function widthNormal(){
 					$('#slides_container').width(350)
 				};
-				
+				// functions to resize the menu with the layers
+				function heightSmallMenu(){
+					$("#layerMenu").height('5%')
+				};
+				function widthSmallMenu(){
+					$("#layerMenu").width(110)
+				};
+				function heightNormalMenu(){
+					$("#layerMenu").height('30%')
+				};
+				function widthNormalMenu(){
+					$("#layerMenu").width(300)
+				};
+
+
  				// buttons inside slide container
   	  		$('.button').click(function() {
   				$('.button').removeClass('selected');
@@ -640,46 +664,45 @@ var app =  {};
 					el.map.addLayer(el.torqueEllipses); // adds torque layer to the map
 					el.torqueEllipses.setZIndex(1000);
 					el.torqueEllipses.show();
-					console.log(el.torqueEllipses);
 					el.torqueEllipses.play();
     		};
       		// Hypanis Vallis
-      		function slideSeven() {
-	 			el.ellipses1.hide();
-	 			el.ellipses2.hide();
-	 			el.ellipses5.hide();
-	 			el.ellipses6.hide();
-				el.torqueEllipses.hide();
-				el.torqueEllipses.stop();
+      	function slideSeven() {
+	 				el.ellipses1.hide();
+	 				el.ellipses2.hide();
+	 				el.ellipses5.hide();
+	 				el.ellipses6.hide();
+					el.torqueEllipses.hide();
+					el.torqueEllipses.stop();
     		};
     		// Hypanis Vallis
-      		function slideEight() {
-	 			el.ellipses2.show();
-	 			el.ellipses3.hide();
-	 			el.ellipses6.show();
+      	function slideEight() {
+	 				el.ellipses2.show();
+	 				el.ellipses3.hide();
+	 				el.ellipses6.show();
     		};
       		// Oxia Planum
-      		function slideNine() {
-	 			el.ellipses2.hide();
-	 			el.ellipses3.hide();
-	 			el.ellipses6.hide();
-	 			el.ellipses7.hide();
+      	function slideNine() {
+	 				el.ellipses2.hide();
+	 				el.ellipses3.hide();
+	 				el.ellipses6.hide();
+	 				el.ellipses7.hide();
     		};
     		// Oxia Planum
-      		function slideTen() {
-	 			el.ellipses2.hide();
-	 			el.ellipses3.hide();
-	 			el.ellipses6.hide();
-	 			el.ellipses7.hide();
+      	function slideTen() {
+	 				el.ellipses2.hide();
+	 				el.ellipses3.hide();
+	 				el.ellipses6.hide();
+	 				el.ellipses7.hide();
     		};
     		// Oxia Planum
-      		function slideEleven() {
-	 			el.ellipses3.show();
-	 			el.ellipses4.hide();
+      	function slideEleven() {
+	 				el.ellipses3.show();
+	 				el.ellipses4.hide();
 	 				el.ellipses7.show();
     		};
-      		// Mawrth Vallis
-      		function slideTwelve() {
+      	// Mawrth Vallis
+      	function slideTwelve() {
 	 				el.ellipses3.hide();
 	 				el.ellipses4.hide();
 	 				el.ellipses7.hide();
