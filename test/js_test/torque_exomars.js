@@ -457,7 +457,8 @@ var app =  {};
 		  		});
 
 		 		}
-	  		// when click the nav buttons, the scroll up to the y = 0 position of the slides_containers
+
+				// when click the nav buttons, the scroll up to the y = 0 position of the slides_containers
 
 					$("#navButtons").click(function() {
   		 			$('#slides_container #slides').scrollTop(0);

@@ -45,7 +45,7 @@
 	#slides_container{
     	display:block;
     	position:absolute;
-    	opacity: 0.9;
+    	opacity: 1;
     	height: 70%;
     	background-color:#fff;
     	z-index:1000;
@@ -58,7 +58,7 @@
     #slides_container #slides{
     	display:block;
     	position:relative;
-    	opacity: 0.9;
+    	opacity: 1;
     	height: 90%;
     	overflow-y: auto;
     	background-color: #FFF;
@@ -108,6 +108,7 @@
 		border-radius: 15px;
 		border: 1px solid #000000;
 		opacity: 1;
+		
 	}
 	#layerMenu h4{
 		text-align: center;
