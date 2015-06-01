@@ -5,8 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Where on Mars | A Web Map Visualisation of the ExoMars 2018 Rover Candidate Landing Sites</title>
-
-
   <!-- call css styles -->
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
   <link rel="stylesheet" href="http://cartodb.github.io/odyssey.js/sandbox/css/slides.css"/>
@@ -17,14 +15,12 @@
   <link rel = "stylesheet" href ="css_test/Minimap.css"/>
   <link rel = "stylesheet" href = "css_test/styledLayerControl.css">
   <!-- call javascript libraries -->
-
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
   <script src="js_test/odyssey.js" charset="UTF-8"></script>
   <script src = "js_test/Minimap.js"/></script>
   <script src = "js_test/styledLayerControl.js"></script>
 </head>
 <body>
-
 	<!-- define element progress-bar -->
 	<div id ="bar-container">
 		<div class="progress">
@@ -208,6 +204,32 @@
           <li><a href="#constraint1" id="constraint1" class="button constraint1">Latitude Constraint</a></li>
           <li><a href="#constraint2" id="constraint2" class="button constraint2">Geological Constraint</a></li>
         </ul>
+        <h4>Basemaps</h4>
+        <input type= "checkbox" name = "raster" id = "MOLA1"></input>
+        <label for="MOLA1"></label>
+        <span style ="display: inline-block;">Grayscale MOLA</span>
+        <br/>
+        <input type= "checkbox" name = "raster" id = "MOLA2"></input>
+        <label for="MOLA2"></label>
+        <span style ="display: inline-block;"> Color MOLA</span>
+        <br/>
+        <h4>HRSC</h4>
+        <input type= "checkbox" name = "raster" id = "HRSC1"></input>
+        <label for="HRSC1"></label>
+        <span style ="display: inline-block;">Aram Dorsum</span>
+        <br/>
+        <input type= "checkbox" name = "raster" id = "HRSC2"></input>
+        <label for="HRSC2"></label>
+        <span style ="display: inline-block;">Hypanis Vallis</span>
+        <br/>
+        <input type= "checkbox" name = "raster" id = "HRSC3"></input>
+        <label for="HRSC3"></label>
+        <span style ="display: inline-block;">Aram Dorsum</span>
+        <br/>
+        <input type= "checkbox" name = "raster" id = "HRSC4"></input>
+        <label for="HRSC4"></label>
+        <span style ="display: inline-block;">Aram Dorsum</span>
+        <br/>
         <h4>Center of landing sites</h4>
         <input type= "checkbox" name = "LS" id = "landingSite4"></input>
         <label for="landingSite4"></label>

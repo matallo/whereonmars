@@ -91,56 +91,69 @@ var app =  {};
 										el.hrsc[i].addTo(el.map);
 									};
       					} else {
-      						el.hirise[i] = new L.tileLayer(data.rows[i].url,{
- 								tms:true,
- 								opacity: 0.5,
- 								minZoom: 9,
- 								unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed
+      					el.hirise[i] = new L.tileLayer(data.rows[i].url,{
+ 									tms:true,
+ 									opacity: 0.5,
+ 									minZoom: 9,
+ 									unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed
   								updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
- 								maxNativeZoom: 18
-							}).setZIndex(2);
+ 									maxNativeZoom: 18
+								}).setZIndex(2);
       							if(i > 4){
 											el.hirise[i].addTo(el.map);
 										};
       					}
+								var checkbox = $('input.raster:checkbox'),
+								$MOLA1 = $('#MOLA1') // calls the checkbox with the id = landingSite4
+								$MOLA1.change(function(){
+										if ($MOLA1.is(':checked')){ // if checkbox is selected, then show layer
+											el.map.addLayer(el.basemap);
+										}else{ // else (not selected), hide layer
+											el.map.removeLayer(el.basemap);
+										};
+								});
+								$MOLA2 = $('#MOLA2') // calls the checkbox with the id = landingSite4
+								$MOLA2.change(function(){
+											if ($MOLA2.is(':checked')){ // if checkbox is selected, then show layer
+												el.map.addLayer(el.basemapColor);
+											}else{ // else (not selected), hide layer
+												el.map.removeLayer(el.basemapColor);
+											}
+										});
+								$HRSC1 = $('#HRSC1') // calls the checkbox with the id = landingSite4
+								$HRSC1.change(function(){
+													if ($HRSC1.is(':checked')){ // if checkbox is selected, then show layer
+														el.map.addLayer(el.hrsc[0]);
+													}else{ // else (not selected), hide layer
+														el.map.removeLayer(el.hrsc[0]);
+													}
+												});
+								$HRSC2 = $('#HRSC2') // calls the checkbox with the id = landingSite4
+								$HRSC2.change(function(){
+													if ($HRSC2.is(':checked')){ // if checkbox is selected, then show layer
+														el.map.addLayer(el.hrsc[1]);
+													}else{ // else (not selected), hide layer
+														el.map.removeLayer(el.hrsc[1]);
+													}
+												});
+								$HRSC3 = $('#HRSC3') // calls the checkbox with the id = landingSite4
+								$HRSC3.change(function(){
+													if ($HRSC3.is(':checked')){ // if checkbox is selected, then show layer
+														el.map.addLayer(el.hrsc[2]);
+													}else{ // else (not selected), hide layer
+														el.map.removeLayer(el.hrsc[2]);
+													}
+												});
+								$HRSC4 = $('#HRSC4') // calls the checkbox with the id = landingSite4
+								$HRSC4.change(function(){
+													if ($HRSC4.is(':checked')){ // if checkbox is selected, then show layer
+														el.map.addLayer(el.hrsc[3]);
+													}else{ // else (not selected), hide layer
+														el.map.removeLayer(el.hrsc[3]);
+													}
+												});
       				}
-							var baseMaps = [{
-								groupName:"MOLA maps",
-								expanded: true,
-								layers :{
-									"Grayscale map": el.basemap,
-									"Color map" : el.basemapColor
-								}
-							}];
-							var overLays = [{
-								groupName: "HRSC images",
-								expanded: true,
-								layers :{
-									"Aram Dorsum" : el.hrsc[0],
-									"Hypanis Vallis" : el.hrsc[1],
-									"Oxia Planum" : el.hrsc[2],
-									"Mawrth Vallis" : el.hrsc[3]
-								}
-							},{
-								groupName: "HIRISE images",
-								expanded: true,
-								layers:{
-									"Oxia Planum": el.hirise[4],
-									"Mawrth Vallis ": el.hirise[5]
-								}
 
-							}];
-							var options = {
-								container_width: "300px",
-								group_maxHeight : "30%",
-								//container_maxHeight : "350px",
-								exclusive: false
-							};
-
-
-
-							/*var control = L.Control.styledLayerControl(baseMaps,overLays,options);
-							el.map.addControl(control);*/
       		});
 
 				// define coordinates of the center of the different Landing Sites
@@ -158,12 +171,12 @@ var app =  {};
 				cartodb.createLayer(el.map, layerURL)
 				.on('done', function(layer) {
 		  			layer.setZIndex(100); // all cartoDB layer will be above all the baselayers
-		  			var sublayer =layer.getSubLayer(0);
+		  			var sublayer = layer.getSubLayer(0);
 
 		  	   		el.landingSite8 = layer.createSubLayer({
 		  	   			sql: "SELECT * FROM exomars_landing_sites_eight",
-		  				cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #FFF;marker-width: 15; marker-line-opacity: 0;marker-line-width: 3;marker-type: ellipse;marker-fill: #fc9272;marker-fill-opacity: 0;}',
-		  				interactivity: ['name','coordinates']
+		  					cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #FFF;marker-width: 15; marker-line-opacity: 0;marker-line-width: 3;marker-type: ellipse;marker-fill: #fc9272;marker-fill-opacity: 0;}',
+		  					interactivity: ['name','coordinates']
 		  	   		});
 
 							// we define the torque layer of the landing sites
@@ -292,7 +305,7 @@ var app =  {};
  	  		    	el.ellipses8.setInteraction(true);
 
 							// attach layers to the checkbox
-								//activate checkboxes for all layer that have the name LS
+							//activate checkboxes for all layer that have the name LS
 							var checkbox = $('input.LS:checkbox'),
 							$landingSite4 = $('#landingSite4') // calls the checkbox with the id = landingSite4
 								$landingSite4.change(function(){
@@ -324,44 +337,42 @@ var app =  {};
 
             		$('body').append(i.render().el);
 
- 	  		    	var base = el.basemap;
- 	  		    	var baseColor = el.basemapColor;
+
  	  		    	var map = el.map;
 		 				// define LayerAction to add or remove the layers
 		  			el.LayerActions = {
-							// raster data
-		  				MOLA: function(){
-		  					if (map.hasLayer(base)){
-		  						map.removeLayer(base);
-		  					}else{
-		  						map.addLayer(base)
-		  					};
-		  					if (map.hasLayer(baseColor)){
-		  						map.removeLayer(baseColor);
-		  					}else{
-		  						map.addLayer(base)
-		  					};
-		  				},
+							MOLA: function(){
+								if (map.hasLayer(base)){
+									map.removeLayer(base);
+								}else{
+									map.addLayer(base)
+								};
+								if (map.hasLayer(baseColor)){
+									map.removeLayer(baseColor);
+								}else{
+									map.addLayer(base)
+								};
+							},
 							MOLA_color: function(){
-		  					if (map.hasLayer(baseColor)){
-		  						map.removeLayer(baseColor);
-		  					}else{
-		  						map.addLayer(baseColor)
-		  					};
-		  					if (map.hasLayer(base)){
-		  						map.removeLayer(base);
-		  					}else{
-		  						map.addLayer(baseColor)
-		  					};
-						},
-						hrscAram: function(){
-		  					var hrscAram = el.hrsc[0];
-		  					if (map.hasLayer(hrscAram)){
-		  						map.removeLayer(hrscAram);
-		  					}else{
-		  						map.addLayer(hrscAram)
-		  					};
-		  				},
+								if (map.hasLayer(baseColor)){
+									map.removeLayer(baseColor);
+								}else{
+									map.addLayer(baseColor)
+								};
+								if (map.hasLayer(base)){
+									map.removeLayer(base);
+								}else{
+									map.addLayer(baseColor)
+								};
+							},
+							hrscAram: function(){
+								var hrscAram = el.hrsc[0];
+								if (map.hasLayer(hrscAram)){
+									map.removeLayer(hrscAram);
+								}else{
+									map.addLayer(hrscAram)
+								};
+							},
 						hrscHypanis: function(){
 		  					var hrscHypanis = el.hrsc[1];
 		  					if (map.hasLayer(hrscHypanis)){

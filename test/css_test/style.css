@@ -46,7 +46,7 @@
     	display:block;
     	position:absolute;
     	opacity: 1;
-    	height: 70%;
+    	height: 87%;
     	background-color:#fff;
     	z-index:1000;
     	border-radius: 15px;
@@ -100,7 +100,7 @@
 		top:50px;
 		right:10px;
 		width:270px;
-		height: 320px;
+		height: 60%;
 		z-index:10;
 		padding-top:10px;
 		padding-left: 10px;
@@ -108,7 +108,7 @@
 		border-radius: 15px;
 		border: 1px solid #000000;
 		opacity: 1;
-		
+
 	}
 	#layerMenu h4{
 		text-align: center;
