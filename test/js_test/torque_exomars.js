@@ -29,6 +29,14 @@ var app =  {};
 				ellipses6: null,
 				ellipses7: null,
 				ellipses8: null,
+				dashellipses1: null,
+				dashellipses2: null,
+				dashellipses3: null,
+				dashellipses4: null,
+				dashellipses5: null,
+				dashellipses6: null,
+				dashellipses7: null,
+				dashellipses8: null,
 				LayerActions: null
 			};
 			// 	define function that initiates the map element
@@ -194,7 +202,7 @@ var app =  {};
 
 		  	   		el.landingSite8 = layer.createSubLayer({
 		  	   			sql: "SELECT * FROM exomars_landing_sites_eight",
-		  					cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #FFF;marker-width: 15; marker-line-opacity: 0;marker-line-width: 3;marker-type: ellipse;marker-fill: #fc9272;marker-fill-opacity: 0;}',
+		  					cartocss: '#exomars_landing_sites_eight{marker-placement: point;marker-line-color: #FFF;marker-width: 10; marker-line-opacity: 0.3;marker-line-width: 3;marker-type: ellipse;marker-fill: #f11810;marker-fill-opacity: 1;}',
 		  					interactivity: ['name','coordinates']
 		  	   		});
 
@@ -205,22 +213,22 @@ var app =  {};
         				user_name: "whereonmars",
         				table_name: "exomars_landing_sites_eight",
         				cartocss:
-        				'Map { '
-                   			+'  -torque-frame-count:512; '
-                   			+'  -torque-animation-duration:10; -torque-time-attribute:"timestamp"; '
+								'Map { '
+                   			+'  -torque-frame-count:1024; '
+                   			+'  -torque-animation-duration:20; -torque-time-attribute:"cartodb_id"; '
                    			+'  -torque-aggregation-function:"count(cartodb_id)"; '
-                   			+' -torque-resolution:4; -torque-data-aggregation:linear} '
+                   			+' -torque-resolution:2; -torque-data-aggregation:linear} '
                    		+'#exomars_landing_sites_eight{ '
-                   			+'  comp-op: lighter; marker-opacity: 1; '
-                   			+'  marker-line-color:   #FFFFFF; marker-line-width: 0.25; '
+                   			+'  comp-op: lighter; marker-opacity: 0.9; '
+                   			+'  marker-line-color:   #FFF; marker-line-width: 0.25; '
                    			+'  marker-line-opacity: 1; marker-type: ellipse; '
-                   			+'  marker-width: 4; marker-fill:  #FF0000; }'
+                   			+'  marker-width: 1.5; marker-fill:  #A53ED5; }'
                    		+'#exomars_landing_sites_eight[frame-offset=1] {'
-                   			+'marker-width:6;'
-                   			+' marker-fill-opacity:0.5; }'
+                   			+'marker-width:8;'
+                   			+' marker-fill-opacity:0.45; }'
                    		+'#exomars_landing_sites_eight[frame-offset=2] {'
- 							+'marker-width:4;'
- 							+'marker-fill-opacity:0.15; }'
+ 												+'marker-width:10;'
+ 												+'marker-fill-opacity:0.225; }'
 
         				}
     				})
@@ -257,6 +265,7 @@ var app =  {};
 		  					cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #31a354;marker-width: 15; marker-line-opacity: 1;marker-line-width: 3;marker-type: ellipse;marker-fill: #fc9272;marker-fill-opacity: 0;}',
 		  					interactivity: ['name','coordinates']
 		  	   		});
+
 		  	   		el.latConstraint = layer.createSubLayer({
 		  					sql: "SELECT * FROM lat_constraints",
 		  					cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}',
@@ -264,7 +273,39 @@ var app =  {};
 							el.geoConstraint = layer.createSubLayer({
 									sql: "SELECT * FROM restricted_geology_latitude_webmercator",
 									cartocss: '#restricted_geology_latitude_webmercator{polygon-fill:  #5CA2D1;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}'
-							})
+							});
+							el.dashellipses1 = layer.createSubLayer({
+								sql: "SELECT * FROM exomars_landing_sites_ellipses_2018 WHERE id IN (1,6)",
+								cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity: 0.5; line-dasharray: 10, 4;}"
+							});
+							el.dashellipses2 = layer.createSubLayer({
+								sql: "SELECT * FROM exomars_landing_sites_ellipses_2018 WHERE id IN (2,7)",
+								cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.5; line-dasharray: 10, 4;}"
+							});
+							el.dashellipses3 = layer.createSubLayer({
+								sql: "SELECT * FROM exomars_landing_sites_ellipses_2018 WHERE id IN (4,8)",
+								cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.5; line-dasharray: 10, 4;}"
+							});
+							el.dashellipses4 = layer.createSubLayer({
+								sql: "SELECT * FROM exomars_landing_sites_ellipses_2018 WHERE id IN (5,9)",
+								cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.5; line-dasharray: 10, 4;}"
+							});
+							el.dashellipses5 = layer.createSubLayer({
+								sql: "SELECT * FROM exomars_landing_sites_ellipses_2020 WHERE id IN (10,15,19,23)",
+								cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.5; line-dasharray: 10, 4;}"
+							});
+							el.dashellipses6 = layer.createSubLayer({
+								sql: "SELECT * FROM exomars_landing_sites_ellipses_2020 WHERE id IN (11,16,20,24)",
+								cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.5; line-dasharray: 10, 4;}"
+							});
+							el.dashellipses7 = layer.createSubLayer({
+								sql: "SELECT * FROM exomars_landing_sites_ellipses_2020 WHERE id IN (13,17,21,25)",
+								cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.5; line-dasharray: 10, 4;}"
+							});
+							el.dashellipses8 = layer.createSubLayer({
+								sql: "SELECT * FROM exomars_landing_sites_ellipses_2020 WHERE id IN (14,18,22,26)",
+								cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.5; line-dasharray: 10, 4;}"
+							});
 
  	  		    	el.ellipses1 = layer.createSubLayer({
 		  					sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id =1 ",
@@ -491,6 +532,15 @@ var app =  {};
 						el.ellipses6.hide();
 						el.ellipses7.hide();
 						el.ellipses8.hide();
+						el.dashellipses1.hide();
+						el.dashellipses2.hide();
+						el.dashellipses3.hide();
+						el.dashellipses4.hide();
+						el.dashellipses5.hide();
+						el.dashellipses6.hide();
+						el.dashellipses7.hide();
+						el.dashellipses8.hide();
+
 
 						// add cartoDB layers into the map
 		  			el.map.addLayer(layer, false);
@@ -647,6 +697,7 @@ var app =  {};
       		// intro
       		function slideZero() {
       			el.landingSite.hide();
+						el.dashellipses4.hide();
       		};
 	  		// MOLA
       		function slideOne() {
@@ -690,11 +741,13 @@ var app =  {};
 	 				el.ellipses5.hide();
 					el.torqueEllipses.hide();
 					el.torqueEllipses1.stop();
+					el.dashellipses1.hide();
     		};
-    		// HRSC / Aram Dorsum
+    		// landing site 2018
     		function slideSix() {
 	 				el.ellipses1.show();
 	 				el.ellipses5.show();
+					el.dashellipses1.show();
 					el.map.addLayer(el.torqueEllipses); // adds torque layer to the map
 					el.torqueEllipses.setZIndex(1000);
 					el.torqueEllipses.show();
@@ -706,6 +759,8 @@ var app =  {};
 	 				el.ellipses2.hide();
 	 				el.ellipses5.hide();
 	 				el.ellipses6.hide();
+					el.dashellipses1.hide();
+					el.dashellipses2.show();
 					el.torqueEllipses.hide();
 					el.torqueEllipses.stop();
     		};
@@ -721,6 +776,8 @@ var app =  {};
 	 				el.ellipses3.hide();
 	 				el.ellipses6.hide();
 	 				el.ellipses7.hide();
+					el.dashellipses2.hide();
+					el.dashellipses3.hide();
     		};
     		// Oxia Planum
       	function slideTen() {
@@ -728,12 +785,14 @@ var app =  {};
 	 				el.ellipses3.hide();
 	 				el.ellipses6.hide();
 	 				el.ellipses7.hide();
+					el.dashellipses3.hide();
     		};
     		// Oxia Planum
       	function slideEleven() {
 	 				el.ellipses3.show();
 	 				el.ellipses4.hide();
 	 				el.ellipses7.show();
+					el.dashellipses3.show();
     		};
       	// Mawrth Vallis
       	function slideTwelve() {
@@ -741,11 +800,13 @@ var app =  {};
 	 				el.ellipses4.hide();
 	 				el.ellipses7.hide();
 	 				el.ellipses8.hide();
+					el.dashellipses3.hide();
     		};
     		// Mawrth Vallis
     		function slideThirteen() {
 	 				el.ellipses4.show();
 	 				el.ellipses8.show();
+					el.dashellipses4.show();
 
     		};
       		// End of the story/overview
@@ -753,6 +814,7 @@ var app =  {};
 	 				el.ellipses4.hide();
 	 				el.ellipses8.hide();
 	 				el.landingSite.show();
+					el.dashellipses4.hide();
 
     		};
       	function initOdyssey(O) {
