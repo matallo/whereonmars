@@ -4,7 +4,7 @@ var app =  {};
 			// define object that have all the elements and layers
 			var el = {
 				map: null,
-				basemap: null, // MOLA basemap grey_scale
+				basemap: null,
 				basemap2: null,
 				basemapColor: null,
 				torqueLayer: null,
@@ -12,14 +12,11 @@ var app =  {};
 				story: null,
 				hirise: null,
 				hrsc: null,
-				// landing sites
 				Aram: null,
 				Hypanis:null,
 				Oxia: null,
 				Mawrth: null,
-				// center of the landingSite
 				center: null,
-				// CartoDB layers
 				landingSite: null,
 				landingSite8: null,
 				latConstraint: null,
@@ -103,58 +100,79 @@ var app =  {};
 											el.hirise[i].addTo(el.map);
 										};
       					}
-								var checkbox = $('input.raster:checkbox'),
-								$MOLA1 = $('#MOLA1') // calls the checkbox with the id = landingSite4
-								$MOLA1.change(function(){
-										if ($MOLA1.is(':checked')){ // if checkbox is selected, then show layer
-											el.map.addLayer(el.basemap);
-										}else{ // else (not selected), hide layer
-											el.map.removeLayer(el.basemap);
-										};
-								});
-								$MOLA2 = $('#MOLA2') // calls the checkbox with the id = landingSite4
-								$MOLA2.change(function(){
-											if ($MOLA2.is(':checked')){ // if checkbox is selected, then show layer
-												el.map.addLayer(el.basemapColor);
-											}else{ // else (not selected), hide layer
-												el.map.removeLayer(el.basemapColor);
-											}
-										});
-								$HRSC1 = $('#HRSC1') // calls the checkbox with the id = landingSite4
-								$HRSC1.change(function(){
-													if ($HRSC1.is(':checked')){ // if checkbox is selected, then show layer
-														el.map.addLayer(el.hrsc[0]);
-													}else{ // else (not selected), hide layer
-														el.map.removeLayer(el.hrsc[0]);
-													}
-												});
-								$HRSC2 = $('#HRSC2') // calls the checkbox with the id = landingSite4
-								$HRSC2.change(function(){
-													if ($HRSC2.is(':checked')){ // if checkbox is selected, then show layer
-														el.map.addLayer(el.hrsc[1]);
-													}else{ // else (not selected), hide layer
-														el.map.removeLayer(el.hrsc[1]);
-													}
-												});
-								$HRSC3 = $('#HRSC3') // calls the checkbox with the id = landingSite4
-								$HRSC3.change(function(){
-													if ($HRSC3.is(':checked')){ // if checkbox is selected, then show layer
-														el.map.addLayer(el.hrsc[2]);
-													}else{ // else (not selected), hide layer
-														el.map.removeLayer(el.hrsc[2]);
-													}
-												});
-								$HRSC4 = $('#HRSC4') // calls the checkbox with the id = landingSite4
-								$HRSC4.change(function(){
-													if ($HRSC4.is(':checked')){ // if checkbox is selected, then show layer
-														el.map.addLayer(el.hrsc[3]);
-													}else{ // else (not selected), hide layer
-														el.map.removeLayer(el.hrsc[3]);
-													}
-												});
-      				}
 
-      		});
+      				} // finish the loop
+
+							// in the next block the raster layers called with cartodb.js
+							// are attach to the checkbox menu in the html file
+							var checkbox = $('input.raster:checkbox'),
+							$MOLA1 = $('#MOLA1') // calls the checkbox with the id = landingSite4
+							$MOLA1.change(function(){
+									if ($MOLA1.is(':checked')){ // if checkbox is selected, then show layer
+										el.map.addLayer(el.basemap);
+									}else{ // else (not selected), hide layer
+										el.map.removeLayer(el.basemap);
+									};
+							});
+							$MOLA2 = $('#MOLA2') // calls the checkbox with the id = landingSite4
+							$MOLA2.change(function(){
+										if ($MOLA2.is(':checked')){ // if checkbox is selected, then show layer
+											el.map.addLayer(el.basemapColor);
+										}else{ // else (not selected), hide layer
+											el.map.removeLayer(el.basemapColor);
+										}
+									});
+							$HRSC1 = $('#HRSC1') // calls the checkbox with the id = landingSite4
+							$HRSC1.change(function(){
+												if ($HRSC1.is(':checked')){ // if checkbox is selected, then show layer
+													el.map.addLayer(el.hrsc[0]);
+												}else{ // else (not selected), hide layer
+													el.map.removeLayer(el.hrsc[0]);
+												}
+											});
+							$HRSC2 = $('#HRSC2') // calls the checkbox with the id = landingSite4
+							$HRSC2.change(function(){
+												if ($HRSC2.is(':checked')){ // if checkbox is selected, then show layer
+													el.map.addLayer(el.hrsc[1]);
+												}else{ // else (not selected), hide layer
+													el.map.removeLayer(el.hrsc[1]);
+												}
+											});
+							$HRSC3 = $('#HRSC3') // calls the checkbox with the id = landingSite4
+							$HRSC3.change(function(){
+												if ($HRSC3.is(':checked')){ // if checkbox is selected, then show layer
+													el.map.addLayer(el.hrsc[2]);
+												}else{ // else (not selected), hide layer
+													el.map.removeLayer(el.hrsc[2]);
+												}
+											});
+							$HRSC4 = $('#HRSC4') // calls the checkbox with the id = landingSite4
+							$HRSC4.change(function(){
+												if ($HRSC4.is(':checked')){ // if checkbox is selected, then show layer
+													el.map.addLayer(el.hrsc[3]);
+												}else{ // else (not selected), hide layer
+													el.map.removeLayer(el.hrsc[3]);
+												}
+											});
+							// attach HIRISE layers to th checkbox defined in the html file
+							$HIRISE1 = $('#HIRISE1') // calls the checkbox with the id = landingSite4
+							$HIRISE1.change(function(){
+												if ($HIRISE1.is(':checked')){ // if checkbox is selected, then show layer
+													el.map.addLayer(el.hirise[4]);
+												}else{ // else (not selected), hide layer
+													el.map.removeLayer(el.hirise[4]);
+													}
+												});
+							$HIRISE2 = $('#HIRISE2') // calls the checkbox with the id = landingSite4
+							$HIRISE2.change(function(){
+												if ($HIRISE2.is(':checked')){ // if checkbox is selected, then show layer
+													el.map.addLayer(el.hirise[5]);
+												}else{ // else (not selected), hide layer
+													el.map.removeLayer(el.hirise[5]);
+												}
+											});
+
+      		}); // finish .done(function()) where all the layers are called
 
 				// define coordinates of the center of the different Landing Sites
 				el.Aram = new L.LatLng(7.87, -11.2);
@@ -163,8 +181,9 @@ var app =  {};
 				el.Mawrth = new L.LatLng(22.16, -17.95);
 				el.center = new L.LatLng(15,-11);
 
-			}
-	  		// call data from cartoDB
+			} // finish initMap function
+
+			// call data from cartoDB
 	  		var cartodbData = function(){
 				var layerURL = 'http://whereonmars.cartodb.com/api/v2/viz/03ec7c7c-bc6a-11e4-b600-0e4fddd5de28/viz.json';
 				// create cartoDB layer from vizjson url
@@ -227,8 +246,6 @@ var app =  {};
 											+'  marker-line-color: #FFF; marker-line-width: 1.5; '
 											+'  marker-line-opacity: 1; marker-type: ellipse; '
 											+'  marker-width: 6; marker-fill: #F11810; }'
-
-
 										}
 						}).done(function(layer){
 
@@ -291,22 +308,9 @@ var app =  {};
 		  					interactivity: ['name']
  	  		    	});
 
-
- 	  		    	// allows infowindow when click on the points
- 	  		    	el.landingSite8.setInteraction(true);
-							el.landingSite.setInteraction(true);
- 	  		    	el.ellipses1.setInteraction(true);
- 	  		    	el.ellipses2.setInteraction(true);
- 	  		    	el.ellipses3.setInteraction(true);
- 	  		    	el.ellipses4.setInteraction(true);
- 	  		    	el.ellipses5.setInteraction(true);
- 	  		    	el.ellipses6.setInteraction(true);
- 	  		    	el.ellipses7.setInteraction(true);
- 	  		    	el.ellipses8.setInteraction(true);
-
 							// attach layers to the checkbox
 							//activate checkboxes for all layer that have the name LS
-							var checkbox = $('input.LS:checkbox'),
+							var checkbox = $('input.vector:checkbox'),
 							$landingSite4 = $('#landingSite4') // calls the checkbox with the id = landingSite4
 								$landingSite4.change(function(){
 									if ($landingSite4.is(':checked')){ // if checkbox is selected, then show layer
@@ -319,13 +323,38 @@ var app =  {};
 							$ellipsesAram.change(function(){
 								if ($ellipsesAram.is(':checked')){
 									el.ellipses1.show();
-
 								}else{
 									el.ellipses1.hide();
-
+								}
+							});
+							$constraint1 = $('#constraint1')
+							$constraint1.change(function(){
+								if ($constraint1.is(':checked')){
+									el.latConstraint.show();
+								}else{
+									el.latConstraint.hide();
+								}
+							});
+							$constraint2 = $('#constraint2')
+							$constraint2.change(function(){
+								if ($constraint2.is(':checked')){
+									el.geoConstraint.show();
+								}else{
+									el.geoConstraint.hide();
 								}
 							});
 
+							// allows infowindow when click on the points
+							el.landingSite8.setInteraction(true);
+							el.landingSite.setInteraction(true);
+							el.ellipses1.setInteraction(true);
+							el.ellipses2.setInteraction(true);
+							el.ellipses3.setInteraction(true);
+							el.ellipses4.setInteraction(true);
+							el.ellipses5.setInteraction(true);
+							el.ellipses6.setInteraction(true);
+							el.ellipses7.setInteraction(true);
+							el.ellipses8.setInteraction(true);
 
  	  		    	// infowindow appears when hover on the landing sites layer and the ellipses layer
  	  		    	var i = new cdb.geo.ui.Tooltip({
@@ -498,22 +527,15 @@ var app =  {};
 					});
 					// when click the hide/show option it toggles the menu
 					$("#hide_menu a").bind('mouseup',function(){
-						if ($('#menu').css('display') != 'none'){
-							$('#menu').css({
+						if ($('#accordion').css('display') != 'none'){
+							$('#accordion').css({
 								display: 'none'
-							}),
-							$("#hide_menu").css({
-								"margin-top" : 5,
-								"margin-left": 10
-							});
-							heightSmallMenu();
-							widthSmallMenu();
-						} else{
-							$('#menu').css({
-								display:'block'
 							})
-							heightNormalMenu();
-							widthNormalMenu();
+						} else{
+							$('#accordion').css({
+								display:'block'
+							});
+
 
 						}
 					});
@@ -525,10 +547,10 @@ var app =  {};
 					$('#slides_container').width(110)
 				}
 				function heightNormal(){
-					$('#slides_container').height('80%')
+					$('#slides_container').height('85%')
 				};
 				function widthNormal(){
-					$('#slides_container').width(350)
+					$('#slides_container').width("30%")
 				};
 				// functions to resize the menu with the layers
 				function heightSmallMenu(){
@@ -538,7 +560,7 @@ var app =  {};
 					$("#layerMenu").width(110)
 				};
 				function heightNormalMenu(){
-					$("#layerMenu").height('30%')
+					$("#layerMenu").height('50%')
 				};
 				function widthNormalMenu(){
 					$("#layerMenu").width(300)

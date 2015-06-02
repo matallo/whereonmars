@@ -14,11 +14,15 @@
   <link rel ="stylesheet" href="css_test/style.css"/>
   <link rel = "stylesheet" href ="css_test/Minimap.css"/>
   <link rel = "stylesheet" href = "css_test/styledLayerControl.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
   <!-- call javascript libraries -->
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="js_test/odyssey.js" charset="UTF-8"></script>
   <script src = "js_test/Minimap.js"/></script>
   <script src = "js_test/styledLayerControl.js"></script>
+
 </head>
 <body>
 	<!-- define element progress-bar -->
@@ -26,7 +30,6 @@
 		<div class="progress">
  				<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"</div>
 		</div>
-
   <!-- define element with id = map -->
 	<div id = "map"></div>
   <!-- define element slides container -->
@@ -196,51 +199,83 @@
 				<li><a class = "next"></a></li>
 	   	</ul>
 	</div> <!-- End slides_container-->
-<div id = "layerMenu">
-  <div id = "hide_menu"><a href="#">Hide/Show</a></div>
-      <div id = "menu">
-        <ul>
-          <h4>Contraints</h4>
-          <li><a href="#constraint1" id="constraint1" class="button constraint1">Latitude Constraint</a></li>
-          <li><a href="#constraint2" id="constraint2" class="button constraint2">Geological Constraint</a></li>
-        </ul>
-        <h4>Basemaps</h4>
-        <input type= "checkbox" name = "raster" id = "MOLA1"></input>
-        <label for="MOLA1"></label>
-        <span style ="display: inline-block;">Grayscale MOLA</span>
-        <br/>
-        <input type= "checkbox" name = "raster" id = "MOLA2"></input>
-        <label for="MOLA2"></label>
-        <span style ="display: inline-block;"> Color MOLA</span>
-        <br/>
+  <!-- define element menu that contains the different layers -->
+  <script>
+    $(function(){
+      $("#accordion").accordion({
+        collapsible:true,
+        heightStyle: "content"
+      });
+    });
+  </script>
+
+      <div id = "hide_menu"><a href="#">Hide/Show</a></div>
+
+        <div id ="accordion">
+          <h4>Basemaps</h4>
+          <div>
+            <input type= "checkbox" name = "raster" id = "MOLA1"></input>
+            <label for="MOLA1"></label>
+            <span style ="display: inline-block;">Grayscale MOLA</span>
+          </br>
+            <input type= "checkbox" name = "raster" id = "MOLA2"></input>
+            <label for="MOLA2"></label>
+            <span style ="display: inline-block;"> Color MOLA</span>
+          </div>
         <h4>HRSC</h4>
-        <input type= "checkbox" name = "raster" id = "HRSC1"></input>
-        <label for="HRSC1"></label>
-        <span style ="display: inline-block;">Aram Dorsum</span>
+        <div>
+          <input type= "checkbox" name = "raster" id = "HRSC1"></input>
+          <label for="HRSC1"></label>
+          <span style ="display: inline-block;">Aram Dorsum</span>
         <br/>
-        <input type= "checkbox" name = "raster" id = "HRSC2"></input>
-        <label for="HRSC2"></label>
-        <span style ="display: inline-block;">Hypanis Vallis</span>
+          <input type= "checkbox" name = "raster" id = "HRSC2"></input>
+          <label for="HRSC2"></label>
+          <span style ="display: inline-block;">Hypanis Vallis</span>
         <br/>
-        <input type= "checkbox" name = "raster" id = "HRSC3"></input>
-        <label for="HRSC3"></label>
-        <span style ="display: inline-block;">Aram Dorsum</span>
+          <input type= "checkbox" name = "raster" id = "HRSC3"></input>
+          <label for="HRSC3"></label>
+          <span style ="display: inline-block;">Oxia Planum</span>
         <br/>
-        <input type= "checkbox" name = "raster" id = "HRSC4"></input>
-        <label for="HRSC4"></label>
-        <span style ="display: inline-block;">Aram Dorsum</span>
+          <input type= "checkbox" name = "raster" id = "HRSC4"></input>
+          <label for="HRSC4"></label>
+          <span style ="display: inline-block;">Mawrth Vallis</span>
+        </div>
+        <h4>HiRISE</h4>
+        <div>
+          <input type= "checkbox" name = "raster" id = "HIRISE1"></input>
+          <label for="HIRISE1"></label>
+          <span style ="display: inline-block;">Oxia Planum</span>
         <br/>
+          <input type= "checkbox" name = "raster" id = "HIRISE2"></input>
+          <label for="HIRISE2"></label>
+          <span style ="display: inline-block;">Mawrth Vallis</span>
+        </div>
+        <!-- define landing sites-->
         <h4>Center of landing sites</h4>
-        <input type= "checkbox" name = "LS" id = "landingSite4"></input>
-        <label for="landingSite4"></label>
-        <span style ="display: inline-block;">Current Candidate Landing Sites</span>
-        <br/>
+        <div>
+          <input type= "checkbox" name = "vector" id = "landingSite4"></input>
+          <label for="landingSite4"></label>
+          <span style ="display: inline-block;">Current Candidate Landing Sites</span>
+        </div>
         <h4>Landing sites</h4>
-        <input type= "checkbox" name = "LS" id = "ellipsesAram"></input>
-        <label for="ellipsesAram"></label>
-        <span style ="display: inline-block;">Ellipses Aram Dorsum 2018</span>
+        <div>
+          <input type= "checkbox" name = "vector" id = "ellipsesAram"></input>
+          <label for="ellipsesAram"></label>
+          <span style ="display: inline-block;">Ellipses Aram Dorsum 2018</span>
+        </div>
+        <h4>Contraints</h4>
+        <div>
+          <input type= "checkbox" name = "vector" id = "constraint1"></input>
+          <label for="constraint1"></label>
+          <span style ="display: inline-block;">Latitude constraint</span>
+          <br/>
+          <input type= "checkbox" name = "vector" id = "constraint2"></input>
+          <label for="constraint2"></label>
+          <span style ="display: inline-block;">Geological constraint</span>
+        </div>
+        </ul>
       </div>
-</div>
+
 	<script src ="js_test/torque_exomars.js"></script>
 
 
