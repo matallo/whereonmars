@@ -8,7 +8,8 @@ var app =  {};
 				basemap2: null,
 				basemapColor: null,
 				torqueLayer: null,
-				torqueEllipses: null,
+				torqueEllipses1: null,
+				torqueEllipses2: null,
 				story: null,
 				hirise: null,
 				hrsc: null,
@@ -205,38 +206,6 @@ var app =  {};
 		  					cartocss: '#exomars_landing_sites_eight{marker-placement: point;marker-line-color: #FFF;marker-width: 10; marker-line-opacity: 0.3;marker-line-width: 3;marker-type: ellipse;marker-fill: #f11810;marker-fill-opacity: 1;}',
 		  					interactivity: ['name','coordinates']
 		  	   		});
-
-							// we define the torque layer of the landing sites
-		  	   		cartodb.createLayer(el.map,{
-		  	   		type: "torque",
-      				options: {
-        				user_name: "whereonmars",
-        				table_name: "exomars_landing_sites_eight",
-        				cartocss:
-								'Map { '
-                   			+'  -torque-frame-count:1024; '
-                   			+'  -torque-animation-duration:20; -torque-time-attribute:"cartodb_id"; '
-                   			+'  -torque-aggregation-function:"count(cartodb_id)"; '
-                   			+' -torque-resolution:2; -torque-data-aggregation:linear} '
-                   		+'#exomars_landing_sites_eight{ '
-                   			+'  comp-op: lighter; marker-opacity: 0.9; '
-                   			+'  marker-line-color:   #FFF; marker-line-width: 0.25; '
-                   			+'  marker-line-opacity: 1; marker-type: ellipse; '
-                   			+'  marker-width: 1.5; marker-fill:  #A53ED5; }'
-                   		+'#exomars_landing_sites_eight[frame-offset=1] {'
-                   			+'marker-width:8;'
-                   			+' marker-fill-opacity:0.45; }'
-                   		+'#exomars_landing_sites_eight[frame-offset=2] {'
- 												+'marker-width:10;'
- 												+'marker-fill-opacity:0.225; }'
-
-        				}
-    				})
-    				.done(function(layer){
-
-    					el.torqueLayer  = layer;
-    				});
-
 						// we define the torque layer for the landing ellipses in Aram Dorsum
 						cartodb.createLayer(el.map,{
 						type: "torque",
@@ -257,7 +226,28 @@ var app =  {};
 										}
 						}).done(function(layer){
 
-							el.torqueEllipses = layer;
+							el.torqueEllipses1 = layer;
+					});
+					// we define the torque layer for the landing ellipses in Aram Dorsum
+					cartodb.createLayer(el.map,{
+					type: "torque",
+					options: {
+						user_name: "whereonmars",
+						table_name: "ls_ellipses_2020_aram",
+						cartocss:
+						'Map { '
+										+'  -torque-frame-count:512; '
+										+'  -torque-animation-duration:15; -torque-time-attribute:"cartodb_id"; '
+										+'  -torque-aggregation-function:"count(cartodb_id)"; '
+										+' -torque-resolution:2; -torque-data-aggregation:linear} '
+						+'#ls_ellipses_2018_aram{ '
+										+'  comp-op: xor; marker-fill-opacity: 1; '
+										+'  marker-line-opacity: 1; marker-type: ellipse; '
+										+'  marker-width: 3.5; marker-fill: #f11810; }'
+									}
+					}).done(function(layer){
+
+						el.torqueEllipses2 = layer;
 					});
 
 		  	   		el.landingSite = layer.createSubLayer({
@@ -276,35 +266,35 @@ var app =  {};
 							});
 							el.dashellipses1 = layer.createSubLayer({
 								sql: "SELECT * FROM exomars_landing_sites_ellipses_2018 WHERE id IN (1,6)",
-								cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity: 0.5; line-dasharray: 10, 4;}"
+								cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity: 0.3; line-dasharray: 10, 4;}"
 							});
 							el.dashellipses2 = layer.createSubLayer({
 								sql: "SELECT * FROM exomars_landing_sites_ellipses_2018 WHERE id IN (2,7)",
-								cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.5; line-dasharray: 10, 4;}"
+								cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
 							});
 							el.dashellipses3 = layer.createSubLayer({
 								sql: "SELECT * FROM exomars_landing_sites_ellipses_2018 WHERE id IN (4,8)",
-								cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.5; line-dasharray: 10, 4;}"
+								cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
 							});
 							el.dashellipses4 = layer.createSubLayer({
 								sql: "SELECT * FROM exomars_landing_sites_ellipses_2018 WHERE id IN (5,9)",
-								cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.5; line-dasharray: 10, 4;}"
+								cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
 							});
 							el.dashellipses5 = layer.createSubLayer({
 								sql: "SELECT * FROM exomars_landing_sites_ellipses_2020 WHERE id IN (10,15,19,23)",
-								cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.5; line-dasharray: 10, 4;}"
+								cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
 							});
 							el.dashellipses6 = layer.createSubLayer({
 								sql: "SELECT * FROM exomars_landing_sites_ellipses_2020 WHERE id IN (11,16,20,24)",
-								cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.5; line-dasharray: 10, 4;}"
+								cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
 							});
 							el.dashellipses7 = layer.createSubLayer({
 								sql: "SELECT * FROM exomars_landing_sites_ellipses_2020 WHERE id IN (13,17,21,25)",
-								cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.5; line-dasharray: 10, 4;}"
+								cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
 							});
 							el.dashellipses8 = layer.createSubLayer({
 								sql: "SELECT * FROM exomars_landing_sites_ellipses_2020 WHERE id IN (14,18,22,26)",
-								cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.5; line-dasharray: 10, 4;}"
+								cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
 							});
 
  	  		    	el.ellipses1 = layer.createSubLayer({
@@ -348,6 +338,17 @@ var app =  {};
 		  					cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
 		  					interactivity: ['name']
  	  		    	});
+							// infowindow appears when hover on the landing sites layer and the ellipses layer
+							var i = new cdb.geo.ui.Tooltip({
+								layer: layer,
+								template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><h4>{{name}}</h4><p>{{coordinates}}</p></div></div>',
+								width: 200,
+								position: 'top|right'
+							});
+
+							$('body').append(i.render().el);
+
+
 
 							// attach layers to the checkbox
 							//activate checkboxes for all layer that have the name LS
@@ -360,12 +361,92 @@ var app =  {};
 										el.landingSite.hide();
 									}
 								});
-							$ellipsesAram = $('#ellipsesAram')
-							$ellipsesAram.change(function(){
-								if ($ellipsesAram.is(':checked')){
+							$landingSite8 = $('#landingSiteEight') // calls the checkbox with the id = landingSite4
+								$landingSite8.change(function(){
+									if ($landingSite8.is(':checked')){ // if checkbox is selected, then show layer
+										el.landingSite8.show();
+									}else{ // else (not selected), hide layer
+										el.landingSite8.hide();
+									}
+								});
+							$ellipsesAram1 = $('#ellipsesAram1')
+							$ellipsesAram1.change(function(){
+								if ($ellipsesAram1.is(':checked')){
 									el.ellipses1.show();
+									el.dashellipses1.show();
 								}else{
 									el.ellipses1.hide();
+									el.dashellipses1.hide();
+								}
+							});
+							$ellipsesHypanis1 = $('#ellipsesHypanis1')
+							$ellipsesHypanis1.change(function(){
+								if ($ellipsesHypanis1.is(':checked')){
+									el.ellipses2.show();
+									el.dashellipses2.show();
+								}else{
+									el.ellipses2.hide();
+									el.dashellipses2.hide();
+								}
+							});
+							$ellipsesOxia1 = $('#ellipsesOxia1')
+							$ellipsesOxia1.change(function(){
+								if ($ellipsesOxia1.is(':checked')){
+									el.ellipses3.show();
+									el.dashellipses3.show();
+								}else{
+									el.ellipses3.hide();
+									el.dashellipses3.hide();
+								}
+							});
+							$ellipsesMawrth1 = $('#ellipsesMawrth1')
+							$ellipsesMawrth1.change(function(){
+								if ($ellipsesMawrth1 .is(':checked')){
+									el.ellipses4.show();
+									el.dashellipses4.show();
+								}else{
+									el.ellipses4.hide();
+									el.dashellipses4.hide();
+								}
+							});
+							$ellipsesAram2 = $('#ellipsesAram2')
+							$ellipsesAram2.change(function(){
+								if ($ellipsesAram2.is(':checked')){
+									el.ellipses5.show();
+									el.dashellipses5.show();
+								}else{
+									el.ellipses5.hide();
+									el.dashellipses5.hide();
+								}
+							});
+							$ellipsesHypanis2 = $('#ellipsesHypanis2')
+							$ellipsesHypanis2.change(function(){
+								if ($ellipsesHypanis2.is(':checked')){
+									el.ellipses6.show();
+									el.dashellipses6.show();
+								}else{
+									el.ellipses6.hide();
+									el.dashellipses6.hide();
+								}
+							});
+							$ellipsesOxia2 = $('#ellipsesOxia2')
+							$ellipsesOxia2.change(function(){
+								if ($ellipsesOxia2.is(':checked')){
+									el.ellipses7.show();
+									el.dashellipses7.show();
+								}else{
+									el.ellipses7.hide();
+									el.dashellipses7.hide();
+								}
+							});
+							$ellipsesMawrth2 = $('#ellipsesMawrth2')
+							$ellipsesMawrth2.change(function(){
+								if ($ellipsesMawrth2 .is(':checked')){
+									el.ellipses8.show();
+									el.dashellipses8.show();
+								}else{
+									el.ellipses8.hide();
+									el.dashellipses8.hide();
 								}
 							});
 							$constraint1 = $('#constraint1')
@@ -396,17 +477,6 @@ var app =  {};
 							el.ellipses6.setInteraction(true);
 							el.ellipses7.setInteraction(true);
 							el.ellipses8.setInteraction(true);
-
- 	  		    	// infowindow appears when hover on the landing sites layer and the ellipses layer
- 	  		    	var i = new cdb.geo.ui.Tooltip({
-                	layer: layer,
-                	template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><h4>{{name}}</h4><p>{{coordinates}}</p></div></div>',
-                	width: 200,
-                	position: 'top|right'
-            		});
-
-            		$('body').append(i.render().el);
-
 
  	  		    	var map = el.map;
 		 				// define LayerAction to add or remove the layers
@@ -704,18 +774,11 @@ var app =  {};
 	  		// MOLA
       		function slideOne() {
     			el.landingSite8.hide();
-    			el.torqueLayer.hide();
-    			el.torqueLayer.stop();
-
     		};
     		// LSSWG
     		function slideTwo() {
 
     			el.landingSite8.show();
-    			el.map.addLayer(el.torqueLayer); // adds torque layer to the map
-    			el.torqueLayer.setZIndex(1000);
-    			el.torqueLayer.show();
-    			el.torqueLayer.play();
     			el.landingSite.hide();
     			el.latConstraint.hide();
 					el.geoConstraint.hide();
@@ -726,8 +789,6 @@ var app =  {};
     			el.latConstraint.show();
 					el.geoConstraint.show();
     			el.landingSite8.hide();
-    			el.torqueLayer.hide();
-    			el.torqueLayer.stop();
     		};
       	// Aram Dorsum
       	function slideFour() {
@@ -742,8 +803,8 @@ var app =  {};
 	 				el.ellipses1.hide();
 	 				el.ellipses5.hide();
 					el.dashellipses1.hide();
-					el.torqueEllipses.stop();
-					el.torqueEllipses.hide();
+					el.torqueEllipses1.stop();
+					el.torqueEllipses1.hide();
 
 
     		};
@@ -752,11 +813,13 @@ var app =  {};
 	 				el.ellipses1.show();
 					el.ellipses5.hide();
 					el.dashellipses1.show();
-					el.map.addLayer(el.torqueEllipses); // adds torque layer to the map
-					el.torqueEllipses.setZIndex(1000);
-					el.torqueEllipses.show();
-					el.torqueEllipses.play();
+					el.map.addLayer(el.torqueEllipses1); // adds torque layer to the map
+					el.torqueEllipses1.setZIndex(1000);
+					el.torqueEllipses1.show();
+					el.torqueEllipses1.play();
 					el.dashellipses5.hide();
+					el.torqueEllipses2.stop();
+					el.torqueEllipses2.hide();
 
     		};
 				// Aram Dorsum landing site 2020
@@ -765,8 +828,12 @@ var app =  {};
 	 				el.ellipses5.show();
 					el.dashellipses1.hide();
 					el.dashellipses5.show();
-					el.torqueEllipses.stop();
-					el.torqueEllipses.hide();
+					el.torqueEllipses1.stop();
+					el.torqueEllipses1.hide();
+					el.map.addLayer(el.torqueEllipses2); // adds torque layer to the map
+					el.torqueEllipses2.setZIndex(1000);
+					el.torqueEllipses2.show();
+					el.torqueEllipses2.play();
 
     		};
       		// Hypanis Vallis
@@ -777,15 +844,17 @@ var app =  {};
 	 				el.ellipses6.hide();
 					el.dashellipses2.hide();
 					el.dashellipses5.hide();
-					el.torqueEllipses.hide();
-					el.torqueEllipses.stop();
+					el.dashellipses6.hide();
+					el.torqueEllipses2.hide();
+					el.torqueEllipses2.stop();
     		};
-    		// Hypanis Vallis
+    		// Hypanis Vallis landing sites
       	function slideNine() {
 	 				el.ellipses2.show();
 	 				el.ellipses3.hide();
 	 				el.ellipses6.show();
 					el.dashellipses2.show();
+					el.dashellipses6.show();
     		};
       		// Oxia Planum
       	function slideTen() {
@@ -794,22 +863,27 @@ var app =  {};
 	 				el.ellipses6.hide();
 	 				el.ellipses7.hide();
 					el.dashellipses2.hide();
-					el.dashellipses3.hide();
+					el.dashellipses6.hide();
+
+
     		};
-    		// Oxia Planum
+    		// hirise
       	function slideEleven() {
 	 				el.ellipses2.hide();
 	 				el.ellipses3.hide();
 	 				el.ellipses6.hide();
 	 				el.ellipses7.hide();
 					el.dashellipses3.hide();
+					el.dashellipses7.hide();
     		};
-    		// Oxia Planum
+    		// Oxia Planum landing sites
       	function slideTwelve() {
 	 				el.ellipses3.show();
 	 				el.ellipses4.hide();
 	 				el.ellipses7.show();
 					el.dashellipses3.show();
+					el.dashellipses4.hide();
+					el.dashellipses7.show();
     		};
       	// Mawrth Vallis
       	function slideThirteen() {
@@ -818,12 +892,16 @@ var app =  {};
 	 				el.ellipses7.hide();
 	 				el.ellipses8.hide();
 					el.dashellipses3.hide();
+					el.dashellipses7.hide();
+					el.dashellipses4.hide();
+					el.dashellipses8.hide();
     		};
-    		// Mawrth Vallis
+    		// Mawrth Vallis landing sites
     		function slideFourteen() {
 	 				el.ellipses4.show();
 	 				el.ellipses8.show();
 					el.dashellipses4.show();
+					el.dashellipses8.show();
 
     		};
       		// End of the story/overview
@@ -832,6 +910,7 @@ var app =  {};
 	 				el.ellipses8.hide();
 	 				el.landingSite.show();
 					el.dashellipses4.hide();
+					el.dashellipses8.hide();
 
     		};
       	function initOdyssey(O) {
