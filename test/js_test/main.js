@@ -246,14 +246,14 @@ var app =  {};
 							cartocss:
 							'Map { '
 											+'  -torque-frame-count:512; '
-											+'  -torque-animation-duration:20; -torque-time-attribute:"cartodb_id"; '
+											+'  -torque-animation-duration:15; -torque-time-attribute:"cartodb_id"; '
 											+'  -torque-aggregation-function:"count(cartodb_id)"; '
 											+' -torque-resolution:2; -torque-data-aggregation:linear} '
 							+'#ls_ellipses_2018_aram{ '
-											+'  comp-op: xor; marker-fill-opacity: 0.9; '
-											+'  marker-line-color: #FFF; marker-line-width: 1.5; '
+											+'  comp-op: xor; marker-fill-opacity: 1; '
+
 											+'  marker-line-opacity: 1; marker-type: ellipse; '
-											+'  marker-width: 6; marker-fill: #F11810; }'
+											+'  marker-width: 3.5; marker-fill: #f11810; }'
 										}
 						}).done(function(layer){
 
@@ -673,23 +673,25 @@ var app =  {};
         			break;
         			case 5: slideFive(),console.log(index),$(".progress-bar").css("width","33.3%"); // HRSC / aram dorsum
         			break
-        			case 6: slideSix(),console.log(index),$(".progress-bar").css("width","39.96%"); // aram dorsum
+        			case 6: slideSix(),console.log(index),$(".progress-bar").css("width","39.96%"); //  landing site aram dorsum 2018
         			break;
-        			case 7: slideSeven(),console.log(index),$(".progress-bar").css("width","46.62%"); // Hypanis Vallis
+							case 7: slideSeven(),console.log(index),$(".progress-bar").css("width","39.96%"); //  landing site aram dorsum 2020
         			break;
-        			case 8: slideEight(),console.log(index),$(".progress-bar").css("width","53.28%"); // Hypanis Vallis
+        			case 8: slideEight(),console.log(index),$(".progress-bar").css("width","46.62%"); // Hypanis Vallis
         			break;
-        			case 9: slideNine(),console.log(index),$(".progress-bar").css("width","66.6%"); // Oxia Planum
+        			case 9: slideNine(),console.log(index),$(".progress-bar").css("width","53.28%"); // Hypanis Vallis
         			break;
-        			case 10: slideTen(),console.log(index),$(".progress-bar").css("width","73.26%"); // HiRISE / Oxia Planum
+        			case 10: slideTen(),console.log(index),$(".progress-bar").css("width","66.6%"); // Oxia Planum
         			break;
-        			case 11: slideEleven(),console.log(index),$(".progress-bar").css("width","79.92%"); // Oxia Planum
+        			case 11: slideEleven(),console.log(index),$(".progress-bar").css("width","73.26%"); // HiRISE / Oxia Planum
         			break;
-        			case 12: slideTwelve(),console.log(index),$(".progress-bar").css("width","86.58%"); // Mawrth Vallis
+        			case 12: slideTwelve(),console.log(index),$(".progress-bar").css("width","79.92%"); // Oxia Planum
         			break;
-        			case 13: slideThirteen(),console.log(index),$(".progress-bar").css("width","93.24%"); // Mawrth Vallis
+        			case 13: slideThirteen(),console.log(index),$(".progress-bar").css("width","86.58%"); // Mawrth Vallis
         			break;
-        			case 14: slideFourteen(),console.log(index),$(".progress-bar").css("width","100%"); // End
+        			case 14: slideFourteen(),console.log(index),$(".progress-bar").css("width","93.24%"); // Mawrth Vallis
+        			break;
+        			case 15: slideFifteen(),console.log(index),$(".progress-bar").css("width","100%"); // End
         			break;
       			};
    			 }
@@ -733,45 +735,60 @@ var app =  {};
 					el.geoConstraint.hide();
 	 				el.ellipses1.hide();
 	 				el.ellipses5.hide();
-
+					el.dashellipses1.hide();
     		};
-    		// HRSC / Aram Dorsum
+    		// HRSC
     		function slideFive() {
 	 				el.ellipses1.hide();
 	 				el.ellipses5.hide();
-					el.torqueEllipses.hide();
-					el.torqueEllipses1.stop();
 					el.dashellipses1.hide();
+					el.torqueEllipses.stop();
+					el.torqueEllipses.hide();
+
+
     		};
-    		// landing site 2018
+    		// Aram Dorsum landing site 2018
     		function slideSix() {
 	 				el.ellipses1.show();
-	 				el.ellipses5.show();
+					el.ellipses5.hide();
 					el.dashellipses1.show();
 					el.map.addLayer(el.torqueEllipses); // adds torque layer to the map
 					el.torqueEllipses.setZIndex(1000);
 					el.torqueEllipses.show();
 					el.torqueEllipses.play();
+					el.dashellipses5.hide();
+
+    		};
+				// Aram Dorsum landing site 2020
+				function slideSeven() {
+	 				el.ellipses1.hide();
+	 				el.ellipses5.show();
+					el.dashellipses1.hide();
+					el.dashellipses5.show();
+					el.torqueEllipses.stop();
+					el.torqueEllipses.hide();
+
     		};
       		// Hypanis Vallis
-      	function slideSeven() {
+      	function slideEight() {
 	 				el.ellipses1.hide();
 	 				el.ellipses2.hide();
 	 				el.ellipses5.hide();
 	 				el.ellipses6.hide();
-					el.dashellipses1.hide();
-					el.dashellipses2.show();
+					el.dashellipses2.hide();
+					el.dashellipses5.hide();
 					el.torqueEllipses.hide();
 					el.torqueEllipses.stop();
     		};
     		// Hypanis Vallis
-      	function slideEight() {
+      	function slideNine() {
 	 				el.ellipses2.show();
 	 				el.ellipses3.hide();
 	 				el.ellipses6.show();
+					el.dashellipses2.show();
     		};
       		// Oxia Planum
-      	function slideNine() {
+      	function slideTen() {
 	 				el.ellipses2.hide();
 	 				el.ellipses3.hide();
 	 				el.ellipses6.hide();
@@ -780,7 +797,7 @@ var app =  {};
 					el.dashellipses3.hide();
     		};
     		// Oxia Planum
-      	function slideTen() {
+      	function slideEleven() {
 	 				el.ellipses2.hide();
 	 				el.ellipses3.hide();
 	 				el.ellipses6.hide();
@@ -788,14 +805,14 @@ var app =  {};
 					el.dashellipses3.hide();
     		};
     		// Oxia Planum
-      	function slideEleven() {
+      	function slideTwelve() {
 	 				el.ellipses3.show();
 	 				el.ellipses4.hide();
 	 				el.ellipses7.show();
 					el.dashellipses3.show();
     		};
       	// Mawrth Vallis
-      	function slideTwelve() {
+      	function slideThirteen() {
 	 				el.ellipses3.hide();
 	 				el.ellipses4.hide();
 	 				el.ellipses7.hide();
@@ -803,14 +820,14 @@ var app =  {};
 					el.dashellipses3.hide();
     		};
     		// Mawrth Vallis
-    		function slideThirteen() {
+    		function slideFourteen() {
 	 				el.ellipses4.show();
 	 				el.ellipses8.show();
 					el.dashellipses4.show();
 
     		};
       		// End of the story/overview
-      	function slideFourteen() {
+      	function slideFifteen() {
 	 				el.ellipses4.hide();
 	 				el.ellipses8.hide();
 	 				el.landingSite.show();
@@ -885,10 +902,10 @@ var app =  {};
             				emitSlideChange
           				)
         		)
-        		.addState(
+						.addState(
           			seq.step(7),
           				O.Parallel(
-            				el.map.actions.setView(el.Hypanis,8),
+            				el.map.actions.setView(el.Aram,8),
             				slides.activate(7),
             				emitSlideChange
           				)
@@ -904,7 +921,7 @@ var app =  {};
         		.addState(
           			seq.step(9),
           				O.Parallel(
-            				el.map.actions.setView(el.Oxia,8),
+            				el.map.actions.setView(el.Hypanis,8),
             				slides.activate(9),
             				emitSlideChange
           				)
@@ -928,7 +945,7 @@ var app =  {};
         		.addState(
           			seq.step(12),
           				O.Parallel(
-            				el.map.actions.setView(el.Mawrth,8),
+            				el.map.actions.setView(el.Oxia,8),
             				slides.activate(12),
             				emitSlideChange
           				)
@@ -936,16 +953,24 @@ var app =  {};
         		.addState(
           			seq.step(13),
           				O.Parallel(
-            			el.map.actions.setView(el.Mawrth,8),
-            			slides.activate(13),
-            			emitSlideChange
+            				el.map.actions.setView(el.Mawrth,8),
+            				slides.activate(13),
+            				emitSlideChange
           				)
         		)
         		.addState(
           			seq.step(14),
           				O.Parallel(
+            			el.map.actions.setView(el.Mawrth,8),
+            			slides.activate(14),
+            			emitSlideChange
+          				)
+        		)
+        		.addState(
+          			seq.step(15),
+          				O.Parallel(
             				el.map.actions.setView(el.center,3,true),
-            				slides.activate(14),
+            				slides.activate(15),
             				emitSlideChange
             			)
           		)
