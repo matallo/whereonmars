@@ -246,6 +246,10 @@ var app =  {};
 						el.torqueEllipses2 = layer;
 					});
 
+					// Define the styles for the layer and the labels. It will be used to
+					//  define the cartocss style for the landing sites. style1 define the
+					//cartocss of the layer landingSite and style2 define the cartocss
+					// of the layer landingSite8
 					var style1 = [
 						'#exomars_landing_sites_four{',
 					  	'	 marker-placement: point;',
@@ -254,22 +258,47 @@ var app =  {};
 							'	 marker-line-opacity: 1;',
 							'	 marker-line-width: 3;',
 							'	 marker-type: ellipse;',
-							'	 marker-fill: #fc9272;',
-							'	 marker-fill-opacity: 0;',
-						'}',
-						'#exomars_landing_sites_four::labels{',
+							'	 marker-fill: #f11810;',
+							'	 marker-fill-opacity: 1;',
 							'	 text-name: [name];',
 							'  text-face-name: "DejaVu Sans Book";',
-          		'  text-size: 10;',
-          		'  text-label-position-tolerance: 0;',
-          		'  text-fill: #FFF;',
-          		'  text-halo-fill: #000;',
-          		'  text-halo-radius: 1;',
-          		'  text-dy: 0;',
-							'  text-dx: 15;',
-          		'  text-allow-overlap: true;',
-          		'  text-placement: point;',
+							'  text-size: 10;',
+							'  text-label-position-tolerance: 0;',
+							'  text-fill: #FFF;',
+							'  text-halo-fill: #000;',
+							'  text-halo-radius: 7;',
+							'  text-dy: 0;',
+							'  text-dx: 20;',
+							'  text-allow-overlap: true;',
+							'  text-placement: point;',
+							'	[cartodb_id = 3]{',
+									'	 text-name: [name];',
+									'  text-face-name: "DejaVu Sans Book";',
+									'  text-size: 10;',
+									'  text-label-position-tolerance: 0;',
+									'  text-fill: #FFF;',
+									'  text-halo-fill: #000;',
+									'  text-halo-radius: 8;',
+									'  text-dy: 0;',
+									'  text-dx: -20;',
+									'  text-allow-overlap: true;',
+									'  text-placement: point;',
+								'}',
+								'	[cartodb_id = 6]{',
+										'	 text-name: [name];',
+										'  text-face-name: "DejaVu Sans Book";',
+										'  text-size: 10;',
+										'  text-label-position-tolerance: 0;',
+										'  text-fill: #FFF;',
+										'  text-halo-fill: #000;',
+										'  text-halo-radius: 8;',
+										'  text-dy: 0;',
+										'  text-dx: -20;',
+										'  text-allow-overlap: true;',
+										'  text-placement: point;',
+									'}',
 						'}'
+
 					].join('\n');
 
 
@@ -283,24 +312,44 @@ var app =  {};
 							'	 marker-type: ellipse;',
 							'	 marker-fill: #f11810;',
 							'	 marker-fill-opacity: 1;',
-						'}',
-						'#exomars_landing_sites_eight::labels{',
 							'	 text-name: [name];',
 							'  text-face-name: "DejaVu Sans Book";',
-          		'  text-size: 10;',
-          		'  text-label-position-tolerance: 0;',
-          		'  text-fill: #FFF;',
-          		'  text-halo-fill: #000;',
-          		'  text-halo-radius: 1;',
-          		'  text-dy: 0;',
-							'  text-dx: 15;',
-          		'  text-allow-overlap: true;',
-          		'  text-placement: point;',
+							'  text-size: 10;',
+							'  text-fill: #FFF;',
+							'  text-halo-fill: #000;',
+							'  text-halo-radius: 8;',
+							'  text-dy: 0;',
+							'  text-dx: 20;',
+							'  text-allow-overlap: false;',
+							'  text-placement: point;',
 							'	 text-placement-type: simple;',
+							'	[cartodb_id = 1]{',
+									'  text-dy: -0.3;',
+									'  text-dx: -20;',
+								'}',
+								'	[cartodb_id = 2]{',
+										'  text-dy: -6;',
+										'  text-dx: 12;',
+									'}',
+							'	[cartodb_id = 3]{',
+									'  text-dy: -0.3;',
+									'  text-dx: 15;',
+								'}',
+								'	[cartodb_id = 4]{',
+										'  text-dx: -20;',
+									'}',
+								'	[cartodb_id = 5]{',
+											'  text-dy: 10;',
+											'  text-dx: 10;',
+										'}',
+								'	[cartodb_id = 6]{',
+										'  text-dx: -20;',
+									'}',
+									'	[cartodb_id = 9]{',
+											'  text-dx: -20;',
+										'}',
 						'}'
 					].join('\n');
-
-
 
 
 
@@ -398,6 +447,8 @@ var app =  {};
 		  					cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
 		  					interactivity: ['name']
  	  		    	});
+
+							/*
 							// infowindow appears when hover on the landing sites layer and the ellipses layer
 							var i = new cdb.geo.ui.Tooltip({
 								layer: layer,
@@ -407,7 +458,7 @@ var app =  {};
 							});
 
 							$('body').append(i.render().el);
-
+							*/
 
 
 							// attach layers to the checkbox
