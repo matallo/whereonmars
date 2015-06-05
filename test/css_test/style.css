@@ -113,3 +113,30 @@
 		width: 10px;
 		backgroumd-color: #FFF;
 	}
+#test1{
+	z-index: 4;
+	opacity: 1;
+	display: inline-table;
+	background-color: rgba(0, 0, 0, 0.701961);
+	top: 11.2px ;
+
+}
+.content{
+	padding: 5px;
+}
+.text .widget_text{
+	color: rgb(255, 255, 255);
+	text-align: right;
+	font-size: 13px;
+	opacity: 1;"
+}
+.stick{
+	width: 80px;
+	left: auto;
+	right: -80px;
+	background-color: rgb(0, 0, 0);
+}
+.ball{
+	background-color: rgb(0, 0, 0);
+
+}

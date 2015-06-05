@@ -22,6 +22,7 @@ var app =  {};
 				landingSite8: null,
 				latConstraint: null,
 				geoConstraint: null,
+				nomenclator: null,
 				ellipses1: null,
 				ellipses2: null,
 				ellipses3: null,
@@ -190,7 +191,10 @@ var app =  {};
 				el.Mawrth = new L.LatLng(22.16, -17.95);
 				el.center = new L.LatLng(15,-11);
 
+
 			} // finish initMap function
+
+
 
 			// call data from cartoDB
 	  		var cartodbData = function(){
@@ -200,8 +204,6 @@ var app =  {};
 				.on('done', function(layer) {
 		  			layer.setZIndex(100); // all cartoDB layer will be above all the baselayers
 		  			var sublayer = layer.getSubLayer(0);
-
-
 						// we define the torque layer for the landing ellipses in Aram Dorsum
 						cartodb.createLayer(el.map,{
 						type: "torque",
@@ -253,10 +255,10 @@ var app =  {};
 					var style1 = [
 						'#exomars_landing_sites_four{',
 					  	'	 marker-placement: point;',
-							'	 marker-line-color: #31a354;',
+
 							'	 marker-width: 15;',
-							'	 marker-line-opacity: 1;',
-							'	 marker-line-width: 3;',
+
+							'	 marker-line-width: 1;',
 							'	 marker-type: ellipse;',
 							'	 marker-fill: #f11810;',
 							'	 marker-fill-opacity: 1;',
@@ -266,36 +268,15 @@ var app =  {};
 							'  text-label-position-tolerance: 0;',
 							'  text-fill: #FFF;',
 							'  text-halo-fill: #000;',
-							'  text-halo-radius: 7;',
-							'  text-dy: 0;',
+							'  text-halo-radius: 8;',
 							'  text-dx: 20;',
 							'  text-allow-overlap: true;',
 							'  text-placement: point;',
 							'	[cartodb_id = 3]{',
-									'	 text-name: [name];',
-									'  text-face-name: "DejaVu Sans Book";',
-									'  text-size: 10;',
-									'  text-label-position-tolerance: 0;',
-									'  text-fill: #FFF;',
-									'  text-halo-fill: #000;',
-									'  text-halo-radius: 8;',
-									'  text-dy: 0;',
 									'  text-dx: -20;',
-									'  text-allow-overlap: true;',
-									'  text-placement: point;',
 								'}',
 								'	[cartodb_id = 6]{',
-										'	 text-name: [name];',
-										'  text-face-name: "DejaVu Sans Book";',
-										'  text-size: 10;',
-										'  text-label-position-tolerance: 0;',
-										'  text-fill: #FFF;',
-										'  text-halo-fill: #000;',
-										'  text-halo-radius: 8;',
-										'  text-dy: 0;',
 										'  text-dx: -20;',
-										'  text-allow-overlap: true;',
-										'  text-placement: point;',
 									'}',
 						'}'
 
@@ -305,10 +286,8 @@ var app =  {};
 					var style2 = [
 						'#exomars_landing_sites_eight{',
 					  	'	 marker-placement: point;',
-							'	 marker-line-color: #FFF;',
-							'	 marker-width: 10;',
-							'	 marker-line-opacity: 0.3;',
-							'	 marker-line-width: 3;',
+							'	 marker-width: 15;',
+							'	 marker-line-width: 1;',
 							'	 marker-type: ellipse;',
 							'	 marker-fill: #f11810;',
 							'	 marker-fill-opacity: 1;',
@@ -318,7 +297,6 @@ var app =  {};
 							'  text-fill: #FFF;',
 							'  text-halo-fill: #000;',
 							'  text-halo-radius: 8;',
-							'  text-dy: 0;',
 							'  text-dx: 20;',
 							'  text-allow-overlap: false;',
 							'  text-placement: point;',
@@ -351,12 +329,44 @@ var app =  {};
 						'}'
 					].join('\n');
 
+					var style3 = [
+						'#mars_nomenclature_webmercator_ls{',
+							'	 marker-placement: point;',
+							'	 marker-line-color: #31a354;',
+							'	 marker-width: 1;',
+							'	 marker-line-opacity: 1;',
+							'	 marker-line-width: 3;',
+							'	 marker-type: ellipse;',
+							'	 marker-fill: #fff;',
+							'	 marker-fill-opacity: 0;',
+							'	 text-name: [name];',
+							'  text-face-name: "DejaVu Sans Book";',
+							'  text-size: 10;',
+							'  text-label-position-tolerance: 0;',
+							'  text-fill: #FFF;',
+							'  text-halo-fill: #000;',
+							'  text-halo-radius: 1;',
+							'  text-dx: 0;',
+							'  text-allow-overlap: true;',
+							'  text-placement: point;',
+							'	[cartodb_id = 84]{',
+									'  text-dy: 10;',
 
+								'}',
+								'	[cartodb_id = 62]{',
+										'  text-dy: -5;',
+
+
+									'}',
+							'}'
+
+
+						].join('\n');
 
 							el.landingSite8 = layer.createSubLayer({
 								sql: "SELECT * FROM exomars_landing_sites_eight",
-							cartocss: style2,
-							interactivity: ['name','coordinates']
+								cartocss: style2,
+								interactivity: ['name','coordinates']
 							});
 
 		  	   		el.landingSite = layer.createSubLayer({
@@ -372,6 +382,10 @@ var app =  {};
 							el.geoConstraint = layer.createSubLayer({
 									sql: "SELECT * FROM restricted_geology_latitude_webmercator",
 									cartocss: '#restricted_geology_latitude_webmercator{polygon-fill:  #5CA2D1;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}'
+							});
+							el.nomenclator = layer.createSubLayer({
+								sql: "SELECT * FROM mars_nomenclature_webmercator_ls",
+								cartocss:  style3
 							});
 							el.dashellipses1 = layer.createSubLayer({
 								sql: "SELECT * FROM exomars_landing_sites_ellipses_2018 WHERE id IN (1,6)",
@@ -459,7 +473,6 @@ var app =  {};
 
 							$('body').append(i.render().el);
 							*/
-
 
 							// attach layers to the checkbox
 							//activate checkboxes for all layer that have the name LS
@@ -577,45 +590,11 @@ var app =  {};
 								}
 							});
 
-							// allows infowindow when click on the points
-							el.landingSite8.setInteraction(true);
-							el.landingSite.setInteraction(true);
-							el.ellipses1.setInteraction(true);
-							el.ellipses2.setInteraction(true);
-							el.ellipses3.setInteraction(true);
-							el.ellipses4.setInteraction(true);
-							el.ellipses5.setInteraction(true);
-							el.ellipses6.setInteraction(true);
-							el.ellipses7.setInteraction(true);
-							el.ellipses8.setInteraction(true);
+
 
  	  		    	var map = el.map;
 		 				// define LayerAction to add or remove the layers
 		  			el.LayerActions = {
-							MOLA: function(){
-								if (map.hasLayer(base)){
-									map.removeLayer(base);
-								}else{
-									map.addLayer(base)
-								};
-								if (map.hasLayer(baseColor)){
-									map.removeLayer(baseColor);
-								}else{
-									map.addLayer(base)
-								};
-							},
-							MOLA_color: function(){
-								if (map.hasLayer(baseColor)){
-									map.removeLayer(baseColor);
-								}else{
-									map.addLayer(baseColor)
-								};
-								if (map.hasLayer(base)){
-									map.removeLayer(base);
-								}else{
-									map.addLayer(baseColor)
-								};
-							},
 							hrscAram: function(){
 								var hrscAram = el.hrsc[0];
 								if (map.hasLayer(hrscAram)){
@@ -624,30 +603,7 @@ var app =  {};
 									map.addLayer(hrscAram)
 								};
 							},
-						hrscHypanis: function(){
-		  					var hrscHypanis = el.hrsc[1];
-		  					if (map.hasLayer(hrscHypanis)){
-		  						map.removeLayer(hrscHypanis);
-		  					}else{
-		  						map.addLayer(hrscHypanis)
-		  					};
-		  				},
-						hrscOxia: function(){
-		  					var hrscOxia = el.hrsc[2];
-		  					if (map.hasLayer(hrscOxia)){
-		  						map.removeLayer(hrscOxia);
-		  					}else{
-		  						map.addLayer(hrscOxia)
-		  					};
-		  				},
-						hrscMawrth: function(){
-		  					var hrscMawrth = el.hrsc[3];
-		  					if (map.hasLayer(hrscMawrth)){
-		  						map.removeLayer(hrscMawrth);
-		  					}else{
-		  						map.addLayer(hrscMawrth)
-		  					};
-		  				},
+
 		  				HiRISEOxia: function(){
 		  					var HiRISEOxia = el.hirise[4];
 		  					if (map.hasLayer(HiRISEOxia)){
@@ -655,56 +611,14 @@ var app =  {};
 		  					}else{
 		  						map.addLayer(HiRISEOxia)
 		  					};
-		  				},
-		  				HiRISEMawrth: function(){
-		  					var HiRISEMawrth = el.hirise[5];
-		  					if (map.hasLayer(HiRISEMawrth)){
-		  						map.removeLayer(HiRISEMawrth);
-		  					}else{
-		  						map.addLayer(HiRISEMawrth)
-		  					};
-		  				},
-							// vector/CartoDB data
-		  				constraint1 : function() {
-      						el.latConstraint.toggle();
-      					},
-							constraint2 : function() {
-								el.geoConstraint.toggle();
-	      			},
-    					ellipses: function(){
-    						el.ellipses.toggle();
-    					},
-   						ellipses1: function(){
-    						el.ellipses1.toggle();
-    					},
-     					ellipses2: function(){
-    						el.ellipses2.toggle();
-    					},
-    					ellipses3: function(){
-    						el.ellipses3.toggle();
-    					},
-    					ellipses4: function(){
-    						el.ellipses4.toggle();
-    					},
-    					ellipses5: function(){
-    						el.ellipses5.toggle();
-    					},
-    					ellipses6: function(){
-    						el.ellipses6.toggle();
-    					},
-    					ellipses7: function(){
-    						el.ellipses7.toggle();
-    					},
-    					ellipses8: function(){
-    						el.ellipses8.toggle();
-    					}
-
+		  				}
 					}
 		  			// hide layers when load the map element
 		  			el.landingSite8.hide();
 		  			el.landingSite.hide();
 		  			el.latConstraint.hide();
 						el.geoConstraint.hide();
+						el.nomenclator.hide();
 		  			el.ellipses1.hide();
 		  			el.ellipses2.hide();
 		  			el.ellipses3.hide();
@@ -723,7 +637,7 @@ var app =  {};
 						el.dashellipses8.hide();
 
 
-						// add cartoDB layers into the map
+						// add all cartoDB subLayers into the map
 		  			el.map.addLayer(layer, false);
 		  		});
 
@@ -775,13 +689,13 @@ var app =  {};
 					$('#slides_container').height('5%')
 				};
 				function widthSmall(){
-					$('#slides_container').width(110)
+					$('#slides_container').width('110')
 				}
 				function heightNormal(){
-					$('#slides_container').height('85%')
+					$('#slides_container').height('83%')
 				};
 				function widthNormal(){
-					$('#slides_container').width("30%")
+					$('#slides_container').width("25%")
 				};
 				// functions to resize the menu with the layers
 				function heightSmallMenu(){
@@ -881,6 +795,7 @@ var app =  {};
       	function slideZero() {
       		el.landingSite.hide();
 					el.dashellipses4.hide();
+					el.nomenclator.hide();
       	};
 	  		// MOLA
       		function slideOne() {
@@ -900,6 +815,7 @@ var app =  {};
     			el.latConstraint.show();
 					el.geoConstraint.show();
     			el.landingSite8.hide();
+					el.nomenclator.hide();
     		};
       	// Aram Dorsum
       	function slideFour() {
@@ -908,6 +824,7 @@ var app =  {};
 	 				el.ellipses1.hide();
 	 				el.ellipses5.hide();
 					el.dashellipses1.hide();
+					el.nomenclator.show();
     		};
     		// HRSC
     		function slideFive() {
@@ -1071,7 +988,7 @@ var app =  {};
         		.addState(
           			seq.step(4),
           				O.Parallel(
-            				el.map.actions.setView(el.Aram,8),
+            				el.map.actions.setView(el.Aram,7),
             				slides.activate(4),
             				emitSlideChange
           				)
@@ -1079,7 +996,7 @@ var app =  {};
         		.addState(
           			seq.step(5),
           				O.Parallel(
-            				el.map.actions.setView(el.Aram,8),
+            				el.map.actions.setView(el.Aram,7),
             				slides.activate(5),
             				emitSlideChange
           				)
