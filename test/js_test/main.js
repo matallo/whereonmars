@@ -201,11 +201,7 @@ var app =  {};
 		  			layer.setZIndex(100); // all cartoDB layer will be above all the baselayers
 		  			var sublayer = layer.getSubLayer(0);
 
-		  	   		el.landingSite8 = layer.createSubLayer({
-		  	   			sql: "SELECT * FROM exomars_landing_sites_eight",
-		  					cartocss: '#exomars_landing_sites_eight{marker-placement: point;marker-line-color: #FFF;marker-width: 10; marker-line-opacity: 0.3;marker-line-width: 3;marker-type: ellipse;marker-fill: #f11810;marker-fill-opacity: 1;}',
-		  					interactivity: ['name','coordinates']
-		  	   		});
+
 						// we define the torque layer for the landing ellipses in Aram Dorsum
 						cartodb.createLayer(el.map,{
 						type: "torque",
@@ -250,9 +246,73 @@ var app =  {};
 						el.torqueEllipses2 = layer;
 					});
 
+					var style1 = [
+						'#exomars_landing_sites_four{',
+					  	'	 marker-placement: point;',
+							'	 marker-line-color: #31a354;',
+							'	 marker-width: 15;',
+							'	 marker-line-opacity: 1;',
+							'	 marker-line-width: 3;',
+							'	 marker-type: ellipse;',
+							'	 marker-fill: #fc9272;',
+							'	 marker-fill-opacity: 0;',
+						'}',
+						'#exomars_landing_sites_four::labels{',
+							'	 text-name: [name];',
+							'  text-face-name: "DejaVu Sans Book";',
+          		'  text-size: 10;',
+          		'  text-label-position-tolerance: 0;',
+          		'  text-fill: #FFF;',
+          		'  text-halo-fill: #000;',
+          		'  text-halo-radius: 1;',
+          		'  text-dy: 0;',
+							'  text-dx: 15;',
+          		'  text-allow-overlap: true;',
+          		'  text-placement: point;',
+						'}'
+					].join('\n');
+
+
+					var style2 = [
+						'#exomars_landing_sites_eight{',
+					  	'	 marker-placement: point;',
+							'	 marker-line-color: #FFF;',
+							'	 marker-width: 10;',
+							'	 marker-line-opacity: 0.3;',
+							'	 marker-line-width: 3;',
+							'	 marker-type: ellipse;',
+							'	 marker-fill: #f11810;',
+							'	 marker-fill-opacity: 1;',
+						'}',
+						'#exomars_landing_sites_eight::labels{',
+							'	 text-name: [name];',
+							'  text-face-name: "DejaVu Sans Book";',
+          		'  text-size: 10;',
+          		'  text-label-position-tolerance: 0;',
+          		'  text-fill: #FFF;',
+          		'  text-halo-fill: #000;',
+          		'  text-halo-radius: 1;',
+          		'  text-dy: 0;',
+							'  text-dx: 15;',
+          		'  text-allow-overlap: true;',
+          		'  text-placement: point;',
+							'	 text-placement-type: simple;',
+						'}'
+					].join('\n');
+
+
+
+
+
+							el.landingSite8 = layer.createSubLayer({
+								sql: "SELECT * FROM exomars_landing_sites_eight",
+							cartocss: style2,
+							interactivity: ['name','coordinates']
+							});
+
 		  	   		el.landingSite = layer.createSubLayer({
 		  	   			sql: "SELECT * FROM exomars_landing_sites_four",
-		  					cartocss: '#exomars_landing_sites_four{marker-placement: point;marker-line-color: #31a354;marker-width: 15; marker-line-opacity: 1;marker-line-width: 3;marker-type: ellipse;marker-fill: #fc9272;marker-fill-opacity: 0;}',
+		  					cartocss: style1,
 		  					interactivity: ['name','coordinates']
 		  	   		});
 
@@ -767,10 +827,10 @@ var app =  {};
    			 }
 
       		// intro
-      		function slideZero() {
-      			el.landingSite.hide();
-						el.dashellipses4.hide();
-      		};
+      	function slideZero() {
+      		el.landingSite.hide();
+					el.dashellipses4.hide();
+      	};
 	  		// MOLA
       		function slideOne() {
     			el.landingSite8.hide();
