@@ -702,7 +702,7 @@ var app =  {};
 					$('#slides_container').height('auto')
 				};
 				function widthNormal(){
-					$('#slides_container').width("25%")
+					$('#slides_container').width(430)
 				};
 				// functions to resize the menu with the layers
 				function heightSmallMenu(){
@@ -828,6 +828,7 @@ var app =  {};
     		};
       	// Aram Dorsum
       	function slideFour() {
+					el.landingSite.hide();
      			el.latConstraint.hide();
 					el.geoConstraint.hide();
 					el.duneConstraint.hide();
@@ -940,6 +941,7 @@ var app =  {};
 	 				el.ellipses8.show();
 					el.dashellipses4.show();
 					el.dashellipses8.show();
+					el.landingSite.hide();
 
     		};
       		// End of the story/overview
