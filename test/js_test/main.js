@@ -677,7 +677,7 @@ var app =  {};
 						}
 					});
 					// when click the hide/show option it toggles the menu
-					$("#hide_menu a").bind('mouseup',function(){
+					$("#hide_menu img").bind('mouseup',function(){
 						if ($('#accordion').css('display') != 'none'){
 							$('#accordion').css({
 								display: 'none'

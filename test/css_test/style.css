@@ -1,8 +1,9 @@
 	#map{
 		z-index:-10;
 		height: 100%;
-		width: 100%
+		width: 100%;
 	}
+
 	/* progress bar styles */
 	.progress-bar{
 		border-radius: 25px;
@@ -111,6 +112,7 @@
 			padding-top:10px;
 			padding-left: 10px;
 			opacity: 0.8;
+			display:none;
 		}
 		#hide_menu{
 			position: absolute;
