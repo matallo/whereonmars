@@ -21,10 +21,6 @@
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="js_test/odyssey.js" charset="UTF-8"></script>
   <script src = "js_test/Minimap.js"/></script>
-
-
-
-
 </head>
 <body>
 	<!-- define element progress-bar -->
@@ -80,7 +76,7 @@
 					<h1>Aram Dorsum</h1>
 					<h3>The High Resolution Stereo Camera</h3>
 					<p>The High Resolution Stereo Camera (HRSC) is a camera experiment on Mars Express.At an altitude of 250 km from Mars, HRSC can produce images with a resolution of 2.3 meters/pixel of 2.35 kilometers square Mars Terrain.</p>
-					<div class="button" style="padding-top:10px;margin-left: 40px;text-align: center;width:150px;border: 1px solid #000000;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#hrscAram" id="hrscAram" class="button hrscAram">HRSC</a></div>
+					<div class="button" style="padding-top:10px;margin-left: 70px;text-align: center;width:150px;border: 1px solid #000000;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#hrscAram" id="hrscAram" class="button hrscAram">HRSC</a></div>
 					</br>
 				</div>
 				<!-- SLIDE 6 -->
@@ -120,8 +116,6 @@
 					<p>The region is characterised by ancient highland cratered terrains that become increasingly eroded towards the highland-lowland boundary.</p>
 					<p>The candidate landing site area in Oxia Planum is located inside a shallow basin, at the outlet of the Coogoon Valles system. The region was chosen to include extensive, layered exposures rich in iron and magnesium phyllosilicates.</p>
 					<p>The main scientific concern for this site relates to the lack of precise information regarding the geologic context and origin of the clay-bearing unit. However, the phyllosilicate deposits are seen as the key to the study of aqueous activity on early Mars and the search for evidence of habitable environments early in the planet’s history.</p>
-
-
 				</div>
 				<!-- SLIDE 11 -->
 				<div class="slide">
@@ -129,7 +123,7 @@
 					<h3>HiRISE</h3>
 					<p>The High Resolution Imaging Science Experiment (HiRISE) is a camera on board the Mars Reconnaissance Orbiter (MRO) and have a resolution of 0.3 m from an altitude of 300 km. One of the main goals of the MRO is to map the Martian landscape with it's high-resolution cameras in order to choose landing sites. </p>
 					<p>If you want to see Mars in high resolution...click the button and zoom to see the great difference between HRSC and HiRISE resolution ! </p>
-					<div class="button" style="padding-top:10px;margin-left: 40px;text-align: center;width:150px;border: 1px solid #000000;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#HiRISEOxia" id="HiRISEOxia" class="button HiRISEOxia">HiRISE</a></div>
+					<div class="button" style="padding-top:10px;margin-left: 70px;text-align: center;width:150px;border: 1px solid #000000;border-radius: 28px; padding: 10px 20px 10px 20px;"><a href="#HiRISEOxia" id="HiRISEOxia" class="button HiRISEOxia">HiRISE</a></div>
 					</br>
 
 				</div>
@@ -164,11 +158,19 @@
 
 			</div><!-- End slides-->
 			<!-- Define nav buttons-->
-			<ul id="navButtons">
-				<li><a class = "prev"></a></li>
-				<li><a class = "next"></a></li>
-	   	</ul>
+
 	</div> <!-- End slides_container-->
+
+  <!-- navigation buttons-->
+  <ul id="navButtons">
+    <div id = "circlePrev">
+      <li><a class = "prev"></a></li>
+    </div>
+    <div id = "circleNext" >
+      <li><a class = "next"></a></li>
+    </div>
+   </ul>
+
   <!-- define element menu that contains the different layers -->
   <script>
     $(function(){

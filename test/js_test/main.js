@@ -22,6 +22,7 @@ var app =  {};
 				landingSite8: null,
 				latConstraint: null,
 				geoConstraint: null,
+				duneConstraint: null,
 				nomenclator: null,
 				ellipses1: null,
 				ellipses2: null,
@@ -383,6 +384,10 @@ var app =  {};
 									sql: "SELECT * FROM restricted_geology_latitude_webmercator",
 									cartocss: '#restricted_geology_latitude_webmercator{polygon-fill:  #5CA2D1;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}'
 							});
+							el.duneConstraint = layer.createSubLayer({
+								sql: "SELECT * FROM dune_field_usgs",
+								cartocss: '#dune_field_usgs{polygon-fill: #c3834c;polygon-opacity: 0.7;line-color: #F11810;line-width: 1;line-opacity: 0;}'
+							});
 							el.nomenclator = layer.createSubLayer({
 								sql: "SELECT * FROM mars_nomenclature_webmercator_ls",
 								cartocss:  style3
@@ -618,6 +623,7 @@ var app =  {};
 		  			el.landingSite.hide();
 		  			el.latConstraint.hide();
 						el.geoConstraint.hide();
+						el.duneConstraint.hide();
 						el.nomenclator.hide();
 		  			el.ellipses1.hide();
 		  			el.ellipses2.hide();
@@ -684,7 +690,8 @@ var app =  {};
 
 						}
 					});
-					// functions to resize the slide_container
+
+				// functions to resize the slide_container
 				function heightSmall(){
 					$('#slides_container').height('5%')
 				};
@@ -692,7 +699,7 @@ var app =  {};
 					$('#slides_container').width('110')
 				}
 				function heightNormal(){
-					$('#slides_container').height('83%')
+					$('#slides_container').height('auto')
 				};
 				function widthNormal(){
 					$('#slides_container').width("25%")
@@ -795,7 +802,7 @@ var app =  {};
       	function slideZero() {
       		el.landingSite.hide();
 					el.dashellipses4.hide();
-					el.nomenclator.hide();
+
       	};
 	  		// MOLA
       		function slideOne() {
@@ -808,6 +815,7 @@ var app =  {};
     			el.landingSite.hide();
     			el.latConstraint.hide();
 					el.geoConstraint.hide();
+					el.duneConstraint.hide();
     		};
     		// 4 landing sites
     		function slideThree() {
@@ -815,12 +823,14 @@ var app =  {};
     			el.latConstraint.show();
 					el.geoConstraint.show();
     			el.landingSite8.hide();
+					el.duneConstraint.show();
 					el.nomenclator.hide();
     		};
       	// Aram Dorsum
       	function slideFour() {
      			el.latConstraint.hide();
 					el.geoConstraint.hide();
+					el.duneConstraint.hide();
 	 				el.ellipses1.hide();
 	 				el.ellipses5.hide();
 					el.dashellipses1.hide();
@@ -939,6 +949,7 @@ var app =  {};
 	 				el.landingSite.show();
 					el.dashellipses4.hide();
 					el.dashellipses8.hide();
+					el.nomenclator.hide();
 
     		};
       	function initOdyssey(O) {

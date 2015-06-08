@@ -3,6 +3,7 @@
 		height: 100%;
 		width: 100%
 	}
+	/* progress bar styles */
 	.progress-bar{
 		border-radius: 25px;
 		height: 2px;
@@ -11,22 +12,31 @@
 	.progress{
 		height: 2%;
 	}
+	/* hide the time slider from torque layer */
 	.cartodb-timeslider{
 		display: none!important;
 
 	}
+	/* different styles for the leaflet plugins */
 	.leaflet-left .leaflet-control-scale {
 		margin-left: 5px;
 	}
 	.leaflet-bottom .leaflet-control-scale {
 		margin-bottom: 40px;
 	}
-    .leaflet-control-scale-line {
+  .leaflet-control-scale-line {
 		-moz-box-sizing: content-box;
 		box-sizing: content-box;
 		border: 3px solid #000000;
 		border-top: none;
 	}
+	.leaflet-control-layers-toggle{
+
+		position: absolute;
+		top: 40px;
+		left: -30px;
+	}
+	/*
 	.cartodb-popup{
 		opacity: 0.7;
 	}
@@ -35,19 +45,14 @@
     box-sizing: content-box;
     -webkit-box-sizing: content-box;
    	-moz-box-sizing: content-box;
-	}
-	.leaflet-control-layers-toggle{
-
-		position: absolute;
-		top: 40px;
-		left: -30px;
-	}
+	}*/
+	/* styles for the slides_container element */
 	#slides_container{
     	display:block;
     	position:absolute;
     	opacity: 1;
-    	height: 83%;
-			width: 25%;
+    	height: auto;
+			width: 430px;
     	background-color:#fff;
     	z-index:1000;
     	border-radius: 15px;
@@ -60,14 +65,14 @@
     	display:block;
     	position:relative;
     	opacity: 1;
-    	height: 94%;
+    	height: auto;
     	overflow-y: auto;
     	background-color: #FFF;
     	z-index:1000;
 			margin-right: 20px;
 			margin-top: 5px;
     	color: #000000;
-    	border-bottom: 1px solid red;
+
     }
     #slides_container ul#navButtons{
     	position: relative;
@@ -92,27 +97,69 @@
     	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
     	font-size:13px;
     	background-color: #337ab7;
- 	}
-	#slides_container #slides h1{
-		font-size: 30px;
-	}
-	#accordion {
-		position:absolute;
-		top:50px;
-		right:10px;
-		width: 25%;
-		z-index:10;
-		padding-top:10px;
-		padding-left: 10px;
-		opacity: 0.8;
-	}
-	#hide_menu{
-		position: absolute;
-		top: 30px;
-		right: 70px;
-		width: 10px;
-		backgroumd-color: #FFF;
-	}
+ 		}
+		#slides_container #slides h1{
+			font-size: 30px;
+		}
+		/* styles for the layer menu element */
+		#accordion {
+			position:absolute;
+			top:50px;
+			right:10px;
+			width: 25%;
+			z-index:10;
+			padding-top:10px;
+			padding-left: 10px;
+			opacity: 0.8;
+		}
+		#hide_menu{
+			position: absolute;
+			top: 30px;
+			right: 70px;
+			width: 10px;
+			backgroumd-color: #FFF;
+		}
+		/* define styles for the navigation buttons */
+		ul#navButtons{
+			z-index: 999;
+			position:absolute;
+
+		}
+		ul#navButtons .prev{
+			position: absolute;
+			top: 10px;
+			left: 10px;
+		}
+		ul#navButtons .next{
+			position: absolute;
+			top: 10px;
+			left: 20px;
+		}
+
+		#circlePrev{
+
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			border-radius: 25px;
+			background-color: red;
+			opacity: 0.7;
+			top: 255px;
+			left:10px;
+		}
+		#circleNext{
+
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			border-radius: 25px;
+			background-color: red;
+			opacity: 0.7;
+			top: 255px;
+			left:450px;
+		}
+
+	/* for future or not labels/annotations
 #test1{
 	z-index: 4;
 	opacity: 1;
@@ -121,6 +168,7 @@
 	top: 11.2px ;
 
 }
+
 .content{
 	padding: 5px;
 }
@@ -139,4 +187,4 @@
 .ball{
 	background-color: rgb(0, 0, 0);
 
-}
+} */
