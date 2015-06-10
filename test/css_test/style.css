@@ -9,7 +9,11 @@
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 	}
-
+	ol.carousel-indicators li{
+		cursor: none;
+		background-color: #000;
+		opacity: 0.5;
+	}
 
 	/* hide the time slider from torque layer */
 	.cartodb-timeslider{
@@ -107,6 +111,7 @@
 			right: 70px;
 			width: 10px;
 			backgroumd-color: #FFF;
+			cursor: pointer;
 		}
 		/* define styles for the navigation buttons */
 
