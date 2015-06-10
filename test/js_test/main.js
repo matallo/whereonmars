@@ -648,9 +648,7 @@ var app =  {};
 		  		});
 
 		 		}
-
-				// when click the nav buttons, the scroll up to the y = 0 position of the slides_containers
-
+					// when click the nav buttons, the scroll up to the y = 0 position of the slides_containers
 					$("#navButtons").click(function() {
   		 			$('#slides_container #slides').scrollTop(0);
  					});
@@ -725,6 +723,7 @@ var app =  {};
   				el.LayerActions[$(this).attr('id')]();
 			}); // end of click event
 
+
 	  		function click(el) {
       			var element = O.Core.getElement(el);
       			var t = O.Trigger();
@@ -763,9 +762,9 @@ var app =  {};
       		// check the index being returned by trackCurrentSlide()
       		function checkIndex(index) {
       			switch(index){
-        			case 0: slideZero(), console.log(index), $("#0").addClass("active"),$("#1").removeClass("active"),$("#15").removeClass("active"); // introduction
+        			case 0: slideZero(), console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#15").removeClass("active"); // introduction
         			break;
-        			case 1: slideOne(),console.log(index),  $("#0").removeClass("active") ,$("#1").addClass("active"),$("#2").removeClass("active");// MOLA
+        			case 1: slideOne(),console.log(index),$("#0").removeClass("active") ,$("#1").addClass("active"),$("#2").removeClass("active");// MOLA
         			break;
         			case 2: slideTwo(),console.log(index),$("#1").removeClass("active") ,$("#2").addClass("active"),$("#3").removeClass("active"); // LSSWG
         			break;
