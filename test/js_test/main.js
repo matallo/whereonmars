@@ -658,7 +658,7 @@ var app =  {};
 					// when click the hide/show option it toggles the slides_container
 					$("#hide_story a").bind('mouseup',function(){
 						if ($('#slides').css('display') != 'none'){
-							$('#slides,#navButtons').css({
+							$('#slides').css({
 								display: 'none'
 							}),
 							$("#hide_story").css({
@@ -669,7 +669,7 @@ var app =  {};
 							heightSmall();
 							widthSmall();
 						} else{
-							$('#slides,#navButtons').css({
+							$('#slides').css({
 								display:'block'
 							});
 							heightNormal();
@@ -686,10 +686,9 @@ var app =  {};
 							$('#accordion').css({
 								display:'block'
 							});
-
-
 						}
 					});
+
 
 				// functions to resize the slide_container
 				function heightSmall(){
@@ -760,40 +759,41 @@ var app =  {};
     			});
       		}
 
+
       		// check the index being returned by trackCurrentSlide()
       		function checkIndex(index) {
       			switch(index){
-        			case 0: slideZero(), console.log(index), $(".progress-bar").css("width","0%"); // introduction
+        			case 0: slideZero(), console.log(index), $("#0").addClass("active"),$("#1").removeClass("active"),$("#15").removeClass("active"); // introduction
         			break;
-        			case 1: slideOne(),console.log(index), $(".progress-bar").css("width","6.66%"); // MOLA
+        			case 1: slideOne(),console.log(index),  $("#0").removeClass("active") ,$("#1").addClass("active"),$("#2").removeClass("active");// MOLA
         			break;
-        			case 2: slideTwo(),console.log(index),$(".progress-bar").css("width","13.32%"); // LSSWG
+        			case 2: slideTwo(),console.log(index),$("#1").removeClass("active") ,$("#2").addClass("active"),$("#3").removeClass("active"); // LSSWG
         			break;
-        			case 3: slideThree(),console.log(index),$(".progress-bar").css("width","19.98%"); // 4 landing sites
+        			case 3: slideThree(),console.log(index),$("#2").removeClass("active") ,$("#3").addClass("active"),$("#4").removeClass("active"); // 4 landing sites
         			break;
-        			case 4: slideFour(),console.log(index),$(".progress-bar").css("width","26.64%"); // aram dorsum
+        			case 4: slideFour(),console.log(index),$("#3").removeClass("active") ,$("#4").addClass("active"),$("#5").removeClass("active"); // aram dorsum
         			break;
-        			case 5: slideFive(),console.log(index),$(".progress-bar").css("width","33.3%"); // HRSC / aram dorsum
+        			case 5: slideFive(),console.log(index),$("#4").removeClass("active") ,$("#5").addClass("active"),$("#6").removeClass("active");// HRSC / aram dorsum
         			break
-        			case 6: slideSix(),console.log(index),$(".progress-bar").css("width","39.96%"); //  landing site aram dorsum 2018
+        			case 6: slideSix(),console.log(index),$("#5").removeClass("active") ,$("#6").addClass("active"),$("#7").removeClass("active"); //  landing site aram dorsum 2018
         			break;
-							case 7: slideSeven(),console.log(index),$(".progress-bar").css("width","39.96%"); //  landing site aram dorsum 2020
+							case 7: slideSeven(),console.log(index), $("#6").removeClass("active") ,$("#7").addClass("active"),$("#8").removeClass("active");//  landing site aram dorsum 2020
         			break;
-        			case 8: slideEight(),console.log(index),$(".progress-bar").css("width","46.62%"); // Hypanis Vallis
+        			case 8: slideEight(),console.log(index),$("#7").removeClass("active") ,$("#8").addClass("active"),$("#9").removeClass("active"); // Hypanis Vallis
         			break;
-        			case 9: slideNine(),console.log(index),$(".progress-bar").css("width","53.28%"); // Hypanis Vallis
+        			case 9: slideNine(),console.log(index), $("#8").removeClass("active") ,$("#9").addClass("active"),$("#10").removeClass("active");// Hypanis Vallis
         			break;
-        			case 10: slideTen(),console.log(index),$(".progress-bar").css("width","66.6%"); // Oxia Planum
+        			case 10: slideTen(),console.log(index),$("#9").removeClass("active") ,$("#10").addClass("active"),$("#11").removeClass("active"); // Oxia Planum
         			break;
-        			case 11: slideEleven(),console.log(index),$(".progress-bar").css("width","73.26%"); // HiRISE / Oxia Planum
+        			case 11: slideEleven(),console.log(index),$("#10").removeClass("active") ,$("#11").addClass("active"),$("#12").removeClass("active"); // HiRISE / Oxia Planum
         			break;
-        			case 12: slideTwelve(),console.log(index),$(".progress-bar").css("width","79.92%"); // Oxia Planum
+        			case 12: slideTwelve(),console.log(index), $("#11").removeClass("active") ,$("#12").addClass("active"),$("#13").removeClass("active");// Oxia Planum
         			break;
-        			case 13: slideThirteen(),console.log(index),$(".progress-bar").css("width","86.58%"); // Mawrth Vallis
+        			case 13: slideThirteen(),console.log(index),$("#12").removeClass("active") ,$("#13").addClass("active"),$("#14").removeClass("active"); // Mawrth Vallis
         			break;
-        			case 14: slideFourteen(),console.log(index),$(".progress-bar").css("width","93.24%"); // Mawrth Vallis
+        			case 14: slideFourteen(),console.log(index), $("#13").removeClass("active") ,$("#14").addClass("active"),$("#15").removeClass("active");// Mawrth Vallis
         			break;
-        			case 15: slideFifteen(),console.log(index),$(".progress-bar").css("width","100%"); // End
+        			case 15: slideFifteen(),console.log(index), $("#14").removeClass("active") ,$("#15").addClass("active"),$("#0").removeClass("active");// End
         			break;
       			};
    			 }
@@ -802,6 +802,7 @@ var app =  {};
       	function slideZero() {
       		el.landingSite.hide();
 					el.dashellipses4.hide();
+
 
       	};
 	  		// MOLA
@@ -965,7 +966,9 @@ var app =  {};
       			click(document.querySelectorAll('.next')).then(seq.next, seq)
       			click(document.querySelectorAll('.prev')).then(seq.prev, seq)
       			var slides = O.Actions.Slides('slides');
+
       			el.story =  O.Story()
+
         		.addState(
           			seq.step(0),
           				O.Parallel(

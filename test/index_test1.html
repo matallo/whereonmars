@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width">
   <title>Where on Mars | A Web Map Visualisation of the ExoMars 2018 Rover Candidate Landing Sites</title>
   <!-- call css styles -->
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
@@ -23,13 +23,37 @@
   <script src = "js_test/Minimap.js"/></script>
 </head>
 <body>
-	<!-- define element progress-bar -->
-	<div id ="bar-container">
-		<div class="progress">
- 				<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"</div>
-		</div>
+
   <!-- define element with id = map -->
 	<div id = "map"></div>
+  <!-- navigation buttons bootstrap -->
+  <div id="carousel">
+    <ol class = "carousel-indicators">
+      <li id = "0" data-target = "#carousel" data-slide-to="index[0]" class = "active"></li>
+      <li id = "1" data-target = "#carousel" data-slide-to="index[1]"></li>
+      <li id = "2" data-target = "#carousel" data-slide-to="index[2]"></li>
+      <li id = "3" data-target = "#carousel" data-slide-to="index[3]"></li>
+      <li id = "4" data-target = "#carousel" data-slide-to="index[4]"></li>
+      <li id = "5" data-target = "#carousel" data-slide-to="index[5]"></li>
+      <li id = "6" data-target = "#carousel" data-slide-to="index[6]"></li>
+      <li id = "7" data-target = "#carousel" data-slide-to="index[7]"></li>
+      <li id = "8" data-target = "#carousel" data-slide-to="index[8]"></li>
+      <li id = "9" data-target = "#carousel" data-slide-to="index[9]"></li>
+      <li id = "10" data-target = "#carousel" data-slide-to="index[10]"></li>
+      <li id = "11" data-target = "#carousel" data-slide-to="index[11]"></li>
+      <li id = "12" data-target = "#carousel" data-slide-to="index[12]"></li>
+      <li id = "13" data-target = "#carousel" data-slide-to="index[13]"></li>
+      <li id = "14" data-target = "#carousel" data-slide-to="index[14]"></li>
+      <li id = "15" data-target = "#carousel" data-slide-to="index[15]"></li>
+    </ol>
+  </div>
+  <!-- navigation buttons-->
+  <ul id="navButtons">
+      <li><a class = "prev"></a></li>
+      <li><a class = "next"></a></li>
+   </ul>
+   <div id = "circlePrev"></div>
+   <div id = "circleNext"></div>
   <!-- define element slides container -->
   <div id = "slides_container">
     <div id = "hide_story"><a href="#">Hide/Show</a></div>
@@ -158,19 +182,7 @@
 				</div>
 
 			</div><!-- End slides-->
-			<!-- Define nav buttons-->
-
 	</div> <!-- End slides_container-->
-
-  <!-- navigation buttons-->
-  <ul id="navButtons">
-    <div id = "circlePrev">
-      <li><a class = "prev"></a></li>
-    </div>
-    <div id = "circleNext" >
-      <li><a class = "next"></a></li>
-    </div>
-   </ul>
 
   <!-- define element menu that contains the different layers -->
   <script>
