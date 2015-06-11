@@ -1096,56 +1096,89 @@ var app =  {};
 		//when the user click the dots, the odyssey moves to the slide that corresponds to each dot
 						$("li#0").click(function(){
 							el.story.go(0);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#1").click(function(){
 							el.story.go(1);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#2").click(function(){
 							el.story.go(2);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#3").click(function(){
 							el.story.go(3);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#4").click(function(){
 							el.story.go(4);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#5").click(function(){
 							el.story.go(5);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#6").click(function(){
 							el.story.go(6);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#7").click(function(){
 							el.story.go(7);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#8").click(function(){
 							el.story.go(8);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#9").click(function(){
 							el.story.go(9);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#10").click(function(){
 							el.story.go(10);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#11").click(function(){
 							el.story.go(11);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#12").click(function(){
 							el.story.go(12);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#13").click(function(){
 							el.story.go(13);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#14").click(function(){
 							el.story.go(14);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#15").click(function(){
 							el.story.go(15);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
 						$("li#16").click(function(){
 							el.story.go(16);
+							$("li").removeClass("active");
+							$(this).addClass("active");
 						});
-
       		}
 
 	  		function init() {
