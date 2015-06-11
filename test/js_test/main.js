@@ -56,14 +56,16 @@ var app =  {};
     			new L.control.scale({metric: true,imperial: false}).addTo(el.map);
 
     			// define basemap
-    			el.basemap = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
+
+    			el.basemap = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-gray/{z}/{x}/{y}.png', {
  					attribution: 'GISLAB',
  					tms:true,
  					maxNativeZoom: 9,
   				}).addTo(el.map).setZIndex(0);
 
   				// basemap2 is the map used to create the mini map
-  				el.basemap2 = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-gray/{z}/{x}/{y}.png', {
+
+  				el.basemap2 = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-gray/{z}/{x}/{y}.png', {
  					attribution: 'GISLAB',
  					tms:true,
  					maxNativeZoom: 9,
@@ -72,7 +74,7 @@ var app =  {};
   				// create a Mini map of the basemap2 layer
   				var miniMap = new L.Control.MiniMap(el.basemap2, { toggleDisplay: true, position: 'bottomright' }).addTo(el.map);
 					// define color basemap
-  				el.basemapColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/tiles/mola-color/{z}/{x}/{y}.png', {
+  				el.basemapColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-color/{z}/{x}/{y}.png', {
  					attribution: 'GISLAB',
  					maxNativeZoom: 7,
   				}).setZIndex(0);
@@ -776,7 +778,7 @@ var app =  {};
 							case 16: slideSixteen(),console.log(index), $("#15").removeClass("active") ,$("#16").addClass("active"),$("#0").removeClass("active");// End
         			break;
       			};
-						
+
    			 }
 
       		// intro
@@ -951,9 +953,7 @@ var app =  {};
       			click(document.querySelectorAll('.next')).then(seq.next, seq)
       			click(document.querySelectorAll('.prev')).then(seq.prev, seq)
       			var slides = O.Actions.Slides('slides');
-
       			el.story =  O.Story()
-
         		.addState(
           			seq.step(0),
           				O.Parallel(
@@ -1091,7 +1091,73 @@ var app =  {};
             			)
           		)
       			el.story.go(0);
+
+		// this group of sentences define:
+		//when the user click the dots, the odyssey moves to the slide that corresponds to each dot
+					$("li#0").click(function(){
+							el.story.go(0);
+
+					});
+					$("li#1").click(function(){
+							el.story.go(1);
+
+
+					});
+					$("li#2").click(function(){
+							el.story.go(2);
+
+					});
+					$("li#3").click(function(){
+							el.story.go(3);
+					});
+					$("li#4").click(function(){
+							el.story.go(4);
+					});
+					$("li#5").click(function(){
+							el.story.go(5);
+					});
+					$("li#6").click(function(){
+							el.story.go(6);
+					});
+					$("li#7").click(function(){
+							el.story.go(7);
+					});
+					$("li#8").click(function(){
+							el.story.go(8);
+					});
+					$("li#9").click(function(){
+							el.story.go(9);
+					});
+					$("li#10").click(function(){
+							el.story.go(10);
+					});
+					$("li#11").click(function(){
+							el.story.go(11);
+					});
+					$("li#12").click(function(){
+							el.story.go(12);
+					});
+					$("li#13").click(function(){
+							el.story.go(13);
+					});
+					$("li#14").click(function(){
+							el.story.go(14);
+					});
+					$("li#15").click(function(){
+							el.story.go(15);
+					});
+					$("li#16").click(function(){
+							el.story.go(16);
+					});
+
+
+
+
+
+
+
       		}
+
 	  		function init() {
       			initMap();
       			cartodbData();
