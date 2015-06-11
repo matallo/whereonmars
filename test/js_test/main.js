@@ -1094,63 +1094,57 @@ var app =  {};
 
 		// this group of sentences define:
 		//when the user click the dots, the odyssey moves to the slide that corresponds to each dot
-					$("li#0").click(function(){
+						$("li#0").click(function(){
 							el.story.go(0);
-					});
-					$("li#1").click(function(){
+						});
+						$("li#1").click(function(){
 							el.story.go(1);
-					});
-					$("li#2").click(function(){
+						});
+						$("li#2").click(function(){
 							el.story.go(2);
-					});
-					$("li#3").click(function(){
+						});
+						$("li#3").click(function(){
 							el.story.go(3);
-					});
-					$("li#4").click(function(){
+						});
+						$("li#4").click(function(){
 							el.story.go(4);
-					});
-					$("li#5").click(function(){
+						});
+						$("li#5").click(function(){
 							el.story.go(5);
-					});
-					$("li#6").click(function(){
+						});
+						$("li#6").click(function(){
 							el.story.go(6);
-					});
-					$("li#7").click(function(){
+						});
+						$("li#7").click(function(){
 							el.story.go(7);
-					});
-					$("li#8").click(function(){
+						});
+						$("li#8").click(function(){
 							el.story.go(8);
-					});
-					$("li#9").click(function(){
+						});
+						$("li#9").click(function(){
 							el.story.go(9);
-					});
-					$("li#10").click(function(){
+						});
+						$("li#10").click(function(){
 							el.story.go(10);
-					});
-					$("li#11").click(function(){
+						});
+						$("li#11").click(function(){
 							el.story.go(11);
-					});
-					$("li#12").click(function(){
+						});
+						$("li#12").click(function(){
 							el.story.go(12);
-					});
-					$("li#13").click(function(){
+						});
+						$("li#13").click(function(){
 							el.story.go(13);
-					});
-					$("li#14").click(function(){
+						});
+						$("li#14").click(function(){
 							el.story.go(14);
-					});
-					$("li#15").click(function(){
+						});
+						$("li#15").click(function(){
 							el.story.go(15);
-					});
-					$("li#16").click(function(){
+						});
+						$("li#16").click(function(){
 							el.story.go(16);
-					});
-
-
-
-
-
-
+						});
 
       		}
 
