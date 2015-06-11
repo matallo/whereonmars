@@ -72,7 +72,9 @@ var app =  {};
   				});
 
   				// create a Mini map of the basemap2 layer
-  				var miniMap = new L.Control.MiniMap(el.basemap2, { toggleDisplay: true, position: 'bottomright' }).addTo(el.map);
+					var rect1 = {color: "#ff1100", weight: 3}; // rect1 to define rectangle options
+					var rect2 = {color: "#0000AA", weight: 1, opacity:0, fillOpacity:0}; // define shadow options of the rectangle
+  				var miniMap = new L.Control.MiniMap(el.basemap2, { toggleDisplay: true, position: 'bottomright',aimingRectOptions : rect1, shadowRectOptions: rect2}).addTo(el.map);
 					// define color basemap
   				el.basemapColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-color/{z}/{x}/{y}.png', {
  					attribution: 'GISLAB',
