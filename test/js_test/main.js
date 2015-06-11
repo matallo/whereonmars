@@ -1096,16 +1096,12 @@ var app =  {};
 		//when the user click the dots, the odyssey moves to the slide that corresponds to each dot
 					$("li#0").click(function(){
 							el.story.go(0);
-
 					});
 					$("li#1").click(function(){
 							el.story.go(1);
-
-
 					});
 					$("li#2").click(function(){
 							el.story.go(2);
-
 					});
 					$("li#3").click(function(){
 							el.story.go(3);
