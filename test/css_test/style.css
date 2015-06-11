@@ -30,16 +30,22 @@
   .leaflet-control-scale-line {
 		-moz-box-sizing: content-box;
 		box-sizing: content-box;
-		border: 3px solid #000000;
+		border: 2px solid #000;
 		border-top: none;
+		background-color: #f7f7f7;
+		font-size: 12px;
+		font-family: cursive;
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 	.leaflet-control-layers-toggle{
-
 		position: absolute;
 		top: 40px;
 		left: -30px;
 	}
-
+	ol.carousel-indicators{
+		bottom: 3%;
+	}
 	/* styles for the slides_container element */
 	#slides_container{
     	display:block;
@@ -55,6 +61,8 @@
     	padding-top: 5px;
     	padding-left: 25px;
     	color: #000000;
+			top:10px;
+			left: 10px;
     }
     #slides_container #slides{
     	display:block;
@@ -150,33 +158,3 @@
 			bottom: 6.5%;
 			left: 51%;
 		}
-
-	/* for future or not labels/annotations
-#test1{
-	z-index: 4;
-	opacity: 1;
-	display: inline-table;
-	background-color: rgba(0, 0, 0, 0.701961);
-	top: 11.2px ;
-
-}
-
-.content{
-	padding: 5px;
-}
-.text .widget_text{
-	color: rgb(255, 255, 255);
-	text-align: right;
-	font-size: 13px;
-	opacity: 1;"
-}
-.stick{
-	width: 80px;
-	left: auto;
-	right: -80px;
-	background-color: rgb(0, 0, 0);
-}
-.ball{
-	background-color: rgb(0, 0, 0);
-
-} */

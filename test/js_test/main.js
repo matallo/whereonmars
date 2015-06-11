@@ -256,16 +256,14 @@ var app =  {};
 					var style1 = [
 						'#exomars_landing_sites_four{',
 					  	'	 marker-placement: point;',
-
-							'	 marker-width: 15;',
-
+							'	 marker-width: 10;',
 							'	 marker-line-width: 1;',
 							'	 marker-type: ellipse;',
 							'	 marker-fill: #f11810;',
 							'	 marker-fill-opacity: 1;',
 							'	 text-name: [name];',
 							'  text-face-name: "DejaVu Sans Book";',
-							'  text-size: 10;',
+							'  text-size: 9;',
 							'  text-label-position-tolerance: 0;',
 							'  text-fill: #FFF;',
 							'  text-halo-fill: #000;',
@@ -287,14 +285,14 @@ var app =  {};
 					var style2 = [
 						'#exomars_landing_sites_eight{',
 					  	'	 marker-placement: point;',
-							'	 marker-width: 15;',
+							'	 marker-width: 10;',
 							'	 marker-line-width: 1;',
 							'	 marker-type: ellipse;',
 							'	 marker-fill: #f11810;',
 							'	 marker-fill-opacity: 1;',
 							'	 text-name: [name];',
 							'  text-face-name: "DejaVu Sans Book";',
-							'  text-size: 10;',
+							'  text-size: 9;',
 							'  text-fill: #FFF;',
 							'  text-halo-fill: #000;',
 							'  text-halo-radius: 8;',
@@ -356,12 +354,8 @@ var app =  {};
 								'}',
 								'	[cartodb_id = 62]{',
 										'  text-dy: -5;',
-
-
 									'}',
 							'}'
-
-
 						].join('\n');
 
 							el.landingSite8 = layer.createSubLayer({
@@ -478,7 +472,6 @@ var app =  {};
 
 							$('body').append(i.render().el);
 							*/
-
 							// attach layers to the checkbox
 							//activate checkboxes for all layer that have the name LS
 							var checkbox = $('input.vector:checkbox'),
@@ -598,7 +591,7 @@ var app =  {};
 
 
  	  		    	var map = el.map;
-		 				// define LayerAction to add or remove the layers
+		 				// define LayerAction to add or remove the layers when click buttons inside the slide container
 		  			el.LayerActions = {
 							hrscAram: function(){
 								var hrscAram = el.hrsc[0];
@@ -648,7 +641,7 @@ var app =  {};
 		  		});
 
 		 		}
-					// when click the nav buttons, the scroll up to the y = 0 position of the slides_containers
+					// If there is scroll, the scroll up to the y = 0 position of the slides_containers when click the nav buttons.
 					$("#navButtons").click(function() {
   		 			$('#slides_container #slides').scrollTop(0);
  					});
@@ -688,7 +681,7 @@ var app =  {};
 					});
 
 
-				// functions to resize the slide_container
+				// A group of functions to resize the slide_container
 				function heightSmall(){
 					$('#slides_container').height('5%')
 				};
@@ -701,20 +694,6 @@ var app =  {};
 				function widthNormal(){
 					$('#slides_container').width(430)
 				};
-				// functions to resize the menu with the layers
-				function heightSmallMenu(){
-					$("#layerMenu").height('5%')
-				};
-				function widthSmallMenu(){
-					$("#layerMenu").width(110)
-				};
-				function heightNormalMenu(){
-					$("#layerMenu").height('50%')
-				};
-				function widthNormalMenu(){
-					$("#layerMenu").width(300)
-				};
-
 
  				// buttons inside slide container
   	  		$('.button').click(function() {
@@ -762,7 +741,7 @@ var app =  {};
       		// check the index being returned by trackCurrentSlide()
       		function checkIndex(index) {
       			switch(index){
-        			case 0: slideZero(), console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#15").removeClass("active"); // introduction
+        			case 0: slideZero(), console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#16").removeClass("active"); // introduction
         			break;
         			case 1: slideOne(),console.log(index),$("#0").removeClass("active") ,$("#1").addClass("active"),$("#2").removeClass("active");// MOLA
         			break;
@@ -790,17 +769,21 @@ var app =  {};
         			break;
         			case 13: slideThirteen(),console.log(index),$("#12").removeClass("active") ,$("#13").addClass("active"),$("#14").removeClass("active"); // Mawrth Vallis
         			break;
-        			case 14: slideFourteen(),console.log(index), $("#13").removeClass("active") ,$("#14").addClass("active"),$("#15").removeClass("active");// Mawrth Vallis
+        			case 14: slideFourteen(),console.log(index), $("#13").removeClass("active") ,$("#14").addClass("active"),$("#15").removeClass("active");// HiRISE / Mawrth Vallis
         			break;
-        			case 15: slideFifteen(),console.log(index), $("#14").removeClass("active") ,$("#15").addClass("active"),$("#0").removeClass("active");// End
+        			case 15: slideFifteen(),console.log(index), $("#14").removeClass("active") ,$("#15").addClass("active"),$("#16").removeClass("active");// Mawrth Vallis
+        			break;
+							case 16: slideSixteen(),console.log(index), $("#15").removeClass("active") ,$("#16").addClass("active"),$("#0").removeClass("active");// End
         			break;
       			};
+						
    			 }
 
       		// intro
       	function slideZero() {
       		el.landingSite.hide();
 					el.dashellipses4.hide();
+					el.nomenclator.hide();
 
 
       	};
@@ -927,16 +910,20 @@ var app =  {};
       	// Mawrth Vallis
       	function slideThirteen() {
 	 				el.ellipses3.hide();
-	 				el.ellipses4.hide();
 	 				el.ellipses7.hide();
-	 				el.ellipses8.hide();
 					el.dashellipses3.hide();
 					el.dashellipses7.hide();
-					el.dashellipses4.hide();
-					el.dashellipses8.hide();
     		};
-    		// Mawrth Vallis landing sites
+    		// Mawrth Vallis HiRISE
     		function slideFourteen() {
+				el.ellipses4.hide();
+				el.ellipses8.hide();
+				el.dashellipses4.hide();
+				el.dashellipses8.hide();
+
+    		};
+				// Mawrth Vallis landing sites
+    		function slideFifteen() {
 	 				el.ellipses4.show();
 	 				el.ellipses8.show();
 					el.dashellipses4.show();
@@ -945,14 +932,13 @@ var app =  {};
 
     		};
       		// End of the story/overview
-      	function slideFifteen() {
-	 				el.ellipses4.hide();
+      	function slideSixteen() {
+					el.nomenclator.hide();
+					el.ellipses4.hide();
 	 				el.ellipses8.hide();
 	 				el.landingSite.show();
 					el.dashellipses4.hide();
 					el.dashellipses8.hide();
-					el.nomenclator.hide();
-
     		};
       	function initOdyssey(O) {
       			// O is for Odyssey
@@ -1059,7 +1045,7 @@ var app =  {};
         		.addState(
           			seq.step(11),
           				O.Parallel(
-            				el.map.actions.setView(el.Oxia,8),
+            				el.map.actions.setView(el.Oxia,10),
             				slides.activate(11),
             				emitSlideChange
           				)
@@ -1067,7 +1053,7 @@ var app =  {};
         		.addState(
           			seq.step(12),
           				O.Parallel(
-            				el.map.actions.setView(el.Oxia,8),
+            				el.map.actions.setView(el.Oxia,9),
             				slides.activate(12),
             				emitSlideChange
           				)
@@ -1080,19 +1066,27 @@ var app =  {};
             				emitSlideChange
           				)
         		)
-        		.addState(
+						.addState(
           			seq.step(14),
           				O.Parallel(
-            			el.map.actions.setView(el.Mawrth,8),
-            			slides.activate(14),
-            			emitSlideChange
+            				el.map.actions.setView(el.Mawrth,10),
+            				slides.activate(14),
+            				emitSlideChange
           				)
         		)
         		.addState(
           			seq.step(15),
           				O.Parallel(
+            			el.map.actions.setView(el.Mawrth,9),
+            			slides.activate(15),
+            			emitSlideChange
+          				)
+        		)
+        		.addState(
+          			seq.step(16),
+          				O.Parallel(
             				el.map.actions.setView(el.center,3,true),
-            				slides.activate(15),
+            				slides.activate(16),
             				emitSlideChange
             			)
           		)
