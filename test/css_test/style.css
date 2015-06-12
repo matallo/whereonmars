@@ -11,12 +11,12 @@
 	}
 	ol.carousel-indicators li{
 		cursor: pointer;
-		background-color: #000;
-		opacity: 0.5;
+		background-color: #F4F4F4;
+		opacity: 0.9;
 	}
 	ol.carousel-indicators li.active{
 		cursor: pointer;
-		background-color: #FFF;
+		background-color: #FFC125;
 		opacity: 1;
 	}
 
@@ -68,6 +68,7 @@
     	color: #000000;
 			top:10px;
 			left: 10px;
+			padding-bottom: -50px;
     }
     #slides_container #slides{
     	display:block;
@@ -147,8 +148,8 @@
 			width: 30px;
 			height: 30px;
 			border-radius: 25px;
-			background-color: #CAFF70;
-			opacity: 0.5;
+			background-color: #b2df8a;
+			opacity: 0.9;
 			bottom: 7%;
 			left: 47%;
 		}
@@ -158,8 +159,8 @@
 			width: 30px;
 			height: 30px;
 			border-radius: 25px;
-			background-color: #CAFF70;
-			opacity: 0.5;
+			background-color: #b2df8a;
+			opacity: 0.9;
 			bottom: 7%;
 			left: 51%;
 		}
