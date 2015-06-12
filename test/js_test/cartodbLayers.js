@@ -389,12 +389,12 @@
           };
         },
 
-        HiRISEOxia: function(){
-          var HiRISEOxia = el.hirise[1];
-          if (map.hasLayer(HiRISEOxia)){
-            map.removeLayer(HiRISEOxia);
+        HiRISEAram: function(){
+          var HiRISEAram = el.hirise[0];
+          if (map.hasLayer(HiRISEAram)){
+            map.removeLayer(HiRISEAram);
           }else{
-            map.addLayer(HiRISEOxia)
+            map.addLayer(HiRISEAram)
           };
         }
     }

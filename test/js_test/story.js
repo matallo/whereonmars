@@ -73,30 +73,7 @@ function click(el) {
     };
 
   }
-  /*
-  // layers to hide when clicking buttons (not following the story order)
-  el.landingSite8.hide();
-  el.landingSite.hide();
-  el.latConstraint.hide();
-  el.geoConstraint.hide();
-  el.duneConstraint.hide();
-  el.nomenclator.hide();
-  el.ellipses1.hide();
-  el.ellipses2.hide();
-  el.ellipses3.hide();
-  el.ellipses4.hide();
-  el.ellipses5.hide();
-  el.ellipses6.hide();
-  el.ellipses7.hide();
-  el.ellipses8.hide();
-  el.dashellipses1.hide();
-  el.dashellipses2.hide();
-  el.dashellipses3.hide();
-  el.dashellipses4.hide();
-  el.dashellipses5.hide();
-  el.dashellipses6.hide();
-  el.dashellipses7.hide();
-  el.dashellipses8.hide(); */
+
   // intro
 function slideZero() {
   el.landingSite.hide();
@@ -256,8 +233,32 @@ function slideFive() {
   el.dashellipses7.hide();
   el.dashellipses8.hide();
 };
-// Aram Dorsum landing site 2018
+// HiRISE
 function slideSix() {
+
+  // layers to hide when clicking buttons (not following the story order)
+  el.landingSite8.hide();
+  el.landingSite.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses4.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses4.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide();
+};
+// Aram Dorsum landing site 2018
+function slideSeven() {
    el.ellipses1.show();
   el.ellipses5.hide();
   el.dashellipses1.show();
@@ -289,7 +290,7 @@ function slideSix() {
   el.dashellipses8.hide();
 };
 // Aram Dorsum landing site 2020
-function slideSeven() {
+function slideEight() {
    el.ellipses1.hide();
    el.ellipses5.show();
   el.dashellipses1.hide();
@@ -321,7 +322,7 @@ function slideSeven() {
 
 };
   // Hypanis Vallis
-function slideEight() {
+function slideNine() {
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses5.hide();
@@ -349,7 +350,7 @@ function slideEight() {
   el.dashellipses8.hide();
 };
 // Hypanis Vallis landing sites
-function slideNine() {
+function slideTen() {
   el.ellipses2.show();
   el.ellipses3.hide();
   el.ellipses6.show();
@@ -374,38 +375,13 @@ function slideNine() {
   el.dashellipses8.hide();
 };
   // Oxia Planum
-function slideTen() {
-  el.ellipses2.hide();
-  el.ellipses3.hide();
-  el.ellipses6.hide();
-  el.ellipses7.hide();
-  el.dashellipses2.hide();
-  el.dashellipses6.hide();
-  // layers to hide when clicking buttons (not following the story order)
-  el.landingSite8.hide();
-  el.landingSite.hide();
-  el.latConstraint.hide();
-  el.geoConstraint.hide();
-  el.duneConstraint.hide();
-  el.ellipses1.hide();
-  el.ellipses4.hide();
-  el.ellipses5.hide();
-  el.ellipses8.hide();
-  el.dashellipses1.hide();
-  el.dashellipses3.hide();
-  el.dashellipses4.hide();
-  el.dashellipses5.hide();
-  el.dashellipses7.hide();
-  el.dashellipses8.hide();
-};
-// hirise
 function slideEleven() {
   el.ellipses2.hide();
   el.ellipses3.hide();
   el.ellipses6.hide();
   el.ellipses7.hide();
-  el.dashellipses3.hide();
-  el.dashellipses7.hide();
+  el.dashellipses2.hide();
+  el.dashellipses6.hide();
   // layers to hide when clicking buttons (not following the story order)
   el.landingSite8.hide();
   el.landingSite.hide();
@@ -417,12 +393,13 @@ function slideEleven() {
   el.ellipses5.hide();
   el.ellipses8.hide();
   el.dashellipses1.hide();
-  el.dashellipses2.hide();
+  el.dashellipses3.hide();
   el.dashellipses4.hide();
   el.dashellipses5.hide();
-  el.dashellipses6.hide();
+  el.dashellipses7.hide();
   el.dashellipses8.hide();
 };
+
 // Oxia Planum landing sites
 function slideTwelve() {
   el.ellipses3.show();
@@ -549,8 +526,8 @@ function slideSixteen() {
   el.dashellipses5.hide();
   el.dashellipses6.hide();
   el.dashellipses7.hide();
-
 };
+// start initOdyssey fucntion (it is called in the main.js)
 function initOdyssey(O) {
     // O is for Odyssey
     var map = el.map;
@@ -614,7 +591,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(6),
           O.Parallel(
-            el.map.actions.setView(el.Aram,8),
+            el.map.actions.setView(el.Aram,10),
             slides.activate(6),
             emitSlideChange
           )
@@ -630,7 +607,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(8),
           O.Parallel(
-            el.map.actions.setView(el.Hypanis,8),
+            el.map.actions.setView(el.Aram,8),
             slides.activate(8),
             emitSlideChange
           )
@@ -646,7 +623,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(10),
           O.Parallel(
-            el.map.actions.setView(el.Oxia,8),
+            el.map.actions.setView(el.Hypanis,8),
             slides.activate(10),
             emitSlideChange
           )
@@ -654,11 +631,12 @@ function initOdyssey(O) {
     .addState(
         seq.step(11),
           O.Parallel(
-            el.map.actions.setView(el.Oxia,10),
+            el.map.actions.setView(el.Oxia,8),
             slides.activate(11),
             emitSlideChange
           )
     )
+
     .addState(
         seq.step(12),
           O.Parallel(
@@ -699,7 +677,7 @@ function initOdyssey(O) {
             emitSlideChange
           )
       )
-    el.story.go(0);
+    el.story.go(0); //go to the step 0 when it starts or finish the web application
 
 // this group of sentences define:
 //when the user click the dots, the odyssey moves to the slide that corresponds to each dot

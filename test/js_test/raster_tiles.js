@@ -129,7 +129,7 @@ var initMap = function(){
 
         // attach HIRISE layers to th checkbox defined in the html file
         var checkbox = $('input.raster:checkbox'),
-        $HIRISE1 = $('#HIRISE1') // calls the checkbox with the id = landingSite4
+        $HIRISE1 = $('#HIRISE1') // call HiRISE layer of Aram Dorsum
         $HIRISE1.change(function(){
                   if ($HIRISE1.is(':checked')){ // if checkbox is selected, then show layer
                     el.map.addLayer(el.hirise[0]);
@@ -137,7 +137,7 @@ var initMap = function(){
                     el.map.removeLayer(el.hirise[0]);
                     }
         });
-        $HIRISE2 = $('#HIRISE2') // calls the checkbox with the id = landingSite4
+        $HIRISE2 = $('#HIRISE2') /// call HiRISE layer of Oxia Planum
         $HIRISE2.change(function(){
                   if ($HIRISE2.is(':checked')){ // if checkbox is selected, then show layer
                     el.map.addLayer(el.hirise[1]);
@@ -145,12 +145,20 @@ var initMap = function(){
                     el.map.removeLayer(el.hirise[1]);
                   }
         });
-        $HIRISE3 = $('#HIRISE3')
+        $HIRISE3 = $('#HIRISE3') // call HiRISE layer of Mawrth Vallis
         $HIRISE3.change(function(){
                   if ($HIRISE3.is(':checked')){ // if checkbox is selected, then show layer
                     el.map.addLayer(el.hirise[2]);
                   }else{ // else (not selected), hide layer
                     el.map.removeLayer(el.hirise[2]);
+                  }
+        });
+        $HIRISE4 = $('#HIRISE4') // call HiRISE layer of Hypanis Vallis
+        $HIRISE4.change(function(){
+                  if ($HIRISE4.is(':checked')){ // if checkbox is selected, then show layer
+                    el.map.addLayer(el.hirise[3]);
+                  }else{ // else (not selected), hide layer
+                    el.map.removeLayer(el.hirise[3]);
                   }
         });
       });
