@@ -79,9 +79,7 @@
               '  text-dx: -20;',
             '}',
       '}'
-
     ].join('\n');
-
 
     var style2 = [
       '#exomars_landing_sites_eight{',

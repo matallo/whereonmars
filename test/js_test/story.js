@@ -73,27 +73,109 @@ function click(el) {
     };
 
   }
-
+  /*
+  // layers to hide when clicking buttons (not following the story order)
+  el.landingSite8.hide();
+  el.landingSite.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.nomenclator.hide();
+  el.ellipses1.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses4.hide();
+  el.ellipses5.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses4.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide(); */
   // intro
 function slideZero() {
   el.landingSite.hide();
   el.dashellipses4.hide();
   el.nomenclator.hide();
-
+// layers to hide when clicking buttons (not following the story order)
+  el.landingSite8.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.ellipses1.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses4.hide();
+  el.ellipses5.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide();
 
 };
 // MOLA
   function slideOne() {
   el.landingSite8.hide();
+  // layers to hide when clicking buttons (not following the story order)
+  el.landingSite.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.nomenclator.hide();
+  el.ellipses1.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses4.hide();
+  el.ellipses5.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses4.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide();
 };
 // LSSWG
 function slideTwo() {
-
   el.landingSite8.show();
   el.landingSite.hide();
   el.latConstraint.hide();
   el.geoConstraint.hide();
   el.duneConstraint.hide();
+  // layers to hide when clicking buttons (not following the story order)
+  el.nomenclator.hide();
+  el.ellipses1.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses4.hide();
+  el.ellipses5.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses4.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide();
+
 };
 // 4 landing sites
 function slideThree() {
@@ -103,27 +185,76 @@ function slideThree() {
   el.landingSite8.hide();
   el.duneConstraint.show();
   el.nomenclator.hide();
+  // layers to hide when clicking buttons (not following the story order)
+  el.ellipses1.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses4.hide();
+  el.ellipses5.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses4.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide();
 };
 // Aram Dorsum
 function slideFour() {
   el.landingSite.hide();
-   el.latConstraint.hide();
+  el.latConstraint.hide();
   el.geoConstraint.hide();
   el.duneConstraint.hide();
-   el.ellipses1.hide();
-   el.ellipses5.hide();
+  el.ellipses1.hide();
+  el.ellipses5.hide();
   el.dashellipses1.hide();
   el.nomenclator.show();
+  // layers to hide when clicking buttons (not following the story order)
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses4.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.ellipses8.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses4.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide();
 };
 // HRSC
 function slideFive() {
-   el.ellipses1.hide();
-   el.ellipses5.hide();
+  el.ellipses1.hide();
+  el.ellipses5.hide();
   el.dashellipses1.hide();
   el.torqueEllipses1.stop();
   el.torqueEllipses1.hide();
-
-
+  // layers to hide when clicking buttons (not following the story order)
+  el.landingSite8.hide();
+  el.landingSite.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses4.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses4.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide();
 };
 // Aram Dorsum landing site 2018
 function slideSix() {
@@ -137,7 +268,25 @@ function slideSix() {
   el.dashellipses5.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
-
+  // layers to hide when clicking buttons (not following the story order)
+  el.landingSite8.hide();
+  el.landingSite.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses4.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.ellipses8.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses4.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide();
 };
 // Aram Dorsum landing site 2020
 function slideSeven() {
@@ -151,54 +300,153 @@ function slideSeven() {
   el.torqueEllipses2.setZIndex(1000);
   el.torqueEllipses2.show();
   el.torqueEllipses2.play();
+  // layers to hide when clicking buttons (not following the story order)
+  el.landingSite8.hide();
+  el.landingSite.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses4.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.ellipses8.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses4.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide();
 
 };
   // Hypanis Vallis
 function slideEight() {
-   el.ellipses1.hide();
-   el.ellipses2.hide();
-   el.ellipses5.hide();
-   el.ellipses6.hide();
+  el.ellipses1.hide();
+  el.ellipses2.hide();
+  el.ellipses5.hide();
+  el.ellipses6.hide();
   el.dashellipses2.hide();
   el.dashellipses5.hide();
   el.dashellipses6.hide();
   el.torqueEllipses2.hide();
   el.torqueEllipses2.stop();
+  // layers to hide when clicking buttons (not following the story order)
+  el.landingSite8.hide();
+  el.landingSite.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.ellipses3.hide();
+  el.ellipses4.hide();
+  el.ellipses7.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses3.hide();
+  el.dashellipses4.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide();
 };
 // Hypanis Vallis landing sites
 function slideNine() {
-   el.ellipses2.show();
-   el.ellipses3.hide();
-   el.ellipses6.show();
+  el.ellipses2.show();
+  el.ellipses3.hide();
+  el.ellipses6.show();
   el.dashellipses2.show();
   el.dashellipses6.show();
+  // layers to hide when clicking buttons (not following the story order)
+  el.landingSite8.hide();
+  el.landingSite.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.ellipses1.hide();
+  el.ellipses4.hide();
+  el.ellipses5.hide();
+  el.ellipses7.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses3.hide();
+  el.dashellipses4.hide();
+  el.dashellipses5.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide();
 };
   // Oxia Planum
 function slideTen() {
-   el.ellipses2.hide();
-   el.ellipses3.hide();
-   el.ellipses6.hide();
-   el.ellipses7.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
   el.dashellipses2.hide();
   el.dashellipses6.hide();
+  // layers to hide when clicking buttons (not following the story order)
+  el.landingSite8.hide();
+  el.landingSite.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.ellipses1.hide();
+  el.ellipses4.hide();
+  el.ellipses5.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses3.hide();
+  el.dashellipses4.hide();
+  el.dashellipses5.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide();
 };
 // hirise
 function slideEleven() {
-   el.ellipses2.hide();
-   el.ellipses3.hide();
-   el.ellipses6.hide();
-   el.ellipses7.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
   el.dashellipses3.hide();
   el.dashellipses7.hide();
+  // layers to hide when clicking buttons (not following the story order)
+  el.landingSite8.hide();
+  el.landingSite.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.ellipses1.hide();
+  el.ellipses4.hide();
+  el.ellipses5.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses4.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses8.hide();
 };
 // Oxia Planum landing sites
 function slideTwelve() {
-   el.ellipses3.show();
-   el.ellipses4.hide();
-   el.ellipses7.show();
+  el.ellipses3.show();
+  el.ellipses4.hide();
+  el.ellipses7.show();
   el.dashellipses3.show();
   el.dashellipses4.hide();
   el.dashellipses7.show();
+  // layers to hide when clicking buttons (not following the story order)
+  el.landingSite8.hide();
+  el.landingSite.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.ellipses1.hide();
+  el.ellipses2.hide();
+  el.ellipses5.hide();
+  el.ellipses6.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses8.hide();
 };
 // Mawrth Vallis
 function slideThirteen() {
@@ -206,32 +454,102 @@ function slideThirteen() {
    el.ellipses7.hide();
   el.dashellipses3.hide();
   el.dashellipses7.hide();
+  // layers to hide when clicking buttons (not following the story order)
+  el.landingSite8.hide();
+  el.landingSite.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.ellipses1.hide();
+  el.ellipses2.hide();
+  el.ellipses4.hide();
+  el.ellipses5.hide();
+  el.ellipses6.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses4.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses8.hide();
 };
 // Mawrth Vallis HiRISE
 function slideFourteen() {
-el.ellipses4.hide();
-el.ellipses8.hide();
-el.dashellipses4.hide();
-el.dashellipses8.hide();
-
+  el.ellipses4.hide();
+  el.ellipses8.hide();
+  el.dashellipses4.hide();
+  el.dashellipses8.hide();
+// layers to hide when clicking buttons (not following the story order)
+  el.landingSite8.hide();
+  el.landingSite.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.ellipses1.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses5.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
 };
 // Mawrth Vallis landing sites
 function slideFifteen() {
-   el.ellipses4.show();
-   el.ellipses8.show();
+  el.ellipses4.show();
+  el.ellipses8.show();
   el.dashellipses4.show();
   el.dashellipses8.show();
   el.landingSite.hide();
-
+  // layers to hide when clicking buttons (not following the story order)
+  el.landingSite8.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.nomenclator.hide();
+  el.ellipses1.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses5.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
 };
   // End of the story/overview
 function slideSixteen() {
   el.nomenclator.hide();
   el.ellipses4.hide();
-   el.ellipses8.hide();
-   el.landingSite.show();
+  el.ellipses8.hide();
+  el.landingSite.show();
   el.dashellipses4.hide();
   el.dashellipses8.hide();
+  // layers to hide when clicking buttons (not following the story order)
+  el.landingSite8.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.ellipses1.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses5.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
+
 };
 function initOdyssey(O) {
     // O is for Odyssey
