@@ -72,9 +72,8 @@ var app =  {};
   				});
 
   				// create a Mini map of the basemap2 layer
-					var rect1 = {color: "#ff1100", weight: 3}; // rect1 to define rectangle options
-					var rect2 = {color: "#0000AA", weight: 1, opacity:0, fillOpacity:0}; // define shadow options of the rectangle
-  				var miniMap = new L.Control.MiniMap(el.basemap2, { toggleDisplay: true, position: 'bottomright',aimingRectOptions : rect1, shadowRectOptions: rect2}).addTo(el.map);
+					var rect1 = {color: "#CAFF70", weight: 3, opacity: 0.8}; // rect1 to define rectangle options
+  				var miniMap = new L.Control.MiniMap(el.basemap2, { toggleDisplay: true, position: 'bottomright',aimingRectOptions : rect1}).addTo(el.map);
 					// define color basemap
   				el.basemapColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-color/{z}/{x}/{y}.png', {
  					attribution: 'GISLAB',
@@ -82,15 +81,13 @@ var app =  {};
   				}).setZIndex(0);
 
 
-  			// define overlays from cartodb database
+  			// call the SQL API from cartodb
   			var sql = new cartodb.SQL({ user: 'whereonmars'});
-		 		sql.execute("SELECT * FROM overlays_table")
+		 		sql.execute("SELECT * FROM raster_tiles_HRSC")
 		 		.done(function(data){
 		 			el.hrsc = {};
-		 			el.hirise = {};
-		 			// loop that read each row of cartodb table and add each hrsc layer
+		 			// loop that read each row of cartodb table and add  hrsc layers
        				for (i = 0; i < data.total_rows; i++){
-      					if (i < 4){
       						el.hrsc[i]= L.tileLayer(data.rows[i].url,{
   								tms:true,
   								minZoom: 7,
@@ -102,21 +99,7 @@ var app =  {};
 									if(i > 0){
 										el.hrsc[i].addTo(el.map);
 									};
-      					} else {
-      					el.hirise[i] = new L.tileLayer(data.rows[i].url,{
- 									tms:true,
- 									opacity: 0.5,
- 									minZoom: 9,
- 									unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed
-  								updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
- 									maxNativeZoom: 18
-								}).setZIndex(2);
-      							if(i > 4){
-											el.hirise[i].addTo(el.map);
-										};
-      					}
-
-      				} // finish the loop
+      				} // finish the  raster_tiles_HRSC loop
 
 							// in the next block the raster layers called with cartodb.js
 							// are attach to the checkbox menu in the html file
@@ -169,26 +152,52 @@ var app =  {};
 													el.map.removeLayer(el.hrsc[3]);
 												}
 											});
+      		}); // finish .done(function()) where all the layers are called
+
+					sql.execute("SELECT * FROM raster_tiles_HIRISE")
+					.done(function(data){
+						el.hirise = {};
+						for (i = 0; i < data.total_rows; i++){
+							el.hirise[i] = new L.tileLayer(data.rows[i].url,{
+								tms:true,
+								opacity: 0.5,
+								minZoom: 9,
+								unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed
+								updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
+								maxNativeZoom: 16
+							}).setZIndex(2);
+									if(i > 0){
+										el.hirise[i].addTo(el.map);
+									};
+							} // finish the raster_tiles_HIRISE loop
+
 							// attach HIRISE layers to th checkbox defined in the html file
+							var checkbox = $('input.raster:checkbox'),
 							$HIRISE1 = $('#HIRISE1') // calls the checkbox with the id = landingSite4
 							$HIRISE1.change(function(){
 												if ($HIRISE1.is(':checked')){ // if checkbox is selected, then show layer
-													el.map.addLayer(el.hirise[4]);
+													el.map.addLayer(el.hirise[0]);
 												}else{ // else (not selected), hide layer
-													el.map.removeLayer(el.hirise[4]);
+													el.map.removeLayer(el.hirise[0]);
 													}
-												});
+							});
 							$HIRISE2 = $('#HIRISE2') // calls the checkbox with the id = landingSite4
 							$HIRISE2.change(function(){
 												if ($HIRISE2.is(':checked')){ // if checkbox is selected, then show layer
-													el.map.addLayer(el.hirise[5]);
+													el.map.addLayer(el.hirise[1]);
 												}else{ // else (not selected), hide layer
-													el.map.removeLayer(el.hirise[5]);
+													el.map.removeLayer(el.hirise[1]);
 												}
-											});
-
-      		}); // finish .done(function()) where all the layers are called
-
+							});
+							$HIRISE3 = $('#HIRISE3')
+							$HIRISE3.change(function(){
+												if ($HIRISE3.is(':checked')){ // if checkbox is selected, then show layer
+													el.map.addLayer(el.hirise[2]);
+												}else{ // else (not selected), hide layer
+													el.map.removeLayer(el.hirise[2]);
+												}
+							});
+						});
 				// define coordinates of the center of the different Landing Sites
 				el.Aram = new L.LatLng(7.87, -11.2);
 				el.Hypanis = new L.LatLng(11.8, -45.04);
@@ -465,17 +474,7 @@ var app =  {};
 		  					interactivity: ['name']
  	  		    	});
 
-							/*
-							// infowindow appears when hover on the landing sites layer and the ellipses layer
-							var i = new cdb.geo.ui.Tooltip({
-								layer: layer,
-								template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><h4>{{name}}</h4><p>{{coordinates}}</p></div></div>',
-								width: 200,
-								position: 'top|right'
-							});
 
-							$('body').append(i.render().el);
-							*/
 							// attach layers to the checkbox
 							//activate checkboxes for all layer that have the name LS
 							var checkbox = $('input.vector:checkbox'),
@@ -607,7 +606,7 @@ var app =  {};
 							},
 
 		  				HiRISEOxia: function(){
-		  					var HiRISEOxia = el.hirise[4];
+		  					var HiRISEOxia = el.hirise[1];
 		  					if (map.hasLayer(HiRISEOxia)){
 		  						map.removeLayer(HiRISEOxia);
 		  					}else{
