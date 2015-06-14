@@ -36,6 +36,17 @@ var initMap = function(){
      maxNativeZoom: 7,
     }).setZIndex(0);
 
+    el.basemapShaded = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/celestia_mars-shaded-16k_global/{z}/{x}/{y}.png', {
+     attribution: 'GISLAB',
+     tms:true,
+     maxNativeZoom: 5,
+    }).setZIndex(0);
+
+    el.basemapViking = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/viking_mdim21_global/{z}/{x}/{y}.png', {
+     attribution: 'GISLAB',
+     tms:true,
+     maxNativeZoom: 7,
+    }).setZIndex(0);
 
   // call the SQL API from cartodb
   var sql = new cartodb.SQL({ user: 'whereonmars'});
@@ -76,6 +87,22 @@ var initMap = function(){
                 el.map.removeLayer(el.basemapColor);
               }
             });
+        $shaded = $('#shaded') // calls the checkbox with the id = landingSite4
+        $shaded.change(function(){
+                if ($shaded.is(':checked')){ // if checkbox is selected, then show layer
+                  el.map.addLayer(el.basemapShaded);
+                }else{ // else (not selected), hide layer
+                  el.map.removeLayer(el.basemapShaded);
+                }
+              });
+        $viking = $('#viking') // calls the checkbox with the id = landingSite4
+        $viking.change(function(){
+                if ($viking.is(':checked')){ // if checkbox is selected, then show layer
+                  el.map.addLayer(el.basemapViking);
+                }else{ // else (not selected), hide layer
+                  el.map.removeLayer(el.basemapViking);
+                }
+              });      
         $HRSC1 = $('#HRSC1')
         $HRSC1.change(function(){
                   if ($HRSC1.is(':checked')){ // if checkbox is selected, then show layer

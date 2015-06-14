@@ -4,6 +4,7 @@ var el = {
   basemap: null,
   basemap2: null,
   basemapColor: null,
+  basemapShaded: null,
   torqueLayer: null,
   torqueEllipses1: null,
   torqueEllipses2: null,
