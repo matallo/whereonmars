@@ -50,7 +50,7 @@ var initMap = function(){
             opacity: 0.5,
             unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed
             updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
-            maxNativeZoom: 10
+            maxNativeZoom: 9
           }).setZIndex(1);
             if(i > 0){
               el.hrsc[i].addTo(el.map);
@@ -76,7 +76,7 @@ var initMap = function(){
                 el.map.removeLayer(el.basemapColor);
               }
             });
-        $HRSC1 = $('#HRSC1') // calls the checkbox with the id = landingSite4
+        $HRSC1 = $('#HRSC1')
         $HRSC1.change(function(){
                   if ($HRSC1.is(':checked')){ // if checkbox is selected, then show layer
                     el.map.addLayer(el.hrsc[0]);
@@ -84,28 +84,28 @@ var initMap = function(){
                     el.map.removeLayer(el.hrsc[0]);
                   }
                 });
-        $HRSC2 = $('#HRSC2') // calls the checkbox with the id = landingSite4
+        $HRSC2 = $('#HRSC2')
         $HRSC2.change(function(){
                   if ($HRSC2.is(':checked')){ // if checkbox is selected, then show layer
+                    el.map.addLayer(el.hrsc[3]);
+                  }else{ // else (not selected), hide layer
+                    el.map.removeLayer(el.hrsc[3]);
+                  }
+                });
+        $HRSC3 = $('#HRSC3')
+        $HRSC3.change(function(){
+                  if ($HRSC3.is(':checked')){ // if checkbox is selected, then show layer
                     el.map.addLayer(el.hrsc[1]);
                   }else{ // else (not selected), hide layer
                     el.map.removeLayer(el.hrsc[1]);
                   }
                 });
-        $HRSC3 = $('#HRSC3') // calls the checkbox with the id = landingSite4
-        $HRSC3.change(function(){
-                  if ($HRSC3.is(':checked')){ // if checkbox is selected, then show layer
+        $HRSC4 = $('#HRSC4')
+        $HRSC4.change(function(){
+                  if ($HRSC4.is(':checked')){ // if checkbox is selected, then show layer
                     el.map.addLayer(el.hrsc[2]);
                   }else{ // else (not selected), hide layer
                     el.map.removeLayer(el.hrsc[2]);
-                  }
-                });
-        $HRSC4 = $('#HRSC4') // calls the checkbox with the id = landingSite4
-        $HRSC4.change(function(){
-                  if ($HRSC4.is(':checked')){ // if checkbox is selected, then show layer
-                    el.map.addLayer(el.hrsc[3]);
-                  }else{ // else (not selected), hide layer
-                    el.map.removeLayer(el.hrsc[3]);
                   }
                 });
     }); // finish .done(function()) where all the layers are called
@@ -122,7 +122,7 @@ var initMap = function(){
           updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
           maxNativeZoom: 16
         }).setZIndex(2);
-            if(i > 0){
+            if(i != 2){
               el.hirise[i].addTo(el.map);
             };
         } // finish the raster_tiles_HIRISE loop
@@ -132,33 +132,33 @@ var initMap = function(){
         $HIRISE1 = $('#HIRISE1') // call HiRISE layer of Aram Dorsum
         $HIRISE1.change(function(){
                   if ($HIRISE1.is(':checked')){ // if checkbox is selected, then show layer
-                    el.map.addLayer(el.hirise[0]);
+                    el.map.addLayer(el.hirise[2]);
                   }else{ // else (not selected), hide layer
-                    el.map.removeLayer(el.hirise[0]);
+                    el.map.removeLayer(el.hirise[2]);
                     }
         });
         $HIRISE2 = $('#HIRISE2') /// call HiRISE layer of Oxia Planum
         $HIRISE2.change(function(){
                   if ($HIRISE2.is(':checked')){ // if checkbox is selected, then show layer
-                    el.map.addLayer(el.hirise[1]);
+                    el.map.addLayer(el.hirise[3]);
                   }else{ // else (not selected), hide layer
-                    el.map.removeLayer(el.hirise[1]);
+                    el.map.removeLayer(el.hirise[3]);
                   }
         });
         $HIRISE3 = $('#HIRISE3') // call HiRISE layer of Mawrth Vallis
         $HIRISE3.change(function(){
                   if ($HIRISE3.is(':checked')){ // if checkbox is selected, then show layer
-                    el.map.addLayer(el.hirise[2]);
+                    el.map.addLayer(el.hirise[0]);
                   }else{ // else (not selected), hide layer
-                    el.map.removeLayer(el.hirise[2]);
+                    el.map.removeLayer(el.hirise[0]);
                   }
         });
         $HIRISE4 = $('#HIRISE4') // call HiRISE layer of Hypanis Vallis
         $HIRISE4.change(function(){
                   if ($HIRISE4.is(':checked')){ // if checkbox is selected, then show layer
-                    el.map.addLayer(el.hirise[3]);
+                    el.map.addLayer(el.hirise[1]);
                   }else{ // else (not selected), hide layer
-                    el.map.removeLayer(el.hirise[3]);
+                    el.map.removeLayer(el.hirise[1]);
                   }
         });
       });

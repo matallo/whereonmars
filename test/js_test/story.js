@@ -623,7 +623,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(10),
           O.Parallel(
-            el.map.actions.setView(el.Hypanis,8),
+            el.map.actions.setView(el.Hypanis,9),
             slides.activate(10),
             emitSlideChange
           )
