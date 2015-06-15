@@ -149,7 +149,7 @@ var initMap = function(){
           updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
           maxNativeZoom: 16
         }).setZIndex(2);
-            if(i != 2){
+            if(i > 0){
               el.hirise[i].addTo(el.map);
             };
         } // finish the raster_tiles_HIRISE loop
