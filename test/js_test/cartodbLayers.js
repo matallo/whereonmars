@@ -390,7 +390,7 @@
         },
 
         HiRISEAram: function(){
-          var HiRISEAram = el.hirise[2];
+          var HiRISEAram = el.hirise[0];
           if (map.hasLayer(HiRISEAram)){
             map.removeLayer(HiRISEAram);
           }else{

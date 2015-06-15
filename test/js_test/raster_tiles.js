@@ -50,7 +50,7 @@ var initMap = function(){
 
   // call the SQL API from cartodb
   var sql = new cartodb.SQL({ user: 'whereonmars'});
-   sql.execute("SELECT * FROM raster_tiles_HRSC")
+   sql.execute("SELECT * FROM raster_tiles_HRSC ORDER BY cartodb_id ASC")
    .done(function(data){
      el.hrsc = {};
      // loop that read each row of cartodb table and add  hrsc layers
@@ -102,7 +102,7 @@ var initMap = function(){
                 }else{ // else (not selected), hide layer
                   el.map.removeLayer(el.basemapViking);
                 }
-              });      
+              });
         $HRSC1 = $('#HRSC1')
         $HRSC1.change(function(){
                   if ($HRSC1.is(':checked')){ // if checkbox is selected, then show layer
@@ -114,30 +114,30 @@ var initMap = function(){
         $HRSC2 = $('#HRSC2')
         $HRSC2.change(function(){
                   if ($HRSC2.is(':checked')){ // if checkbox is selected, then show layer
-                    el.map.addLayer(el.hrsc[3]);
-                  }else{ // else (not selected), hide layer
-                    el.map.removeLayer(el.hrsc[3]);
-                  }
-                });
-        $HRSC3 = $('#HRSC3')
-        $HRSC3.change(function(){
-                  if ($HRSC3.is(':checked')){ // if checkbox is selected, then show layer
                     el.map.addLayer(el.hrsc[1]);
                   }else{ // else (not selected), hide layer
                     el.map.removeLayer(el.hrsc[1]);
                   }
                 });
-        $HRSC4 = $('#HRSC4')
-        $HRSC4.change(function(){
-                  if ($HRSC4.is(':checked')){ // if checkbox is selected, then show layer
+        $HRSC3 = $('#HRSC3')
+        $HRSC3.change(function(){
+                  if ($HRSC3.is(':checked')){ // if checkbox is selected, then show layer
                     el.map.addLayer(el.hrsc[2]);
                   }else{ // else (not selected), hide layer
                     el.map.removeLayer(el.hrsc[2]);
                   }
                 });
+        $HRSC4 = $('#HRSC4')
+        $HRSC4.change(function(){
+                  if ($HRSC4.is(':checked')){ // if checkbox is selected, then show layer
+                    el.map.addLayer(el.hrsc[3]);
+                  }else{ // else (not selected), hide layer
+                    el.map.removeLayer(el.hrsc[3]);
+                  }
+                });
     }); // finish .done(function()) where all the layers are called
 
-    sql.execute("SELECT * FROM raster_tiles_HIRISE")
+    sql.execute("SELECT * FROM raster_tiles_HIRISE ORDER BY cartodb_id ASC")
     .done(function(data){
       el.hirise = {};
       for (i = 0; i < data.total_rows; i++){
@@ -159,33 +159,33 @@ var initMap = function(){
         $HIRISE1 = $('#HIRISE1') // call HiRISE layer of Aram Dorsum
         $HIRISE1.change(function(){
                   if ($HIRISE1.is(':checked')){ // if checkbox is selected, then show layer
-                    el.map.addLayer(el.hirise[2]);
+                    el.map.addLayer(el.hirise[0]);
                   }else{ // else (not selected), hide layer
-                    el.map.removeLayer(el.hirise[2]);
+                    el.map.removeLayer(el.hirise[0]);
                     }
         });
         $HIRISE2 = $('#HIRISE2') /// call HiRISE layer of Oxia Planum
         $HIRISE2.change(function(){
                   if ($HIRISE2.is(':checked')){ // if checkbox is selected, then show layer
-                    el.map.addLayer(el.hirise[3]);
+                    el.map.addLayer(el.hirise[1]);
                   }else{ // else (not selected), hide layer
-                    el.map.removeLayer(el.hirise[3]);
+                    el.map.removeLayer(el.hirise[1]);
                   }
         });
         $HIRISE3 = $('#HIRISE3') // call HiRISE layer of Mawrth Vallis
         $HIRISE3.change(function(){
                   if ($HIRISE3.is(':checked')){ // if checkbox is selected, then show layer
-                    el.map.addLayer(el.hirise[0]);
+                    el.map.addLayer(el.hirise[2]);
                   }else{ // else (not selected), hide layer
-                    el.map.removeLayer(el.hirise[0]);
+                    el.map.removeLayer(el.hirise[2]);
                   }
         });
         $HIRISE4 = $('#HIRISE4') // call HiRISE layer of Hypanis Vallis
         $HIRISE4.change(function(){
                   if ($HIRISE4.is(':checked')){ // if checkbox is selected, then show layer
-                    el.map.addLayer(el.hirise[1]);
+                    el.map.addLayer(el.hirise[3]);
                   }else{ // else (not selected), hide layer
-                    el.map.removeLayer(el.hirise[1]);
+                    el.map.removeLayer(el.hirise[3]);
                   }
         });
       });
