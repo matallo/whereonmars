@@ -36,7 +36,7 @@ function click(el) {
   // check the index being returned by trackCurrentSlide()
   function checkIndex(index) {
     switch(index){
-      case 0: slideZero(), console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#16").removeClass("active"); // introduction
+      case 0: slideZero(), console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#19").removeClass("active"); // introduction
       break;
       case 1: slideOne(),console.log(index),$("#0").removeClass("active") ,$("#1").addClass("active"),$("#2").removeClass("active");// MOLA
       break;
@@ -68,8 +68,15 @@ function click(el) {
       break;
       case 15: slideFifteen(),console.log(index), $("#14").removeClass("active") ,$("#15").addClass("active"),$("#16").removeClass("active");// Mawrth Vallis
       break;
-      case 16: slideSixteen(),console.log(index), $("#15").removeClass("active") ,$("#16").addClass("active"),$("#0").removeClass("active");// End
+      case 16: slideSixteen(),console.log(index), $("#15").removeClass("active") ,$("#16").addClass("active"),$("#17").removeClass("active");// End
       break;
+      case 17: slideSeventeen(),console.log(index), $("#16").removeClass("active") ,$("#17").addClass("active"),$("#18").removeClass("active");// End
+      break;
+      case 18: slideEighteen(),console.log(index), $("#17").removeClass("active") ,$("#18").addClass("active"),$("#19").removeClass("active");// End
+      break;
+      case 19: slideNineteen(),console.log(index), $("#18").removeClass("active") ,$("#19").addClass("active"),$("#0").removeClass("active");// End
+      break;
+
     };
 
   }
@@ -79,6 +86,7 @@ function slideZero() {
   el.landingSite.hide();
   el.dashellipses4.hide();
   el.nomenclator.hide();
+  el.geoNoOkContraint.hide();
 // layers to hide when clicking buttons (not following the story order)
   el.landingSite8.hide();
   el.latConstraint.hide();
@@ -104,6 +112,7 @@ function slideZero() {
 // MOLA
   function slideOne() {
   el.landingSite8.hide();
+  el.geoNoOkContraint.show();
   // layers to hide when clicking buttons (not following the story order)
   el.landingSite.hide();
   el.latConstraint.hide();
@@ -129,11 +138,10 @@ function slideZero() {
 };
 // LSSWG
 function slideTwo() {
-  el.landingSite8.show();
-  el.landingSite.hide();
   el.latConstraint.hide();
   el.geoConstraint.hide();
   el.duneConstraint.hide();
+  el.geoNoOkContraint.show();
   // layers to hide when clicking buttons (not following the story order)
   el.nomenclator.hide();
   el.ellipses1.hide();
@@ -154,13 +162,100 @@ function slideTwo() {
   el.dashellipses8.hide();
 
 };
-// 4 landing sites
+// latitude constraint landing sites
 function slideThree() {
-  el.landingSite.show();
+  el.latConstraint.show();
+  el.geoConstraint.hide();
+  el.geoNoOkContraint.hide();
+  el.elevationContraint.hide();
+  el.landingSite8.hide();
+  el.duneConstraint.hide();
+  el.nomenclator.hide();
+  // layers to hide when clicking buttons (not following the story order)
+  el.ellipses1.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses4.hide();
+  el.ellipses5.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses4.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide();
+};
+// elevation constraint landing sites
+function slideFour() {
+  el.elevationContraint.show();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.geoNoOkContraint.hide();
+  el.elevationContraint.hide();
+  el.landingSite8.hide();
+  el.duneConstraint.hide();
+  el.nomenclator.hide();
+  // layers to hide when clicking buttons (not following the story order)
+  el.ellipses1.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses4.hide();
+  el.ellipses5.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses4.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide();
+};
+// Mix of constraints
+function slideFive() {
+  el.elevationContraint.hide();
   el.latConstraint.show();
   el.geoConstraint.show();
+  el.geoNoOkContraint.hide();
+  el.elevationContraint.hide();
+  el.landingSite8.show();
+  el.duneConstraint.hide();
+  el.nomenclator.hide();
+  el.landingSite.hide();
+  // layers to hide when clicking buttons (not following the story order)
+  el.ellipses1.hide();
+  el.ellipses2.hide();
+  el.ellipses3.hide();
+  el.ellipses4.hide();
+  el.ellipses5.hide();
+  el.ellipses6.hide();
+  el.ellipses7.hide();
+  el.ellipses8.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses3.hide();
+  el.dashellipses4.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  el.dashellipses7.hide();
+  el.dashellipses8.hide();
+};
+// 4 landing sites
+function slideSix() {
+  el.landingSite.show();
+  el.elevationContraint.hide();
+  el.latConstraint.hide();
+  el.geoConstraint.hide();
+  el.geoNoOkContraint.hide();
+  el.elevationContraint.hide();
   el.landingSite8.hide();
-  el.duneConstraint.show();
+  el.duneConstraint.hide();
   el.nomenclator.hide();
   // layers to hide when clicking buttons (not following the story order)
   el.ellipses1.hide();
@@ -181,7 +276,7 @@ function slideThree() {
   el.dashellipses8.hide();
 };
 // Aram Dorsum
-function slideFour() {
+function slideSeven(){
   el.landingSite.hide();
   el.latConstraint.hide();
   el.geoConstraint.hide();
@@ -206,7 +301,7 @@ function slideFour() {
   el.dashellipses8.hide();
 };
 // HRSC
-function slideFive() {
+function slideEight() {
   el.ellipses1.hide();
   el.ellipses5.hide();
   el.dashellipses1.hide();
@@ -234,8 +329,7 @@ function slideFive() {
   el.dashellipses8.hide();
 };
 // HiRISE
-function slideSix() {
-
+function slideNine(){
   // layers to hide when clicking buttons (not following the story order)
   el.landingSite8.hide();
   el.landingSite.hide();
@@ -258,7 +352,7 @@ function slideSix() {
   el.dashellipses8.hide();
 };
 // Aram Dorsum landing site 2018
-function slideSeven() {
+function slideTen() {
    el.ellipses1.show();
   el.ellipses5.hide();
   el.dashellipses1.show();
@@ -290,7 +384,7 @@ function slideSeven() {
   el.dashellipses8.hide();
 };
 // Aram Dorsum landing site 2020
-function slideEight() {
+function slideEleven() {
    el.ellipses1.hide();
    el.ellipses5.show();
   el.dashellipses1.hide();
@@ -322,7 +416,7 @@ function slideEight() {
 
 };
   // Hypanis Vallis
-function slideNine() {
+function slideTwelve() {
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses5.hide();
@@ -350,7 +444,7 @@ function slideNine() {
   el.dashellipses8.hide();
 };
 // Hypanis Vallis landing sites
-function slideTen() {
+function slideThirteen() {
   el.ellipses2.show();
   el.ellipses3.hide();
   el.ellipses6.show();
@@ -375,7 +469,7 @@ function slideTen() {
   el.dashellipses8.hide();
 };
   // Oxia Planum
-function slideEleven() {
+function slideFourteen() {
   el.ellipses2.hide();
   el.ellipses3.hide();
   el.ellipses6.hide();
@@ -401,7 +495,7 @@ function slideEleven() {
 };
 
 // Oxia Planum landing sites
-function slideTwelve() {
+function slideFifteen() {
   el.ellipses3.show();
   el.ellipses4.hide();
   el.ellipses7.show();
@@ -426,7 +520,7 @@ function slideTwelve() {
   el.dashellipses8.hide();
 };
 // Mawrth Vallis
-function slideThirteen() {
+function slideSixteen() {
    el.ellipses3.hide();
    el.ellipses7.hide();
   el.dashellipses3.hide();
@@ -451,7 +545,7 @@ function slideThirteen() {
   el.dashellipses8.hide();
 };
 // Mawrth Vallis HiRISE
-function slideFourteen() {
+function slideSeventeen() {
   el.ellipses4.hide();
   el.ellipses8.hide();
   el.dashellipses4.hide();
@@ -476,7 +570,7 @@ function slideFourteen() {
   el.dashellipses7.hide();
 };
 // Mawrth Vallis landing sites
-function slideFifteen() {
+function slideEighteen() {
   el.ellipses4.show();
   el.ellipses8.show();
   el.dashellipses4.show();
@@ -502,7 +596,7 @@ function slideFifteen() {
   el.dashellipses7.hide();
 };
   // End of the story/overview
-function slideSixteen() {
+function slideNineteen() {
   el.nomenclator.hide();
   el.ellipses4.hide();
   el.ellipses8.hide();
@@ -575,7 +669,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(4),
           O.Parallel(
-            el.map.actions.setView(el.Aram,7),
+            el.map.actions.setView(el.center,3),
             slides.activate(4),
             emitSlideChange
           )
@@ -583,7 +677,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(5),
           O.Parallel(
-            el.map.actions.setView(el.Aram,7),
+            el.map.actions.setView(el.center,3),
             slides.activate(5),
             emitSlideChange
           )
@@ -591,7 +685,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(6),
           O.Parallel(
-            el.map.actions.setView(el.Aram,10),
+            el.map.actions.setView(el.center,3),
             slides.activate(6),
             emitSlideChange
           )
@@ -599,7 +693,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(7),
           O.Parallel(
-            el.map.actions.setView(el.Aram,8),
+            el.map.actions.setView(el.Aram,7),
             slides.activate(7),
             emitSlideChange
           )
@@ -607,7 +701,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(8),
           O.Parallel(
-            el.map.actions.setView(el.Aram,8),
+            el.map.actions.setView(el.Aram,7),
             slides.activate(8),
             emitSlideChange
           )
@@ -615,7 +709,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(9),
           O.Parallel(
-            el.map.actions.setView(el.Hypanis,8),
+            el.map.actions.setView(el.Aram,10),
             slides.activate(9),
             emitSlideChange
           )
@@ -623,7 +717,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(10),
           O.Parallel(
-            el.map.actions.setView(el.Hypanis,9),
+            el.map.actions.setView(el.Aram,8),
             slides.activate(10),
             emitSlideChange
           )
@@ -631,16 +725,15 @@ function initOdyssey(O) {
     .addState(
         seq.step(11),
           O.Parallel(
-            el.map.actions.setView(el.Oxia,8),
+            el.map.actions.setView(el.Aram,8),
             slides.activate(11),
             emitSlideChange
           )
     )
-
     .addState(
         seq.step(12),
           O.Parallel(
-            el.map.actions.setView(el.Oxia,9),
+            el.map.actions.setView(el.Hypanis,8),
             slides.activate(12),
             emitSlideChange
           )
@@ -648,7 +741,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(13),
           O.Parallel(
-            el.map.actions.setView(el.Mawrth,8),
+            el.map.actions.setView(el.Hypanis,9),
             slides.activate(13),
             emitSlideChange
           )
@@ -656,24 +749,49 @@ function initOdyssey(O) {
     .addState(
         seq.step(14),
           O.Parallel(
-            el.map.actions.setView(el.Mawrth,10),
+            el.map.actions.setView(el.Oxia,8),
             slides.activate(14),
             emitSlideChange
           )
     )
+
     .addState(
         seq.step(15),
           O.Parallel(
-          el.map.actions.setView(el.Mawrth,9),
-          slides.activate(15),
-          emitSlideChange
+            el.map.actions.setView(el.Oxia,9),
+            slides.activate(15),
+            emitSlideChange
           )
     )
     .addState(
         seq.step(16),
           O.Parallel(
-            el.map.actions.setView(el.center,3,true),
+            el.map.actions.setView(el.Mawrth,8),
             slides.activate(16),
+            emitSlideChange
+          )
+    )
+    .addState(
+        seq.step(17),
+          O.Parallel(
+            el.map.actions.setView(el.Mawrth,10),
+            slides.activate(17),
+            emitSlideChange
+          )
+    )
+    .addState(
+        seq.step(18),
+          O.Parallel(
+          el.map.actions.setView(el.Mawrth,9),
+          slides.activate(18),
+          emitSlideChange
+          )
+    )
+    .addState(
+        seq.step(19),
+          O.Parallel(
+            el.map.actions.setView(el.center,3,true),
+            slides.activate(19),
             emitSlideChange
           )
       )
@@ -763,6 +881,21 @@ function initOdyssey(O) {
     });
     $("li#16").click(function(){
       el.story.go(16,seq.step(16));
+      $("li").removeClass("active");
+      $(this).addClass("active");
+    });
+    $("li#17").click(function(){
+      el.story.go(17,seq.step(17));
+      $("li").removeClass("active");
+      $(this).addClass("active");
+    });
+    $("li#18").click(function(){
+      el.story.go(18,seq.step(18));
+      $("li").removeClass("active");
+      $(this).addClass("active");
+    });
+    $("li#19").click(function(){
+      el.story.go(19,seq.step(19));
       $("li").removeClass("active");
       $(this).addClass("active");
     });

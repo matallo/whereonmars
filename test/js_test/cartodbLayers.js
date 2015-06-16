@@ -81,6 +81,7 @@
       '}'
     ].join('\n');
 
+
     var style2 = [
       '#exomars_landing_sites_eight{',
         '	 marker-placement: point;',
@@ -162,13 +163,11 @@
           cartocss: style2,
           interactivity: ['name','coordinates']
         });
-
-         el.landingSite = layer.createSubLayer({
-           sql: "SELECT * FROM exomars_landing_sites_four",
+        el.landingSite = layer.createSubLayer({
+          sql: "SELECT * FROM exomars_landing_sites_four",
           cartocss: style1,
           interactivity: ['name','coordinates']
          });
-
          el.latConstraint = layer.createSubLayer({
           sql: "SELECT * FROM lat_constraints",
           cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}',
@@ -180,6 +179,18 @@
         el.duneConstraint = layer.createSubLayer({
           sql: "SELECT * FROM dune_field_usgs",
           cartocss: '#dune_field_usgs{polygon-fill: #c3834c;polygon-opacity: 0.7;line-color: #F11810;line-width: 1;line-opacity: 0;}'
+        });
+        el.elevationContraint = layer.createSubLayer({
+          sql: "SELECT * FROM molaabove_2_wmerc_2",
+          cartocss: "#molaabove_2_wmerc_2{ polygon-fill: #000000;polygon-opacity: 0.9;line-color: #FFF; line-width: 0.5;line-opacity: 1;}"
+        });
+        el.geoOkConstraint = layer.createSubLayer({
+          sql: "SELECT * FROM geological_age_ok",
+          cartocss: "#geological_age_ok{polygon-fill: #229A00;polygon-opacity: 0.7;line-color: #FFF;line-width: 0.5;line-opacity: 1;}"
+        });
+        el.geoNoOkContraint = layer.createSubLayer({
+          sql: "SELECT * FROM geological_age_not_ok",
+          cartocss: "#geological_age_not_ok{ polygon-fill: #000000;polygon-opacity: 1;line-color: #FFF;line-width: 0.5;line-opacity: 1;}"
         });
         el.nomenclator = layer.createSubLayer({
           sql: "SELECT * FROM mars_nomenclature_webmercator_ls",
@@ -402,9 +413,12 @@
       el.landingSite8.hide();
       el.landingSite.hide();
       el.latConstraint.hide();
+      el.elevationContraint.hide();
       el.geoConstraint.hide();
       el.duneConstraint.hide();
       el.nomenclator.hide();
+      el.geoOkConstraint.hide();
+      el.geoNoOkContraint.hide();
       el.ellipses1.hide();
       el.ellipses2.hide();
       el.ellipses3.hide();

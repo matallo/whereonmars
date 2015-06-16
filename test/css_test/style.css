@@ -98,12 +98,18 @@
     	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
     	color: #000000;
     }
-    #slides_container .slide .button{
-    	color: #000000;
+    #slides_container .slide .btn-info{
+			border-radius: 30px;
     	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
     	font-size:13px;
-    	background-color: #337ab7;
+			margin-left: 25%;
  		}
+		#slides_container .slide .btn-info a{
+			color: #FFF;
+			padding-left: 20px;
+			padding-right: 20px;
+
+			}
 		#slides_container #slides h1{
 			font-size: 30px;
 		}
