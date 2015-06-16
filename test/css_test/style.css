@@ -16,7 +16,7 @@
 	}
 	ol.carousel-indicators li.active{
 		cursor: pointer;
-		background-color: #FFC125;
+		background-image: url("images/45.png");
 		opacity: 1;
 	}
 
