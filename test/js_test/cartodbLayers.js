@@ -181,8 +181,8 @@
           cartocss: '#dune_field_usgs{polygon-fill: #c3834c;polygon-opacity: 0.7;line-color: #F11810;line-width: 1;line-opacity: 0;}'
         });
         el.elevationContraint = layer.createSubLayer({
-          sql: "SELECT * FROM molaabove_2_wmerc_2",
-          cartocss: "#molaabove_2_wmerc_2{ polygon-fill: #000000;polygon-opacity: 0.9;line-color: #FFF; line-width: 0.5;line-opacity: 1;}"
+          sql: "SELECT * FROM elevation_constraint",
+          cartocss: "#elevation_constraint{ polygon-fill: #000000;polygon-opacity: 0.9;line-color: #FFF; line-width: 0.5;line-opacity: 1;}"
         });
         el.geoOkConstraint = layer.createSubLayer({
           sql: "SELECT * FROM geological_age_ok",
