@@ -34,6 +34,16 @@ var initMap = function(){
 			opacity:0.4,
 			attribution: 'gislab'
 		}).addTo(map).setZIndex(2);
+		
+		var baseMaps = {
+		  "Mars Texture": basemap
+		};
+		
+		var overlayMaps = {
+		  "MOLA no-shade color": overlay
+		}
+		
+		L.control.layers(baseMaps, overlayMaps).addTo(map);
 	}
 	
 
