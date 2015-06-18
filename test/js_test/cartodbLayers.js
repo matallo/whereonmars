@@ -180,7 +180,7 @@
           sql: "SELECT * FROM dune_field_usgs",
           cartocss: '#dune_field_usgs{polygon-fill: #c3834c;polygon-opacity: 0.7;line-color: #F11810;line-width: 1;line-opacity: 0;}'
         });
-        el.elevationContraint = layer.createSubLayer({
+        el.elevationConstraint = layer.createSubLayer({
           sql: "SELECT * FROM elevation_constraint",
           cartocss: "#elevation_constraint{ polygon-fill: #000000;polygon-opacity: 0.9;line-color: #FFF; line-width: 0.5;line-opacity: 1;}"
         });
@@ -413,7 +413,7 @@
       el.landingSite8.hide();
       el.landingSite.hide();
       el.latConstraint.hide();
-      el.elevationContraint.hide();
+      el.elevationConstraint.hide();
       el.geoConstraint.hide();
       el.duneConstraint.hide();
       el.nomenclator.hide();

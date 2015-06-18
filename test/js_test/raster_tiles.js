@@ -27,16 +27,23 @@ var initMap = function(){
      maxNativeZoom: 9,
     });
 
+    // no shaded color MOLA
+    el.basemapNoShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola_color-noshade_global/{z}/{x}/{y}.png', {
+     attribution: 'GISLAB',
+     tms:true,
+     maxNativeZoom: 6,
+    });
     // create a Mini map of the basemap2 layer
     var rect1 = {color: "#CAFF70", weight: 3, opacity: 0.8}; // rect1 to define rectangle options
     var miniMap = new L.Control.MiniMap(el.basemap2, { toggleDisplay: true, position: 'bottomright',aimingRectOptions : rect1}).addTo(el.map);
     // define color basemap
-    el.basemapColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-color/{z}/{x}/{y}.png', {
+    el.basemapShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-color/{z}/{x}/{y}.png', {
      attribution: 'GISLAB',
-     maxNativeZoom: 7,
+     tms: true,
+     maxNativeZoom: 6,
     }).setZIndex(0);
 
-    el.basemapShaded = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/celestia_mars-shaded-16k_global/{z}/{x}/{y}.png', {
+    el.basemapCelestia = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/celestia_mars-shaded-16k_global/{z}/{x}/{y}.png', {
      attribution: 'GISLAB',
      tms:true,
      maxNativeZoom: 5,
@@ -82,17 +89,25 @@ var initMap = function(){
         $MOLA2 = $('#MOLA2') // calls the checkbox with the id = landingSite4
         $MOLA2.change(function(){
               if ($MOLA2.is(':checked')){ // if checkbox is selected, then show layer
-                el.map.addLayer(el.basemapColor);
+                el.map.addLayer(el.basemapShadedColor);
               }else{ // else (not selected), hide layer
-                el.map.removeLayer(el.basemapColor);
+                el.map.removeLayer(el.basemapShadedColor);
               }
-            });
+        });
+        $MOLA3 = $('#MOLA3')
+        $MOLA3.change(function(){
+          if ($MOLA3.is(':checked')){ // if checkbox is selected, then show layer
+            el.map.addLayer(el.basemapNoShadedColor);
+          }else{ // else (not selected), hide layer
+            el.map.removeLayer(el.basemapNoShadedColor);
+          }
+        });
         $shaded = $('#shaded') // calls the checkbox with the id = landingSite4
         $shaded.change(function(){
                 if ($shaded.is(':checked')){ // if checkbox is selected, then show layer
-                  el.map.addLayer(el.basemapShaded);
+                  el.map.addLayer(el.basemapCelestia);
                 }else{ // else (not selected), hide layer
-                  el.map.removeLayer(el.basemapShaded);
+                  el.map.removeLayer(el.basemapCelestia);
                 }
               });
         $viking = $('#viking') // calls the checkbox with the id = landingSite4

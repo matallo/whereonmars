@@ -167,7 +167,7 @@ function slideThree() {
   el.latConstraint.show();
   el.geoConstraint.hide();
   el.geoNoOkContraint.hide();
-  el.elevationContraint.hide();
+  el.elevationConstraint.hide();
   el.landingSite8.hide();
   el.duneConstraint.hide();
   el.nomenclator.hide();
@@ -191,11 +191,10 @@ function slideThree() {
 };
 // elevation constraint landing sites
 function slideFour() {
-  el.elevationContraint.show();
+  el.elevationConstraint.show();
   el.latConstraint.hide();
   el.geoConstraint.hide();
   el.geoNoOkContraint.hide();
-  el.elevationContraint.hide();
   el.landingSite8.hide();
   el.duneConstraint.hide();
   el.nomenclator.hide();
@@ -219,7 +218,7 @@ function slideFour() {
 };
 // Mix of constraints
 function slideFive() {
-  el.elevationContraint.hide();
+  el.elevationConstraint.hide();
   el.latConstraint.show();
   el.geoConstraint.show();
   el.geoNoOkContraint.hide();
