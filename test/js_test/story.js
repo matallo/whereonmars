@@ -44,7 +44,7 @@ function click(el) {
       break;
       case 3: slideThree(),console.log(index),$("#2").removeClass("active") ,$("#3").addClass("active"),$("#4").removeClass("active"); // 4 landing sites
       break;
-      case 4: slideFour(),console.log(el.elevationContraint),console.log(index),$("#3").removeClass("active") ,$("#4").addClass("active"),$("#5").removeClass("active"); // aram dorsum
+      case 4: slideFour(),console.log(index),$("#3").removeClass("active") ,$("#4").addClass("active"),$("#5").removeClass("active"); // aram dorsum
       break;
       case 5: slideFive(),console.log(index),$("#4").removeClass("active") ,$("#5").addClass("active"),$("#6").removeClass("active");// HRSC / aram dorsum
       break
@@ -222,7 +222,6 @@ function slideFive() {
   el.latConstraint.show();
   el.geoConstraint.show();
   el.geoNoOkContraint.hide();
-  el.elevationContraint.hide();
   el.landingSite8.show();
   el.duneConstraint.hide();
   el.nomenclator.hide();
@@ -248,7 +247,6 @@ function slideFive() {
 // 4 landing sites
 function slideSix() {
   el.landingSite.show();
-  el.elevationContraint.hide();
   el.latConstraint.hide();
   el.geoConstraint.hide();
   el.geoNoOkContraint.hide();
