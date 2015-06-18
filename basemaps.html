@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basemaps</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css"/>	
+</head>
+<style>
+html, body, #map {
+width:100%; height:100%; padding:0px; margin:0px;
+}
+</style>
+<body>
+	<div id="map"></div>
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+	
+	<script>
+
+var initMap = function(){
+		var map = L.map('map').setView([11.8,-45.04], 3);
+
+		var basemap = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/celestia_mars-shaded-16k_global/{z}/{x}/{y}.png', {
+			maxNativeZoom: 9,
+			zoom: 3,
+			tms: true,
+			attribution: 'gislab'
+		}).addTo(map).setZIndex(0);
+
+		var overlay = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola_color-noshade_global/{z}/{x}/{y}.png', {
+			
+			tms: true,
+			opacity:0.4,
+			attribution: 'gislab'
+		}).addTo(map).setZIndex(2);
+	}
+	
+
+	initMap();	
+	
+	</script>
+</body>
+</html>
