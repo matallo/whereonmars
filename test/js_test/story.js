@@ -250,7 +250,6 @@ function slideSix() {
   el.latConstraint.hide();
   el.geoConstraint.hide();
   el.geoNoOkContraint.hide();
-  el.elevationContraint.hide();
   el.landingSite8.hide();
   el.duneConstraint.hide();
   el.nomenclator.hide();
