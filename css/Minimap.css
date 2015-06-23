@@ -5,20 +5,19 @@
     background: #f8f8f9;
     transition: all .2s;
     top: 25px;
+    right: 30px;
+
+
 }
 
 .leaflet-control-minimap a {
     background-color: rgba(255, 255, 255, 1.0);
     background-repeat: no-repeat;
     z-index: 99999;
-    transition: all .2s;	
+    transition: all .2s;
 }
 
-.leaflet-control-minimap a.minimized-bottomright {
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-    border-radius: 0px;
-}
+
 
 .leaflet-control-minimap a.minimized-topleft {
     -webkit-transform: rotate(0deg);
@@ -51,26 +50,27 @@
 
 .leaflet-control-minimap-toggle-display-bottomright {
     bottom: 0;
-    right: 0; 
+    right: 0;
+
 }
 
 .leaflet-control-minimap-toggle-display-topleft{
     top: 0;
-    left: 0; 
+    left: 0;
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
 }
 
 .leaflet-control-minimap-toggle-display-bottomleft{
     bottom: 0;
-    left: 0; 
+    left: 0;
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
 }
 
 .leaflet-control-minimap-toggle-display-topright{
     top: 0;
-    right: 0; 
+    right: 0;
     -webkit-transform: rotate(270deg);
     transform: rotate(270deg);
 }
