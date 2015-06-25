@@ -1,0 +1,172 @@
+	#map{
+		z-index:-10;
+		height: 100%;
+		width: 100%;
+	}
+
+	html,body{
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	ol.carousel-indicators li{
+		cursor: pointer;
+		background-color: #F4F4F4;
+		opacity: 0.8;
+	}
+	ol.carousel-indicators li.active{
+		cursor: pointer;
+		background-image: url("images/45.png");
+		opacity: 1;
+	}
+
+	/* hide the time slider from torque layer */
+	.cartodb-timeslider{
+		display: none!important;
+
+	}
+	/* different styles for the leaflet plugins */
+	.leaflet-left .leaflet-control-scale {
+		margin-left: 5px;
+	}
+	.leaflet-bottom .leaflet-control-scale {
+		margin-bottom: 40px;
+	}
+  .leaflet-control-scale-line {
+		-moz-box-sizing: content-box;
+		box-sizing: content-box;
+		border: 2px solid #000;
+		border-top: none;
+		background-color: #f7f7f7;
+		font-size: 12px;
+		font-family: cursive;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.leaflet-control-layers-toggle{
+		position: absolute;
+		top: 40px;
+		left: -30px;
+	}
+	ol.carousel-indicators{
+		bottom: 3%;
+	}
+	/* styles for the slides_container element */
+	#slides_container{
+    	display:block;
+    	position:absolute;
+    	opacity: 1;
+    	height: auto;
+			width: 400px;
+    	background-color:#fff;
+    	z-index:1000;
+    	border-radius: 15px;
+    	border: 1px solid #000000;
+			left: 43px;
+    	padding-top: 5px;
+    	padding-left: 25px;
+    	color: #000000;
+			top:10px;
+			left: 10px;
+			padding-bottom: -50px;
+    }
+    #slides_container #slides{
+    	display:block;
+    	position:relative;
+    	opacity: 1;
+    	height: auto;
+    	overflow-y: auto;
+    	background-color: #FFF;
+    	z-index:1000;
+			margin-right: 5px;
+			margin-top: 5px;
+    	color: #000000;
+			padding-left: 25px;
+    }
+
+
+    #slides_container h1{
+    	color: #000000;
+    	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+    }
+     #slides_container h3{
+    	color: #000000;
+    	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+    #slides_container p{
+    	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    	color: #000000;
+    }
+    #slides_container .slide .btn-info{
+			border-radius: 30px;
+    	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    	font-size:13px;
+			margin-left: 25%;
+ 		}
+		#slides_container .slide .btn-info a{
+			color: #FFF;
+			padding-left: 20px;
+			padding-right: 20px;
+
+			}
+		#slides_container #slides h1{
+			font-size: 30px;
+		}
+		/* styles for the layer menu element */
+		#accordion {
+			position:absolute;
+			top:50px;
+			right:10px;
+			width: 25%;
+			z-index:10;
+			padding-top:10px;
+			padding-left: 10px;
+			opacity: 0.8;
+			display:none;
+		}
+		#hide_menu{
+			position: absolute;
+			top: 30px;
+			right: 70px;
+			width: 10px;
+			backgroumd-color: #FFF;
+			cursor: pointer;
+		}
+		/* define styles for the navigation buttons */
+
+		ul#navButtons .prev{
+			z-index: 1000;
+			position: absolute;
+			bottom: 6.7%;
+			left: 47.6%;
+		}
+		ul#navButtons .next{
+			z-index: 1000;
+			position: absolute;
+			bottom: 6.7%;
+			left: 51%;
+		}
+
+		#circlePrev{
+			z-index: 999;
+			position: absolute ;
+			width: 30px;
+			height: 30px;
+			border-radius: 25px;
+			background-color: #b2df8a;
+			opacity: 0.9;
+			bottom: 7%;
+			left: 47%;
+		}
+		#circleNext{
+			z-index: 999;
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			border-radius: 25px;
+			background-color: #b2df8a;
+			opacity: 0.9;
+			bottom: 7%;
+			left: 51%;
+		}
