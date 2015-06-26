@@ -1,3 +1,5 @@
+var CHAPTER;
+
 function click(el) {
     var element = O.Core.getElement(el);
     var t = O.Trigger();
@@ -726,7 +728,8 @@ function initOdyssey(O) {
         seq.step(0),
           O.Parallel(
             el.map.actions.setView(el.center,3),
-      slides.activate(0),
+            slides.activate(0),
+            O.Location.changeHash('0'),
             emitSlideChange
           )
     )
@@ -735,14 +738,17 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.center,3),
             slides.activate(1),
+            O.Location.changeHash('1'),
             emitSlideChange
           )
+
     )
     .addState(
         seq.step(2),
           O.Parallel(
             el.map.actions.setView(el.center,3),
             slides.activate(2),
+            O.Location.changeHash('2'),
             emitSlideChange
           )
     )
@@ -751,6 +757,7 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.center,3),
             slides.activate(3),
+            O.Location.changeHash('3'),
             emitSlideChange
           )
     )
@@ -759,6 +766,7 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.center,3),
             slides.activate(4),
+            O.Location.changeHash('4'),
             emitSlideChange
           )
     )
@@ -767,6 +775,7 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.center,3),
             slides.activate(5),
+            O.Location.changeHash('5'),
             emitSlideChange
           )
     )
@@ -775,6 +784,7 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.center,3),
             slides.activate(6),
+            O.Location.changeHash('6'),
             emitSlideChange
           )
     )
@@ -783,6 +793,7 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.Aram,7),
             slides.activate(7),
+            O.Location.changeHash('7'),
             emitSlideChange
           )
     )
@@ -791,6 +802,7 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.Aram,7),
             slides.activate(8),
+            O.Location.changeHash('8'),
             emitSlideChange
           )
     )
@@ -799,6 +811,7 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.Aram,10),
             slides.activate(9),
+            O.Location.changeHash('9'),
             emitSlideChange
           )
     )
@@ -807,6 +820,7 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.Aram,8),
             slides.activate(10),
+            O.Location.changeHash('10'),
             emitSlideChange
           )
     )
@@ -815,6 +829,7 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.Aram,8),
             slides.activate(11),
+            O.Location.changeHash('11'),
             emitSlideChange
           )
     )
@@ -823,6 +838,7 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.Hypanis,8),
             slides.activate(12),
+            O.Location.changeHash('12'),
             emitSlideChange
           )
     )
@@ -831,6 +847,7 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.Hypanis,9),
             slides.activate(13),
+            O.Location.changeHash('13'),
             emitSlideChange
           )
     )
@@ -839,6 +856,7 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.Oxia,8),
             slides.activate(14),
+            O.Location.changeHash('14'),
             emitSlideChange
           )
     )
@@ -848,6 +866,7 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.Oxia,9),
             slides.activate(15),
+            O.Location.changeHash('15'),
             emitSlideChange
           )
     )
@@ -856,6 +875,7 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.Mawrth,8),
             slides.activate(16),
+            O.Location.changeHash('16'),
             emitSlideChange
           )
     )
@@ -864,6 +884,7 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.Mawrth,10),
             slides.activate(17),
+            O.Location.changeHash('17'),
             emitSlideChange
           )
     )
@@ -872,6 +893,7 @@ function initOdyssey(O) {
           O.Parallel(
           el.map.actions.setView(el.Mawrth,9),
           slides.activate(18),
+          O.Location.changeHash('18'),
           emitSlideChange
           )
     )
@@ -880,13 +902,29 @@ function initOdyssey(O) {
           O.Parallel(
             el.map.actions.setView(el.center,3,true),
             slides.activate(19),
+            O.Location.changeHash('19'),
             emitSlideChange
           )
       )
-    el.story.go(0); //go to the step 0 when it starts or finish the web application
+//el.story.go(0);
+// anchor permanent link to each slide....does't load vector data
+if (location.hash != "") {
+
+var chapter = parseInt(location.hash.replace('#', ''), 10);
+
+el.story.go(chapter, seq.step(chapter));
+CHAPTER=chapter;
+checkIndex();
+
+$("li").removeClass("active");
+$("li#"+chapter).addClass("active");
+} else {
+el.story.go(0,seq.step(0));
+}
 
 // this group of sentences define:
 //when the user click the dots, the odyssey moves to the slide that corresponds to each dot
+
     $("li#0").click(function(){
       el.story.go(0,seq.step(0));
       $("li").removeClass("active");
@@ -987,4 +1025,5 @@ function initOdyssey(O) {
       $("li").removeClass("active");
       $(this).addClass("active");
     });
+
   }
