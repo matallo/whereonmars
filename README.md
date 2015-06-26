@@ -1,3 +1,0 @@
-# whereonmars
-test
-gh
