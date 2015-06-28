@@ -1,3 +1,26 @@
+/*
+The aim of this file is to define all the cartoDB layers and their style.
+
+
+*/
+
+  var layer1 = false;
+  var layer2 = false;
+
+  var startStory = function() {
+    if (layer1 && layer2) {
+      if (location.hash != "") {
+        var chapter = parseInt(location.hash.replace('#', ''), 10);
+        el.story.go(chapter);
+        checkIndex(chapter);
+        $("li").removeClass("active");
+        $("li#"+chapter).addClass("active");
+      } else {
+        el.story.go(0,seq.step(0));
+      }
+    }
+  }
+
 // call data from cartoDB
   var cartodbData = function(){
   var layerURL = 'http://whereonmars.cartodb.com/api/v2/viz/03ec7c7c-bc6a-11e4-b600-0e4fddd5de28/viz.json';
@@ -27,6 +50,9 @@
       }).done(function(layer){
 
         el.torqueEllipses1 = layer;
+
+        layer1 = true;
+        startStory();
     });
     // we define the torque layer for the landing ellipses in Aram Dorsum
     cartodb.createLayer(el.map,{
@@ -48,6 +74,10 @@
     }).done(function(layer){
 
       el.torqueEllipses2 = layer;
+
+      layer2 = true;
+      startStory();
+
     });
 
     // Define the styles for the layer and the labels. It will be used to

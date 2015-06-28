@@ -1,5 +1,13 @@
-var CHAPTER;
-
+/*
+  This file define the functions click(el), emitSlideChange(),listenSlideChange() and trackCurrentSlide().
+  These functions allow the odyssey.js library work correctly. The function checkIndex(index) contains
+  a switch(index) operation that  call a different slide everytime the user click a navigation button or dot.
+  There are some functions defined here that show or hide the layers that belong to each slide.
+  At the end of this script, the function initOdyssey() is created and define the order and the zoom
+  of each slides.
+*/
+var seq;
+var slides;
 function click(el) {
     var element = O.Core.getElement(el);
     var t = O.Trigger();
@@ -36,7 +44,7 @@ function click(el) {
 
 
   // check the index being returned by trackCurrentSlide()
-  function checkIndex(index) {
+  var checkIndex = function(index) {
     switch(index){
       case 0: slideZero(), console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#19").removeClass("active"); // introduction
       break;
@@ -242,6 +250,7 @@ function slideFour() {
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+
 };
 // Mix of constraints
 function slideFive() {
@@ -319,6 +328,7 @@ function slideSeven(){
   el.nomenclator.show();
   // layers to hide when clicking buttons (not following the story order)
   el.elevationConstraint.hide();
+  el.geoNoOkContraint.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
   el.ellipses4.hide();
@@ -347,6 +357,7 @@ function slideEight() {
   el.torqueEllipses1.hide();
   // layers to hide when clicking buttons (not following the story order)
   el.elevationConstraint.hide();
+  el.geoNoOkContraint.hide();
   el.landingSite8.hide();
   el.landingSite.hide();
   el.latConstraint.hide();
@@ -379,6 +390,7 @@ function slideNine(){
   el.geoConstraint.hide();
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
+  el.geoNoOkContraint.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
   el.ellipses4.hide();
@@ -417,6 +429,7 @@ function slideTen() {
   el.geoConstraint.hide();
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
+  el.geoNoOkContraint.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
   el.ellipses4.hide();
@@ -435,8 +448,8 @@ function slideTen() {
 };
 // Aram Dorsum landing site 2020
 function slideEleven() {
-   el.ellipses1.hide();
-   el.ellipses5.show();
+  el.ellipses1.hide();
+  el.ellipses5.show();
   el.dashellipses1.hide();
   el.dashellipses5.show();
   el.torqueEllipses1.stop();
@@ -452,6 +465,7 @@ function slideEleven() {
   el.geoConstraint.hide();
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
+  el.geoNoOkContraint.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
   el.ellipses4.hide();
@@ -484,6 +498,7 @@ function slideTwelve() {
   el.geoConstraint.hide();
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
+  el.geoNoOkContraint.hide();
   el.ellipses3.hide();
   el.ellipses4.hide();
   el.ellipses7.hide();
@@ -512,6 +527,7 @@ function slideThirteen() {
   el.geoConstraint.hide();
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
+  el.geoNoOkContraint.hide();
   el.ellipses1.hide();
   el.ellipses4.hide();
   el.ellipses5.hide();
@@ -543,6 +559,7 @@ function slideFourteen() {
   el.geoConstraint.hide();
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
+  el.geoNoOkContraint.hide();
   el.ellipses1.hide();
   el.ellipses4.hide();
   el.ellipses5.hide();
@@ -574,6 +591,7 @@ function slideFifteen() {
   el.geoConstraint.hide();
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
+  el.geoNoOkContraint.hide();
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses5.hide();
@@ -602,6 +620,7 @@ function slideSixteen() {
   el.geoConstraint.hide();
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
+  el.geoNoOkContraint.hide();
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses4.hide();
@@ -632,6 +651,7 @@ function slideSeventeen() {
   el.geoConstraint.hide();
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
+  el.geoNoOkContraint.hide();
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
@@ -663,6 +683,7 @@ function slideEighteen() {
   el.duneConstraint.hide();
   el.nomenclator.hide();
   el.elevationConstraint.hide();
+  el.geoNoOkContraint.hide();
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
@@ -694,6 +715,7 @@ function slideNineteen() {
   el.geoConstraint.hide();
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
+  el.geoNoOkContraint.hide();
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
@@ -715,14 +737,14 @@ function slideNineteen() {
 function initOdyssey(O) {
     // O is for Odyssey
     var map = el.map;
-    var seq = O.Triggers.Sequential();
+    seq = O.Triggers.Sequential();
     // enable keys to move slides
     O.Keys().on('map').left().then(seq.prev, seq)
     O.Keys().on('map').right().then(seq.next, seq)
     // set up triggers for slide arrows
     click(document.querySelectorAll('.next')).then(seq.next, seq)
     click(document.querySelectorAll('.prev')).then(seq.prev, seq)
-    var slides = O.Actions.Slides('slides');
+    slides = O.Actions.Slides('slides');
     el.story =  O.Story()
     .addState(
         seq.step(0),
@@ -906,21 +928,27 @@ function initOdyssey(O) {
             emitSlideChange
           )
       )
+
+
 //el.story.go(0);
+
+
+
 // anchor permanent link to each slide....does't load vector data
+
 if (location.hash != "") {
+  //cartodbData();
+  var chapter = parseInt(location.hash.replace('#', ''), 10);
+  el.story.go(chapter, seq.step(chapter),O.Parallel(slides.activate(chapter)));
+//checkIndex()
+  //$("li").removeClass("active");
+  //$("li#"+chapter).addClass("active");
 
-var chapter = parseInt(location.hash.replace('#', ''), 10);
 
-el.story.go(chapter, seq.step(chapter));
-CHAPTER=chapter;
-checkIndex();
-
-$("li").removeClass("active");
-$("li#"+chapter).addClass("active");
 } else {
 el.story.go(0,seq.step(0));
 }
+
 
 // this group of sentences define:
 //when the user click the dots, the odyssey moves to the slide that corresponds to each dot
