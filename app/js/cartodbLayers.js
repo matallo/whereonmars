@@ -1,9 +1,6 @@
 /*
 The aim of this file is to define all the cartoDB layers and their style.
-
-
 */
-
   var layer1 = false;
   var layer2 = false;
 

@@ -8,6 +8,39 @@
 */
 var seq;
 var slides;
+
+
+// make the "#hide_menu" element visible
+function show(){
+  $("#hide_menu")
+  .css({
+    "opacity": 1
+  })
+  .mouseleave(function(){
+    $(this).css({
+      "opacity":1
+    })
+  })
+}
+
+// hide "#hide_menu" button. Show it when mouse hover on it.
+function hide(){
+  $("#hide_menu")
+  .css({
+    opacity: 0
+  })
+  .mouseover(function(){
+    $(this).css({
+      "opacity": 1
+    })
+  })
+  .mouseleave(function(){
+    $(this).css({
+      "opacity":0
+    })
+  })
+}
+
 function click(el) {
     var element = O.Core.getElement(el);
     var t = O.Trigger();
@@ -46,45 +79,45 @@ function click(el) {
   // check the index being returned by trackCurrentSlide()
   var checkIndex = function(index) {
     switch(index){
-      case 0: slideZero(), console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#19").removeClass("active"); // introduction
+      case 0: slideZero(),hide(),console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#19").removeClass("active"); // introduction
       break;
-      case 1: slideOne(),console.log(index),$("#0").removeClass("active") ,$("#1").addClass("active"),$("#2").removeClass("active");// MOLA
+      case 1: slideOne(),hide(),console.log(index),$("#0").removeClass("active") ,$("#1").addClass("active"),$("#2").removeClass("active");// MOLA
       break;
-      case 2: slideTwo(),console.log(index),$("#1").removeClass("active") ,$("#2").addClass("active"),$("#3").removeClass("active"); // LSSWG
+      case 2: slideTwo(),hide(),console.log(index),$("#1").removeClass("active") ,$("#2").addClass("active"),$("#3").removeClass("active"); // LSSWG
       break;
-      case 3: slideThree(),console.log(index),$("#2").removeClass("active") ,$("#3").addClass("active"),$("#4").removeClass("active"); // 4 landing sites
+      case 3: slideThree(),hide(),console.log(index),$("#2").removeClass("active") ,$("#3").addClass("active"),$("#4").removeClass("active"); // 4 landing sites
       break;
-      case 4: slideFour(),console.log(index),$("#3").removeClass("active") ,$("#4").addClass("active"),$("#5").removeClass("active"); // aram dorsum
+      case 4: slideFour(),hide(),console.log(index),$("#3").removeClass("active") ,$("#4").addClass("active"),$("#5").removeClass("active"); // aram dorsum
       break;
-      case 5: slideFive(),console.log(index),$("#4").removeClass("active") ,$("#5").addClass("active"),$("#6").removeClass("active");// HRSC / aram dorsum
+      case 5: slideFive(),hide(),console.log(index),$("#4").removeClass("active") ,$("#5").addClass("active"),$("#6").removeClass("active");// HRSC / aram dorsum
       break
-      case 6: slideSix(),console.log(index),$("#5").removeClass("active") ,$("#6").addClass("active"),$("#7").removeClass("active"); //  landing site aram dorsum 2018
+      case 6: slideSix(),hide(),console.log(index),$("#5").removeClass("active") ,$("#6").addClass("active"),$("#7").removeClass("active"); //  landing site aram dorsum 2018
       break;
-      case 7: slideSeven(),console.log(index), $("#6").removeClass("active") ,$("#7").addClass("active"),$("#8").removeClass("active");//  landing site aram dorsum 2020
+      case 7: slideSeven(),hide(),console.log(index), $("#6").removeClass("active") ,$("#7").addClass("active"),$("#8").removeClass("active");//  landing site aram dorsum 2020
       break;
-      case 8: slideEight(),console.log(index),$("#7").removeClass("active") ,$("#8").addClass("active"),$("#9").removeClass("active"); // Hypanis Vallis
+      case 8: slideEight(),hide(),console.log(index),$("#7").removeClass("active") ,$("#8").addClass("active"),$("#9").removeClass("active"); // Hypanis Vallis
       break;
-      case 9: slideNine(),console.log(index), $("#8").removeClass("active") ,$("#9").addClass("active"),$("#10").removeClass("active");// Hypanis Vallis
+      case 9: slideNine(),hide(),console.log(index), $("#8").removeClass("active") ,$("#9").addClass("active"),$("#10").removeClass("active");// Hypanis Vallis
       break;
-      case 10: slideTen(),console.log(index),$("#9").removeClass("active") ,$("#10").addClass("active"),$("#11").removeClass("active"); // Oxia Planum
+      case 10: slideTen(),hide(),console.log(index),$("#9").removeClass("active") ,$("#10").addClass("active"),$("#11").removeClass("active"); // Oxia Planum
       break;
-      case 11: slideEleven(),console.log(index),$("#10").removeClass("active") ,$("#11").addClass("active"),$("#12").removeClass("active"); // HiRISE / Oxia Planum
+      case 11: slideEleven(),hide(),console.log(index),$("#10").removeClass("active") ,$("#11").addClass("active"),$("#12").removeClass("active"); // HiRISE / Oxia Planum
       break;
-      case 12: slideTwelve(),console.log(index), $("#11").removeClass("active") ,$("#12").addClass("active"),$("#13").removeClass("active");// Oxia Planum
+      case 12: slideTwelve(),hide(),console.log(index), $("#11").removeClass("active") ,$("#12").addClass("active"),$("#13").removeClass("active");// Oxia Planum
       break;
-      case 13: slideThirteen(),console.log(index),$("#12").removeClass("active") ,$("#13").addClass("active"),$("#14").removeClass("active"); // Mawrth Vallis
+      case 13: slideThirteen(),hide(),console.log(index),$("#12").removeClass("active") ,$("#13").addClass("active"),$("#14").removeClass("active"); // Mawrth Vallis
       break;
-      case 14: slideFourteen(),console.log(index), $("#13").removeClass("active") ,$("#14").addClass("active"),$("#15").removeClass("active");// HiRISE / Mawrth Vallis
+      case 14: slideFourteen(),hide(),console.log(index), $("#13").removeClass("active") ,$("#14").addClass("active"),$("#15").removeClass("active");// HiRISE / Mawrth Vallis
       break;
-      case 15: slideFifteen(),console.log(index), $("#14").removeClass("active") ,$("#15").addClass("active"),$("#16").removeClass("active");// Mawrth Vallis
+      case 15: slideFifteen(),hide(),console.log(index), $("#14").removeClass("active") ,$("#15").addClass("active"),$("#16").removeClass("active");// Mawrth Vallis
       break;
-      case 16: slideSixteen(),console.log(index), $("#15").removeClass("active") ,$("#16").addClass("active"),$("#17").removeClass("active");// End
+      case 16: slideSixteen(),hide(),console.log(index), $("#15").removeClass("active") ,$("#16").addClass("active"),$("#17").removeClass("active");// End
       break;
-      case 17: slideSeventeen(),console.log(index), $("#16").removeClass("active") ,$("#17").addClass("active"),$("#18").removeClass("active");// End
+      case 17: slideSeventeen(),hide(),console.log(index), $("#16").removeClass("active") ,$("#17").addClass("active"),$("#18").removeClass("active");// End
       break;
-      case 18: slideEighteen(),console.log(index), $("#17").removeClass("active") ,$("#18").addClass("active"),$("#19").removeClass("active");// End
+      case 18: slideEighteen(),hide(),console.log(index), $("#17").removeClass("active") ,$("#18").addClass("active"),$("#19").removeClass("active");// End
       break;
-      case 19: slideNineteen(),console.log(index), $("#18").removeClass("active") ,$("#19").addClass("active"),$("#0").removeClass("active");// End
+      case 19: slideNineteen(),show(),console.log(index), $("#18").removeClass("active") ,$("#19").addClass("active"),$("#0").removeClass("active");// End
       break;
 
     };
@@ -929,25 +962,14 @@ function initOdyssey(O) {
           )
       )
 
-
-//el.story.go(0);
-
-
-
 // anchor permanent link to each slide....does't load vector data
 
-if (location.hash != "") {
-  //cartodbData();
-  var chapter = parseInt(location.hash.replace('#', ''), 10);
-  el.story.go(chapter, seq.step(chapter),O.Parallel(slides.activate(chapter)));
-//checkIndex()
-  //$("li").removeClass("active");
-  //$("li#"+chapter).addClass("active");
-
-
-} else {
-el.story.go(0,seq.step(0));
-}
+  if (location.hash != "") {
+    var chapter = parseInt(location.hash.replace('#', ''), 10);
+    el.story.go(chapter, seq.step(chapter),O.Parallel(slides.activate(chapter)));
+  } else {
+    el.story.go(0,seq.step(0));
+  }
 
 
 // this group of sentences define:
