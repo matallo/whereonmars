@@ -9,6 +9,19 @@
     });
   });
 
+    // when click the hide/show option it toggles the menu
+    $("#hide_menu img").bind('mouseup',function(){
+      if ($('#accordion').css('display') != 'none'){
+        $('#accordion').css({
+          display: 'none'
+        })
+      } else{
+        $('#accordion').css({
+          display:'block'
+        });
+      }
+    });
+
   /* Slide container */
 
   // If there is scroll, the scroll up to the y = 0 position of the slides_containers when click the nav buttons.
@@ -59,22 +72,9 @@
         el.LayerActions[$(this).attr('id')]();
       }); // end of click event
 
-  /* Menu layers */
 
-    // when click the hide/show option it toggles the menu
-    $("#hide_menu img").bind('mouseup',function(){
-      if ($('#accordion').css('display') != 'none'){
-        $('#accordion').css({
-          display: 'none'
-        })
-      } else{
-        $('#accordion').css({
-          display:'block'
-        });
-      }
-    });
 
-  /* Navigation button */
+  /* Navigation buttons */
 
   // when the user move the mouse on the navButtons it changes the opacity of the button itself
   $("#navButtons .prev")
@@ -103,3 +103,4 @@
         "opacity": 0.5
       })
     });
+  

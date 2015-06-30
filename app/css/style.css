@@ -24,6 +24,9 @@
 
 
 	/* different styles for the leaflet plugins */
+	.leaflet-control-attribution {
+		display: none!important;
+	}
 	.leaflet-left .leaflet-control-scale {
 		margin-left: 5px;
 	}
