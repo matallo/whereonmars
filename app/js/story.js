@@ -208,6 +208,7 @@ function slideTwo() {
     el.map.removeLayer(el.basemapShadedColor);
     el.map.addLayer(el.basemapCelestia);
   }
+  el.landingSite.hide();
   el.latConstraint.hide();
   el.geoConstraint.hide();
   el.duneConstraint.hide();
@@ -250,6 +251,7 @@ function slideThree() {
   el.geoNoOkContraint.hide();
   el.elevationConstraint.hide();
   el.landingSite8.hide();
+  el.landingSite.hide();
   el.duneConstraint.hide();
   el.nomenclatorRegional.hide();
   // layers to hide when clicking buttons (not following the story order)
@@ -282,6 +284,7 @@ function slideFour() {
     el.map.removeLayer(el.basemapCelestia);
     el.map.addLayer(el.basemapShadedColor);
   }
+  el.landingSite.hide();
   el.elevationConstraint.show();
   el.latConstraint.hide();
   el.geoConstraint.hide();
