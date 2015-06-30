@@ -126,6 +126,11 @@ function click(el) {
 
   // intro
 function slideZero() {
+  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapShadedColor)){
+    el.map.removeLayer(el.basemapViking);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapCelestia);
+  }
   el.landingSite.hide();
   el.dashellipses4.hide();
   el.nomenclatorGlobal.show();
@@ -160,6 +165,11 @@ function slideZero() {
 };
 // MOLA
   function slideOne() {
+    if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapShadedColor)){
+      el.map.removeLayer(el.basemapViking);
+      el.map.removeLayer(el.basemapShadedColor);
+      el.map.addLayer(el.basemapCelestia);
+    }
   el.landingSite8.hide();
   el.geoNoOkContraint.show();
   el.nomenclatorGlobal.hide();
@@ -193,6 +203,11 @@ function slideZero() {
 };
 // LSSWG
 function slideTwo() {
+  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapShadedColor)){
+    el.map.removeLayer(el.basemapViking);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapCelestia);
+  }
   el.latConstraint.hide();
   el.geoConstraint.hide();
   el.duneConstraint.hide();
@@ -225,6 +240,11 @@ function slideTwo() {
 };
 // latitude constraint landing sites
 function slideThree() {
+  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapShadedColor)){
+    el.map.removeLayer(el.basemapViking);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapCelestia);
+  }
   el.latConstraint.show();
   el.geoConstraint.hide();
   el.geoNoOkContraint.hide();
@@ -257,8 +277,11 @@ function slideThree() {
 };
 // elevation constraint landing sites
 function slideFour() {
-  //el.map.addLayer(el.basemapShadedColor);
-  //el.map.removeLayer(basemapCelestia);
+  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapCelestia)){
+    el.map.removeLayer(el.basemapViking);
+    el.map.removeLayer(el.basemapCelestia);
+    el.map.addLayer(el.basemapShadedColor);
+  }
   el.elevationConstraint.show();
   el.latConstraint.hide();
   el.geoConstraint.hide();
@@ -292,6 +315,11 @@ function slideFour() {
 };
 // Mix of constraints
 function slideFive() {
+  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapShadedColor)){
+    el.map.removeLayer(el.basemapViking);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapCelestia);
+  }
   el.elevationConstraint.hide();
   el.latConstraint.show();
   el.geoConstraint.show();
@@ -325,6 +353,11 @@ function slideFive() {
 };
 // 4 landing sites
 function slideSix() {
+  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapShadedColor)){
+    el.map.removeLayer(el.basemapViking);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapCelestia);
+  }
   el.landingSite.show();
   el.latConstraint.hide();
   el.geoConstraint.hide();
@@ -358,6 +391,11 @@ function slideSix() {
 };
 // Aram Dorsum
 function slideSeven(){
+  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+    el.map.removeLayer(el.basemapCelestia);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapViking);
+  }
   el.landingSite.hide();
   el.latConstraint.hide();
   el.geoConstraint.hide();
@@ -390,6 +428,11 @@ function slideSeven(){
 };
 // HRSC
 function slideEight() {
+  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+    el.map.removeLayer(el.basemapCelestia);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapViking);
+  }
   el.map.removeLayer(el.hrsc[0]);
   el.ellipses1.hide();
   el.ellipses5.hide();
@@ -424,6 +467,11 @@ function slideEight() {
 };
 // HiRISE
 function slideNine(){
+  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+    el.map.removeLayer(el.basemapCelestia);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapViking);
+  }
   el.map.addLayer(el.hrsc[0]);
   // layers to hide when clicking buttons (not following the story order)
   el.nomenclatorGlobal.hide();
@@ -455,6 +503,11 @@ function slideNine(){
 };
 // Aram Dorsum landing site 2018
 function slideTen() {
+  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+    el.map.removeLayer(el.basemapCelestia);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapViking);
+  }
   el.ellipses1.show();
   el.ellipses5.hide();
   el.dashellipses1.show();
@@ -492,6 +545,11 @@ function slideTen() {
 };
 // Aram Dorsum landing site 2020
 function slideEleven() {
+  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+    el.map.removeLayer(el.basemapCelestia);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapViking);
+  }
   el.ellipses1.hide();
   el.ellipses5.show();
   el.dashellipses1.hide();
@@ -527,6 +585,11 @@ function slideEleven() {
 };
   // Hypanis Vallis
 function slideTwelve() {
+  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+    el.map.removeLayer(el.basemapCelestia);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapViking);
+  }
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses5.hide();
@@ -561,6 +624,11 @@ function slideTwelve() {
 };
 // Hypanis Vallis landing sites
 function slideThirteen() {
+  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+    el.map.removeLayer(el.basemapCelestia);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapViking);
+  }
   el.ellipses2.show();
   el.ellipses3.hide();
   el.ellipses6.show();
@@ -593,6 +661,11 @@ function slideThirteen() {
 };
   // Oxia Planum
 function slideFourteen() {
+  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+    el.map.removeLayer(el.basemapCelestia);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapViking);
+  }
   el.ellipses2.hide();
   el.ellipses3.hide();
   el.ellipses6.hide();
@@ -626,6 +699,11 @@ function slideFourteen() {
 
 // Oxia Planum landing sites
 function slideFifteen() {
+  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+    el.map.removeLayer(el.basemapCelestia);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapViking);
+  }
   el.ellipses3.show();
   el.ellipses4.hide();
   el.ellipses7.show();
@@ -658,6 +736,11 @@ function slideFifteen() {
 };
 // Mawrth Vallis
 function slideSixteen() {
+  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+    el.map.removeLayer(el.basemapCelestia);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapViking);
+  }
   el.ellipses3.hide();
   el.ellipses7.hide();
   el.dashellipses3.hide();
@@ -690,6 +773,11 @@ function slideSixteen() {
 };
 // Mawrth Vallis HiRISE
 function slideSeventeen() {
+  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+    el.map.removeLayer(el.basemapCelestia);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapViking);
+  }
   el.ellipses4.hide();
   el.ellipses8.hide();
   el.dashellipses4.hide();
@@ -722,6 +810,11 @@ function slideSeventeen() {
 };
 // Mawrth Vallis landing sites
 function slideEighteen() {
+  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+    el.map.removeLayer(el.basemapCelestia);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapViking);
+  }
   el.ellipses4.show();
   el.ellipses8.show();
   el.dashellipses4.show();
@@ -755,6 +848,12 @@ function slideEighteen() {
 };
   // End of the story/overview
 function slideNineteen() {
+  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapShadedColor) ){
+    el.map.removeLayer(el.basemapViking);
+    el.map.removeLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapCelestia);
+  }
+  el.nomenclatorGlobal.hide();
   el.nomenclatorRegional.hide();
   el.ellipses4.hide();
   el.ellipses8.hide();
