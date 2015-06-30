@@ -185,6 +185,29 @@ The aim of this file is to define all the cartoDB layers and their style.
         '}'
       ].join('\n');
 
+  var style4 = [
+    '#mars_nomenclature_webmercator_ls{',
+      '	 marker-placement: point;',
+      '	 marker-line-color: #31a354;',
+      '	 marker-width: 1;',
+      '	 marker-line-opacity: 1;',
+      '	 marker-line-width: 3;',
+      '	 marker-type: ellipse;',
+      '	 marker-fill: #fff;',
+      '	 marker-fill-opacity: 0;',
+      '	 text-name: [name];',
+      '  text-face-name: "DejaVu Sans Book";',
+      '  text-size: 10;',
+      '  text-label-position-tolerance: 0;',
+      '  text-fill: #FFF;',
+      '  text-halo-fill: #000;',
+      '  text-halo-radius: 1;',
+      '  text-dx: 0;',
+      '  text-allow-overlap: true;',
+      '  text-placement: point;',
+    '}'
+    ].join("\n");
+
 
         el.landingSite = layer.createSubLayer({
           sql: "SELECT * FROM exomars_landing_sites_four",
@@ -215,7 +238,11 @@ The aim of this file is to define all the cartoDB layers and their style.
           sql: "SELECT * FROM geological_age_not_ok",
           cartocss: "#geological_age_not_ok{ polygon-fill: #000000;polygon-opacity: 1;line-color: #FFF;line-width: 0.5;line-opacity: 1;}"
         });
-        el.nomenclator = layer.createSubLayer({
+        el.nomenclatorGlobal = layer.createSubLayer({
+          sql: "SELECT * FROM mars_nomenclature_webmercator_ls WHERE cartodb_id IN(84,56,7,6,43,11,3,67)",
+          cartocss:  style4
+        });
+        el.nomenclatorRegional = layer.createSubLayer({
           sql: "SELECT * FROM mars_nomenclature_webmercator_ls",
           cartocss:  style3
         });
@@ -487,7 +514,8 @@ The aim of this file is to define all the cartoDB layers and their style.
       el.elevationConstraint.hide();
       el.geoConstraint.hide();
       el.duneConstraint.hide();
-      el.nomenclator.hide();
+      el.nomenclatorGlobal.hide();
+      el.nomenclatorRegional.hide();
       el.geoOkConstraint.hide();
       el.geoNoOkContraint.hide();
       el.ellipses1.hide();
