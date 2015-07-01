@@ -74,16 +74,38 @@ function click(el) {
     }
   });
   }
+function titleZero(){
+  $("li#0").addClass("active");
+  if ($("li#0").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("ExoMars");
 
+}
+}
+function titleOne(){
+  $("li#1").addClass("active");
+  if ($("li#1").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Mars Orbiter Laser Altimeter (MOLA)");
 
+}
+}
+function titleTwo(){
+  $("li#2").addClass("active");
+  if ($("li#2").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Engineering constraints for the landing sites/ Elevation constraint");
+
+}
+}
   // check the index being returned by trackCurrentSlide()
   var checkIndex = function(index) {
     switch(index){
-      case 0: slideZero(),hide(),console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#19").removeClass("active"); // introduction
+      case 0: slideZero(),hide(),titleZero(),console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#19").removeClass("active"); // introduction
       break;
-      case 1: slideOne(),hide(),console.log(index),$("#0").removeClass("active") ,$("#1").addClass("active"),$("#2").removeClass("active");// MOLA
+      case 1: slideOne(),hide(),titleOne(),console.log(index),$("#0").removeClass("active") ,$("#1").addClass("active"),$("#2").removeClass("active");// MOLA
       break;
-      case 2: slideTwo(),hide(),console.log(index),$("#1").removeClass("active") ,$("#2").addClass("active"),$("#3").removeClass("active"); // LSSWG
+      case 2: slideTwo(),hide(),titleTwo(),console.log(index),$("#1").removeClass("active") ,$("#2").addClass("active"),$("#3").removeClass("active"); // LSSWG
       break;
       case 3: slideThree(),hide(),console.log(index),$("#2").removeClass("active") ,$("#3").addClass("active"),$("#4").removeClass("active"); // 4 landing sites
       break;
@@ -1149,16 +1171,29 @@ function initOdyssey(O) {
       el.story.go(0,seq.step(0));
       $("li").removeClass("active");
       $(this).addClass("active");
+      if ($(this).hasClass("active")){
+        $("#title").empty();
+        $("#title").text("ExoMars");
+
+      }
     });
     $("li#1").click(function(){
       el.story.go(1,seq.step(1));
       $("li").removeClass("active");
       $(this).addClass("active");
+      if ($(this).hasClass("active")){
+        $("#title").empty();
+        $("#title").text("Mars Orbiter Laser Altimeter (MOLA)");
+      }
     });
     $("li#2").click(function(){
       el.story.go(2,seq.step(2));
       $("li").removeClass("active");
       $(this).addClass("active");
+      if ($(this).hasClass("active")){
+        $("#title").empty();
+        $("#title").text("Engineering constraints for the landing sites/ Elevation constraint");
+    }
     });
     $("li#3").click(function(){
       el.story.go(3,seq.step(3));

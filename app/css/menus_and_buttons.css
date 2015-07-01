@@ -93,9 +93,13 @@ ul#navButtons .next{
 
 }
 
-#carousel > ol.carousel-indicators > li:hover > p {
-
-  display: block;
+#title {
+  position: absolute;
+  text-align: center;
+  bottom: 3%;
+  left: 46.8%;
+  color: #FFF;
+}
 
 
 }
