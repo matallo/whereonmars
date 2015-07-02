@@ -18,6 +18,23 @@
   backgroumd-color: #FFF;
   cursor: pointer;
 }
+/* */
+
+#title {
+
+  color: #FFF;
+  position: absolute;
+  bottom: 0.5%;
+  left: 48%;
+  width: 220px;
+
+
+}
+/* image */
+#hide_menu img:hover{
+  height: 20px;
+  width: auto;
+}
 /* define styles for the navigation buttons */
 
 ul#navButtons .prev{
@@ -97,21 +114,4 @@ ul#navButtons .next{
   cursor: pointer;
   background-image: url("images/45.png");
   opacity: 1;
-}
-
-#title {
-  display: block;
-  position: absolute;
-  text-align: center;
-  bottom: 2%;
-  left: 35%;
-  color: #FFF;
-  width: 450px;
-}
-
-
-/* image */
-#hide_menu img:hover{
-  height: 20px;
-  width: auto;
 }
