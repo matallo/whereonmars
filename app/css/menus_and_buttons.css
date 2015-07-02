@@ -59,41 +59,47 @@ ul#navButtons .next{
 
 /* define styles for bootstrap carousel */
 
-#carousel{
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  height: 100px;
-}
-#carousel > ol.carousel-indicators{
+.carousel-indicators{
   bottom: 3%;
+  position: absolute;
 
 }
-#carousel > ol.carousel-indicators > li{
+.carousel-indicators li{
   cursor: pointer;
   background-color: #F4F4F4;
   opacity: 0.8;
 }
-#carousel > ol.carousel-indicators > li:hover{
+.carousel-indicators p{
+  display: none;
+  position: absolute;
+  margin-left: 0px;
+  top: 0px;
+  text-indent: 0px;
+  color: #FFF;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+
+}
+.carousel-indicators li:hover{
 
   background-image: url("images/45.png");
   opacity: 1;
 }
-#carousel > ol.carousel-indicators > li.active{
+.carousel-indicators li:hover p{
+  display: block;
+
+}
+.carousel-indicators  li.active{
   cursor: pointer;
   background-image: url("images/45.png");
   opacity: 1;
 }
-#carousel > ol.carousel-indicators > li > p{
-  display: none;
-  color: #FFF;
-  position: absolute;
-  bottom: -35px;
-  left: 100%;
-
-}
 
 #title {
+  display: block;
   position: absolute;
   text-align: center;
   bottom: 2%;
@@ -102,8 +108,6 @@ ul#navButtons .next{
   width: 450px;
 }
 
-
-}
 
 /* image */
 #hide_menu img:hover{

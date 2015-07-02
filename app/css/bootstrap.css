@@ -6079,11 +6079,12 @@ a.badge:focus {
 
 .carousel-indicators li {
   display: block;
+  position: relative;
   float: left;
   width: 10px;
   height: 10px;
   margin-left: 5px;
-  text-indent: -999px;
+
   background-color: #ccc;
   background-color: rgba(255, 255, 255, 0.25);
   border-radius: 5px;

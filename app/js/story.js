@@ -1290,16 +1290,6 @@ function initOdyssey(O) {
       el.story.go(0,seq.step(0));
       $("li").removeClass("active");
       $(this).addClass("active");
-    })
-    .mouseover(function(){
-        $("#title").empty();
-        $("#title").text("ExoMars 2018");
-
-    })
-    // ? return to the previous text content or the text that has class active
-    .mouseleave(function(){
-      $("#title").empty();
-      $("#title").data("clicked");
     });
     $("li#1").click(function(){
       el.story.go(1,seq.step(1));
