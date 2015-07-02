@@ -96,9 +96,10 @@ ul#navButtons .next{
 #title {
   position: absolute;
   text-align: center;
-  bottom: 3%;
-  left: 46.8%;
+  bottom: 2%;
+  left: 35%;
   color: #FFF;
+  width: 450px;
 }
 
 

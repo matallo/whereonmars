@@ -74,29 +74,148 @@ function click(el) {
     }
   });
   }
+
+
+// functions that define the title for each slide/dot from titleZero() to titleNineteen()
 function titleZero(){
   $("li#0").addClass("active");
   if ($("li#0").hasClass("active")){
     $("#title").empty();
     $("#title").text("ExoMars");
-
-}
+  }
 }
 function titleOne(){
   $("li#1").addClass("active");
   if ($("li#1").hasClass("active")){
     $("#title").empty();
     $("#title").text("Mars Orbiter Laser Altimeter (MOLA)");
-
-}
+  }
 }
 function titleTwo(){
   $("li#2").addClass("active");
   if ($("li#2").hasClass("active")){
     $("#title").empty();
     $("#title").text("Engineering constraints for the landing sites/ Elevation constraint");
-
+  }
 }
+function titleThree(){
+  $("li#3").addClass("active");
+  if ($("li#3").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Engineering constraints for the landing sites/ Latitude constraint");
+  }
+}
+function titleFour(){
+  $("li#4").addClass("active");
+  if ($("li#4").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Scientific constraints for the landing sites/ Geological constraint");
+  }
+}
+function titleFive(){
+  $("li#5").addClass("active");
+  if ($("li#5").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Defining the landing sites");
+  }
+}
+function titleSix(){
+  $("li#6").addClass("active");
+  if ($("li#6").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Candidate landing Sites");
+  }
+}
+function titleSeven(){
+  $("li#7").addClass("active");
+  if ($("li#7").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Aram Dorsum");
+  }
+}
+function titleEight(){
+  $("li#8").addClass("active");
+  if ($("li#8").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Aram Dorsum/ The High Resolution Stereo Camera");
+  }
+}
+function titleNine(){
+  $("li#9").addClass("active");
+  if ($("li#9").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Aram Dorsum/ HiRISE");
+  }
+}
+function titleTen(){
+  $("li#10").addClass("active");
+  if ($("li#10").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Aram Dorsum/ 2018 landing site");
+  }
+}
+function titleEleven(){
+  $("li#11").addClass("active");
+  if ($("li#11").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Aram Dorsum/ 2020 landing site");
+  }
+}
+function titleTwelve(){
+  $("li#12").addClass("active");
+  if ($("li#12").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Hypanis Vallis");
+  }
+}
+function titleThirteen(){
+  $("li#13").addClass("active");
+  if ($("li#13").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Hypanis Vallis/ Landing site in Hypanis Vallis");
+  }
+}
+function titleFourteen(){
+  $("li#14").addClass("active");
+  if ($("li#14").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Oxia Planum");
+  }
+}
+function titleFifteen(){
+  $("li#15").addClass("active");
+  if ($("li#15").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Oxia Planum/ Landing sites");
+  }
+}
+function titleSixteen(){
+  $("li#16").addClass("active");
+  if ($("li#16").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Mawrth Vallis/ Why Mawrth Vallis?");
+  }
+}
+function titleSeventeen(){
+  $("li#17").addClass("active");
+  if ($("li#17").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Mawrth Vallis/ HiRISE");
+  }
+}
+function titleEighteen(){
+  $("li#18").addClass("active");
+  if ($("li#18").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("Mawrth Vallis/ Landing sites");
+  }
+}
+function titleNineteen(){
+  $("li#19").addClass("active");
+  if ($("li#19").hasClass("active")){
+    $("#title").empty();
+    $("#title").text("The end");
+  }
 }
   // check the index being returned by trackCurrentSlide()
   var checkIndex = function(index) {
@@ -107,39 +226,39 @@ function titleTwo(){
       break;
       case 2: slideTwo(),hide(),titleTwo(),console.log(index),$("#1").removeClass("active") ,$("#2").addClass("active"),$("#3").removeClass("active"); // LSSWG
       break;
-      case 3: slideThree(),hide(),console.log(index),$("#2").removeClass("active") ,$("#3").addClass("active"),$("#4").removeClass("active"); // 4 landing sites
+      case 3: slideThree(),hide(),titleThree(),console.log(index),$("#2").removeClass("active") ,$("#3").addClass("active"),$("#4").removeClass("active"); // 4 landing sites
       break;
-      case 4: slideFour(),hide(),console.log(index),$("#3").removeClass("active") ,$("#4").addClass("active"),$("#5").removeClass("active"); // aram dorsum
+      case 4: slideFour(),hide(),titleFour(),console.log(index),$("#3").removeClass("active") ,$("#4").addClass("active"),$("#5").removeClass("active"); // aram dorsum
       break;
-      case 5: slideFive(),hide(),console.log(index),$("#4").removeClass("active") ,$("#5").addClass("active"),$("#6").removeClass("active");// HRSC / aram dorsum
+      case 5: slideFive(),hide(),titleFive(),console.log(index),$("#4").removeClass("active") ,$("#5").addClass("active"),$("#6").removeClass("active");// HRSC / aram dorsum
       break
-      case 6: slideSix(),hide(),console.log(index),$("#5").removeClass("active") ,$("#6").addClass("active"),$("#7").removeClass("active"); //  landing site aram dorsum 2018
+      case 6: slideSix(),hide(),titleSix(),console.log(index),$("#5").removeClass("active") ,$("#6").addClass("active"),$("#7").removeClass("active"); //  landing site aram dorsum 2018
       break;
-      case 7: slideSeven(),hide(),console.log(index), $("#6").removeClass("active") ,$("#7").addClass("active"),$("#8").removeClass("active");//  landing site aram dorsum 2020
+      case 7: slideSeven(),hide(),titleSeven(),console.log(index), $("#6").removeClass("active") ,$("#7").addClass("active"),$("#8").removeClass("active");//  landing site aram dorsum 2020
       break;
-      case 8: slideEight(),hide(),console.log(index),$("#7").removeClass("active") ,$("#8").addClass("active"),$("#9").removeClass("active"); // Hypanis Vallis
+      case 8: slideEight(),hide(),titleEight,console.log(index),$("#7").removeClass("active") ,$("#8").addClass("active"),$("#9").removeClass("active"); // Hypanis Vallis
       break;
-      case 9: slideNine(),hide(),console.log(index), $("#8").removeClass("active") ,$("#9").addClass("active"),$("#10").removeClass("active");// Hypanis Vallis
+      case 9: slideNine(),hide(),titleNine(),console.log(index), $("#8").removeClass("active") ,$("#9").addClass("active"),$("#10").removeClass("active");// Hypanis Vallis
       break;
-      case 10: slideTen(),hide(),console.log(index),$("#9").removeClass("active") ,$("#10").addClass("active"),$("#11").removeClass("active"); // Oxia Planum
+      case 10: slideTen(),hide(),titleTen(),console.log(index),$("#9").removeClass("active") ,$("#10").addClass("active"),$("#11").removeClass("active"); // Oxia Planum
       break;
-      case 11: slideEleven(),hide(),console.log(index),$("#10").removeClass("active") ,$("#11").addClass("active"),$("#12").removeClass("active"); // HiRISE / Oxia Planum
+      case 11: slideEleven(),hide(),titleEleven(),console.log(index),$("#10").removeClass("active") ,$("#11").addClass("active"),$("#12").removeClass("active"); // HiRISE / Oxia Planum
       break;
-      case 12: slideTwelve(),hide(),console.log(index), $("#11").removeClass("active") ,$("#12").addClass("active"),$("#13").removeClass("active");// Oxia Planum
+      case 12: slideTwelve(),hide(),titleTwelve(),console.log(index), $("#11").removeClass("active") ,$("#12").addClass("active"),$("#13").removeClass("active");// Oxia Planum
       break;
-      case 13: slideThirteen(),hide(),console.log(index),$("#12").removeClass("active") ,$("#13").addClass("active"),$("#14").removeClass("active"); // Mawrth Vallis
+      case 13: slideThirteen(),hide(),titleThirteen(),console.log(index),$("#12").removeClass("active") ,$("#13").addClass("active"),$("#14").removeClass("active"); // Mawrth Vallis
       break;
-      case 14: slideFourteen(),hide(),console.log(index), $("#13").removeClass("active") ,$("#14").addClass("active"),$("#15").removeClass("active");// HiRISE / Mawrth Vallis
+      case 14: slideFourteen(),hide(),titleFourteen(),console.log(index), $("#13").removeClass("active") ,$("#14").addClass("active"),$("#15").removeClass("active");// HiRISE / Mawrth Vallis
       break;
-      case 15: slideFifteen(),hide(),console.log(index), $("#14").removeClass("active") ,$("#15").addClass("active"),$("#16").removeClass("active");// Mawrth Vallis
+      case 15: slideFifteen(),hide(),titleFifteen(),console.log(index), $("#14").removeClass("active") ,$("#15").addClass("active"),$("#16").removeClass("active");// Mawrth Vallis
       break;
-      case 16: slideSixteen(),hide(),console.log(index), $("#15").removeClass("active") ,$("#16").addClass("active"),$("#17").removeClass("active");// End
+      case 16: slideSixteen(),hide(),titleSixteen(),console.log(index), $("#15").removeClass("active") ,$("#16").addClass("active"),$("#17").removeClass("active");// End
       break;
-      case 17: slideSeventeen(),hide(),console.log(index), $("#16").removeClass("active") ,$("#17").addClass("active"),$("#18").removeClass("active");// End
+      case 17: slideSeventeen(),hide(),titleSeventeen(),console.log(index), $("#16").removeClass("active") ,$("#17").addClass("active"),$("#18").removeClass("active");// End
       break;
-      case 18: slideEighteen(),hide(),console.log(index), $("#17").removeClass("active") ,$("#18").addClass("active"),$("#19").removeClass("active");// End
+      case 18: slideEighteen(),hide(),titleEighteen(),console.log(index), $("#17").removeClass("active") ,$("#18").addClass("active"),$("#19").removeClass("active");// End
       break;
-      case 19: slideNineteen(),show(),console.log(index), $("#18").removeClass("active") ,$("#19").addClass("active"),$("#0").removeClass("active");// End
+      case 19: slideNineteen(),show(),titleNineteen(),console.log(index), $("#18").removeClass("active") ,$("#19").addClass("active"),$("#0").removeClass("active");// End
       break;
 
     };
@@ -1171,29 +1290,26 @@ function initOdyssey(O) {
       el.story.go(0,seq.step(0));
       $("li").removeClass("active");
       $(this).addClass("active");
-      if ($(this).hasClass("active")){
+    })
+    .mouseover(function(){
         $("#title").empty();
-        $("#title").text("ExoMars");
+        $("#title").text("ExoMars 2018");
 
-      }
+    })
+    // ? return to the previous text content or the text that has class active
+    .mouseleave(function(){
+      $("#title").empty();
+      $("#title").data("clicked");
     });
     $("li#1").click(function(){
       el.story.go(1,seq.step(1));
       $("li").removeClass("active");
       $(this).addClass("active");
-      if ($(this).hasClass("active")){
-        $("#title").empty();
-        $("#title").text("Mars Orbiter Laser Altimeter (MOLA)");
-      }
     });
     $("li#2").click(function(){
       el.story.go(2,seq.step(2));
       $("li").removeClass("active");
       $(this).addClass("active");
-      if ($(this).hasClass("active")){
-        $("#title").empty();
-        $("#title").text("Engineering constraints for the landing sites/ Elevation constraint");
-    }
     });
     $("li#3").click(function(){
       el.story.go(3,seq.step(3));
