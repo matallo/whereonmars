@@ -31,14 +31,14 @@ The aim of this file is to define all the cartoDB layers and their style.
       type: "torque",
       options: {
         user_name: "whereonmars",
-        table_name: "ls_ellipses_2018_aram",
+        table_name: "exols_ls_ellipses_2018_aram",
         cartocss:
         'Map { '
                 +'  -torque-frame-count:512; '
                 +'  -torque-animation-duration:15; -torque-time-attribute:"cartodb_id"; '
                 +'  -torque-aggregation-function:"count(cartodb_id)"; '
                 +' -torque-resolution:2; -torque-data-aggregation:linear} '
-        +'#ls_ellipses_2018_aram{ '
+        +'#exols_ls_ellipses_2018_aram{ '
                 +'  comp-op: xor; marker-fill-opacity: 1; '
 
                 +'  marker-line-opacity: 1; marker-type: ellipse; '
@@ -56,14 +56,14 @@ The aim of this file is to define all the cartoDB layers and their style.
     type: "torque",
     options: {
       user_name: "whereonmars",
-      table_name: "ls_ellipses_2020_aram",
+      table_name: "exols_ls_ellipses_2020_aram",
       cartocss:
       'Map { '
               +'  -torque-frame-count:512; '
               +'  -torque-animation-duration:15; -torque-time-attribute:"cartodb_id"; '
               +'  -torque-aggregation-function:"count(cartodb_id)"; '
               +' -torque-resolution:2; -torque-data-aggregation:linear} '
-      +'#ls_ellipses_2018_aram{ '
+      +'#exols_ls_ellipses_2018_aram{ '
               +'  comp-op: xor; marker-fill-opacity: 1; '
               +'  marker-line-opacity: 1; marker-type: ellipse; '
               +'  marker-width: 3.5; marker-fill: #f11810; }'
@@ -82,7 +82,7 @@ The aim of this file is to define all the cartoDB layers and their style.
     //cartocss of the layer landingSite and style2 define the cartocss
     // of the layer landingSite8
     var style1 = [
-      '#exomars_landing_sites_four{',
+      '#exols_exomars_landing_sites_four{',
         '	 marker-placement: point;',
         '	 marker-width: 10;',
         '	 marker-line-width: 1;',
@@ -110,7 +110,7 @@ The aim of this file is to define all the cartoDB layers and their style.
 
 
     var style2 = [
-      "#exomars_landing_sites_eight{",
+      "#exols_exomars_landing_sites_eight{",
         '	 marker-placement: point;',
         '	 marker-width: 10;',
         '	 marker-line-width: 1;',
@@ -156,7 +156,7 @@ The aim of this file is to define all the cartoDB layers and their style.
     ].join('\n');
 
     var style3 = [
-      '#mars_nomenclature_webmercator_ls{',
+      '#exols_mars_nomenclature_webmercator_ls{',
         '	 marker-placement: point;',
         '	 marker-line-color: #31a354;',
         '	 marker-width: 1;',
@@ -186,7 +186,7 @@ The aim of this file is to define all the cartoDB layers and their style.
       ].join('\n');
 
   var style4 = [
-    '#mars_nomenclature_webmercator_ls{',
+    '#exols_mars_nomenclature_webmercator_ls{',
       '	 marker-placement: point;',
       '	 marker-line-color: #31a354;',
       '	 marker-width: 1;',
@@ -210,119 +210,119 @@ The aim of this file is to define all the cartoDB layers and their style.
 
 
         el.landingSite = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_four",
+          sql: "SELECT * FROM exols_exomars_landing_sites_four",
           cartocss: style1,
           interactivity: ['name','coordinates']
          });
          el.latConstraint = layer.createSubLayer({
-          sql: "SELECT * FROM lat_constraints",
-          cartocss: '#lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}',
+          sql: "SELECT * FROM exols_lat_constraints",
+          cartocss: '#exols_lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}',
         });
         el.geoConstraint = layer.createSubLayer({
-            sql: "SELECT * FROM restricted_geology_latitude_webmercator",
-            cartocss: "#restricted_geology_latitude_webmercator{polygon-fill:  #5CA2D1;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}"
+            sql: "SELECT * FROM exols_restricted_geology_latitude_webmercator",
+            cartocss: "#exols_restricted_geology_latitude_webmercator{polygon-fill:  #5CA2D1;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}"
         });
         el.duneConstraint = layer.createSubLayer({
-          sql: "SELECT * FROM dune_field_usgs",
-          cartocss: '#dune_field_usgs{polygon-fill: #c3834c;polygon-opacity: 0.7;line-color: #F11810;line-width: 1;line-opacity: 0;}'
+          sql: "SELECT * FROM exols_dune_field_usgs",
+          cartocss: '#exols_dune_field_usgs{polygon-fill: #c3834c;polygon-opacity: 0.7;line-color: #F11810;line-width: 1;line-opacity: 0;}'
         });
         el.elevationConstraint = layer.createSubLayer({
-          sql: "SELECT * FROM elevation_constraint",
-          cartocss: "#elevation_constraint{ polygon-fill: #000000;polygon-opacity: 0.9;line-color: #FFF; line-width: 0.5;line-opacity: 1;}"
+          sql: "SELECT * FROM exols_elevation_constraint",
+          cartocss: "#exols_elevation_constraint{ polygon-fill: #000000;polygon-opacity: 0.9;line-color: #FFF; line-width: 0.5;line-opacity: 1;}"
         });
         el.geoOkConstraint = layer.createSubLayer({
-          sql: "SELECT * FROM geological_age_ok",
-          cartocss: "#geological_age_ok{polygon-fill: #229A00;polygon-opacity: 0.7;line-color: #FFF;line-width: 0.5;line-opacity: 1;}"
+          sql: "SELECT * FROM exols_geological_age_ok",
+          cartocss: "#exols_geological_age_ok{polygon-fill: #229A00;polygon-opacity: 0.7;line-color: #FFF;line-width: 0.5;line-opacity: 1;}"
         });
         el.geoNoOkContraint = layer.createSubLayer({
-          sql: "SELECT * FROM geological_age_not_ok",
-          cartocss: "#geological_age_not_ok{ polygon-fill: #000000;polygon-opacity: 1;line-color: #FFF;line-width: 0.5;line-opacity: 1;}"
+          sql: "SELECT * FROM exols_geological_age_not_ok",
+          cartocss: "#exols_geological_age_not_ok{ polygon-fill: #000000;polygon-opacity: 1;line-color: #FFF;line-width: 0.5;line-opacity: 1;}"
         });
         el.nomenclatorGlobal = layer.createSubLayer({
-          sql: "SELECT * FROM mars_nomenclature_webmercator_ls WHERE cartodb_id IN(84,56,7,6,43,11,3,67)",
+          sql: "SELECT * FROM exols_mars_nomenclature_webmercator_ls WHERE cartodb_id IN(84,56,7,6,43,11,3,67)",
           cartocss:  style4
         });
         el.nomenclatorRegional = layer.createSubLayer({
-          sql: "SELECT * FROM mars_nomenclature_webmercator_ls",
+          sql: "SELECT * FROM exols_mars_nomenclature_webmercator_ls",
           cartocss:  style3
         });
         el.dashellipses1 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_2018 WHERE id IN (1,6)",
-          cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity: 0.3; line-dasharray: 10, 4;}"
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2018 WHERE id IN (1,6)",
+          cartocss: "#exols_exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity: 0.3; line-dasharray: 10, 4;}"
         });
         el.dashellipses2 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_2018 WHERE id IN (2,7)",
-          cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2018 WHERE id IN (2,7)",
+          cartocss: "#exols_exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
         });
         el.landingSite8 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_eight",
+          sql: "SELECT * FROM exols_exomars_landing_sites_eight",
           cartocss: style2,
           interactivity: ['name','coordinates']
         });
         el.dashellipses3 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_2018 WHERE id IN (4,8)",
-          cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2018 WHERE id IN (4,8)",
+          cartocss: "#exols_exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
         });
         el.dashellipses4 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_2018 WHERE id IN (5,9)",
-          cartocss: "#exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2018 WHERE id IN (5,9)",
+          cartocss: "#exols_exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
         });
         el.dashellipses5 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_2020 WHERE id IN (10,15,19,23)",
-          cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2020 WHERE id IN (10,15,19,23)",
+          cartocss: "#exols_exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
         });
         el.dashellipses6 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_2020 WHERE id IN (11,16,20,24)",
-          cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2020 WHERE id IN (11,16,20,24)",
+          cartocss: "#exols_exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
         });
         el.dashellipses7 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_2020 WHERE id IN (13,17,21,25)",
-          cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2020 WHERE id IN (13,17,21,25)",
+          cartocss: "#exols_exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
         });
         el.dashellipses8 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_2020 WHERE id IN (14,18,22,26)",
-          cartocss: "#exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2020 WHERE id IN (14,18,22,26)",
+          cartocss: "#exols_exomars_landing_sites_ellipses_2020{line-color: #00B2EE; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
         });
 
          el.ellipses1 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id =1 ",
-          cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id =1 ",
+          cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
           interactivity: ['name']
          });
 
          el.ellipses2 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id = 2",
-          cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id = 2",
+          cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
           interactivity: ['name']
           });
          el.ellipses3 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE id =3",
-          cartocss: '#exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id =3",
+          cartocss: '#exols_exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
           interactivity: ['name']
          });
          el.ellipses4 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 4",
-          cartocss: '#exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE  id = 4",
+          cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
           interactivity: ['name']
          });
          el.ellipses5 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 5",
-          cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE  id = 5",
+          cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
           interactivity: ['name']
          });
          el.ellipses6 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 6",
-          cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE  id = 6",
+          cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
           interactivity: ['name']
          });
          el.ellipses7 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 7",
-          cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE  id = 7",
+          cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
           interactivity: ['name']
          });
          el.ellipses8 = layer.createSubLayer({
-          sql: "SELECT * FROM exomars_landing_sites_ellipses_union WHERE  id = 8",
-          cartocss: '#exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE  id = 8",
+          cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
           interactivity: ['name']
          });
 

@@ -57,7 +57,7 @@ var initMap = function(){
 
   // call the SQL API from cartodb
   var sql = new cartodb.SQL({ user: 'whereonmars'});
-   sql.execute("SELECT * FROM raster_tiles_HRSC ORDER BY cartodb_id ASC")
+   sql.execute("SELECT * FROM exols_raster_tiles_HRSC ORDER BY cartodb_id ASC")
    .done(function(data){
      el.hrsc = {};
      // loop that read each row of cartodb table and add  hrsc layers
@@ -153,7 +153,7 @@ var initMap = function(){
     }); // finish .done(function()) where all the layers are called
 
     /* Calls the SQL API of CartoDB to add the URL of the tile layers stored in the account */
-    sql.execute("SELECT * FROM raster_tiles_HIRISE ORDER BY cartodb_id ASC")
+    sql.execute("SELECT * FROM exols_raster_tiles_HIRISE ORDER BY cartodb_id ASC")
     .done(function(data){
       el.hirise = {};
       for (i = 0; i < data.total_rows; i++){
