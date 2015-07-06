@@ -26,6 +26,7 @@ The aim of this file is to define all the cartoDB layers and their style.
   .on('done', function(layer) {
       layer.setZIndex(100); // all cartoDB layer will be above all the baselayers
       var sublayer = layer.getSubLayer(0);
+
       // we define the torque layer for the landing ellipses in Aram Dorsum
       cartodb.createLayer(el.map,{
       type: "torque",
@@ -230,6 +231,7 @@ The aim of this file is to define all the cartoDB layers and their style.
           sql: "SELECT * FROM exols_elevation_constraint",
           cartocss: "#exols_elevation_constraint{ polygon-fill: #000000;polygon-opacity: 0.7;line-color: #FFF; line-width: 0.5;line-opacity: 1;}"
         });
+      
         el.geoOkConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_geological_age_ok",
           cartocss: "#exols_geological_age_ok{polygon-fill: #229A00;polygon-opacity: 0.7;line-color: #FFF;line-width: 0.5;line-opacity: 1;}"

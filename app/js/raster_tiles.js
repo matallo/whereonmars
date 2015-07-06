@@ -203,6 +203,9 @@ var initMap = function(){
   el.Oxia = new L.LatLng(18.2, -24.55);
   el.Mawrth = new L.LatLng(22.16, -17.95);
   el.center = new L.LatLng(15,-11);
-
-
+// add Leafet markers
+    /*el.MarkerAram = L.marker(el.Aram).bindPopup("This is Aram Dorsum site").addTo(el.map);
+    el.MarkerHypanis = L.marker(el.Hypanis).bindPopup("This is Hypanis Vallis site").addTo(el.map);
+    el.MarkerOxia = L.marker(el.Oxia).bindPopup("This is Oxia Planum site").addTo(el.map);
+    el.MarkerMawrth = L.marker(el.Mawrth).bindPopup("This is Mawrth Vallis site").addTo(el.map);*/
 } // finish initMap function
