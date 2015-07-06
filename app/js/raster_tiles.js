@@ -9,7 +9,7 @@ var initMap = function(){
 
       });
     new L.control.zoom({position : 'bottomright'}).addTo(el.map);
-    new L.control.scale({metric: true,imperial: false}).addTo(el.map);
+    new L.control.scale({metric: true,imperial: false, position: 'bottomright'}).addTo(el.map);
 
     // define basemap
 
@@ -19,13 +19,6 @@ var initMap = function(){
      maxNativeZoom: 9,
     }).setZIndex(0);
 
-    // basemap2 is the map used to create the mini map
-
-    el.basemap2 = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/celestia_mars-shaded-16k_global/{z}/{x}/{y}.png', {
-
-     tms:true,
-     maxNativeZoom: 5,
-    });
 
     // no shaded color MOLA
     el.basemapNoShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola_color-noshade_global/{z}/{x}/{y}.png', {
@@ -33,9 +26,7 @@ var initMap = function(){
      tms:true,
      maxNativeZoom: 6,
     });
-    // create a Mini map of the basemap2 layer
-    var rect1 = {color: "#CAFF70", weight: 3, opacity: 0.8}; // rect1 to define rectangle options
-    var miniMap = new L.Control.MiniMap(el.basemap2, { toggleDisplay: true, position: 'bottomright',aimingRectOptions : rect1}).addTo(el.map);
+
     // define color basemap
     el.basemapShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-color/{z}/{x}/{y}.png', {
 
@@ -50,7 +41,7 @@ var initMap = function(){
    }).addTo(el.map).setZIndex(0);
 
     el.basemapViking = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/viking_mdim21_global/{z}/{x}/{y}.png', {
-    
+
      tms:true,
      maxNativeZoom: 7,
     }).setZIndex(0);

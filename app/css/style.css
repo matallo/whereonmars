@@ -27,12 +27,17 @@
 	.leaflet-control-attribution {
 		display: none!important;
 	}
-	.leaflet-left .leaflet-control-scale {
-		margin-left: 5px;
+
+	.leaflet-control-scale{
+		bottom: -55px;
+		right: 10px;
 	}
-	.leaflet-bottom .leaflet-control-scale {
-		margin-bottom: 10px;
+
+	.leaflet-control-zoom{
+		bottom: 30px;
+		right: 25px;
 	}
+
   .leaflet-control-scale-line {
 		-moz-box-sizing: content-box;
 		box-sizing: content-box;
@@ -43,6 +48,7 @@
 		font-family: cursive;
 		padding-left: 10px;
 		padding-right: 10px;
+
 
 	}
 	.leaflet-control-layers-toggle{
