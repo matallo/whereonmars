@@ -53,16 +53,28 @@
 
     // A group of functions to resize the slide_container
     function heightSmall(){
-      $('#slides_container').height('5%')
+      $('#slides_container').height('4%')
     };
     function widthSmall(){
-      $('#slides_container').width('110')
+
+      $('#slides_container')
+      .width('80')
+      .css({
+        'padding-left' : '10px',
+        'padding-top' : '0px',
+        'padding-bottom' : '0px'
+      })
     }
     function heightNormal(){
       $('#slides_container').height('auto')
     };
     function widthNormal(){
-      $('#slides_container').width(430)
+      $('#slides_container')
+      .width(500)
+      .css({
+        'padding-top': '5px',
+        'padding-left': '25px'
+      })
     };
 
     // buttons inside slide container
@@ -103,4 +115,3 @@
         "opacity": 0.5
       })
     });
-  

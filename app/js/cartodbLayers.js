@@ -228,7 +228,7 @@ The aim of this file is to define all the cartoDB layers and their style.
         });
         el.elevationConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_elevation_constraint",
-          cartocss: "#exols_elevation_constraint{ polygon-fill: #000000;polygon-opacity: 0.9;line-color: #FFF; line-width: 0.5;line-opacity: 1;}"
+          cartocss: "#exols_elevation_constraint{ polygon-fill: #000000;polygon-opacity: 0.7;line-color: #FFF; line-width: 0.5;line-opacity: 1;}"
         });
         el.geoOkConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_geological_age_ok",
