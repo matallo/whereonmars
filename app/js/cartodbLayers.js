@@ -236,7 +236,7 @@ The aim of this file is to define all the cartoDB layers and their style.
         });
         el.geoNoOkContraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_geological_age_not_ok",
-          cartocss: "#exols_geological_age_not_ok{ polygon-fill: #000000;polygon-opacity: 1;line-color: #FFF;line-width: 0.5;line-opacity: 1;}"
+          cartocss: "#exols_geological_age_not_ok{ polygon-fill: #000000;polygon-opacity: 0.7;line-color: #FFF;line-width: 0.5;line-opacity: 1;}"
         });
         el.nomenclatorGlobal = layer.createSubLayer({
           sql: "SELECT * FROM exols_mars_nomenclature_webmercator_ls WHERE cartodb_id IN(84,56,7,6,43,11,3,67)",
