@@ -26,7 +26,6 @@ The aim of this file is to define all the cartoDB layers and their style.
   .on('done', function(layer) {
       layer.setZIndex(100); // all cartoDB layer will be above all the baselayers
       var sublayer = layer.getSubLayer(0);
-
       // we define the torque layer for the landing ellipses in Aram Dorsum
       cartodb.createLayer(el.map,{
       type: "torque",
@@ -231,7 +230,7 @@ The aim of this file is to define all the cartoDB layers and their style.
           sql: "SELECT * FROM exols_elevation_constraint",
           cartocss: "#exols_elevation_constraint{ polygon-fill: #000000;polygon-opacity: 0.7;line-color: #FFF; line-width: 0.5;line-opacity: 1;}"
         });
-      
+
         el.geoOkConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_geological_age_ok",
           cartocss: "#exols_geological_age_ok{polygon-fill: #229A00;polygon-opacity: 0.7;line-color: #FFF;line-width: 0.5;line-opacity: 1;}"
@@ -536,6 +535,53 @@ The aim of this file is to define all the cartoDB layers and their style.
       el.dashellipses6.hide();
       el.dashellipses7.hide();
       el.dashellipses8.hide();
+
+
+      /*define the legend of the layers */
+      // custoum legend
+      el.legendElevation = new cdb.geo.ui.Legend({
+           type: "custom",
+           data: [
+             { name: "Area higher than -2 km", value: "#000" },
+           ]
+         });
+         $('#map').append(el.legendElevation.render().el);
+
+      el.legendGeology = new cdb.geo.ui.Legend({
+          type: "custom",
+          data: [
+              { name: "Age < 3.600.000.000 years ", value: "#000" },
+            ]
+          });
+      $('#map').append(el.legendGeology.render().el);
+      // coropleth legend
+      el.lengendMOLA = new cdb.geo.ui.Legend({
+           type: "choropleth",
+           data: [
+             { value: "-9 km" },
+             { value: "+14 km" },
+             { value: "#070610" },//1 -9
+             { value: "#2F2C4B" },//2
+             { value: "#514C77" },//3
+             { value: "#4E5FA3" },//4
+             { value: "#4589CD" },//5
+             { value: "#31D874" },//6
+             { value: "#4EDC45" },//7
+             { value: "#CBD61F" },//8 0
+             { value: "#D9C31C" },//8.1 
+             { value: "#DE9E17" },//10
+             { value: "#EA6632" },//11
+             { value: "#E45E6B" },//12
+             { value: "#A66457" },//13
+             { value: "#857354" },//14
+             { value: "#988384" },//15
+             { value: "#D8D5D3" },//16
+             { value: "#F2F5F0" },//17
+
+           ]
+         });
+         $('#map').append(el.lengendMOLA.render().el);
+
 
       // add all cartoDB subLayers into the map
       el.map.addLayer(layer, false);

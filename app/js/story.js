@@ -302,6 +302,10 @@ function slideZero() {
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 
 };
 // MOLA Shaded presentation
@@ -316,6 +320,7 @@ function slideOne() {
   el.nomenclatorGlobal.hide();
   el.nomenclatorRegional.hide();
   el.geoNoOkContraint.hide();
+  el.legendElevation.hide();
 // layers to hide when clicking buttons (not following the story order)
   el.landingSite8.hide();
   el.latConstraint.hide();
@@ -341,6 +346,10 @@ function slideOne() {
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.show();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
   };
 
 
@@ -381,8 +390,10 @@ function slideTwo() {
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
-
-
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.show();
+  el.legendGeology.hide();
 };
 // latitude constraint landing sites
 function slideThree() {
@@ -421,6 +432,10 @@ function slideThree() {
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 };
 // geological constraint
 function slideFour() {
@@ -429,7 +444,6 @@ function slideFour() {
     el.map.removeLayer(el.basemapCelestia);
     el.map.addLayer(el.basemapShadedColor);
   }
-  el.landingSite.hide();
   el.landingSite8.hide();
   el.latConstraint.hide();
   el.geoConstraint.hide();
@@ -459,6 +473,10 @@ function slideFour() {
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.show();
 
 };
 // Mix of constraints
@@ -498,6 +516,10 @@ function slideFive() {
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 };
 // 4 landing sites
 function slideSix() {
@@ -513,7 +535,6 @@ function slideSix() {
   el.landingSite8.hide();
   el.duneConstraint.hide();
   el.nomenclatorRegional.hide();
-  
   // layers to hide when clicking buttons (not following the story order)
   el.nomenclatorGlobal.hide();
   el.elevationConstraint.hide();
@@ -537,6 +558,10 @@ function slideSix() {
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 };
 // Aram Dorsum
 function slideSeven(){
@@ -574,6 +599,10 @@ function slideSeven(){
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 };
 // HRSC
 function slideEight() {
@@ -613,6 +642,10 @@ function slideEight() {
   el.dashellipses8.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 };
 // HiRISE
 function slideNine(){
@@ -649,6 +682,10 @@ function slideNine(){
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 };
 // Aram Dorsum landing site 2018
 function slideTen() {
@@ -689,6 +726,10 @@ function slideTen() {
   el.dashellipses6.hide();
   el.dashellipses7.hide();
   el.dashellipses8.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 
 
 };
@@ -730,7 +771,10 @@ function slideEleven() {
   el.dashellipses6.hide();
   el.dashellipses7.hide();
   el.dashellipses8.hide();
-
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 };
   // Hypanis Vallis
 function slideTwelve() {
@@ -769,7 +813,10 @@ function slideTwelve() {
   el.dashellipses8.hide();
   el.torqueEllipses1.stop();
   el.torqueEllipses1.hide();
-
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 };
 // Hypanis Vallis landing sites
 function slideThirteen() {
@@ -807,6 +854,10 @@ function slideThirteen() {
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 };
   // Oxia Planum
 function slideFourteen() {
@@ -844,6 +895,10 @@ function slideFourteen() {
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 };
 
 // Oxia Planum landing sites
@@ -882,6 +937,10 @@ function slideFifteen() {
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 };
 // Mawrth Vallis
 function slideSixteen() {
@@ -919,6 +978,10 @@ function slideSixteen() {
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 };
 // Mawrth Vallis HiRISE
 function slideSeventeen() {
@@ -956,6 +1019,10 @@ function slideSeventeen() {
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 };
 // Mawrth Vallis landing sites
 function slideEighteen() {
@@ -994,6 +1061,10 @@ function slideEighteen() {
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 };
   // End of the story/overview
 function slideNineteen() {
@@ -1033,6 +1104,10 @@ function slideNineteen() {
   el.torqueEllipses1.hide();
   el.torqueEllipses2.stop();
   el.torqueEllipses2.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
 };
 // start initOdyssey fucntion (it is called in the main.js)
 function initOdyssey(O) {

@@ -16,12 +16,18 @@
 		display: none!important;
 	}
 
-/*  logo cartodb */
+	/*  logo cartodb */
 	.cartodb-logo{
 		display: none!important;
 	}
-
-
+	/* Legends*/
+	.cartodb-legend{
+		left: 10px;
+		width: 250px;
+		background-color: #FFF;
+		opacity: 1;
+		height: auto;
+	}
 
 	/* different styles for the leaflet plugins */
 	.leaflet-control-attribution {
