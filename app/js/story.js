@@ -263,7 +263,32 @@ function titleNineteen(){
 
     };
 
-  }
+    // legend title for MOLA
+    if (index == 1){
+      $('#MOLA_title').css({
+        'opacity':1
+      }).empty().text("Altitutes MOLA");
+    }
+
+    if (index == 2){
+      $('#MOLA_title').css({
+        'opacity':1
+      }).empty().text("Height of the terrain");
+    }
+
+    if (index == 4){
+        $('#MOLA_title').css({
+          'opacity':1
+        }).empty().text("Geological age");
+    }
+    if (index != 1 && index != 2 && index !=4){
+      $('#MOLA_title').css({
+        'opacity':0
+      }).empty()
+    }
+}
+
+
 
   // intro
 function slideZero() {

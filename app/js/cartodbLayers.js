@@ -538,7 +538,7 @@ The aim of this file is to define all the cartoDB layers and their style.
 
 
       /*define the legend of the layers */
-      // custoum legend
+
       el.legendElevation = new cdb.geo.ui.Legend({
            type: "custom",
            data: [
@@ -560,15 +560,15 @@ The aim of this file is to define all the cartoDB layers and their style.
            data: [
              { value: "-9 km" },
              { value: "+14 km" },
-             { value: "#070610" },//1 -9
+             { value: "#070610" },//1 -9 km
              { value: "#2F2C4B" },//2
              { value: "#514C77" },//3
              { value: "#4E5FA3" },//4
              { value: "#4589CD" },//5
              { value: "#31D874" },//6
              { value: "#4EDC45" },//7
-             { value: "#CBD61F" },//8 0
-             { value: "#D9C31C" },//8.1 
+             { value: "#CBD61F" },//8 0 km
+             { value: "#D9C31C" },//8.1
              { value: "#DE9E17" },//10
              { value: "#EA6632" },//11
              { value: "#E45E6B" },//12
@@ -576,11 +576,14 @@ The aim of this file is to define all the cartoDB layers and their style.
              { value: "#857354" },//14
              { value: "#988384" },//15
              { value: "#D8D5D3" },//16
-             { value: "#F2F5F0" },//17
+             { value: "#F2F5F0" },//17 +14 km
 
            ]
          });
-         $('#map').append(el.lengendMOLA.render().el);
+      $('#map').append(el.lengendMOLA.render().el);
+
+
+
 
 
       // add all cartoDB subLayers into the map

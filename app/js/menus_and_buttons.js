@@ -70,7 +70,7 @@
     };
     function widthNormal(){
       $('#slides_container')
-      .width(500)
+      .width('30%')
       .css({
         'padding-top': '5px',
         'padding-left': '25px'
@@ -115,5 +115,3 @@
         "opacity": 0.5
       })
     });
-
-  
