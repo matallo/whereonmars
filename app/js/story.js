@@ -263,6 +263,8 @@ function titleNineteen(){
 
     };
 
+
+
     // legend title for MOLA
     if (index == 1){
       $('#MOLA_title').css({
@@ -387,6 +389,7 @@ function slideTwo() {
     el.map.removeLayer(el.basemapCelestia);
     el.map.addLayer(el.basemapShadedColor);
   }
+
   el.landingSite.hide();
   el.elevationConstraint.show();
   el.latConstraint.hide();

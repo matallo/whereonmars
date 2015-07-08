@@ -47,5 +47,8 @@ var el = {
   dashellipses6: null,
   dashellipses7: null,
   dashellipses8: null,
-  LayerActions: null
+  LayerActions: null,
+  graticuleOptions: null,
+  graticule: null
+
 };
