@@ -308,6 +308,7 @@ function slideZero() {
   el.geoConstraint.hide();
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
@@ -352,6 +353,7 @@ function slideOne() {
   el.geoConstraint.hide();
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
@@ -395,6 +397,7 @@ function slideTwo() {
   el.nomenclatorRegional.hide();
   // layers to hide when clicking buttons (not following the story order)
   el.nomenclatorGlobal.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
@@ -435,6 +438,7 @@ function slideThree() {
   el.landingSite.hide();
   el.duneConstraint.hide();
   el.nomenclatorRegional.hide();
+  el.elevationConstraintNoOkLS.hide();
   // layers to hide when clicking buttons (not following the story order)
   el.nomenclatorGlobal.hide();
   el.ellipses1.hide();
@@ -478,6 +482,7 @@ function slideFour() {
   el.nomenclatorGlobal.hide();
   el.nomenclatorRegional.hide();
   el.elevationConstraint.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
@@ -515,6 +520,7 @@ function slideFive() {
   el.latConstraint.show();
   el.geoConstraint.show();
   el.geoNoOkContraint.hide();
+  el.elevationConstraintNoOkLS.show();
   el.landingSite8.show();
   el.duneConstraint.hide();
   el.nomenclatorRegional.hide();
@@ -557,6 +563,7 @@ function slideSix() {
   el.latConstraint.hide();
   el.geoConstraint.hide();
   el.geoNoOkContraint.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.landingSite8.hide();
   el.duneConstraint.hide();
   el.nomenclatorRegional.hide();
@@ -603,6 +610,7 @@ function slideSeven(){
   el.ellipses5.hide();
   el.dashellipses1.hide();
   el.nomenclatorRegional.show();
+  el.elevationConstraintNoOkLS.hide();
   // layers to hide when clicking buttons (not following the story order)
   el.nomenclatorGlobal.hide();
   el.elevationConstraint.hide();
@@ -646,6 +654,7 @@ function slideEight() {
   el.nomenclatorGlobal.hide();
   el.elevationConstraint.hide();
   el.geoNoOkContraint.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.landingSite8.hide();
   el.landingSite.hide();
   el.latConstraint.hide();
@@ -682,6 +691,7 @@ function slideNine(){
   el.map.addLayer(el.hrsc[0]);
   // layers to hide when clicking buttons (not following the story order)
   el.nomenclatorGlobal.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.landingSite8.hide();
   el.landingSite.hide();
   el.latConstraint.hide();
@@ -738,6 +748,7 @@ function slideTen() {
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
   el.geoNoOkContraint.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
   el.ellipses4.hide();
@@ -784,6 +795,7 @@ function slideEleven() {
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
   el.geoNoOkContraint.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
   el.ellipses4.hide();
@@ -864,6 +876,7 @@ function slideThirteen() {
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
   el.geoNoOkContraint.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.ellipses1.hide();
   el.ellipses4.hide();
   el.ellipses5.hide();
@@ -906,6 +919,7 @@ function slideFourteen() {
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
   el.geoNoOkContraint.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.ellipses1.hide();
   el.ellipses4.hide();
   el.ellipses5.hide();
@@ -948,6 +962,7 @@ function slideFifteen() {
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
   el.geoNoOkContraint.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses5.hide();
@@ -987,6 +1002,7 @@ function slideSixteen() {
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
   el.geoNoOkContraint.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses4.hide();
@@ -1028,6 +1044,7 @@ function slideSeventeen() {
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
   el.geoNoOkContraint.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
@@ -1070,6 +1087,7 @@ function slideEighteen() {
   el.nomenclatorRegional.hide();
   el.elevationConstraint.hide();
   el.geoNoOkContraint.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
@@ -1107,6 +1125,7 @@ function slideNineteen() {
   el.dashellipses8.hide();
   // layers to hide when clicking buttons (not following the story order)
   el.nomenclatorGlobal.hide();
+  el.elevationConstraintNoOkLS.hide();
   el.landingSite8.hide();
   el.latConstraint.hide();
   el.geoConstraint.hide();

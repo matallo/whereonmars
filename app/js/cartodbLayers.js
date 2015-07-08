@@ -222,6 +222,10 @@ The aim of this file is to define all the cartoDB layers and their style.
             sql: "SELECT * FROM exols_restricted_geology_latitude_webmercator",
             cartocss: "#exols_restricted_geology_latitude_webmercator{polygon-fill:  #5CA2D1;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}"
         });
+        el.elevationConstraintNoOkLS = layer.createSubLayer({
+          sql: "SELECT * FROM exols_elevation_constraint_landing_sites",
+            cartocss: "#exols_elevation_constraint_landing_sites{polygon-fill: #000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}"
+        });
         el.duneConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_dune_field_usgs",
           cartocss: '#exols_dune_field_usgs{polygon-fill: #c3834c;polygon-opacity: 0.7;line-color: #F11810;line-width: 1;line-opacity: 0;}'
@@ -230,7 +234,6 @@ The aim of this file is to define all the cartoDB layers and their style.
           sql: "SELECT * FROM exols_elevation_constraint",
           cartocss: "#exols_elevation_constraint{ polygon-fill: #000000;polygon-opacity: 0.7;line-color: #FFF; line-width: 0.5;line-opacity: 1;}"
         });
-
         el.geoOkConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_geological_age_ok",
           cartocss: "#exols_geological_age_ok{polygon-fill: #229A00;polygon-opacity: 0.7;line-color: #FFF;line-width: 0.5;line-opacity: 1;}"
@@ -519,6 +522,7 @@ The aim of this file is to define all the cartoDB layers and their style.
       el.nomenclatorRegional.hide();
       el.geoOkConstraint.hide();
       el.geoNoOkContraint.hide();
+      el.elevationConstraintNoOkLS.hide();
       el.ellipses1.hide();
       el.ellipses2.hide();
       el.ellipses3.hide();

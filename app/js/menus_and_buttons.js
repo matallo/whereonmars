@@ -70,7 +70,7 @@
     };
     function widthNormal(){
       $('#slides_container')
-      .width('30%')
+      .width('20%')
       .css({
         'padding-top': '5px',
         'padding-left': '25px'

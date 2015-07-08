@@ -25,6 +25,7 @@ var el = {
   latConstraint: null,
   elevationConstraint:null,
   geoConstraint: null,
+  elevationConstraintNoOkLS: null,
   duneConstraint: null,
   geoOkConstraint: null,
   geoNoOkContraint: null,
