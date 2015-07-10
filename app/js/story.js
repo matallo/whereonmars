@@ -166,7 +166,7 @@ function titleEleven(){
   // check the index being returned by trackCurrentSlide()
   var checkIndex = function(index) {
     switch(index){
-      case 0: slideZero(),hide(),titleZero(),console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#19").removeClass("active"); // introduction
+      case 0: slideZero(),hide(),titleZero(),console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#11").removeClass("active"); // introduction
       break;
       case 1: slideOne(),hide(),titleOne(),console.log(index),$("#0").removeClass("active") ,$("#1").addClass("active"),$("#2").removeClass("active");// MOLA
       break;
@@ -190,7 +190,6 @@ function titleEleven(){
       break;
       case 11: slideEleven(),show(),titleEleven(),console.log(index), $("#10").removeClass("active") ,$("#11").addClass("active"),$("#0").removeClass("active");// End
       break;
-
     };
 }
 
@@ -228,10 +227,7 @@ function slideZero() {
   el.dashellipses6.hide();
   el.dashellipses7.hide();
   el.dashellipses8.hide();
-  el.torqueEllipses1.stop();
-  el.torqueEllipses1.hide();
-  el.torqueEllipses2.stop();
-  el.torqueEllipses2.hide();
+
   //legends
   el.lengendMOLA.hide();
   el.legendElevation.hide();
@@ -273,10 +269,7 @@ function slideOne() {
   el.dashellipses6.hide();
   el.dashellipses7.hide();
   el.dashellipses8.hide();
-  el.torqueEllipses1.stop();
-  el.torqueEllipses1.hide();
-  el.torqueEllipses2.stop();
-  el.torqueEllipses2.hide();
+
   //legends
   el.lengendMOLA.show();
   el.legendElevation.hide();
@@ -319,10 +312,7 @@ function slideTwo() {
   el.dashellipses6.hide();
   el.dashellipses7.hide();
   el.dashellipses8.hide();
-  el.torqueEllipses1.stop();
-  el.torqueEllipses1.hide();
-  el.torqueEllipses2.stop();
-  el.torqueEllipses2.hide();
+
   //legends
   el.lengendMOLA.hide();
   el.legendElevation.show();
@@ -362,10 +352,7 @@ function slideThree() {
   el.dashellipses6.hide();
   el.dashellipses7.hide();
   el.dashellipses8.hide();
-  el.torqueEllipses1.stop();
-  el.torqueEllipses1.hide();
-  el.torqueEllipses2.stop();
-  el.torqueEllipses2.hide();
+
   //legends
   el.lengendMOLA.hide();
   el.legendElevation.hide();
@@ -404,10 +391,7 @@ function slideFour() {
   el.dashellipses6.hide();
   el.dashellipses7.hide();
   el.dashellipses8.hide();
-  el.torqueEllipses1.stop();
-  el.torqueEllipses1.hide();
-  el.torqueEllipses2.stop();
-  el.torqueEllipses2.hide();
+
   //legends
   el.lengendMOLA.hide();
   el.legendElevation.hide();
@@ -448,10 +432,7 @@ function slideFive() {
   el.dashellipses6.hide();
   el.dashellipses7.hide();
   el.dashellipses8.hide();
-  el.torqueEllipses1.stop();
-  el.torqueEllipses1.hide();
-  el.torqueEllipses2.stop();
-  el.torqueEllipses2.hide();
+
   //legends
   el.lengendMOLA.hide();
   el.legendElevation.hide();
@@ -491,10 +472,7 @@ function slideSix() {
   el.dashellipses6.hide();
   el.dashellipses7.hide();
   el.dashellipses8.hide();
-  el.torqueEllipses1.stop();
-  el.torqueEllipses1.hide();
-  el.torqueEllipses2.stop();
-  el.torqueEllipses2.hide();
+
   //legends
   el.lengendMOLA.hide();
   el.legendElevation.hide();
@@ -511,9 +489,10 @@ function slideSeven(){
   el.latConstraint.hide();
   el.geoConstraint.hide();
   el.duneConstraint.hide();
-  el.ellipses1.hide();
-  el.ellipses5.hide();
-  el.dashellipses1.hide();
+  el.ellipses1.show();
+  el.ellipses5.show();
+  el.dashellipses1.show();
+  el.dashellipses5.show();
   el.nomenclatorRegional.show();
   el.elevationConstraintNoOkLS.hide();
   // layers to hide when clicking buttons (not following the story order)
@@ -529,14 +508,9 @@ function slideSeven(){
   el.dashellipses2.hide();
   el.dashellipses3.hide();
   el.dashellipses4.hide();
-  el.dashellipses5.hide();
   el.dashellipses6.hide();
   el.dashellipses7.hide();
   el.dashellipses8.hide();
-  el.torqueEllipses1.stop();
-  el.torqueEllipses1.hide();
-  el.torqueEllipses2.stop();
-  el.torqueEllipses2.hide();
   //legends
   el.lengendMOLA.hide();
   el.legendElevation.hide();
@@ -551,14 +525,13 @@ function slideEight() {
     el.map.addLayer(el.basemapViking);
   }
   el.ellipses1.hide();
-  el.ellipses2.hide();
+  el.ellipses2.show();
   el.ellipses5.hide();
-  el.ellipses6.hide();
-  el.dashellipses2.hide();
+  el.ellipses6.show();
+  el.dashellipses2.show();
   el.dashellipses5.hide();
-  el.dashellipses6.hide();
-  el.torqueEllipses2.hide();
-  el.torqueEllipses2.stop();
+  el.dashellipses6.show();
+
   // layers to hide when clicking buttons (not following the story order)
   el.nomenclatorGlobal.hide();
   el.landingSite8.hide();
@@ -594,9 +567,11 @@ function slideNine() {
     el.map.addLayer(el.basemapViking);
   }
   el.ellipses2.hide();
-  el.ellipses3.hide();
+  el.ellipses3.show();
   el.ellipses6.hide();
-  el.ellipses7.hide();
+  el.ellipses7.show();
+  el.dashellipses3.show();
+  el.dashellipses7.show();
   el.dashellipses2.hide();
   el.dashellipses6.hide();
   // layers to hide when clicking buttons (not following the story order)
@@ -614,15 +589,10 @@ function slideNine() {
   el.ellipses5.hide();
   el.ellipses8.hide();
   el.dashellipses1.hide();
-  el.dashellipses3.hide();
   el.dashellipses4.hide();
   el.dashellipses5.hide();
-  el.dashellipses7.hide();
   el.dashellipses8.hide();
-  el.torqueEllipses1.stop();
-  el.torqueEllipses1.hide();
-  el.torqueEllipses2.stop();
-  el.torqueEllipses2.hide();
+
   //legends
   el.lengendMOLA.hide();
   el.legendElevation.hide();
@@ -637,8 +607,12 @@ function slideTen() {
     el.map.removeLayer(el.basemapShadedColor);
     el.map.addLayer(el.basemapViking);
   }
+  el.ellipses4.show();
+  el.ellipses8.show();
   el.ellipses3.hide();
   el.ellipses7.hide();
+  el.dashellipses4.show();
+  el.dashellipses8.show();
   el.dashellipses3.hide();
   el.dashellipses7.hide();
   // layers to hide when clicking buttons (not following the story order)
@@ -653,20 +627,12 @@ function slideTen() {
   el.elevationConstraintNoOkLS.hide();
   el.ellipses1.hide();
   el.ellipses2.hide();
-  el.ellipses4.hide();
   el.ellipses5.hide();
   el.ellipses6.hide();
-  el.ellipses8.hide();
   el.dashellipses1.hide();
   el.dashellipses2.hide();
-  el.dashellipses4.hide();
   el.dashellipses5.hide();
   el.dashellipses6.hide();
-  el.dashellipses8.hide();
-  el.torqueEllipses1.stop();
-  el.torqueEllipses1.hide();
-  el.torqueEllipses2.stop();
-  el.torqueEllipses2.hide();
   //legends
   el.lengendMOLA.hide();
   el.legendElevation.hide();
@@ -708,10 +674,6 @@ function slideEleven() {
   el.dashellipses5.hide();
   el.dashellipses6.hide();
   el.dashellipses7.hide();
-  el.torqueEllipses1.stop();
-  el.torqueEllipses1.hide();
-  el.torqueEllipses2.stop();
-  el.torqueEllipses2.hide();
   //legends
   el.lengendMOLA.hide();
   el.legendElevation.hide();
