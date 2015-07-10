@@ -551,8 +551,6 @@ function slideEight() {
   el.dashellipses6.hide();
   el.dashellipses7.hide();
   el.dashellipses8.hide();
-  el.torqueEllipses1.stop();
-  el.torqueEllipses1.hide();
   //legends
   el.lengendMOLA.hide();
   el.legendElevation.hide();
@@ -681,6 +679,7 @@ function slideEleven() {
 };
 // start initOdyssey fucntion (it is called in the main.js)
 function initOdyssey(O) {
+
     // O is for Odyssey
     var map = el.map;
     seq = O.Triggers.Sequential();

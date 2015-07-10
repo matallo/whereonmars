@@ -1,25 +1,25 @@
 /*
 The aim of this file is to define all the cartoDB layers and their style.
 */
-  var layer1 = false;
-  var layer2 = false;
+
 
   var startStory = function() {
-    if (layer1 && layer2) {
+
       if (location.hash != "") {
         var chapter = parseInt(location.hash.replace('#', ''), 10);
         el.story.go(chapter);
         checkIndex(chapter);
         $("li").removeClass("active");
-        $("li#"+chapter).addClass("active");
+        $("li#" + chapter).addClass("active");
       } else {
         el.story.go(0,seq.step(0));
       }
     }
-  }
+
 
 // call data from cartoDB
   var cartodbData = function(){
+
   var layerURL = 'http://whereonmars.cartodb.com/api/v2/viz/03ec7c7c-bc6a-11e4-b600-0e4fddd5de28/viz.json';
   // create cartoDB layer from vizjson url
   cartodb.createLayer(el.map, layerURL)
@@ -27,56 +27,8 @@ The aim of this file is to define all the cartoDB layers and their style.
       layer.setZIndex(100); // all cartoDB layer will be above all the baselayers
       var sublayer = layer.getSubLayer(0);
 
-      // we define the torque layer for the landing ellipses in Aram Dorsum
-      cartodb.createLayer(el.map,{
-      type: "torque",
-      options: {
-        user_name: "whereonmars",
-        table_name: "exols_ls_ellipses_2018_aram",
-        cartocss:
-        'Map { '
-                +'  -torque-frame-count:512; '
-                +'  -torque-animation-duration:15; -torque-time-attribute:"cartodb_id"; '
-                +'  -torque-aggregation-function:"count(cartodb_id)"; '
-                +' -torque-resolution:2; -torque-data-aggregation:linear} '
-        +'#exols_ls_ellipses_2018_aram{ '
-                +'  comp-op: xor; marker-fill-opacity: 1; '
 
-                +'  marker-line-opacity: 1; marker-type: ellipse; '
-                +'  marker-width: 3.5; marker-fill: #f11810; }'
-              }
-      }).done(function(layer){
 
-        el.torqueEllipses1 = layer;
-
-        layer1 = true;
-        startStory();
-    });
-    // we define the torque layer for the landing ellipses in Aram Dorsum
-    cartodb.createLayer(el.map,{
-    type: "torque",
-    options: {
-      user_name: "whereonmars",
-      table_name: "exols_ls_ellipses_2020_aram",
-      cartocss:
-      'Map { '
-              +'  -torque-frame-count:512; '
-              +'  -torque-animation-duration:15; -torque-time-attribute:"cartodb_id"; '
-              +'  -torque-aggregation-function:"count(cartodb_id)"; '
-              +' -torque-resolution:2; -torque-data-aggregation:linear} '
-      +'#exols_ls_ellipses_2018_aram{ '
-              +'  comp-op: xor; marker-fill-opacity: 1; '
-              +'  marker-line-opacity: 1; marker-type: ellipse; '
-              +'  marker-width: 3.5; marker-fill: #f11810; }'
-            }
-    }).done(function(layer){
-
-      el.torqueEllipses2 = layer;
-
-      layer2 = true;
-      startStory();
-
-    });
 
     // Define the styles for the layer and the labels. It will be used to
     //  define the cartocss style for the landing sites. style1 define the
@@ -294,42 +246,50 @@ The aim of this file is to define all the cartoDB layers and their style.
          el.ellipses1 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id =1 ",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+          interactivity: ['description']
          });
 
          el.ellipses2 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id = 2",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+          interactivity: ['description']
           });
          el.ellipses3 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id =3",
           cartocss: '#exols_exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+          interactivity: ['description']
          });
          el.ellipses4 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE  id = 4",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
+          interactivity: ['description']
          });
          el.ellipses5 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE  id = 5",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+          interactivity: ['description']
          });
          el.ellipses6 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE  id = 6",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+          interactivity: ['description']
          });
          el.ellipses7 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE  id = 7",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+          interactivity: ['description']
          });
          el.ellipses8 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE  id = 8",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
+          interactivity: ['description']
          });
 
 
         // attach layers to the checkbox
         //activate checkboxes for all layer that have the name LS
         var checkbox = $('input.vector:checkbox'),
-        $landingSite4 = $('#landingSite4') // calls the checkbox with the id = landingSite4
+          $landingSite4 = $('#landingSite4') // calls the checkbox with the id = landingSite4
           $landingSite4.change(function(){
             if ($landingSite4.is(':checked')){ // if checkbox is selected, then show layer
               el.landingSite.show();
@@ -337,7 +297,7 @@ The aim of this file is to define all the cartoDB layers and their style.
               el.landingSite.hide();
             }
           });
-        $landingSite8 = $('#landingSiteEight') // calls the checkbox with the id = landingSite4
+      var $landingSite8 = $('#landingSiteEight') // calls the checkbox with the id = landingSite4
           $landingSite8.change(function(){
             if ($landingSite8.is(':checked')){ // if checkbox is selected, then show layer
               el.landingSite8.show();
@@ -345,7 +305,7 @@ The aim of this file is to define all the cartoDB layers and their style.
               el.landingSite8.hide();
             }
           });
-        $ellipsesAram1 = $('#ellipsesAram1')
+      var $ellipsesAram1 = $('#ellipsesAram1')
         $ellipsesAram1.change(function(){
           if ($ellipsesAram1.is(':checked')){
             el.ellipses1.show();
@@ -355,7 +315,7 @@ The aim of this file is to define all the cartoDB layers and their style.
             el.dashellipses1.hide();
           }
         });
-        $ellipsesHypanis1 = $('#ellipsesHypanis1')
+      var $ellipsesHypanis1 = $('#ellipsesHypanis1')
         $ellipsesHypanis1.change(function(){
           if ($ellipsesHypanis1.is(':checked')){
             el.ellipses2.show();
@@ -365,7 +325,7 @@ The aim of this file is to define all the cartoDB layers and their style.
             el.dashellipses2.hide();
           }
         });
-        $ellipsesOxia1 = $('#ellipsesOxia1')
+      var $ellipsesOxia1 = $('#ellipsesOxia1')
         $ellipsesOxia1.change(function(){
           if ($ellipsesOxia1.is(':checked')){
             el.ellipses3.show();
@@ -375,7 +335,7 @@ The aim of this file is to define all the cartoDB layers and their style.
             el.dashellipses3.hide();
           }
         });
-        $ellipsesMawrth1 = $('#ellipsesMawrth1')
+     var $ellipsesMawrth1 = $('#ellipsesMawrth1')
         $ellipsesMawrth1.change(function(){
           if ($ellipsesMawrth1 .is(':checked')){
             el.ellipses4.show();
@@ -385,7 +345,7 @@ The aim of this file is to define all the cartoDB layers and their style.
             el.dashellipses4.hide();
           }
         });
-        $ellipsesAram2 = $('#ellipsesAram2')
+      var $ellipsesAram2 = $('#ellipsesAram2')
         $ellipsesAram2.change(function(){
           if ($ellipsesAram2.is(':checked')){
             el.ellipses5.show();
@@ -395,7 +355,7 @@ The aim of this file is to define all the cartoDB layers and their style.
             el.dashellipses5.hide();
           }
         });
-        $ellipsesHypanis2 = $('#ellipsesHypanis2')
+        var $ellipsesHypanis2 = $('#ellipsesHypanis2')
         $ellipsesHypanis2.change(function(){
           if ($ellipsesHypanis2.is(':checked')){
             el.ellipses6.show();
@@ -405,7 +365,7 @@ The aim of this file is to define all the cartoDB layers and their style.
             el.dashellipses6.hide();
           }
         });
-        $ellipsesOxia2 = $('#ellipsesOxia2')
+        var $ellipsesOxia2 = $('#ellipsesOxia2')
         $ellipsesOxia2.change(function(){
           if ($ellipsesOxia2.is(':checked')){
             el.ellipses7.show();
@@ -415,7 +375,7 @@ The aim of this file is to define all the cartoDB layers and their style.
             el.dashellipses7.hide();
           }
         });
-        $ellipsesMawrth2 = $('#ellipsesMawrth2')
+        var $ellipsesMawrth2 = $('#ellipsesMawrth2')
         $ellipsesMawrth2.change(function(){
           if ($ellipsesMawrth2 .is(':checked')){
             el.ellipses8.show();
@@ -426,33 +386,7 @@ The aim of this file is to define all the cartoDB layers and their style.
           }
         });
 
-        $torque2018= $('#torque2018')
-        $torque2018.change(function(){
-          if ($torque2018.is(':checked')){
-            el.map.addLayer(el.torqueEllipses1);
-            el.torqueEllipses1.setZIndex(1000);
-            el.torqueEllipses1.show();
-            el.torqueEllipses1.play();
-          }else{
-            el.torqueEllipses1.hide();
-            el.torqueEllipses1.stop();
-
-          }
-        });
-        $torque2020= $('#torque2020')
-        $torque2020.change(function(){
-          if ($torque2020.is(':checked')){
-            el.map.addLayer(el.torqueEllipses2);
-            el.torqueEllipses2.setZIndex(1000);
-            el.torqueEllipses2.show();
-            el.torqueEllipses2.play();
-          }else{
-            el.torqueEllipses2.hide();
-            el.torqueEllipses2.stop();
-
-          }
-        });
-        $constraint1 = $('#constraint1')
+        var $constraint1 = $('#constraint1')
         $constraint1.change(function(){
           if ($constraint1.is(':checked')){
             el.latConstraint.show();
@@ -460,7 +394,7 @@ The aim of this file is to define all the cartoDB layers and their style.
             el.latConstraint.hide();
           }
         });
-        $constraint2 = $('#constraint2')
+        var $constraint2 = $('#constraint2')
         $constraint2.change(function(){
           if ($constraint2.is(':checked')){
             el.geoConstraint.show();
@@ -468,7 +402,7 @@ The aim of this file is to define all the cartoDB layers and their style.
             el.geoConstraint.hide();
           }
         });
-        $constraint3 = $('#constraint3')
+        var $constraint3 = $('#constraint3')
         $constraint3.change(function(){
           if ($constraint3.is(':checked')){
             el.geoNoOkContraint.show();
@@ -476,7 +410,7 @@ The aim of this file is to define all the cartoDB layers and their style.
             el.geoNoOkContraint.hide();
           }
         });
-        $constraint4 = $('#constraint4')
+        var $constraint4 = $('#constraint4')
         $constraint4.change(function(){
           if ($constraint4.is(':checked')){
             el.elevationConstraint.show();
@@ -513,6 +447,16 @@ The aim of this file is to define all the cartoDB layers and their style.
     el.geoNoOkContraint.setInteraction(true);
     el.latConstraint.setInteraction(true);
     el.elevationConstraint.setInteraction(true);
+    el.ellipses1.setInteraction(true);
+    el.ellipses2.setInteraction(true);
+    el.ellipses3.setInteraction(true);
+    el.ellipses4.setInteraction(true);
+    el.ellipses5.setInteraction(true);
+    el.ellipses6.setInteraction(true);
+    el.ellipses7.setInteraction(true);
+    el.ellipses8.setInteraction(true);
+
+
 
 
       // A tooltip with text will appear in the layers when mouse hover
@@ -537,6 +481,64 @@ The aim of this file is to define all the cartoDB layers and their style.
                 position: 'top|right'
             });
             $('body').append(c.render().el);
+      var d1 = new cdb.geo.ui.Tooltip({
+                layer: el.ellipses1,
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                width: 200,
+                position: 'top|right'
+            });
+            $('body').append(d1.render().el);
+      var d2 = new cdb.geo.ui.Tooltip({
+              layer: el.ellipses2,
+              template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+              width: 200,
+              position: 'top|right'
+          });
+          $('body').append(d2.render().el);
+      var d3 = new cdb.geo.ui.Tooltip({
+                layer: el.ellipses3,
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                width: 200,
+                position: 'top|right'
+            });
+            $('body').append(d3.render().el);
+      var d4 = new cdb.geo.ui.Tooltip({
+              layer: el.ellipses4,
+              template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+              width: 200,
+              position: 'top|right'
+          });
+          $('body').append(d4.render().el);
+      var d5 = new cdb.geo.ui.Tooltip({
+                layer: el.ellipses5,
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                width: 200,
+                position: 'top|right'
+            });
+            $('body').append(d5.render().el);
+     var d6 = new cdb.geo.ui.Tooltip({
+              layer: el.ellipses6,
+              template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+              width: 200,
+              position: 'top|right'
+          });
+          $('body').append(d6.render().el);
+      var d7 = new cdb.geo.ui.Tooltip({
+                layer: el.ellipses7,
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                width: 200,
+                position: 'top|right'
+            });
+            $('body').append(d7.render().el);
+      var d8 = new cdb.geo.ui.Tooltip({
+                layer: el.ellipses8,
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                width: 200,
+                position: 'top|right'
+            });
+            $('body').append(d8.render().el);
+
+
 
       // hide the tooltips when click the navigation buttons
       $("#navButtons").click(function(){
@@ -589,6 +591,7 @@ The aim of this file is to define all the cartoDB layers and their style.
 
       // add all cartoDB subLayers into the map
       el.map.addLayer(layer, false);
+      startStory();
     });
 
    }
