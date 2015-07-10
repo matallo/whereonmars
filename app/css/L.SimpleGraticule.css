@@ -7,6 +7,6 @@
 .leaflet-grid-label .gridlabel-vert,
 .leaflet-grid-label .gridlabel-horiz {
     padding-left:2px;
-    text-shadow: -0.5px 0 #FFFFFF, 0 0.5px #FFFFFF, 0.5px 0 #FFFFFF, 0 -0.5px #FFFFFF;
     font-size: 10px;
+    color: #FFF;
 }
