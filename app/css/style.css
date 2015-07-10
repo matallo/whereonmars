@@ -15,8 +15,13 @@
 	.cartodb-timeslider{
 		display: none!important;
 	}
+	/* define properties of infowindows */
+	#map > div.cartodb-infowindow > div > div.cartodb-popup-content-wrapper{
+		width: 300px;
+		max-width: none;
 
-	#MOLA_title{
+	}
+	/*#MOLA_title{
 		position: absolute;
 		left : 75px;
 		background-color: #FFF;
@@ -26,7 +31,7 @@
 		padding-right: 5px;
 		border-color: #000;
 
-	}
+	}*/
 	/*  logo cartodb */
 	.cartodb-logo{
 		display: none!important;
@@ -45,7 +50,6 @@
 	.leaflet-control-attribution {
 		display: none!important;
 	}
-
 	.leaflet-control-scale{
 		bottom: -55px;
 		right: 10px;

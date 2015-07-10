@@ -60,7 +60,7 @@
       $('#slides_container')
       .width('80')
       .css({
-        'padding-left' : '10px',
+        'padding-left' : '15px',
         'padding-top' : '0px',
         'padding-bottom' : '0px'
       })
@@ -70,7 +70,7 @@
     };
     function widthNormal(){
       $('#slides_container')
-      .width('20%')
+      .width('270px')
       .css({
         'padding-top': '5px',
         'padding-left': '25px'
@@ -87,7 +87,6 @@
 
 
   /* Navigation buttons */
-
   // when the user move the mouse on the navButtons it changes the opacity of the button itself
   $("#navButtons .prev")
   .mouseover(function(){

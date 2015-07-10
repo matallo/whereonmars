@@ -28,14 +28,26 @@
   <!-- define element with id = map -->
 	<div id = "map"></div>
 
-  <!-- define title of each slide-->
+  <!-- define script to add the infowindow option on the landing sites -->
+  <script type="infowindow/html" id="infowindow_template">
+        <span> custom </span>
+        <div class="cartodb-popup">
+          <a href="#close" class="cartodb-popup-close-button close">x</a>
+
+           <div class="cartodb-popup-content-wrapper">
+             <div class="cartodb-popup-content">
+               <h3>{{content.data.name}}</h3>
+               <p>{{content.data.description}}</p>
+             </div>
+           </div>
+           <div class="cartodb-popup-tip-container"></div>
+        </div>
+      </script>
+
+  <!-- define title under the dot menu for each slide-->
   <div id = "title"></div>
 
-  <!-- define title of the legends-->
-
-  <div id = "MOLA_title"><p>Altitutes of MOLA</p></div>
-
-  <!-- navigation buttons bootstrap -->
+  <!-- navigation dot menu bootstrap -->
 
   <div id="carousel">
     <ol class = "carousel-indicators">
@@ -365,6 +377,7 @@
       <script src ="js/menus_and_buttons.js"></script>
       <script src ="js/raster_tiles.js"></script>
       <script src ="js/story.js"></script>
+      <script src ="js/legends.js"></script>
       <script src ="js/main.js"></script>
 
 

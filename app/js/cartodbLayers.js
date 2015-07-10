@@ -26,6 +26,7 @@ The aim of this file is to define all the cartoDB layers and their style.
   .on('done', function(layer) {
       layer.setZIndex(100); // all cartoDB layer will be above all the baselayers
       var sublayer = layer.getSubLayer(0);
+
       // we define the torque layer for the landing ellipses in Aram Dorsum
       cartodb.createLayer(el.map,{
       type: "torque",
@@ -103,7 +104,7 @@ The aim of this file is to define all the cartoDB layers and their style.
             '  text-dx: -20;',
           '}',
           '	[cartodb_id = 6]{',
-              '  text-dx: -20;',
+              '  text-dx: 20;',
             '}',
       '}'
     ].join('\n');
@@ -212,11 +213,12 @@ The aim of this file is to define all the cartoDB layers and their style.
         el.landingSite = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_four",
           cartocss: style1,
-          interactivity: ['name','coordinates']
+          interactivity: ['name','explanation']
          });
          el.latConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_lat_constraints",
           cartocss: '#exols_lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}',
+          interactivity: ['description']
         });
         el.geoConstraint = layer.createSubLayer({
             sql: "SELECT * FROM exols_restricted_geology_latitude_webmercator",
@@ -232,7 +234,8 @@ The aim of this file is to define all the cartoDB layers and their style.
         });
         el.elevationConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_elevation_constraint",
-          cartocss: "#exols_elevation_constraint{ polygon-fill: #000000;polygon-opacity: 0.7;line-color: #FFF; line-width: 0.5;line-opacity: 1;}"
+          cartocss: "#exols_elevation_constraint{ polygon-fill: #000000;polygon-opacity: 0.7;line-color: #FFF; line-width: 0.5;line-opacity: 1;}",
+          interactivity: ['description']
         });
         el.geoOkConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_geological_age_ok",
@@ -240,7 +243,8 @@ The aim of this file is to define all the cartoDB layers and their style.
         });
         el.geoNoOkContraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_geological_age_not_ok",
-          cartocss: "#exols_geological_age_not_ok{ polygon-fill: #000000;polygon-opacity: 0.7;line-color: #FFF;line-width: 0.5;line-opacity: 1;}"
+          cartocss: "#exols_geological_age_not_ok{ polygon-fill: #000000;polygon-opacity: 0.7;line-color: #FFF;line-width: 0.5;line-opacity: 1;}",
+          interactivity: ['description']
         });
         el.nomenclatorGlobal = layer.createSubLayer({
           sql: "SELECT * FROM exols_mars_nomenclature_webmercator_ls WHERE cartodb_id IN(84,56,7,6,43,11,3,67)",
@@ -261,7 +265,6 @@ The aim of this file is to define all the cartoDB layers and their style.
         el.landingSite8 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_eight",
           cartocss: style2,
-          interactivity: ['name','coordinates']
         });
         el.dashellipses3 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2018 WHERE id IN (4,8)",
@@ -291,43 +294,35 @@ The aim of this file is to define all the cartoDB layers and their style.
          el.ellipses1 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id =1 ",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
-          interactivity: ['name']
          });
 
          el.ellipses2 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id = 2",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
-          interactivity: ['name']
           });
          el.ellipses3 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id =3",
           cartocss: '#exols_exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
-          interactivity: ['name']
          });
          el.ellipses4 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE  id = 4",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
-          interactivity: ['name']
          });
          el.ellipses5 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE  id = 5",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
-          interactivity: ['name']
          });
          el.ellipses6 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE  id = 6",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
-          interactivity: ['name']
          });
          el.ellipses7 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE  id = 7",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
-          interactivity: ['name']
          });
          el.ellipses8 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE  id = 8",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #00B2EE; line-width: 2;line-opacity: 1;}',
-          interactivity: ['name']
          });
 
 
@@ -490,8 +485,10 @@ The aim of this file is to define all the cartoDB layers and their style.
           }
         });
 
+// define LayerAction to add or remove the layers when click buttons that are inside the slide container
+
       var map = el.map;
-  // define LayerAction to add or remove the layers when click buttons that are inside the slide container
+
       el.LayerActions = {
         hrscAram: function(){
           var hrscAram = el.hrsc[0];
@@ -511,6 +508,53 @@ The aim of this file is to define all the cartoDB layers and their style.
           };
         }
     }
+      // set interactivity of the layers
+    el.landingSite.setInteraction(true);
+    el.geoNoOkContraint.setInteraction(true);
+    el.latConstraint.setInteraction(true);
+    el.elevationConstraint.setInteraction(true);
+
+
+      // A tooltip with text will appear in the layers when mouse hover
+      var a = new cdb.geo.ui.Tooltip({
+                layer: el.geoNoOkContraint,
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                width: 200,
+                position: 'top|right'
+            });
+            $('body').append(a.render().el);
+      var b = new cdb.geo.ui.Tooltip({
+                layer: el.latConstraint,
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                width: 200,
+                position: 'top|right'
+            });
+            $('body').append(b.render().el);
+      var c = new cdb.geo.ui.Tooltip({
+                layer: el.elevationConstraint,
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                width: 200,
+                position: 'top|right'
+            });
+            $('body').append(c.render().el);
+
+      // hide the tooltips when click the navigation buttons
+      $("#navButtons").click(function(){
+        $(".cartodb-tooltip-content-wrapper").css({
+          "display" : "none"
+        })
+      });
+      // hide the tooltips when click the dots
+      $("#carousel").click(function(){
+        $(".cartodb-tooltip-content-wrapper").css({
+          "display" : "none"
+        })
+      });
+
+      // add infowindow with the name and the explanation of the landing site. The explanation is inside the "explanation"
+      // column of the exols_exomars_landing_sites_four table
+      cdb.vis.Vis.addInfowindow(el.map, el.landingSite, ['name','explanation']);
+
       // hide all cartodb layers when the map element is loaded
       el.landingSite8.hide();
       el.landingSite.hide();
@@ -539,56 +583,9 @@ The aim of this file is to define all the cartoDB layers and their style.
       el.dashellipses6.hide();
       el.dashellipses7.hide();
       el.dashellipses8.hide();
-
-
-      /*define the legend of the layers */
-
-      el.legendElevation = new cdb.geo.ui.Legend({
-           type: "custom",
-           data: [
-             { name: "Area higher than -2 km", value: "#000" },
-           ]
-         });
-         $('#map').append(el.legendElevation.render().el);
-
-      el.legendGeology = new cdb.geo.ui.Legend({
-          type: "custom",
-          data: [
-              { name: "Age < 3.600.000.000 years ", value: "#000" },
-            ]
-          });
-      $('#map').append(el.legendGeology.render().el);
-      // coropleth legend
-      el.lengendMOLA = new cdb.geo.ui.Legend({
-           type: "choropleth",
-           data: [
-             { value: "-9 km" },
-             { value: "+14 km" },
-             { value: "#070610" },//1 -9 km
-             { value: "#2F2C4B" },//2
-             { value: "#514C77" },//3
-             { value: "#4E5FA3" },//4
-             { value: "#4589CD" },//5
-             { value: "#31D874" },//6
-             { value: "#4EDC45" },//7
-             { value: "#CBD61F" },//8 0 km
-             { value: "#D9C31C" },//8.1
-             { value: "#DE9E17" },//10
-             { value: "#EA6632" },//11
-             { value: "#E45E6B" },//12
-             { value: "#A66457" },//13
-             { value: "#857354" },//14
-             { value: "#988384" },//15
-             { value: "#D8D5D3" },//16
-             { value: "#F2F5F0" },//17 +14 km
-
-           ]
-         });
-      $('#map').append(el.lengendMOLA.render().el);
-
-
-
-
+      el.lengendMOLA.hide();
+      el.legendGeology.hide();
+      el.legendElevation.hide();
 
       // add all cartoDB subLayers into the map
       el.map.addLayer(layer, false);
