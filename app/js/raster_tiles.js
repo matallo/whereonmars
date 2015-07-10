@@ -69,10 +69,7 @@ var initMap = function(){
             unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed
             updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
             maxNativeZoom: 9
-          }).setZIndex(1);
-            if(i > 0){
-              el.hrsc[i].addTo(el.map);
-            };
+          }).addTo(el.map).setZIndex(1);
         } // finish the  raster_tiles_HRSC loop
 
         // the raster layers called with cartodb.js
@@ -164,10 +161,7 @@ var initMap = function(){
           unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed
           updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
           maxNativeZoom: 16
-        }).setZIndex(2);
-            if(i > 0){
-              el.hirise[i].addTo(el.map);
-            };
+        }).addTo(el.map).setZIndex(2);
         } // finish the raster_tiles_HIRISE loop
 
         // attach HIRISE layers to th checkbox defined in the html file

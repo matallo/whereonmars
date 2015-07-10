@@ -817,7 +817,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(9),
           O.Parallel(
-            el.map.actions.setView(el.Oxia,8),
+            el.map.actions.setView(el.Oxia,9),
             slides.activate(9),
             O.Location.changeHash('9'),
             emitSlideChange
@@ -827,7 +827,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(10),
           O.Parallel(
-            el.map.actions.setView(el.Mawrth,8),
+            el.map.actions.setView(el.Mawrth,9),
             slides.activate(10),
             O.Location.changeHash('10'),
             emitSlideChange
