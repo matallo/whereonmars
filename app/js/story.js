@@ -6,40 +6,10 @@
   At the end of this script, the function initOdyssey() is created and define the order and the zoom
   of each slides.
 */
+
+// global variables
 var seq;
 var slides;
-
-
-// make the "#hide_menu" element visible
-function show(){
-  $("#hide_menu")
-  .css({
-    "opacity": 1
-  })
-  .mouseleave(function(){
-    $(this).css({
-      "opacity":1
-    })
-  })
-}
-
-// hide "#hide_menu" button. Show it when mouse hover on it.
-function hide(){
-  $("#hide_menu")
-  .css({
-    opacity: 0
-  })
-  .mouseover(function(){
-    $(this).css({
-      "opacity": 1
-    })
-  })
-  .mouseleave(function(){
-    $(this).css({
-      "opacity":0
-    })
-  })
-}
 
 function click(el) {
     var element = O.Core.getElement(el);
@@ -74,121 +44,32 @@ function click(el) {
     }
   });
   }
-
-
-// functions that define the title for each slide/dot from titleZero() to titleNineteen()
-function titleZero(){
-  $("li#0").addClass("active");
-  if ($("li#0").hasClass("active")){
-    $("#title").empty();
-    $("#title").text("ExoMars");
-  }
-}
-function titleOne(){
-  $("li#1").addClass("active");
-  if ($("li#1").hasClass("active")){
-    $("#title").empty();
-    $("#title").text("MOLA");
-  }
-}
-function titleTwo(){
-  $("li#2").addClass("active");
-  if ($("li#2").hasClass("active")){
-    $("#title").empty();
-    $("#title").text("Elevation constraint");
-  }
-}
-function titleThree(){
-  $("li#3").addClass("active");
-  if ($("li#3").hasClass("active")){
-    $("#title").empty();
-    $("#title").text("Latitude constraint");
-  }
-}
-function titleFour(){
-  $("li#4").addClass("active");
-  if ($("li#4").hasClass("active")){
-    $("#title").empty();
-    $("#title").text("Geological constraint");
-  }
-}
-function titleFive(){
-  $("li#5").addClass("active");
-  if ($("li#5").hasClass("active")){
-    $("#title").empty();
-    $("#title").text("Defining the landing sites");
-  }
-}
-function titleSix(){
-  $("li#6").addClass("active");
-  if ($("li#6").hasClass("active")){
-    $("#title").empty();
-    $("#title").text("Candidate landing Sites");
-  }
-}
-function titleSeven(){
-  $("li#7").addClass("active");
-  if ($("li#7").hasClass("active")){
-    $("#title").empty();
-    $("#title").text("Aram Dorsum");
-  }
-}
-
-function titleEight(){
-  $("li#8").addClass("active");
-  if ($("li#8").hasClass("active")){
-    $("#title").empty();
-    $("#title").text("Hypanis Vallis");
-  }
-}
-function titleNine(){
-  $("li#9").addClass("active");
-  if ($("li#9").hasClass("active")){
-    $("#title").empty();
-    $("#title").text("Oxia Planum");
-  }
-}
-function titleTen(){
-  $("li#10").addClass("active");
-  if ($("li#10").hasClass("active")){
-    $("#title").empty();
-    $("#title").text("Mawrth Vallis");
-  }
-}
-
-function titleEleven(){
-  $("li#11").addClass("active");
-  if ($("li#11").hasClass("active")){
-    $("#title").empty();
-    $("#title").text("The end");
-  }
-}
   // check the index being returned by trackCurrentSlide()
   var checkIndex = function(index) {
     switch(index){
-      case 0: slideZero(),hide(),titleZero(),console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#11").removeClass("active"); // introduction
+      case 0: slideZero(),hide(),titleZero(),console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#11").removeClass("active");
       break;
-      case 1: slideOne(),hide(),titleOne(),console.log(index),$("#0").removeClass("active") ,$("#1").addClass("active"),$("#2").removeClass("active");// MOLA
+      case 1: slideOne(),hide(),titleOne(),console.log(index),$("#0").removeClass("active") ,$("#1").addClass("active"),$("#2").removeClass("active");
       break;
-      case 2: slideTwo(),hide(),titleTwo(),console.log(index),$("#1").removeClass("active") ,$("#2").addClass("active"),$("#3").removeClass("active"); // LSSWG
+      case 2: slideTwo(),hide(),titleTwo(),console.log(index),$("#1").removeClass("active") ,$("#2").addClass("active"),$("#3").removeClass("active");
       break;
-      case 3: slideThree(),hide(),titleThree(),console.log(index),$("#2").removeClass("active") ,$("#3").addClass("active"),$("#4").removeClass("active"); // 4 landing sites
+      case 3: slideThree(),hide(),titleThree(),console.log(index),$("#2").removeClass("active") ,$("#3").addClass("active"),$("#4").removeClass("active");
       break;
-      case 4: slideFour(),hide(),titleFour(),console.log(index),$("#3").removeClass("active") ,$("#4").addClass("active"),$("#5").removeClass("active"); // aram dorsum
+      case 4: slideFour(),hide(),titleFour(),console.log(index),$("#3").removeClass("active") ,$("#4").addClass("active"),$("#5").removeClass("active");
       break;
-      case 5: slideFive(),hide(),titleFive(),console.log(index),$("#4").removeClass("active") ,$("#5").addClass("active"),$("#6").removeClass("active");// HRSC / aram dorsum
+      case 5: slideFive(),hide(),titleFive(),console.log(index),$("#4").removeClass("active") ,$("#5").addClass("active"),$("#6").removeClass("active");
       break
-      case 6: slideSix(),hide(),titleSix(),console.log(index),$("#5").removeClass("active") ,$("#6").addClass("active"),$("#7").removeClass("active"); //  landing site aram dorsum 2018
+      case 6: slideSix(),hide(),titleSix(),console.log(index),$("#5").removeClass("active") ,$("#6").addClass("active"),$("#7").removeClass("active");
       break;
-      case 7: slideSeven(),hide(),titleSeven(),console.log(index), $("#6").removeClass("active") ,$("#7").addClass("active"),$("#8").removeClass("active");//  landing site aram dorsum 2020
+      case 7: slideSeven(),hide(),titleSeven(),console.log(index), $("#6").removeClass("active") ,$("#7").addClass("active"),$("#8").removeClass("active");
       break;
-      case 8: slideEight(),hide(),titleEight(),console.log(index), $("#7").removeClass("active") ,$("#8").addClass("active"),$("#9").removeClass("active");// Oxia Planum
+      case 8: slideEight(),hide(),titleEight(),console.log(index), $("#7").removeClass("active") ,$("#8").addClass("active"),$("#9").removeClass("active");
       break;
-      case 9: slideNine(),hide(),titleNine(),console.log(index), $("#8").removeClass("active") ,$("#9").addClass("active"),$("#10").removeClass("active");// HiRISE / Mawrth Vallis
+      case 9: slideNine(),hide(),titleNine(),console.log(index), $("#8").removeClass("active") ,$("#9").addClass("active"),$("#10").removeClass("active");
       break;
-      case 10: slideTen(),hide(),titleTen(),console.log(index), $("#9").removeClass("active") ,$("#10").addClass("active"),$("#11").removeClass("active");// End
+      case 10: slideTen(),hide(),titleTen(),console.log(index), $("#9").removeClass("active") ,$("#10").addClass("active"),$("#11").removeClass("active");
       break;
-      case 11: slideEleven(),show(),titleEleven(),console.log(index), $("#10").removeClass("active") ,$("#11").addClass("active"),$("#0").removeClass("active");// End
+      case 11: slideEleven(),show(),titleEleven(),console.log(index), $("#10").removeClass("active") ,$("#11").addClass("active"),$("#0").removeClass("active");
       break;
     };
 
@@ -833,73 +714,4 @@ function initOdyssey(O) {
     el.story.go(0,seq.step(0));
   }
 
-
-// this group of sentences define:
-//when the user click the dots, the odyssey moves to the slide that corresponds to each dot
-
-    $("li#0").click(function(){
-      el.story.go(0,seq.step(0));
-      $("li").removeClass("active");
-      $(this).addClass("active");
-    });
-    $("li#1").click(function(){
-      el.story.go(1,seq.step(1));
-      $("li").removeClass("active");
-      $(this).addClass("active");
-    });
-    $("li#2").click(function(){
-      el.story.go(2,seq.step(2));
-      $("li").removeClass("active");
-      $(this).addClass("active");
-    });
-    $("li#3").click(function(){
-      el.story.go(3,seq.step(3));
-      $("li").removeClass("active");
-      $(this).addClass("active");
-    });
-    $("li#4").click(function(){
-      el.story.go(4,seq.step(4));
-      $("li").removeClass("active");
-      $(this).addClass("active");
-    });
-    $("li#5").click(function(){
-      el.story.go(5,seq.step(5));
-      $("li").removeClass("active");
-      $(this).addClass("active");
-    });
-    $("li#6").click(function(){
-      el.story.go(6,seq.step(6));
-      $("li").removeClass("active");
-      $(this).addClass("active");
-    });
-    $("li#7").click(function(){
-      el.story.go(7,seq.step(7));
-      $("li").removeClass("active");
-      $(this).addClass("active");
-    });
-
-    $("li#8").click(function(){
-      el.story.go(8,seq.step(8));
-      $("li").removeClass("active");
-      $(this).addClass("active");
-    });
-
-    $("li#9").click(function(){
-      el.story.go(9,seq.step(9));
-      $("li").removeClass("active");
-      $(this).addClass("active");
-    });
-
-    $("li#10").click(function(){
-      el.story.go(10,seq.step(10));
-      $("li").removeClass("active");
-      $(this).addClass("active");
-    });
-
-    $("li#11").click(function(){
-      el.story.go(11,seq.step(11));
-      $("li").removeClass("active");
-      $(this).addClass("active");
-    });
-
-  }
+}

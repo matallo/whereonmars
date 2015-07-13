@@ -1,5 +1,5 @@
 
-  /* Widget accordion */
+  /* switch layer menu */
 
   // Define interactivity of the JQuery widget accordion
   $(function(){
@@ -21,6 +21,36 @@
         });
       }
     });
+    // make the "#hide_menu" element visible
+    function show(){
+      $("#hide_menu")
+      .css({
+        "opacity": 1
+      })
+      .mouseleave(function(){
+        $(this).css({
+          "opacity":1
+        })
+      })
+    }
+
+    // hide "#hide_menu" button. Show it when mouse hover on it.
+    function hide(){
+      $("#hide_menu")
+      .css({
+        opacity: 0
+      })
+      .mouseover(function(){
+        $(this).css({
+          "opacity": 1
+        })
+      })
+      .mouseleave(function(){
+        $(this).css({
+          "opacity":0
+        })
+      })
+    }
 
   /* Slide container */
 
@@ -115,37 +145,8 @@
       })
     });
 
-    /* switch layer menu */
-    // make the "#hide_menu" element visible
-    function show(){
-      $("#hide_menu")
-      .css({
-        "opacity": 1
-      })
-      .mouseleave(function(){
-        $(this).css({
-          "opacity":1
-        })
-      })
-    }
 
-    // hide "#hide_menu" button. Show it when mouse hover on it.
-    function hide(){
-      $("#hide_menu")
-      .css({
-        opacity: 0
-      })
-      .mouseover(function(){
-        $(this).css({
-          "opacity": 1
-        })
-      })
-      .mouseleave(function(){
-        $(this).css({
-          "opacity":0
-        })
-      })
-    }
+
 
 /* dot menu*/
 // this group of sentences define:

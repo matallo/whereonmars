@@ -112,3 +112,6 @@ ul#navButtons .next{
   background-image: url("images/45.png");
   opacity: 1;
 }
+#title{
+  z-index: 3000;
+}
