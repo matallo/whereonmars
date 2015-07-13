@@ -519,13 +519,26 @@ The aim of this file is to define all the cartoDB layers and their style.
         $(".cartodb-tooltip-content-wrapper").css({
           "display" : "none"
         })
+      })
+      .hover(function(){
+        $(".cartodb-tooltip-content-wrapper").css({
+          "display" : "none"
+        })
       });
       // hide the tooltips when click the dots
       $("#carousel").click(function(){
         $(".cartodb-tooltip-content-wrapper").css({
           "display" : "none"
         })
+      })
+      .hover(function(){
+        $(".cartodb-tooltip-content-wrapper").css({
+          "display" : "none"
+        })
       });
+
+  
+
 
       // add infowindow with the name and the explanation of the landing site. The explanation is inside the "explanation"
       // column of the exols_exomars_landing_sites_four table
