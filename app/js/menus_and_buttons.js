@@ -60,7 +60,7 @@
     });
 
   // when click the hide/show option it toggles the slides_container
-  $("#hide_story a").bind('mouseup',function(){
+  $("#hide_story p").bind('mouseup',function(){
     if ($('#slides').css('display') != 'none'){
       $('#slides').css({
         display: 'none'
