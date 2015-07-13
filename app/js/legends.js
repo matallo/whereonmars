@@ -6,7 +6,7 @@ el.legendElevation = new cdb.geo.ui.Legend({
        { name: "Area higher than -2 km", value: "#000" },
      ]
    });
-   $('#map').append(el.legendElevation.render().el);
+
 
 el.legendGeology = new cdb.geo.ui.Legend({
     type: "custom",
@@ -14,7 +14,7 @@ el.legendGeology = new cdb.geo.ui.Legend({
         { name: "Age < 3.600.000.000 years ", value: "#000" },
       ]
     });
-$('#map').append(el.legendGeology.render().el);
+
 // coropleth legend
 el.lengendMOLA = new cdb.geo.ui.Legend({
      type: "choropleth",
@@ -40,4 +40,3 @@ el.lengendMOLA = new cdb.geo.ui.Legend({
        { value: "#F2F5F0" },//17 +14 km
       ]
    });
-$('#map').append(el.lengendMOLA.render().el);

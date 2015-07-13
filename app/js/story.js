@@ -191,6 +191,25 @@ function titleEleven(){
       case 11: slideEleven(),show(),titleEleven(),console.log(index), $("#10").removeClass("active") ,$("#11").addClass("active"),$("#0").removeClass("active");// End
       break;
     };
+
+    /* Block legend */
+    // The legends are added to the map depending on the slide. Are added in this way to avoid to load them everytime that the user change
+    // the slides of the story.
+    if (index == 1){
+      $('#map').append(el.lengendMOLA.render().el);
+    } else {
+      $('#map:last-child').remove(el.lengendMOLA.render().el);
+    }
+    if (index == 2){
+      $('#map').append(el.legendElevation.render().el);
+    } else {
+      $('#map:last-child').remove(el.legendElevation.render().el);
+    }
+    if (index == 4){
+      $('#map').append(el.legendGeology.render().el);
+    } else {
+      $('#map:last-child').remove(el.legendGeology.render().el);
+      }
 }
 
   // intro

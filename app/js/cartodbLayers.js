@@ -12,17 +12,12 @@ The aim of this file is to define all the cartoDB layers and their style.
         checkIndex(chapter);
         $("li").removeClass("active");
         $("li#" + chapter).addClass("active");
-        // everytime that the hash of the URL change, it loads the page. 
-        $(window).bind('hashchange', function(e) {
-            location.reload();
-        });
+
       } else {
         el.story.go(0,seq.step(0));
       }
 
     }
-
-
 
 // call data from cartoDB account
   var cartodbData = function(){
@@ -422,18 +417,18 @@ The aim of this file is to define all the cartoDB layers and their style.
         });
 
     // set the interactivity of the CartoDB sublayers.It allows to add infowindows and tooltips.
-    el.landingSite.setInteraction(true);
-    el.geoNoOkContraint.setInteraction(true);
-    el.latConstraint.setInteraction(true);
-    el.elevationConstraint.setInteraction(true);
-    el.ellipses1.setInteraction(true);
-    el.ellipses2.setInteraction(true);
-    el.ellipses3.setInteraction(true);
-    el.ellipses4.setInteraction(true);
-    el.ellipses5.setInteraction(true);
-    el.ellipses6.setInteraction(true);
-    el.ellipses7.setInteraction(true);
-    el.ellipses8.setInteraction(true);
+        el.landingSite.setInteraction(true);
+        el.geoNoOkContraint.setInteraction(true);
+        el.latConstraint.setInteraction(true);
+        el.elevationConstraint.setInteraction(true);
+        el.ellipses1.setInteraction(true);
+        el.ellipses2.setInteraction(true);
+        el.ellipses3.setInteraction(true);
+        el.ellipses4.setInteraction(true);
+        el.ellipses5.setInteraction(true);
+        el.ellipses6.setInteraction(true);
+        el.ellipses7.setInteraction(true);
+        el.ellipses8.setInteraction(true);
 
 
 
@@ -570,6 +565,11 @@ The aim of this file is to define all the cartoDB layers and their style.
 
       // add all cartoDB subLayers into the map
       el.map.addLayer(layer, false);
+      // everytime that the hash of the URL change, it loads the page.
+      $(window).bind('hashchange', function() {
+        location.reload(true);
+
+      });
       startStory();
 
 
