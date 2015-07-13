@@ -114,3 +114,104 @@
         "opacity": 0.5
       })
     });
+
+    /* switch layer menu */
+    // make the "#hide_menu" element visible
+    function show(){
+      $("#hide_menu")
+      .css({
+        "opacity": 1
+      })
+      .mouseleave(function(){
+        $(this).css({
+          "opacity":1
+        })
+      })
+    }
+
+    // hide "#hide_menu" button. Show it when mouse hover on it.
+    function hide(){
+      $("#hide_menu")
+      .css({
+        opacity: 0
+      })
+      .mouseover(function(){
+        $(this).css({
+          "opacity": 1
+        })
+      })
+      .mouseleave(function(){
+        $(this).css({
+          "opacity":0
+        })
+      })
+    }
+
+/* dot menu*/
+// this group of sentences define:
+//when the user click the dots, the odyssey moves to the slide that corresponds to each dot
+
+    $("li#0").click(function(){
+      el.story.go(0,seq.step(0));
+      $("li").removeClass("active");
+      $(this).addClass("active");
+    });
+    $("li#1").click(function(){
+      el.story.go(1,seq.step(1));
+      $("li").removeClass("active");
+      $(this).addClass("active");
+    });
+    $("li#2").click(function(){
+      el.story.go(2,seq.step(2));
+      $("li").removeClass("active");
+      $(this).addClass("active");
+    });
+    $("li#3").click(function(){
+      el.story.go(3,seq.step(3));
+      $("li").removeClass("active");
+      $(this).addClass("active");
+    });
+    $("li#4").click(function(){
+      el.story.go(4,seq.step(4));
+      $("li").removeClass("active");
+      $(this).addClass("active");
+    });
+    $("li#5").click(function(){
+      el.story.go(5,seq.step(5));
+      $("li").removeClass("active");
+      $(this).addClass("active");
+    });
+    $("li#6").click(function(){
+      el.story.go(6,seq.step(6));
+      $("li").removeClass("active");
+      $(this).addClass("active");
+    });
+    $("li#7").click(function(){
+      el.story.go(7,seq.step(7));
+      $("li").removeClass("active");
+      $(this).addClass("active");
+    });
+
+    $("li#8").click(function(){
+      el.story.go(8,seq.step(8));
+      $("li").removeClass("active");
+      $(this).addClass("active");
+    });
+
+    $("li#9").click(function(){
+      el.story.go(9,seq.step(9));
+      $("li").removeClass("active");
+      $(this).addClass("active");
+    });
+
+    $("li#10").click(function(){
+      el.story.go(10,seq.step(10));
+      $("li").removeClass("active");
+      $(this).addClass("active");
+    });
+
+    $("li#11").click(function(){
+      el.story.go(11,seq.step(11));
+      $("li").removeClass("active");
+      $(this).addClass("active");
+    });
