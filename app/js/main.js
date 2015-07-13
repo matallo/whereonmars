@@ -6,6 +6,7 @@ var app =  {};
       			cartodbData();
       			initOdyssey(O);
       			listenSlideChange();
+						
       		}
       		return {
       			init : init,

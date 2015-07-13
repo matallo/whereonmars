@@ -12,10 +12,16 @@ The aim of this file is to define all the cartoDB layers and their style.
         checkIndex(chapter);
         $("li").removeClass("active");
         $("li#" + chapter).addClass("active");
+        // everytime that the hash of the URL change, it loads the page. 
+        $(window).bind('hashchange', function(e) {
+            location.reload();
+        });
       } else {
         el.story.go(0,seq.step(0));
       }
+
     }
+
 
 
 // call data from cartoDB account
@@ -565,6 +571,9 @@ The aim of this file is to define all the cartoDB layers and their style.
       // add all cartoDB subLayers into the map
       el.map.addLayer(layer, false);
       startStory();
+
+
+
     });
 
    }

@@ -805,7 +805,7 @@ function initOdyssey(O) {
           )
       )
 
-// anchor permanent link to each slide....does't load vector data
+// anchor permanent link to each slide
 
   if (location.hash != "") {
     var chapter = parseInt(location.hash.replace('#', ''), 10);
