@@ -1,4 +1,7 @@
-/*In this script, the different legends of the app are defined. You can change the name, color or values of the legends */
+/*
+In this script, the different legends of the app are defined. You can change the name, color or values of the legends.
+The legends are called into the map in story.js file.
+*/
 // legend for the elevation
 el.legendElevation = new cdb.geo.ui.Legend({
      type: "custom",

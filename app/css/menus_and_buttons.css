@@ -1,4 +1,14 @@
-/* styles for the layer menu element */
+/*
+  This css file define the styles of the next elements:
+
+                  1- Switch layer menu/accordion menu (#accordion)
+                  2- Title (#title)
+                  3- Navigation buttons
+                  4- Navigation dots (.carousel-indicators)
+*/
+
+
+/* 1 - Switch layer menu */
 #accordion {
   position:absolute;
   top:50px;
@@ -18,7 +28,7 @@
   backgroumd-color: #FFF;
   cursor: pointer;
 }
-/* title of the dots*/
+/* 2- Title */
 
 #title {
   color: #FFF;
@@ -32,7 +42,7 @@
   height: 20px;
   width: auto;
 }
-/* define styles for the navigation buttons */
+/*   3- Navigation buttons */
 
 ul#navButtons .prev{
   z-index: 1000;
@@ -71,7 +81,7 @@ ul#navButtons .next{
   left: 51%;
 }
 
-/* define styles for bootstrap carousel */
+/* Navigation dots  */
 
 .carousel-indicators{
   bottom: 3%;
@@ -111,7 +121,4 @@ ul#navButtons .next{
   cursor: pointer;
   background-image: url("images/45.png");
   opacity: 1;
-}
-#title{
-  z-index: 3000;
 }

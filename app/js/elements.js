@@ -1,4 +1,6 @@
-// define object that have all the elements and layers
+/*
+ THis script define the object named el. This object contains all the elements that are used in the application.
+*/
 var el = {
   map: null,
   basemap: null,

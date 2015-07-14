@@ -1,3 +1,11 @@
+/*
+  In this script, the function initMap() define call all the raster tiles and define their properties.
+  Also, this script call the different Leafelt elements that are used (scale, zoom control and graticule).
+  The garticule is a Leaflet plugin called Leaflet.SimpleGraticule (maintainer: Andrew Blakey).
+  The raster tiles called in this script are the basemaps, the HRSC images and HiRISE images.
+  This script also define the coordinates of the center of each landing site.  
+*/
+
 // 	define function that initiates the map element
 var initMap = function(){
   // define map

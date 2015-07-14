@@ -1,27 +1,35 @@
 /*
-The aim of this file is to define all the cartoDB layers and their style.
+This file has two main functions, the startStory() and cartodbData() functions.
+startStory() allows to load the app in a specific slide.
+cartodbData() call and give style to all the layers that are stored in cartoDB.
+At the last part of the cartodbData() function, there are defined the infowindow and tooltip interactivity of some layers.
 */
 
-// function that allows to load the app in a specific slide / hash. It is called in the end of the cartodbData function
 
+// function that allows to load the app in a specific slide / hash. It is called in the end of the cartodbData function
   var startStory = function() {
 
       if (location.hash != "") {
         var chapter = parseInt(location.hash.replace('#', ''), 10);
         el.story.go(chapter);
         checkIndex(chapter);
-        // everytime that the hash of the URL change, it loads the page.
-        $(window).bind('hashchange', function() {
-          location.reload();
-
-        });
         $("li").removeClass("active");
         $("li#" + chapter).addClass("active");
+
+
+
       } else {
         el.story.go(0,seq.step(0));
       }
-
     }
+    // everytime that the hash of the URL change, it loads the page.
+
+    $(window).bind('hashchange', function() {
+      location.reload(true);
+
+    });
+
+
 
 // call data from cartoDB account
   var cartodbData = function(){

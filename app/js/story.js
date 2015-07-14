@@ -1,10 +1,15 @@
 /*
   This file define the functions click(el), emitSlideChange(),listenSlideChange() and trackCurrentSlide().
-  These functions allow the odyssey.js library work correctly. The function checkIndex(index) contains
-  a switch(index) operation that  call a different slide everytime the user click a navigation button or dot.
-  There are some functions defined here that show or hide the layers that belong to each slide.
-  At the end of this script, the function initOdyssey() is created and define the order and the zoom
-  of each slides.
+
+  The function checkIndex(index) contains a switch(index) operation that calls a different slide everytime the user click
+  on a navigation button or a navigation dot.
+  Also, still inside the checkIndex() function, the legeds of the layers are added.
+
+  After the checkIndex() function, several functions have been created (this functions are called inside the checkIndex() function) in order
+  to define which layers are shown or hide in each slide.
+
+  The function initOdyssey(O) is defined at the end of the script. This function allows the storytelling with the map, define the order
+  and the zoom level of each slides, activate the slides and define the hash of each slide.
 */
 
 // global variables

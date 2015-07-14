@@ -1,3 +1,8 @@
+/*
+  This script define the text that shows the element, from the index.html file, with the id "title".
+  Several functions have been defined to name each slide.
+*/
+
 // functions that define the title for each slide/dot from titleZero() to titleNineteen()
 function titleZero(){
   $("li#0").addClass("active");

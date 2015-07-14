@@ -1,3 +1,7 @@
+	/*
+		This css file define the styles of the map, the html, the body, the Leafles elements (scale and zoom) and CartoDB elements (logo, legend)
+	*/
+
 	#map{
 		z-index:-10;
 		height: 100%;
@@ -61,9 +65,4 @@
 		padding-right: 10px;
 
 
-	}
-	.leaflet-control-layers-toggle{
-		position: absolute;
-		top: 40px;
-		left: -30px;
 	}

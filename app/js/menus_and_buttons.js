@@ -1,5 +1,16 @@
+/*
+  This script contains define  the interactions of the elements and buttons that are part of the app.
+  It defines the interaction of the next elements:
 
-  /* switch layer menu */
+              1- Switch layer menu/accordion menu (#accordion)
+              2- Slide container (#slides_container)
+              3- Navigation buttons
+              4- Navigation dots (.carousel-indicators)
+
+*/
+
+
+  /* 1 - Switch layer menu */
 
   // Define interactivity of the JQuery widget accordion
   $(function(){
@@ -52,7 +63,7 @@
       })
     }
 
-  /* Slide container */
+  /* 2- Slide container */
 
   // If there is scroll, the scroll up to the y = 0 position of the slides_containers when click the nav buttons.
     $("#navButtons").click(function() {
@@ -116,7 +127,7 @@
 
 
 
-  /* Navigation buttons */
+  /* 3- Navigation buttons */
   // when the user move the mouse on the navButtons it changes the opacity of the button itself
   $("#navButtons .prev")
   .mouseover(function(){
@@ -148,9 +159,8 @@
 
 
 
-/* dot menu*/
-// this group of sentences define:
-//when the user click the dots, the odyssey moves to the slide that corresponds to each dot
+/* 4- Navigation dots */
+  //when the user click the dots, the odyssey moves to the slide/Story that corresponds to each dot
 
     $("li#0").click(function(){
       el.story.go(0,seq.step(0));
