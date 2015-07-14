@@ -10,6 +10,32 @@
 
   The function initOdyssey(O) is defined at the end of the script. This function allows the storytelling with the map, define the order
   and the zoom level of each slides, activate the slides and define the hash of each slide.
+
+  If you want to modify the story you have to follow the next steps:
+
+                1 - In the file "index.html", add or remove the <div class = "slides">
+                    And add or remove <p>, <img>, <h3> elements as you wish.
+                2 - Once you have modified the "index.html" you must go to the story.js file.
+                    In the story.js you must change the next functions:
+
+                      2.1 - checkIndex(index): You must add or remove a "case" in the switch(index) operation.
+                            If you modify a "case", you must modify all the cases (if you don't, the order and functionality of the story won't work),
+                            Modify the case implies:
+                                      1- modify the slide"Number"() function.
+                                      2- modify the title"Number"() function.
+                                      3- Add or remove class "active" depending on the number of the slide.
+
+                      2.2 - slide"Number"() functions: define which layers (raster or vector) are shown in each slide. If you modify
+                            the story and the switch(index) operator, you must add, remove or update the function"Number"().
+                            The "number" of the function make reference to the number of the slide. For example, the slide 0 has SlideZero(),
+                            the slide number one has the function SlideOne() and so on.
+
+                      2.3 - function initOdyssey(O) : once you have modified the previous functions, you must update the .addState() functions
+                            to activate the slide,define the view and the zoom level of the center of the slide and
+                            define hash of the slides.
+                      2.4 - To finish you must update the different elements that are related to the value of the index variable.
+                            Like the title"Number"() functions (inside the slide_title.js file), the way that the legends are added to the map (story.js),
+                            the "Navigation dots" block of code from the menus_and_buttons.js file.
 */
 
 // global variables
