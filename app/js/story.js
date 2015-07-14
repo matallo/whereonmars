@@ -33,10 +33,11 @@
                       2.3 - function initOdyssey(O) : once you have modified the previous functions, you must update the .addState() functions
                             to activate the slide,define the view and the zoom level of the center of the slide and
                             define hash of the slides.
-                      2.4 - To finish you must update the different elements that are related to the value of the index variable.
-                            Like the title"Number"() functions (inside the slide_title.js file), the way that the legends are added to the map (story.js),
-                            the "Navigation dots" block of code from the menus_and_buttons.js file, the #carousel element from the "index.html".
-                            This changes will synchronize the story of the slides with the dots form de navigation dots menu.
+
+                3 - To finish, you must update the different elements that are related to the value of the index variable.
+                    Like the title"Number"() functions (inside the slide_title.js file), the way that the legends are added to the map (story.js),
+                    the "Navigation dots" block of code (from the menus_and_buttons.js file), the #carousel element (index.html).
+                    This changes will synchronize the story of the slides with the dots form de navigation dots menu.
 */
 
 // global variables
