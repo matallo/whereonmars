@@ -91,6 +91,11 @@ function click(el) {
     } else {
       $('#map:last-child').remove(el.legendGeology.render().el);
       }
+    if (index == 7 || index == 8 || index == 9 || index == 10){
+      $('#map').append(el.legendEllipses.render().el);
+    } else {
+      $('#map:last-child').remove(el.legendEllipses.render().el);
+      }
 }
 
   // intro

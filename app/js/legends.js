@@ -1,5 +1,5 @@
 /*In this script, the different legends of the app are defined. You can change the name, color or values of the legends */
-
+// legend for the elevation
 el.legendElevation = new cdb.geo.ui.Legend({
      type: "custom",
      data: [
@@ -7,14 +7,21 @@ el.legendElevation = new cdb.geo.ui.Legend({
      ]
    });
 
-
+//legend for the geology
 el.legendGeology = new cdb.geo.ui.Legend({
     type: "custom",
     data: [
         { name: "Age < 3.600.000.000 years ", value: "#000" },
       ]
     });
-
+//legend for the ellipses
+el.legendEllipses= new cdb.geo.ui.Legend({
+     type: "custom",
+     data: [
+       { name: "Landing ellipse 2018", value: "#FCDC3B" },
+       { name: "Landing ellipse 2020", value: "#00B2EE" }
+     ]
+   });
 // coropleth legend
 el.lengendMOLA = new cdb.geo.ui.Legend({
      type: "choropleth",

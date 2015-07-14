@@ -10,9 +10,13 @@ The aim of this file is to define all the cartoDB layers and their style.
         var chapter = parseInt(location.hash.replace('#', ''), 10);
         el.story.go(chapter);
         checkIndex(chapter);
+        // everytime that the hash of the URL change, it loads the page.
+        $(window).bind('hashchange', function() {
+          location.reload();
+
+        });
         $("li").removeClass("active");
         $("li#" + chapter).addClass("active");
-
       } else {
         el.story.go(0,seq.step(0));
       }
@@ -537,7 +541,7 @@ The aim of this file is to define all the cartoDB layers and their style.
         })
       });
 
-  
+
 
 
       // add infowindow with the name and the explanation of the landing site. The explanation is inside the "explanation"
@@ -578,11 +582,6 @@ The aim of this file is to define all the cartoDB layers and their style.
 
       // add all cartoDB subLayers into the map
       el.map.addLayer(layer, false);
-      // everytime that the hash of the URL change, it loads the page.
-      $(window).bind('hashchange', function() {
-        location.reload(true);
-
-      });
       startStory();
 
 
