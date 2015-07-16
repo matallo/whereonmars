@@ -8,7 +8,6 @@ At the last part of the cartodbData() function, there are defined the infowindow
 
 // function that allows to load the app in a specific slide / hash. It is called in the end of the cartodbData function
   var startStory = function() {
-
       if (location.hash != "") {
         var chapter = parseInt(location.hash.replace('#', ''), 10);
         el.story.go(chapter);

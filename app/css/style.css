@@ -64,8 +64,4 @@
 		padding-left: 10px;
 		padding-right: 10px;
 	}
-	.leaflet-control-zoom-fullscreen fullscreen-icon{
-		position: absolute;
-		right: 10px;
-		top: 50px;
-	}
+	
