@@ -133,9 +133,9 @@ function click(el) {
 
   // intro
 function slideZero() {
-  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapShadedColor)){
+  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapMOLAShadedColor)){
     el.map.removeLayer(el.basemapViking);
-    el.map.removeLayer(el.basemapShadedColor);
+    el.map.removeLayer(el.basemapMOLAShadedColor);
     el.map.addLayer(el.basemapCelestia);
   }
   el.landingSite.hide();
@@ -177,7 +177,7 @@ function slideOne() {
   if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapCelestia)){
     el.map.removeLayer(el.basemapViking);
     el.map.removeLayer(el.basemapCelestia);
-    el.map.addLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapMOLAShadedColor);
   }
   el.landingSite.hide();
   el.dashellipses4.hide();
@@ -220,7 +220,7 @@ function slideTwo() {
   if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapCelestia)){
     el.map.removeLayer(el.basemapViking);
     el.map.removeLayer(el.basemapCelestia);
-    el.map.addLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapMOLAShadedColor);
   }
 
   el.landingSite.hide();
@@ -258,9 +258,9 @@ function slideTwo() {
 };
 // latitude constraint landing sites
 function slideThree() {
-  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapShadedColor)){
+  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapMOLAShadedColor)){
     el.map.removeLayer(el.basemapViking);
-    el.map.removeLayer(el.basemapShadedColor);
+    el.map.removeLayer(el.basemapMOLAShadedColor);
     el.map.addLayer(el.basemapCelestia);
   }
   el.latConstraint.show();
@@ -301,7 +301,7 @@ function slideFour() {
   if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapCelestia)){
     el.map.removeLayer(el.basemapViking);
     el.map.removeLayer(el.basemapCelestia);
-    el.map.addLayer(el.basemapShadedColor);
+    el.map.addLayer(el.basemapMOLAShadedColor);
   }
   el.landingSite8.hide();
   el.latConstraint.hide();
@@ -338,9 +338,9 @@ function slideFour() {
 };
 // Mix of constraints
 function slideFive() {
-  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapShadedColor)){
+  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapMOLAShadedColor)){
     el.map.removeLayer(el.basemapViking);
-    el.map.removeLayer(el.basemapShadedColor);
+    el.map.removeLayer(el.basemapMOLAShadedColor);
     el.map.addLayer(el.basemapCelestia);
   }
   el.elevationConstraint.hide();
@@ -378,9 +378,9 @@ function slideFive() {
 };
 // 4 landing sites
 function slideSix() {
-  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapShadedColor)){
+  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapMOLAShadedColor)){
     el.map.removeLayer(el.basemapViking);
-    el.map.removeLayer(el.basemapShadedColor);
+    el.map.removeLayer(el.basemapMOLAShadedColor);
     el.map.addLayer(el.basemapCelestia);
   }
   el.landingSite.show();
@@ -418,9 +418,9 @@ function slideSix() {
 };
 // Aram Dorsum
 function slideSeven(){
-  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+  if (el.map.hasLayer(el.basemapMOLAShadedColor) || el.map.hasLayer(el.basemapCelestia)){
     el.map.removeLayer(el.basemapCelestia);
-    el.map.removeLayer(el.basemapShadedColor);
+    el.map.removeLayer(el.basemapMOLAShadedColor);
     el.map.addLayer(el.basemapViking);
   }
   el.landingSite.hide();
@@ -457,9 +457,9 @@ function slideSeven(){
 
   // Hypanis Vallis
 function slideEight() {
-  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+  if (el.map.hasLayer(el.basemapMOLAShadedColor) || el.map.hasLayer(el.basemapCelestia)){
     el.map.removeLayer(el.basemapCelestia);
-    el.map.removeLayer(el.basemapShadedColor);
+    el.map.removeLayer(el.basemapMOLAShadedColor);
     el.map.addLayer(el.basemapViking);
   }
   el.ellipses1.hide();
@@ -497,9 +497,9 @@ function slideEight() {
 
   // Oxia Planum
 function slideNine() {
-  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+  if (el.map.hasLayer(el.basemapMOLAShadedColor) || el.map.hasLayer(el.basemapCelestia)){
     el.map.removeLayer(el.basemapCelestia);
-    el.map.removeLayer(el.basemapShadedColor);
+    el.map.removeLayer(el.basemapMOLAShadedColor);
     el.map.addLayer(el.basemapViking);
   }
   el.ellipses2.hide();
@@ -538,9 +538,9 @@ function slideNine() {
 
 // Mawrth Vallis
 function slideTen() {
-  if (el.map.hasLayer(el.basemapShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+  if (el.map.hasLayer(el.basemapMOLAShadedColor) || el.map.hasLayer(el.basemapCelestia)){
     el.map.removeLayer(el.basemapCelestia);
-    el.map.removeLayer(el.basemapShadedColor);
+    el.map.removeLayer(el.basemapMOLAShadedColor);
     el.map.addLayer(el.basemapViking);
   }
   el.ellipses4.show();
@@ -577,9 +577,9 @@ function slideTen() {
 
   // End of the story/overview
 function slideEleven() {
-  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapShadedColor) ){
+  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapMOLAShadedColor) ){
     el.map.removeLayer(el.basemapViking);
-    el.map.removeLayer(el.basemapShadedColor);
+    el.map.removeLayer(el.basemapMOLAShadedColor);
     el.map.addLayer(el.basemapCelestia);
   }
   el.nomenclatorGlobal.hide();
@@ -646,7 +646,6 @@ function initOdyssey(O) {
             O.Location.changeHash('1'),
             emitSlideChange
           )
-
     )
     .addState(
         seq.step(2),

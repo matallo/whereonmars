@@ -3,7 +3,7 @@
   Also, this script call the different Leafelt elements that are used (scale, zoom control and graticule).
   The garticule is a Leaflet plugin called Leaflet.SimpleGraticule (maintainer: Andrew Blakey).
   The raster tiles called in this script are the basemaps, the HRSC images and HiRISE images.
-  This script also define the coordinates of the center of each landing site.  
+  This script also define the coordinates of the center of each landing site.
 */
 
 // 	define function that initiates the map element
@@ -28,37 +28,33 @@ var initMap = function(){
 
     el.graticule = L.simpleGraticule(el.graticuleOptions).addTo(el.map);
 
-    // define basemap
+    // define MOLA gray basemap
 
-    el.basemap = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-gray/{z}/{x}/{y}.png', {
-
+    el.basemapMOLAGray = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-gray/{z}/{x}/{y}.png', {
      tms:true,
      maxNativeZoom: 9,
     }).setZIndex(0);
 
 
-    // no shaded color MOLA
-    el.basemapNoShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola_color-noshade_global/{z}/{x}/{y}.png', {
-
+    // define the no shaded color MOLA basemap
+    el.basemapMOLANoShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola_color-noshade_global/{z}/{x}/{y}.png', {
      tms:true,
      maxNativeZoom: 6,
     });
 
-    // define color basemap
-    el.basemapShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-color/{z}/{x}/{y}.png', {
-
+    // define the color MOLA basemap
+    el.basemapMOLAShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-color/{z}/{x}/{y}.png', {
      tms: true,
      maxNativeZoom: 6,
     }).setZIndex(0);
 
+    // define the Celestia basemap
     el.basemapCelestia = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/celestia_mars-shaded-16k_global/{z}/{x}/{y}.png', {
-
      tms:true,
      maxNativeZoom: 5,
    }).addTo(el.map).setZIndex(0);
-
+   // define the Viking basemap
     el.basemapViking = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/viking_mdim21_global/{z}/{x}/{y}.png', {
-
      tms:true,
      maxNativeZoom: 7,
     }).setZIndex(0);
@@ -86,25 +82,25 @@ var initMap = function(){
         $MOLA1 = $('#MOLA1')
         $MOLA1.change(function(){
             if ($MOLA1.is(':checked')){ // if checkbox is selected, then show layer
-              el.map.addLayer(el.basemap);
+              el.map.addLayer(el.basemapMOLAGray);
             }else{ // else (not selected), hide layer
-              el.map.removeLayer(el.basemap);
+              el.map.removeLayer(el.basemapMOLAGray);
             };
         });
         $MOLA2 = $('#MOLA2')
         $MOLA2.change(function(){
               if ($MOLA2.is(':checked')){
-                el.map.addLayer(el.basemapShadedColor);
+                el.map.addLayer(el.basemapMOLAShadedColor);
               }else{
-                el.map.removeLayer(el.basemapShadedColor);
+                el.map.removeLayer(el.basemapMOLAShadedColor);
               }
         });
         $MOLA3 = $('#MOLA3')
         $MOLA3.change(function(){
           if ($MOLA3.is(':checked')){
-            el.map.addLayer(el.basemapNoShadedColor);
+            el.map.addLayer(el.basemapMOLANoShadedColor);
           }else{
-            el.map.removeLayer(el.basemapNoShadedColor);
+            el.map.removeLayer(el.basemapMOLANoShadedColor);
           }
         });
         $shaded = $('#shaded')

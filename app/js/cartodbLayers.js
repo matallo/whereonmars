@@ -15,21 +15,10 @@ At the last part of the cartodbData() function, there are defined the infowindow
         checkIndex(chapter);
         $("li").removeClass("active");
         $("li#" + chapter).addClass("active");
-
-
-
       } else {
         el.story.go(0,seq.step(0));
       }
     }
-    // everytime that the hash of the URL change, it loads the page.
-
-    $(window).bind('hashchange', function() {
-      location.reload(true);
-
-    });
-
-
 
 // call data from cartoDB account
   var cartodbData = function(){
@@ -147,6 +136,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
         '}'
       ].join('\n');
 
+// style fot the layer el.nomenclatorGlobal
   var style4 = [
     '#exols_mars_nomenclature_webmercator_ls{',
       '	 marker-placement: point;',
@@ -174,7 +164,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
         el.landingSite = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_four",
           cartocss: style1,
-          interactivity: ['name','explanation']
+          interactivity: ['description']
          });
          el.latConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_lat_constraints",
@@ -549,12 +539,9 @@ At the last part of the cartodbData() function, there are defined the infowindow
         })
       });
 
-
-
-
-      // add infowindow with the name and the explanation of the landing site. The explanation is inside the "explanation"
+      // add infowindow with the name and the description of the landing site. The description is inside the "description"
       // column of the exols_exomars_landing_sites_four table
-      cdb.vis.Vis.addInfowindow(el.map, el.landingSite, ['name','explanation']);
+      cdb.vis.Vis.addInfowindow(el.map, el.landingSite, ['description']);
 
       // hide all cartodb layers when the map element is loaded
       el.landingSite8.hide();
@@ -591,6 +578,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
       // add all cartoDB subLayers into the map
       el.map.addLayer(layer, false);
       startStory();
+
 
 
 

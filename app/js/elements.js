@@ -3,14 +3,11 @@
 */
 var el = {
   map: null,
-  basemap: null,
-  basemap2: null,
-  basemapShadedColor: null,
+  basemapMOLAGray: null,
+  basemapMOLANoShadedColor: null,
+  basemapMOLAShadedColor: null,
   basemapCelestia: null,
-  basemapNoShadedColor:null,
-  torqueLayer: null,
-  torqueEllipses1: null,
-  torqueEllipses2: null,
+  basemapViking: null,
   story: null,
   hirise: null,
   hrsc: null,
