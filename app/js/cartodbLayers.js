@@ -171,9 +171,14 @@ At the last part of the cartodbData() function, there are defined the infowindow
           cartocss: '#exols_lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}',
           interactivity: ['description']
         });
+        el.latAreaOk = layer.createSubLayer({
+         sql: "SELECT * FROM exols_lat_area_ok",
+         cartocss: '#exols_lat_constraints{polygon-fill: #377eb8;polygon-opacity: 0.2;line-opacity: 0;}',
+         interactivity: ['description']
+       });
         el.geoConstraint = layer.createSubLayer({
             sql: "SELECT * FROM exols_restricted_geology_latitude_webmercator",
-            cartocss: "#exols_restricted_geology_latitude_webmercator{polygon-fill:  #5CA2D1;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}"
+            cartocss: "#exols_restricted_geology_latitude_webmercator{polygon-fill: #4daf4a;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}"
         });
         el.elevationConstraintNoOkLS = layer.createSubLayer({
           sql: "SELECT * FROM exols_elevation_constraint_landing_sites",
@@ -185,7 +190,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
         });
         el.elevationConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_elevation_constraint",
-          cartocss: "#exols_elevation_constraint{ polygon-fill: #000000;polygon-opacity: 0.7;line-color: #FFF; line-width: 0.5;line-opacity: 1;}",
+          cartocss: "#exols_elevation_constraint{polygon-fill: #000000;polygon-opacity: 0.7;line-color: #FFF; line-width: 0.5;line-opacity: 1;}",
           interactivity: ['description']
         });
         el.geoOkConstraint = layer.createSubLayer({
@@ -422,6 +427,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
         el.landingSite.setInteraction(true);
         el.geoNoOkContraint.setInteraction(true);
         el.latConstraint.setInteraction(true);
+        el.latAreaOk.setInteraction(true);
         el.elevationConstraint.setInteraction(true);
         el.ellipses1.setInteraction(true);
         el.ellipses2.setInteraction(true);
@@ -513,6 +519,13 @@ At the last part of the cartodbData() function, there are defined the infowindow
                 position: 'top|right'
             });
             $('body').append(d8.render().el);
+      var e = new cdb.geo.ui.Tooltip({
+                layer: el.latAreaOk,
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                width: 200,
+                position: 'top|right'
+            });
+            $('body').append(e.render().el);
 
 
 
@@ -547,6 +560,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
       el.landingSite8.hide();
       el.landingSite.hide();
       el.latConstraint.hide();
+      el.latAreaOk.hide();
       el.elevationConstraint.hide();
       el.geoConstraint.hide();
       el.duneConstraint.hide();
@@ -574,6 +588,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
       el.lengendMOLA.hide();
       el.legendGeology.hide();
       el.legendElevation.hide();
+      el.legendEllipses.hide();
 
       // add all cartoDB subLayers into the map
       el.map.addLayer(layer, false);

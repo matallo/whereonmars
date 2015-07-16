@@ -13,8 +13,7 @@ var initMap = function(){
         center: [15,-11],
         zoom: 3,
         minZoom: 2,
-        zoomControl: false
-
+        zoomControl: false,
       });
 
   // control zoom and control scale
@@ -29,7 +28,6 @@ var initMap = function(){
     el.graticule = L.simpleGraticule(el.graticuleOptions).addTo(el.map);
 
     // define MOLA gray basemap
-
     el.basemapMOLAGray = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-gray/{z}/{x}/{y}.png', {
      tms:true,
      maxNativeZoom: 9,

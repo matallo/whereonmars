@@ -18,13 +18,22 @@ el.legendGeology = new cdb.geo.ui.Legend({
       ]
     });
 //legend for the ellipses
-el.legendEllipses= new cdb.geo.ui.Legend({
+el.legendEllipses = new cdb.geo.ui.Legend({
      type: "custom",
      data: [
        { name: "Landing ellipse 2018", value: "#FCDC3B" },
        { name: "Landing ellipse 2020", value: "#00B2EE" }
      ]
    });
+el.legendLandingSite = new cdb.geo.ui.Legend({
+    type: "custom",
+    data: [
+      { name: "Not valid area", value: "#000" },
+      { name: "Geology of interest", value: "#4daf4a" },
+      { name: "Area of work", value: "#377eb8" }
+
+    ]
+  });
 // coropleth legend
 el.lengendMOLA = new cdb.geo.ui.Legend({
      type: "choropleth",
