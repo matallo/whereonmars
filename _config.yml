@@ -102,3 +102,9 @@ address:
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+# Analytics
+analytics :
+  provider : google
+  google :
+      tracking_id : 'UA-65388785-1'
