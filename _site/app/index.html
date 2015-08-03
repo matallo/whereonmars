@@ -14,44 +14,55 @@
   <link rel ="stylesheet" href="css/style.css"/>
   <link rel ="stylesheet" href="css/slides_container.css"/>
   <link rel ="stylesheet" href="css/menus_and_buttons.css"/>
-  <link rel ="stylesheet" href ="css/Minimap.css"/>
+  <link rel ="stylesheet" href ="css/L.SimpleGraticule.css"/>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
   <!-- call javascript libraries -->
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="js/odyssey.js" charset="UTF-8"></script>
-  <script src = "js/Minimap.js"/></script>
+  <script src="js/L.SimpleGraticule.js"></script>
 </head>
 <body>
+
 
   <!-- define element with id = map -->
 	<div id = "map"></div>
 
-  <!-- navigation buttons bootstrap -->
+  <!-- define script to add the infowindow option on the landing sites -->
+  <script type="infowindow/html" id="infowindow_template">
+        <span> custom </span>
+        <div class="cartodb-popup">
+          <a href="#close" class="cartodb-popup-close-button close">x</a>
+
+           <div class="cartodb-popup-content-wrapper">
+             <div class="cartodb-popup-content">
+               <p>{{content.data.description}}</p>
+             </div>
+           </div>
+           <div class="cartodb-popup-tip-container"></div>
+        </div>
+      </script>
+
+  <!-- define title under the dot menu for each slide-->
+  <div id = "title"></div>
+
+  <!-- navigation dot menu bootstrap -->
+
   <div id="carousel">
     <ol class = "carousel-indicators">
-      <li id = "0" data-target = "#carousel" data-slide-to="index[0]" class = "active"></li>
-      <li id = "1" data-target = "#carousel" data-slide-to="index[1]"></li>
-      <li id = "2" data-target = "#carousel" data-slide-to="index[2]"></li>
-      <li id = "3" data-target = "#carousel" data-slide-to="index[3]"></li>
-      <li id = "4" data-target = "#carousel" data-slide-to="index[4]"></li>
-      <li id = "5" data-target = "#carousel" data-slide-to="index[5]"></li>
-      <li id = "6" data-target = "#carousel" data-slide-to="index[6]"></li>
-      <li id = "7" data-target = "#carousel" data-slide-to="index[7]"></li>
-      <li id = "8" data-target = "#carousel" data-slide-to="index[8]"></li>
-      <li id = "9" data-target = "#carousel" data-slide-to="index[9]"></li>
-      <li id = "10" data-target = "#carousel" data-slide-to="index[10]"></li>
-      <li id = "11" data-target = "#carousel" data-slide-to="index[11]"></li>
-      <li id = "12" data-target = "#carousel" data-slide-to="index[12]"></li>
-      <li id = "13" data-target = "#carousel" data-slide-to="index[13]"></li>
-      <li id = "14" data-target = "#carousel" data-slide-to="index[14]"></li>
-      <li id = "15" data-target = "#carousel" data-slide-to="index[15]"></li>
-      <li id = "16" data-target = "#carousel" data-slide-to="index[16]"></li>
-      <li id = "17" data-target = "#carousel" data-slide-to="index[17]"></li>
-      <li id = "18" data-target = "#carousel" data-slide-to="index[18]"></li>
-      <li id = "19" data-target = "#carousel" data-slide-to="index[19]"></li>
-
+      <li id = "0" data-target = "#carousel" data-slide-to="index[0]"  class = "active"><p>ExoMars 2018</p></li>
+      <li id = "1" data-target = "#carousel" data-slide-to="index[1]"><p>MOLA</p></li>
+      <li id = "2" data-target = "#carousel" data-slide-to="index[2]"><p>Elevation constraint</p></li>
+      <li id = "3" data-target = "#carousel" data-slide-to="index[3]"><p>Latitude constraint</p></li>
+      <li id = "4" data-target = "#carousel" data-slide-to="index[4]"><p>Geological constraint</p></li>
+      <li id = "5" data-target = "#carousel" data-slide-to="index[5]"><p>Defining the landing sites</p></li>
+      <li id = "6" data-target = "#carousel" data-slide-to="index[6]"><p>Candidate landing Sites</p></li>
+      <li id = "7" data-target = "#carousel" data-slide-to="index[7]"><p>Aram Dorsum</p></li>
+      <li id = "8" data-target = "#carousel" data-slide-to="index[8]"><p>Hypanis Vallis</p></li>
+      <li id = "9" data-target = "#carousel" data-slide-to="index[9]"><p>Oxia Planum</p></li>
+      <li id = "10" data-target = "#carousel" data-slide-to="index[10]"><p>Mawrth Vallis</p></li>
+      <li id = "11" data-target = "#carousel" data-slide-to="index[11]"><p>The end</p></li>
     </ol>
   </div>
   <!-- navigation buttons-->
@@ -63,158 +74,90 @@
   <div id = "circleNext"></div>
   <!-- define element slides container -->
   <div id = "slides_container">
-    <div id = "hide_story"><a href="#">Hide/Show</a></div>
+    <div id = "hide_story"><p>Hide/Show</p></div>
 			<div id = "slides">
 				<!-- SLIDE 0 -->
 				<div class="slide">
-					<h1>ExoMars 2018</h1>
+					<h3>ExoMars 2018</h3>
 					<p>The 2018 mission of the ExoMars programme will deliver an European rover and a Russian surface platform to the surface of Mars<p>
           <p>The rover will travel across the martian surface to search for signs of life. The scientific mission of the rover consist in collect samples with a drill and analyse them with next-generation instruments.</p>
-          <img src = "css/images/rover.jpg" height = "120" width = "120" style = "margin-left: 50px;"></img>
+          <img src = "css/images/rover.jpg"  height = "120" width = "120"  style = "margin-left: 40px;"></img>
 				</div>
 				<!-- SLIDE 1 -->
         <div class="slide">
-					<h1>Scientific constraints for the landing sites</h1>
-          <p>In order to achieve results regarding the possible existence of signs of life, the ExoMars rover has to land in a scientifically appropiate setting.</p>
-          <p>The ExoMars 2018 mission must target a geologically diverse ancient site interpreted to have strong potential for past habitability and for preserving the physical and chemical signs of life and organic matter.</p>
-				  <p>The color black indicates the geological areas that are not valid for the ExoMars 2018 mission.</p>
+					<h3>Mars Orbiter Laser Altimeter (MOLA)</h3>
         </div>
         <!-- SLIDE 2 -->
         <div class="slide">
-					<h1>Scientific constraints for the landing sites</h1>
-          <p>The site must be ancient (older than 3,600,000,000 years old).</p>
-          <p>It must include numerous sedimentary rock outcrops. The outcrops must be distribute over the landing ellipse to ensure that the rover can get to some of them.</p>
-				  <p>The site must show abundant morphological and mineralogical evidence for long-duration, low-energy transport, aqueous activity.</p>
+          <h3>Elevation constraint</h3>
+          <p>In order to have a successful landing, the elevation must be lower than -2 km. The reason of this constraint is to have the enough time for the rover to reduce the velocity and complete the landing on the surface of Mars.</p>
         </div>
         <!-- SLIDE 3 -->
         <div class="slide">
-					<h1>Engineering constraints for the landing sites</h1>
           <h3>Latitude constraint</h3>
           <p>The latitude for the rover to operate must be between 5°S and 25°N. Latitudes beyond this range would cause either degraded electrical power or challenging thermal conditions of the rover.</p>
         </div>
         <!-- SLIDE 4 -->
         <div class="slide">
-          <h1>Engineering constraints for the landing sites</h1>
-          <h3>Elevation constraint</h3>
-          <p>The landing site elevation must allow an adequate atmospheric column capable of providing the drag and the time needed for the successful completition of the Entry, Descending and Landing (EDL) events.</p>
-          <p>The maximum height allowed for the landing site is -2 km.The black area indicates the elevation that is not acceptable for the ExoMars 2018 mission.</p>
+          <h3>Geological constraint</h3>
+          <p>The ExoMars 2018 mission must target a geologically diverse ancient site interpreted to have strong potential for past habitability and for preserving the physical and chemical signs of life and organic matter.</p>
+          <p>The site must show abundant morphological and mineralogical evidence for long-duration, low-energy transport, aqueous activity.</p>
         </div>
 				<!-- SLIDE 5 -->
 				<div class="slide">
-					<h1>Defining the landing sites</h1>
+					<h3>Defining the landing sites</h3>
 					<p>To define the landing sites ESA put together the ExoMars Landing Site Selection Working Group (LSSWG), a group of scientists who deal with the science and engineering constraints that need to be verified before a landing site can be "certified" for the mission.</p>
-				  <p>The landing sites of Mawrth Vallis 1 and Mawrth Vallis 2 are so close that can be considered as one site.</p>
         </div>
 				<!-- SLIDE 6 -->
 				<div class="slide">
-					<h1>Candidate landing Sites</h1>
+					<h3>Candidate landing Sites</h3>
 					<p>Considering the mission's search-for-life objectives, the LSSWG has identified four landing sites that possess a clear, higher scientific interest.</p>
 					<p>These sites are within the latitude constraint. The ExoMars rover is designed to operate in the latitude range between 5° South to 25° North. </p>
         </div>
 				<!-- SLIDE 7 -->
 				<div class="slide">
-					<h1>Aram Dorsum</h1>
-					<p>Aram Dorsum is located on plains of middle Noachian age, about 4 billion years old, in a region that has been sculpted during two major aqueous periods. It comprises layered sedimentary rocks crossed by a prominent inverted channel ridge, which is 80 km long and 1.2 km wide.</p>
+					<h3>Aram Dorsum</h3>
+					<p>Aram Dorsum is located on plains of middle Noachian age, about 4 billion years old. It comprises layered sedimentary rocks crossed by a prominent inverted channel ridge, which is 80 km long and 1.2 km wide.</p>
 					<p>The ancient lakes and rivers at this site would have been favourable for the development of life, as well as for the preservation of its biosignatures. The long-lived aqueous conditions recorded in the migrating channel pattern would have been critical for establishing a habitable environment at the Aram Dorsum site</p>
-				</div>
-				<!-- SLIDE 8 -->
-				<div class="slide">
-					<h1>Aram Dorsum</h1>
-					<h3>The High Resolution Stereo Camera</h3>
-					<p>The High Resolution Stereo Camera (HRSC) is a camera experiment on Mars Express.At an altitude of 250 km from Mars, HRSC can produce images with a resolution of 2.3 meters/pixel of 2.35 kilometers square Mars Terrain.</p>
-          <div class="button" style="background-color: #49afcd; margin-left: 90px;text-align: center;width:100px;border-radius: 15px; padding: 5px 5px 5px 5px;"><a href="#hrscAram" id="hrscAram" class="button hrscAram" style="color: #FFF">HRSC</a></div>
-          </br>
-				</div>
-        <!-- SLIDE 9 -->
-        <div class="slide">
-					<h1>Aram Dorsum</h1>
-          <h3>HiRISE</h3>
-          <p>The High Resolution Imaging Science Experiment (HiRISE) is a camera on board the Mars Reconnaissance Orbiter (MRO) and have a resolution of 0.3 m from an altitude of 300 km. One of the main goals of the MRO is to map the Martian landscape with it's high-resolution cameras in order to choose landing sites. </p>
-          <p>If you want to see Mars in high resolution...click the button and zoom to see the great difference between HRSC and HiRISE resolution ! </p>
-          <div class="button" style="background-color: #49afcd; margin-left: 70px;text-align: center;width:100px;border-radius: 15px; padding: 5px 5px 5px 5px;"><a href="#HiRISEAram" id="HiRISEAram" class="button HiRISEAram" style="color: #FFF">HiRISE</a></div>
-          </br>
-				</div>
-				<!-- SLIDE 10 -->
-				<div class="slide">
-					<h1>Aram Dorsum</h1>
-					<h3>2018 landing site</h3>
-					<p>The area where the rover will land have a shape of an ellipse.The landing site is an ellipse due the unpredictable factors that will affect the landing process like the surface wind or the velocity of the rover while landing.<p>
-          <p>The landing ellipe it will have a 104 km major axis and a 19 km minor axis.The orientation of the landing ellipse will change depending on when the launch takes place within a given launch window.</p>
-          <p>For the 2018 launch, the orientation of the landing ellipse can vary between 90° and 102° respect the North.</p>
+        </div>
 
-				</div>
-        <!-- Slide 11 -->
+				<!-- SLIDE 8-->
         <div class="slide">
-					<h1>Aram Dorsum</h1>
-					<h3>2020 landing site</h3>
-          <p>For the 2020 launch, the orientation of the landing ellipse can vary between 88° and 127° respect the North.</p>
-				</div>
-				<!-- SLIDE 12 -->
-        <div class="slide">
-					<h1>Hypanis Vallis</h1>
+					<h3>Hypanis Vallis</h3>
 					<p>Hypanis Vallis is one of several valleys situated between two large outflow channels, Maja Vallis in the west and Shalbatana Vallis in the east.</p>
 				  <p>Hypanis Vallis lies on an exhumed fluvial fan, thought to be the remant of an ancient river delta at the end of a major valley network.</p>
           <p>Distinct layers of fine-grained sedimentary rocks provide access to material deposited about 3.45 billion years ago.</p>
         </div>
 
-        <!-- SLIDE 13 -->
-        <div class="slide">
-					<h1>Hypanis Vallis</h1>
-          <h3>Landing site in Hypanis Vallis</h3>
-          <p>Here, the landing ellipse are shown  for the Hypanis Vallis site. For the next sites you have to remember that the yellow ellipses are for the 2018 launch and the blue ellipses are for the 2020 launch. </p>
-				</div>
-
-				<!-- SLIDE 14 -->
+				<!-- SLIDE 9 -->
 				<div class="slide">
-					<h1>Oxia Planum</h1>
-					<h3>Why Oxia Planum?</h3>
+					<h3>Oxia Planum</h3>
 					<p>The region is characterised by ancient highland cratered terrains that become increasingly eroded towards the highland-lowland boundary.</p>
-					<p>The candidate landing site area in Oxia Planum is located inside a shallow basin, at the outlet of the Coogoon Valles system. The region was chosen to include extensive, layered exposures rich in iron and magnesium phyllosilicates.</p>
-					<p>The main scientific concern for this site relates to the lack of precise information regarding the geologic context and origin of the clay-bearing unit. However, the phyllosilicate deposits are seen as the key to the study of aqueous activity on early Mars and the search for evidence of habitable environments early in the planet’s history.</p>
+					<p>The region was chosen to include extensive, layered exposures rich in iron and magnesium phyllosilicates.</p>
+					<p>The phyllosilicate deposits in the area are seen as the key to the study of aqueous activity on early Mars and the search for evidence of habitable environments early in the planet’s history.</p>
 				</div>
 
-				<!-- SLIDE 15 -->
+				<!-- SLIDE 10 -->
 				<div class="slide">
-					<h1>Oxia Planum</h1>
-					<h3>Landing sites</h3>
-					<p>More information regarding the landing sites</p>
-
-				</div>
-				<!-- SLIDE 16 -->
-				<div class="slide">
-					<h1>Mawrth Vallis</h1>
-					<h3>Why Mawrth Vallis?</h3>
+					<h3>Mawrth Vallis</h3>
 					<p>This area contains a large outflow channel known as Mawrth Vallis, which once discharged huge amounts of water onto the northern plains. The proposed ExoMars landing site is situated just south of this channel.</p>
-					<p>The region surrounding Mawrth Vallis contains one of the largest exposures of phyllosilicates (clay minerals produced by chemical weathering) detected on Mars. These deposits provide a unique opportunity to evaluate aqueous activity on early Mars and point to the possibility that habitable environments may have existed during the Noachian period (from the formation of the planet to perhaps 3.6 billion years ago). Other deposits and outcrops in the region show the highest degree of mineral alteration identified so far on Mars.</p>
+					<p>There are deposits of phyllosilicates that provide a unique opportunity to evaluate aqueous activity on early Mars and point to the possibility that habitable environments may have existed during the Noachian period (3.6 billion years ago).</p>
 
 				</div>
-        <!-- SLIDE 17 -->
-        <div class="slide">
-          <h1>Mawrth Vallis</h1>
-          <h3>HiRISE</h3>
-          <p>Here we can see the HiRISE image of the Mawrth Vallis site. If you want to see Mawrth Vallis in detail, zoom into the image with the mouse or with the zoom controls.</p>
-          <p>Do you like what you see?</p>
-        </div>
-				<!-- SLIDE 18 -->
-				<div class="slide">
-					<h1>Mawrth Vallis</h1>
-					<h3>Landing sites</h3>
-					<p>This area contains a large outflow channel known as Mawrth Vallis, which once discharged huge amounts of water onto the northern plains. The proposed ExoMars landing site is situated just south of this channel.</p>
-					<p>The region surrounding Mawrth Vallis contains one of the largest exposures of phyllosilicates (clay minerals produced by chemical weathering) detected on Mars. These deposits provide a unique opportunity to evaluate aqueous activity on early Mars and point to the possibility that habitable environments may have existed during the Noachian period (from the formation of the planet to perhaps 3.6 billion years ago). Other deposits and outcrops in the region show the highest degree of mineral alteration identified so far on Mars.</p>
 
-				</div>
-				<!-- SLIDE 19 -->
+				<!-- SLIDE 11 -->
 				<div class="slide">
-					<h1>The End</h1>
+					<h3>The End</h3>
 					<p>Great explanation inside this chapter</br>with some incredible images and data</p>
 				</div>
 
 			</div><!-- End slides-->
 	</div> <!-- End slides_container-->
 
+  <!-- menu with all the vector and raster layers-->
 
-    <!-- menu with all the vector and raster layers-->
-      <div id = "hide_menu" style = "right: 20px; "><img src="css/images/layers.png" alt="Layer_switcher"></div>
+  <!-- menu with all the vector and raster layers-->
+  <div id = "hide_menu" style = "right: 20px; "><img src="css/images/layers.png" alt="Layer_switcher"></div>
         <div id ="accordion">
           <h4>Basemaps</h4>
           <div>
@@ -273,8 +216,6 @@
           <input type= "checkbox" name = "raster" id = "HIRISE3"></input>
           <label for="HIRISE3"></label>
           <span style ="display: inline-block;">Mawrth Vallis</span>
-
-
         </div>
         <!-- define landing sites-->
         <h4>Center of landing sites</h4>
@@ -305,10 +246,6 @@
           <input type= "checkbox" name = "vector" id = "ellipsesMawrth1"></input>
           <label for="ellipsesMawrth1"></label>
           <span style ="display: inline-block;">Landing ellipses of Mawrth Vallis</span>
-          <br/>
-          <input type= "checkbox" name = "vector" id = "torque2018"></input>
-          <label for="torque2018"></label>
-          <span style ="display: inline-block;">Landing ellipses animated point Aram Dorsum</span>
         </div>
         <h4>Landing sites 2020</h4>
         <div>
@@ -353,12 +290,14 @@
 
       </div>
 
-      <script src ="js/elements.js"></script>
-      <script src ="js/cartodbLayers.js"></script>
-      <script src ="js/menus_and_buttons.js"></script>
-      <script src ="js/raster_tiles.js"></script>
-      <script src ="js/story.js"></script>
-      <script src ="js/main.js"></script>
+  <script src ="js/elements.js"></script>
+  <script src ="js/cartodbLayers.js"></script>
+  <script src ="js/menus_and_buttons.js"></script>
+  <script src ="js/raster_tiles.js"></script>
+  <script src ="js/story.js"></script>
+  <script src = "js/slide_title.js"></script>
+  <script src ="js/legends.js"></script>
+  <script src ="js/main.js"></script>
 
 
 </body>

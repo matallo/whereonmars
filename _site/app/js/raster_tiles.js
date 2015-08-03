@@ -1,3 +1,11 @@
+/*
+  In this script, the function initMap() define call all the raster tiles and define their properties.
+  Also, this script call the different Leafelt elements that are used (scale, zoom control and graticule).
+  The garticule is a Leaflet plugin called Leaflet.SimpleGraticule (maintainer: Andrew Blakey).
+  The raster tiles called in this script are the basemaps, the HRSC images and HiRISE images.
+  This script also define the coordinates of the center of each landing site.
+*/
+
 // 	define function that initiates the map element
 var initMap = function(){
   // define map
@@ -5,59 +13,53 @@ var initMap = function(){
         center: [15,-11],
         zoom: 3,
         minZoom: 2,
-        zoomControl: false
-
+        zoomControl: false,
       });
+
+  // control zoom and control scale
     new L.control.zoom({position : 'bottomright'}).addTo(el.map);
-    new L.control.scale({metric: true,imperial: false}).addTo(el.map);
+    new L.control.scale({metric: true,imperial: false, position: 'bottomright'}).addTo(el.map);
 
-    // define basemap
+  // define graticule
+    el.graticuleOptions = {interval: 20,
+               showOriginLabel: false,
+               redraw: 'move'};
 
-    el.basemap = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-gray/{z}/{x}/{y}.png', {
-     attribution: 'GISLAB',
+    el.graticule = L.simpleGraticule(el.graticuleOptions).addTo(el.map);
+
+    // define MOLA gray basemap
+    el.basemapMOLAGray = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-gray/{z}/{x}/{y}.png', {
      tms:true,
      maxNativeZoom: 9,
     }).setZIndex(0);
 
-    // basemap2 is the map used to create the mini map
 
-    el.basemap2 = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/celestia_mars-shaded-16k_global/{z}/{x}/{y}.png', {
-     attribution: 'GISLAB',
-     tms:true,
-     maxNativeZoom: 5,
-    });
-
-    // no shaded color MOLA
-    el.basemapNoShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola_color-noshade_global/{z}/{x}/{y}.png', {
-     attribution: 'GISLAB',
+    // define the no shaded color MOLA basemap
+    el.basemapMOLANoShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola_color-noshade_global/{z}/{x}/{y}.png', {
      tms:true,
      maxNativeZoom: 6,
     });
-    // create a Mini map of the basemap2 layer
-    var rect1 = {color: "#CAFF70", weight: 3, opacity: 0.8}; // rect1 to define rectangle options
-    var miniMap = new L.Control.MiniMap(el.basemap2, { toggleDisplay: true, position: 'bottomright',aimingRectOptions : rect1}).addTo(el.map);
-    // define color basemap
-    el.basemapShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-color/{z}/{x}/{y}.png', {
-     attribution: 'GISLAB',
+
+    // define the color MOLA basemap
+    el.basemapMOLAShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-color/{z}/{x}/{y}.png', {
      tms: true,
      maxNativeZoom: 6,
     }).setZIndex(0);
 
+    // define the Celestia basemap
     el.basemapCelestia = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/celestia_mars-shaded-16k_global/{z}/{x}/{y}.png', {
-     attribution: 'GISLAB',
      tms:true,
      maxNativeZoom: 5,
    }).addTo(el.map).setZIndex(0);
-
+   // define the Viking basemap
     el.basemapViking = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/viking_mdim21_global/{z}/{x}/{y}.png', {
-     attribution: 'GISLAB',
      tms:true,
      maxNativeZoom: 7,
     }).setZIndex(0);
 
   // call the SQL API from cartodb
   var sql = new cartodb.SQL({ user: 'whereonmars'});
-   sql.execute("SELECT * FROM raster_tiles_HRSC ORDER BY cartodb_id ASC")
+   sql.execute("SELECT * FROM exols_raster_tiles_HRSC ORDER BY cartodb_id ASC")
    .done(function(data){
      el.hrsc = {};
      // loop that read each row of cartodb table and add  hrsc layers
@@ -69,10 +71,7 @@ var initMap = function(){
             unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed
             updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
             maxNativeZoom: 9
-          }).setZIndex(1);
-            if(i > 0){
-              el.hrsc[i].addTo(el.map);
-            };
+          }).addTo(el.map).setZIndex(1);
         } // finish the  raster_tiles_HRSC loop
 
         // the raster layers called with cartodb.js
@@ -81,25 +80,25 @@ var initMap = function(){
         $MOLA1 = $('#MOLA1')
         $MOLA1.change(function(){
             if ($MOLA1.is(':checked')){ // if checkbox is selected, then show layer
-              el.map.addLayer(el.basemap);
+              el.map.addLayer(el.basemapMOLAGray);
             }else{ // else (not selected), hide layer
-              el.map.removeLayer(el.basemap);
+              el.map.removeLayer(el.basemapMOLAGray);
             };
         });
         $MOLA2 = $('#MOLA2')
         $MOLA2.change(function(){
               if ($MOLA2.is(':checked')){
-                el.map.addLayer(el.basemapShadedColor);
+                el.map.addLayer(el.basemapMOLAShadedColor);
               }else{
-                el.map.removeLayer(el.basemapShadedColor);
+                el.map.removeLayer(el.basemapMOLAShadedColor);
               }
         });
         $MOLA3 = $('#MOLA3')
         $MOLA3.change(function(){
           if ($MOLA3.is(':checked')){
-            el.map.addLayer(el.basemapNoShadedColor);
+            el.map.addLayer(el.basemapMOLANoShadedColor);
           }else{
-            el.map.removeLayer(el.basemapNoShadedColor);
+            el.map.removeLayer(el.basemapMOLANoShadedColor);
           }
         });
         $shaded = $('#shaded')
@@ -153,7 +152,7 @@ var initMap = function(){
     }); // finish .done(function()) where all the layers are called
 
     /* Calls the SQL API of CartoDB to add the URL of the tile layers stored in the account */
-    sql.execute("SELECT * FROM raster_tiles_HIRISE ORDER BY cartodb_id ASC")
+    sql.execute("SELECT * FROM exols_raster_tiles_HIRISE ORDER BY cartodb_id ASC")
     .done(function(data){
       el.hirise = {};
       for (i = 0; i < data.total_rows; i++){
@@ -164,10 +163,7 @@ var initMap = function(){
           unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed
           updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
           maxNativeZoom: 16
-        }).setZIndex(2);
-            if(i > 0){
-              el.hirise[i].addTo(el.map);
-            };
+        }).addTo(el.map).setZIndex(2);
         } // finish the raster_tiles_HIRISE loop
 
         // attach HIRISE layers to th checkbox defined in the html file
@@ -212,6 +208,5 @@ var initMap = function(){
   el.Oxia = new L.LatLng(18.2, -24.55);
   el.Mawrth = new L.LatLng(22.16, -17.95);
   el.center = new L.LatLng(15,-11);
-
 
 } // finish initMap function

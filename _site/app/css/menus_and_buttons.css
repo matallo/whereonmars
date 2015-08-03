@@ -1,4 +1,14 @@
-/* styles for the layer menu element */
+/*
+  This css file define the styles of the next elements:
+
+                  1- Switch layer menu/accordion menu (#accordion)
+                  2- Title (#title)
+                  3- Navigation buttons
+                  4- Navigation dots (.carousel-indicators)
+*/
+
+
+/* 1 - Switch layer menu */
 #accordion {
   position:absolute;
   top:50px;
@@ -18,7 +28,21 @@
   backgroumd-color: #FFF;
   cursor: pointer;
 }
-/* define styles for the navigation buttons */
+/* 2- Title */
+
+#title {
+  color: #FFF;
+  position: absolute;
+  bottom: 2.5%;
+  width: 100%;
+  text-align: center;
+}
+/* image */
+#hide_menu img:hover{
+  height: 20px;
+  width: auto;
+}
+/*   3- Navigation buttons */
 
 ul#navButtons .prev{
   z-index: 1000;
@@ -57,29 +81,44 @@ ul#navButtons .next{
   left: 51%;
 }
 
-/* define styles for bootstrap carousel */
+/* Navigation dots  */
 
-ol.carousel-indicators{
+.carousel-indicators{
   bottom: 3%;
+  position: absolute;
+
 }
-ol.carousel-indicators li{
+.carousel-indicators li{
   cursor: pointer;
   background-color: #F4F4F4;
   opacity: 0.8;
 }
-ol.carousel-indicators li:hover{
+.carousel-indicators p{
+  display: none;
+  position: absolute;
+  margin-left: 0px;
+  top: 0px;
+  text-indent: 0px;
+  color: #FFF;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  transform-origin: -5% -40%;
+
+}
+.carousel-indicators li:hover{
 
   background-image: url("images/45.png");
   opacity: 1;
 }
-ol.carousel-indicators li.active{
+.carousel-indicators li:hover p{
+  display: block;
+
+}
+.carousel-indicators  li.active{
   cursor: pointer;
   background-image: url("images/45.png");
   opacity: 1;
-}
-
-/* image */
-#hide_menu img:hover{
-  height: 20px;
-  width: auto;
 }

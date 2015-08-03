@@ -1,3 +1,7 @@
+	/*
+		This css file define the styles of the map, the html, the body, the Leafles elements (scale and zoom) and CartoDB elements (logo, legend)
+	*/
+
 	#map{
 		z-index:-10;
 		height: 100%;
@@ -15,21 +19,40 @@
 	.cartodb-timeslider{
 		display: none!important;
 	}
+	/* define properties of infowindows */
+	#map > div.cartodb-infowindow > div > div.cartodb-popup-content-wrapper{
+		width: 300px;
+		max-width: none;
 
-/*  logo cartodb */
+	}
+	/*  logo cartodb */
 	.cartodb-logo{
 		display: none!important;
 	}
+	/* Legends*/
+	.cartodb-legend{
+		left: 20px;
+		width: 250px;
+		height: auto;
+		background-color: #FFF;
+		opacity: 1;
 
-
+	}
 
 	/* different styles for the leaflet plugins */
-	.leaflet-left .leaflet-control-scale {
-		margin-left: 5px;
+	.leaflet-control-attribution {
+		display: none!important;
 	}
-	.leaflet-bottom .leaflet-control-scale {
-		margin-bottom: 10px;
+	.leaflet-control-scale{
+		bottom: -55px;
+		right: 10px;
 	}
+
+	.leaflet-control-zoom{
+		bottom: 30px;
+		right: 25px;
+	}
+
   .leaflet-control-scale-line {
 		-moz-box-sizing: content-box;
 		box-sizing: content-box;
@@ -40,10 +63,5 @@
 		font-family: cursive;
 		padding-left: 10px;
 		padding-right: 10px;
-
 	}
-	.leaflet-control-layers-toggle{
-		position: absolute;
-		top: 40px;
-		left: -30px;
-	}
+	
