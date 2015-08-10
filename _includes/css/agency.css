@@ -14,6 +14,11 @@ body {
     color: #777;
 }
 
+.text-blue {
+    color: #777;
+}
+
+
 .text-primary {
     color: #{{ site.color.primary }};
 }
@@ -24,7 +29,7 @@ p {
 }
 
 p.large {
-    font-size: 16px;
+    font-size: 26px;
 }
 
 a,
@@ -173,11 +178,19 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default {
     border-color: transparent;
     background-color: #222;
+    /*overflow: visible;*/
 }
 
 .navbar-default .navbar-brand {
-    font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
-    color: #{{ site.color.primary }};
+    /*font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;*/
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,cursive;
+    /*color: #{{ site.color.primary }};*/
+    color: #d04f3e;
+    /*width: 300px;
+    margin: 0 auto;
+    background-image: url(../img/wom-logo.png);
+    background-size: 100px auto;
+    background-repeat: no-repeat;*/
 }
 
 .navbar-default .navbar-brand:hover,
@@ -190,6 +203,10 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .navbar-collapse {
     border-color: rgba(255,255,255,.02);
 }
+
+/*.navbar-default.navbar-shrink .navbar-brand {
+    visibility: visible;
+}*/
 
 .navbar-default .navbar-toggle {
     border-color: #{{ site.color.primary }};
@@ -242,10 +259,12 @@ fieldset[disabled] .btn-xl.active {
     }
 
     .navbar-default .navbar-brand {
+        visibility: hidden;
+        width: 0px;
         font-size: 2em;
-        -webkit-transition: all .3s;
+        /*-webkit-transition: all .3s;
         -moz-transition: all .3s;
-        transition: all .3s;
+        transition: all .3s;*/
     }
 
     .navbar-default .navbar-nav>.active>a {
@@ -259,14 +278,22 @@ fieldset[disabled] .btn-xl.active {
 
     .navbar-default.navbar-shrink .navbar-brand {
         font-size: 1.5em;
+        visibility: visible;
+        width: auto;
     }
+
+    .navbar-default.navbar-shrink img{
+        height: 0px;
+        visibility: hidden;
+    }
+
 }
 
 header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url(../img/header-bg.jpg);
+    background-image: url(./img/header-bg.jpg);
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -299,14 +326,14 @@ header .intro-text .intro-heading {
 
 @media(min-width:768px) {
     header .intro-text {
-        padding-top: 300px;
+        padding-top: 180px;
         padding-bottom: 200px;
     }
 
     header .intro-text .intro-lead-in {
-        margin-bottom: 25px;
+        margin-bottom: 120px;
         font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 40px;
+        font-size: 30px;
         font-style: italic;
         line-height: 40px;
     }
@@ -315,7 +342,7 @@ header .intro-text .intro-heading {
         margin-bottom: 50px;
         text-transform: uppercase;
         font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 75px;
+        font-size: 55px;
         font-weight: 700;
         line-height: 75px;
     }
@@ -342,7 +369,7 @@ section h3.section-subheading {
 
 @media(min-width:768px) {
     section {
-        padding: 150px 0;
+        padding: 100px 0;
     }
 }
 
@@ -535,6 +562,7 @@ section h3.section-subheading {
 
 .timeline .timeline-heading h4.subheading {
     text-transform: none;
+    color: #ccc;
 }
 
 .timeline .timeline-body>p,
@@ -654,10 +682,14 @@ aside.clients img {
 }
 
 section#contact {
-    background-color: #222;
-    background-image: url(../img/map-image.png);
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: #333;
+    background-image: url(./img/map-image.png);
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
 section#contact .section-heading {

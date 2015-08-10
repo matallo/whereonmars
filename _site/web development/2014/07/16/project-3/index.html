@@ -7,19 +7,21 @@
     <title>Golden</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Interactive web map visualization of the ESA's ExoMars Rover candidates landing sites">
-    <link rel="canonical" href="https://nmanaud.github.io/whereonmars//web%20development/2014/07/16/project-3/">
+    <link rel="canonical" href="https://nmanaud.github.io/whereonmars/web%20development/2014/07/16/project-3/">
 
 
     <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link rel="stylesheet" href="/whereonmars//style.css">
+    <link rel="stylesheet" href="/whereonmars/style.css">
 
     <!-- Custom Fonts -->
-    <link rel="stylesheet" href="/whereonmars//css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/whereonmars/css/font-awesome/css/font-awesome.min.css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="shortcut icon" type="image/png" href="./favicon.png">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,7 +46,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Where On Mars?</a>
+                <img src="../img/wom-logo-redlight.png" height="100">
+                <!-- <a class="navbar-brand page-scroll" href="#page-top">Where On Mars?</a> -->
+                <!-- <a class="navbar-brand page-scroll" href="#page-top" style="visibility: hidden;">WHERE ON MARS?</a> -->
+                <a class="navbar-brand page-scroll" href="#page-top">WHERE ON MARS?</a>
+                <!-- <a class="navbar-brand page-scroll" href="#page-top"><img border="0" src="./img/wom-logo.png" width="auto" height="auto"></a> -->
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -54,16 +60,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li>
                         <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#team">Team</a>
+                        <a class="page-scroll" href="#team">Project</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -79,10 +79,18 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Searching for life on Mars: where should the ExoMars rover land?</div>
-                <div class="intro-heading">Explore</div>
-                <a href="#services" class="page-scroll btn">Tell me more</a>
-                <a href="./app/index.html" class="page-scroll btn btn-xl">Launch Map</a>
+                <div class="intro-heading">Where On Mars?</div>
+                <div class="intro-lead-in">
+                  Where should the first European rover land on Mars?</br>
+                  <!-- Scientists and engineers are looking for the most desireable landing site to search for life. -->
+                  Scientists have selected the most desireable landing sites to search for life.
+                </br>Explore the candidates landing sites on an interactive map!
+                </div>
+                <a href="../app/index.html" class="page-scroll btn btn-xl">
+                   <!-- style="background-color:#D14836; border-color:#D14836; -->
+                Launch map</a>
+              <a href="#about" class="page-scroll btn" style="color:#fff">Tell me more <i class="fa fa-chevron-down"></i></a>
+
             </div>
         </div>
     </header>
@@ -94,147 +102,6 @@
         
  -->
 
-    <!-- Services Section -->
-    <section id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Services</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">E-Commerce</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Responsive Design</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Web Security</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Portfolio Grid Section -->
-    <section id="portfolio" class="bg-light-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Portfolio</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row">
-            
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/dreams-thumbnail.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Dreams</h4>
-                        <p class="text-muted">Website Design</p>
-                    </div>
-                </div>
-            
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/escape-thumbnail.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Escape</h4>
-                        <p class="text-muted">Website Design</p>
-                    </div>
-                </div>
-            
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/golden-thumbnail.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Golden</h4>
-                        <p class="text-muted">Website Design</p>
-                    </div>
-                </div>
-            
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/roundicons-thumbnail.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Round Icons</h4>
-                        <p class="text-muted">Graphic Design</p>
-                    </div>
-                </div>
-            
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/treehouse-thumbnail.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Treehouse</h4>
-                        <p class="text-muted">Website Design</p>
-                    </div>
-                </div>
-            
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/startup-framework-thumbnail.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Startup Framework</h4>
-                        <p class="text-muted">Website Design</p>
-                    </div>
-                </div>
-            
-            </div>
-        </div>
-    </section>
     <!-- About Section -->
     <section id="about">
         <div class="container">
@@ -244,45 +111,53 @@
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
             </div>
+
+
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="timeline">
                         <li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
+                                <img class="img-circle img-responsive" src="../img/about/1.jpg" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>2009-2011</h4>
-                                    <h4 class="subheading">Our Humble Beginnings</h4>
+                                    <h4>...The "Where On Mars?" Project</h4>
+                                    <h4 class="subheading">Visualising the ExoMars rover candidates landing sites</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">
+                                    The "Where On Mars?" project started as an <a href="http://www.sciops.esa.int/index.php?project=ESACTRAINEES&page=2015Projects#Project4">
+                                    ESAC Trainee Project</a> in collaboration with <a href="">CartoDB</a>.
+                                    The objective was to prototype a web map visualization of the ESA's ExoMars 2018 rover candidates landing sites,
+                                    with the general purpose of increasing awareness of the mission to the general public.
+                                    It aims at growing as an open source and collaborative project. <a href="">Learn more</a>
                                 </div>
                             </div>
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                                <img class="img-circle img-responsive" src="../img/about/2.jpg" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>March 2011</h4>
-                                    <h4 class="subheading">An Agency is Born</h4>
+                                    <h4>...The ExoMars 2018 Mission</h4>
+                                    <h4 class="subheading">Searching for Life on Mars</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">
+                                    The 2018 mission of the ExoMars programme will deliver a European rover and a Russian surface platform to the surface of Mars. A Proton rocket will be used to launch the mission, which will arrive to Mars after a nine-month journey. The ExoMars rover will travel across the Martian surface to search for signs of life. It will collect samples with a drill and analyse them with next-generation instruments. ExoMars will be the first mission to combine the capability to move across the surface and to study Mars at depth.
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
+                                <img class="img-circle img-responsive" src="../img/about/3.jpg" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>December 2012</h4>
-                                    <h4 class="subheading">Transition to Full Service</h4>
+                                    <h4>...The Landing Site Selection Process</h4>
+                                    <h4 class="subheading">How to find a suitable landing site for the rover?</h4>
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
@@ -291,23 +166,25 @@
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
+                                <img class="img-circle img-responsive" src="../img/about/4.jpg" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>July 2014</h4>
-                                    <h4 class="subheading">Phase Two Expansion</h4>
+                                    <h4>...The WoM Interactive Map</h4>
+                                    <h4 class="subheading">How does it work?</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">
+                                    This web map visualisation let you explore the ExoMars rover candiate landing sites
+                                    and understand a few key concept for the selection of the landing site.
+                                    To know more about the ... check the wiki.
+                                    The source code of front-end interface is avalaible on GitHub.
                                 </div>
                             </div>
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <h4>Be Part
-                                    <br>Of Our
-                                    <br>Story!</h4>
+                                <h4>Explore</br>the landing sites!</h4>
                             </div>
                         </li>
                     </ul>
@@ -315,45 +192,34 @@
             </div>
         </div>
     </section>
+
     <!-- Team Section -->
     <section id="team" class="bg-light-gray">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Contributors</h2>
+                    <h2 class="section-heading">The Project</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-heading">Our Team</h3>
+                    <h3 class="section-subheading text-muted"></h3>
                 </div>
             </div>
             <div class="row">
                 
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
+                        <img src="../img/team/1.jpg" class="img-responsive img-circle" alt="">
                         <h4>Nicolas Manaud</h4>
-                        <p class="text-muted">Lead Designer</p>
+                        <p class="text-muted">Project Lead</p>
                         <ul class="list-inline social-buttons">
                             
                             <li><a href=""><i class="fa fa-twitter"></i></a>
-                            
-                            <li><a href=""><i class="fa fa-facebook"></i></a>
-                            
-                            <li><a href=""><i class="fa fa-stack-overflow"></i></a>
-                            
-
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Oriol Boix</h4>
-                        <p class="text-muted">Lead Marketer</p>
-                        <ul class="list-inline social-buttons">
-                            
-                            <li><a href=""><i class="fa fa-twitter"></i></a>
-                            
-                            <li><a href=""><i class="fa fa-facebook"></i></a>
                             
                             <li><a href=""><i class="fa fa-linkedin"></i></a>
                             
@@ -364,70 +230,30 @@
                 
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <img src="../img/team/2.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Oriol Boix</h4>
+                        <p class="text-muted">Developer Intern</p>
+                        <ul class="list-inline social-buttons">
+                            
+                            <li><a href=""><i class="fa fa-twitter"></i></a>
+                            
+                            <li><a href=""><i class="fa fa-linkedin"></i></a>
+                            
+
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="../img/team/3.jpg" class="img-responsive img-circle" alt="">
                         <h4>Andrew Hill</h4>
-                        <p class="text-muted">Lead Developer</p>
+                        <p class="text-muted">Project Support</p>
                         <ul class="list-inline social-buttons">
                             
                             <li><a href=""><i class="fa fa-twitter"></i></a>
                             
-                            <li><a href=""><i class="fa fa-facebook"></i></a>
-                            
-                            <li><a href=""><i class="fa fa-google-plus"></i></a>
-                            
-
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="img/team/4.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Elliot Sefton-Nash</h4>
-                        <p class="text-muted">Planetary Scientist at UCL/London</p>
-                        <ul class="list-inline social-buttons">
-                            
-                            <li><a href=""><i class="fa fa-twitter"></i></a>
-                            
-                            <li><a href=""><i class="fa fa-facebook"></i></a>
-                            
-                            <li><a href=""><i class="fa fa-google-plus"></i></a>
-                            
-
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="img/team/5.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Carla Iriberri</h4>
-                        <p class="text-muted">Lead Developer</p>
-                        <ul class="list-inline social-buttons">
-                            
-                            <li><a href=""><i class="fa fa-twitter"></i></a>
-                            
-                            <li><a href=""><i class="fa fa-facebook"></i></a>
-                            
-                            <li><a href=""><i class="fa fa-google-plus"></i></a>
-                            
-
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="img/team/6.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Daniel Carrión</h4>
-                        <p class="text-muted">Lead Developer</p>
-                        <ul class="list-inline social-buttons">
-                            
-                            <li><a href=""><i class="fa fa-twitter"></i></a>
-                            
-                            <li><a href=""><i class="fa fa-facebook"></i></a>
-                            
-                            <li><a href=""><i class="fa fa-google-plus"></i></a>
+                            <li><a href=""><i class="fa fa-linkedin"></i></a>
                             
 
                         </ul>
@@ -438,33 +264,46 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                  </br></br>
                 </div>
             </div>
+
+
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-heading">How to contribute?</h3>
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Share</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-bug fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Report a bug</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Fork Github repository</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+            </div>
+
         </div>
     </section>
-
-    <!-- Clients Aside -->
-    <aside class="clients">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/esa.png" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/cartodb.png" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <a href="#">
-                        <img src="img/logos/telespazio.png" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </aside>
 
     <section id="contact">
         <div class="container">
@@ -487,10 +326,6 @@
                                     <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
                                     <p class="help-block text-danger"></p>
                                 </div>
-                                <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -509,6 +344,7 @@
             </div>
         </div>
     </section>
+
       <footer>
         <div class="container">
             <div class="row">
@@ -521,16 +357,10 @@
                         <li><a href="http://twitter.com/whereonmars"><i class="fa fa-twitter"></i></a>
                         </li>
                         
-                        <li><a href=""><i class="fa fa-facebook"></i></a>
+                        <li><a href="https://www.facebook.com/whereonmars"><i class="fa fa-facebook"></i></a>
                         </li>
                         
-                        <li><a href="http://stackoverflow.com/questions/tagged/jekyll"><i class="fa fa-stack-overflow"></i></a>
-                        </li>
-                        
-                        <li><a href="http://bitbucket.org/jekyll"><i class="fa fa-bitbucket"></i></a>
-                        </li>
-                        
-                        <li><a href="http://github.com/jekyll"><i class="fa fa-github"></i></a>
+                        <li><a href="http://nmanaud.github.com/whereonmars"><i class="fa fa-github"></i></a>
                         </li>
                         
                     </ul>
@@ -778,22 +608,22 @@
 
 
      <!-- jQuery Version 1.11.0 -->
-    <script src="/whereonmars//js/jquery-1.11.0.js"></script>
+    <script src="/whereonmars/js/jquery-1.11.0.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/whereonmars//js/bootstrap.min.js"></script>
+    <script src="/whereonmars/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="/whereonmars//js/jquery.easing.min.js"></script>
-    <script src="/whereonmars//js/classie.js"></script>
-    <script src="/whereonmars//js/cbpAnimatedHeader.js"></script>
+    <script src="/whereonmars/js/jquery.easing.min.js"></script>
+    <script src="/whereonmars/js/classie.js"></script>
+    <script src="/whereonmars/js/cbpAnimatedHeader.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="/whereonmars//js/jqBootstrapValidation.js"></script>
-    <script src="/whereonmars//js/contact_me.js"></script>
+    <script src="/whereonmars/js/jqBootstrapValidation.js"></script>
+    <script src="/whereonmars/js/contact_me.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="/whereonmars//js/agency.js"></script>
+    <script src="/whereonmars/js/agency.js"></script>
 
 
     </body>

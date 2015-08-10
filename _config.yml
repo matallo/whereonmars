@@ -1,84 +1,83 @@
 url: https://nmanaud.github.io
-baseurl: /whereonmars/
+baseurl: /whereonmars
 
 # Site settings
 title: Where On Mars?
 email: nmanaud@gmail.com
 description: "Interactive web map visualization of the ESA's ExoMars Rover candidates landing sites"
 
-# Color settings (hex-codes without the leading hash-tag)
+# Color settings (hex-codes without the leading hash-tag) fed136, fec503
 color:
-  primary: fed136
-  secondary: fec503
+  # primary: fec503
+  # secondary: fed136
+
+
+  primary: f5852c
+  secondary: df8b30
+
   secondary-dark: 333
 
 # Team names, titles and social links
 people:
 - name: Nicolas Manaud
   pic: 1
-  position: Lead Designer
+  position: Project Lead
   social:
     - title: twitter
       url: #
-    - title: facebook
-      url: #
-    - title: stack-overflow
+    - title: linkedin
       url: #
 
 - name: Oriol Boix
   pic: 2
-  position: Lead Marketer
+  position: Developer Intern
   social:
     - title: twitter
-      url: #
-    - title: facebook
       url: #
     - title: linkedin
       url: #
 
 - name: Andrew Hill
   pic: 3
-  position: Lead Developer
+  position: Project Support
   social:
     - title: twitter
       url: #
-    - title: facebook
-      url: #
-    - title: google-plus
+    - title: linkedin
       url: #
 
-- name: Elliot Sefton-Nash
-  pic: 4
-  position: Planetary Scientist at UCL/London
-  social:
-    - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: google-plus
-      url: #
-
-- name: Carla Iriberri
-  pic: 5
-  position: Lead Developer
-  social:
-    - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: google-plus
-      url: #
-
-- name: Daniel Carrión
-  pic: 6
-  position: Lead Developer
-  social:
-    - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: google-plus
-      url: #
+# - name: Elliot Sefton-Nash
+#   pic: 4
+#   position: Planetary Scientist at UCL/London
+#   social:
+#     - title: twitter
+#       url: #
+#     - title: facebook
+#       url: #
+#     - title: google-plus
+#       url: #
+#
+# - name: Carla Iriberri
+#   pic: 5
+#   position: Lead Developer
+#   social:
+#     - title: twitter
+#       url: #
+#     - title: facebook
+#       url: #
+#     - title: google-plus
+#       url: #
+#
+# - name: Daniel Carrión
+#   pic: 6
+#   position: Lead Developer
+#   social:
+#     - title: twitter
+#       url: #
+#     - title: facebook
+#       url: #
+#     - title: google-plus
+#       url: #
 
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
@@ -86,13 +85,9 @@ social:
   - title: twitter
     url: http://twitter.com/whereonmars
   - title: facebook
-    url:
-  - title: stack-overflow
-    url: http://stackoverflow.com/questions/tagged/jekyll
-  - title: bitbucket
-    url: http://bitbucket.org/jekyll
+    url: https://www.facebook.com/whereonmars
   - title: github
-    url: http://github.com/jekyll
+    url: http://nmanaud.github.com/whereonmars
 
 # Postal address (add as many lines as necessary)
 address:
