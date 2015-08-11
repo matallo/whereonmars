@@ -125,8 +125,8 @@ fieldset[disabled] .btn-primary.active {
 
 .btn-xl {
     padding: 20px 40px;
-    border-color: #{{ site.color.primary }};
-    border-radius: 3px;
+    border-color: transparent;
+    border-radius: 5px;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 18px;
@@ -140,7 +140,7 @@ fieldset[disabled] .btn-primary.active {
 .btn-xl:active,
 .btn-xl.active,
 .open .dropdown-toggle.btn-xl {
-    border-color: #{{ site.color.primary }};
+    border-color: transparent;
     color: #fff;
     background-color: #{{ site.color.secondary }};
 }
@@ -339,7 +339,7 @@ header .intro-text .intro-heading {
     }
 
     header .intro-text .intro-heading {
-        margin-bottom: 50px;
+        margin-bottom: 0px;
         text-transform: uppercase;
         font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 55px;
@@ -679,6 +679,13 @@ section h3.section-subheading {
 
 aside.clients img {
     margin: 50px auto;
+}
+
+section#about {
+    background-image: url(./img/panorama.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
 }
 
 section#contact {
