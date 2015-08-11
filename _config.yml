@@ -12,16 +12,16 @@ color:
   # secondary: fed136
 
 
-  primary: f5852c
-  secondary: df8b30
+  primary: EFAF3D
+  secondary: EFC481
 
-  secondary-dark: 333
+  secondary-dark: 341a13
 
 # Team names, titles and social links
 people:
 - name: Nicolas Manaud
   pic: 1
-  position: Project Lead
+  position: Project Initiator
   social:
     - title: twitter
       url: #
@@ -30,7 +30,7 @@ people:
 
 - name: Oriol Boix
   pic: 2
-  position: Developer Intern
+  position: Front-End Developer Intern
   social:
     - title: twitter
       url: #
@@ -39,7 +39,7 @@ people:
 
 - name: Andrew Hill
   pic: 3
-  position: Project Support
+  position: CartoDB Support
   social:
     - title: twitter
       url: #
