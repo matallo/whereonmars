@@ -132,26 +132,26 @@
   $("#navButtons .prev")
   .mouseover(function(){
     $("#circlePrev").css({
-      "background-color": "#b2df8a",
+      "background-color": "#EFC481",
       "opacity": 1
     })
   })
   .mouseleave(function(){
     $("#circlePrev").css({
-      "background-color": "#b2df8a",
+      "background-color": "#EFC481",
       "opacity": 0.5
     })
   });
   $("#navButtons .next")
     .mouseover(function(){
       $("#circleNext").css({
-        "background-color": "#b2df8a",
+        "background-color": "#EFC481",
         "opacity": 1
       })
     })
     .mouseleave(function(){
       $("#circleNext").css({
-        "background-color": "#b2df8a",
+        "background-color": "#EFC481",
         "opacity": 0.5
       })
     });

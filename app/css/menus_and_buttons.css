@@ -33,7 +33,7 @@
 #title {
   color: #FFF;
   position: absolute;
-  bottom: 2.5%;
+  bottom: 1.5%;
   width: 100%;
   text-align: center;
 }
@@ -47,14 +47,22 @@
 ul#navButtons .prev{
   z-index: 1000;
   position: absolute;
-  bottom: 7%;
+  bottom: 8%;
   left: 47.3%;
 }
 ul#navButtons .next{
   z-index: 1000;
   position: absolute;
-  bottom: 7%;
+  bottom: 8%;
   left: 51%;
+}
+
+ul#navButtons li a {
+    background-position: -5px 0px;
+}
+
+ul#navButtons li a:hover {
+    background-position: -5px 0px;
 }
 
 #circlePrev{
@@ -63,9 +71,9 @@ ul#navButtons .next{
   width: 30px;
   height: 30px;
   border-radius: 25px;
-  background-color: #b2df8a;
+  background-color: #EFC481;
   opacity: 0.5;
-  bottom: 7%;
+  bottom: 8%;
   left: 47%;
 }
 
@@ -75,16 +83,16 @@ ul#navButtons .next{
   width: 30px;
   height: 30px;
   border-radius: 25px;
-  background-color: #b2df8a;
+  background-color: #EFC481;
   opacity: 0.5;
-  bottom: 7%;
+  bottom: 8%;
   left: 51%;
 }
 
 /* Navigation dots  */
 
 .carousel-indicators{
-  bottom: 3%;
+  bottom: 3.45;
   position: absolute;
 
 }
@@ -110,7 +118,7 @@ ul#navButtons .next{
 }
 .carousel-indicators li:hover{
 
-  background-image: url("images/45.png");
+  /*background-image: url("images/45.png");*/
   opacity: 1;
 }
 .carousel-indicators li:hover p{
@@ -119,6 +127,6 @@ ul#navButtons .next{
 }
 .carousel-indicators  li.active{
   cursor: pointer;
-  background-image: url("images/45.png");
+  /*background-image: url("images/45.png");*/
   opacity: 1;
 }
