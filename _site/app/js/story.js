@@ -145,11 +145,11 @@ function slideZero() {
   }
   el.landingSite.hide();
   el.dashellipses4.hide();
-  el.nomenclatorGlobal.show();
+  el.nomenclatorGlobal.hide();
   el.nomenclatorRegional.hide();
   el.geoNoOkContraint.hide();
 // layers to hide when clicking buttons (not following the story order)
-  el.landingSite8.hide();
+  el.landingSite8.show();
   el.latConstraint.hide();
   el.geoConstraint.hide();
   el.duneConstraint.hide();

@@ -23,6 +23,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
   var cartodbData = function(){
 
   var layerURL = 'http://whereonmars.cartodb.com/api/v2/viz/03ec7c7c-bc6a-11e4-b600-0e4fddd5de28/viz.json';
+
   // create cartoDB layer from the previous URL
   cartodb.createLayer(el.map, layerURL)
   .on('done', function(layer) {
@@ -59,51 +60,84 @@ At the last part of the cartodbData() function, there are defined the infowindow
     ].join('\n');
 
 
+    // var style2 = [
+    //   "#exols_exomars_landing_sites_eight{",
+    //     '	 marker-placement: point;',
+    //     '	 marker-width: 10;',
+    //     '	 marker-line-width: 1;',
+    //     '	 marker-type: ellipse;',
+    //     '	 marker-fill: #f11810;',
+    //     '	 marker-fill-opacity: 1;',
+    //     '	 text-name: [name];',
+    //     '  text-face-name: "DejaVu Sans Book";',
+    //     '  text-size: 9;',
+    //     '  text-fill: #FFF;',
+    //     '  text-halo-fill: #000;',
+    //     '  text-halo-radius: 8;',
+    //     '  text-dx: 20;',
+    //     '  text-allow-overlap: false;',
+    //     '  text-placement: point;',
+    //     '	 text-placement-type: simple;',
+    //     '	[cartodb_id = 1]{',
+    //         '  text-dy: -0.3;',
+    //         '  text-dx: -20;',
+    //       '}',
+    //       '	[cartodb_id = 2]{',
+    //           '  text-dy: -6;',
+    //           '  text-dx: 12;',
+    //         '}',
+    //     '	[cartodb_id = 3]{',
+    //         '  text-dy: -0.3;',
+    //         '  text-dx: 15;',
+    //       '}',
+    //       '	[cartodb_id = 4]{',
+    //           '  text-dx: -20;',
+    //         '}',
+    //       '	[cartodb_id = 5]{',
+    //             '  text-dy: 10;',
+    //             '  text-dx: 10;',
+    //           '}',
+    //       '	[cartodb_id = 6]{',
+    //           '  text-dx: -20;',
+    //         '}',
+    //         '	[cartodb_id = 9]{',
+    //             '  text-dx: -20;',
+    //           '}',
+    //   '}'
+    // ].join('\n');
+
     var style2 = [
-      "#exols_exomars_landing_sites_eight{",
-        '	 marker-placement: point;',
-        '	 marker-width: 10;',
-        '	 marker-line-width: 1;',
-        '	 marker-type: ellipse;',
-        '	 marker-fill: #f11810;',
-        '	 marker-fill-opacity: 1;',
-        '	 text-name: [name];',
-        '  text-face-name: "DejaVu Sans Book";',
-        '  text-size: 9;',
-        '  text-fill: #FFF;',
-        '  text-halo-fill: #000;',
-        '  text-halo-radius: 8;',
-        '  text-dx: 20;',
-        '  text-allow-overlap: false;',
-        '  text-placement: point;',
-        '	 text-placement-type: simple;',
-        '	[cartodb_id = 1]{',
-            '  text-dy: -0.3;',
-            '  text-dx: -20;',
-          '}',
-          '	[cartodb_id = 2]{',
-              '  text-dy: -6;',
-              '  text-dx: 12;',
-            '}',
-        '	[cartodb_id = 3]{',
-            '  text-dy: -0.3;',
-            '  text-dx: 15;',
-          '}',
-          '	[cartodb_id = 4]{',
-              '  text-dx: -20;',
-            '}',
-          '	[cartodb_id = 5]{',
-                '  text-dy: 10;',
-                '  text-dx: 10;',
-              '}',
-          '	[cartodb_id = 6]{',
-              '  text-dx: -20;',
-            '}',
-            '	[cartodb_id = 9]{',
-                '  text-dx: -20;',
-              '}',
-      '}'
+    "#exols_exomars_landing_sites_eight{",
+      'marker-fill-opacity: 0.9;',
+      'marker-line-color: #FFF;',
+      'marker-line-width: 1.5;',
+      '[selected = 0]{',
+      '  marker-line-opacity: 0;',
+      '}',
+      '[selected = 1]{',
+      '  marker-line-opacity: 1;',
+      '}  ',
+      'marker-placement: point;',
+      'marker-type: ellipse;',
+      'marker-width: 10;',
+      'marker-fill: #FF5C00;',
+      'marker-allow-overlap: true;',
+    '}',
+    '#exols_exomars_landing_sites_eight::labels {',
+    '  text-name: [name];',
+    '  text-face-name: "Lato Bold";',
+    '  text-size: 14;',
+    '  text-label-position-tolerance: 10;',
+    '  text-fill: #FFFFFF;',
+    '  text-halo-fill: #FFF;',
+    '  text-halo-radius: 0;',
+    '  text-dy: -10;',
+    '  text-allow-overlap: false;',
+    '  text-placement: point;',
+    '  text-placement-type: simple;',
+    '}'
     ].join('\n');
+
 
     var style3 = [
       '#exols_mars_nomenclature_webmercator_ls{',
@@ -177,7 +211,8 @@ At the last part of the cartodbData() function, there are defined the infowindow
        });
         el.geoConstraint = layer.createSubLayer({
             sql: "SELECT * FROM exols_restricted_geology_latitude_webmercator",
-            cartocss: "#exols_restricted_geology_latitude_webmercator{polygon-fill: #4daf4a;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}"
+            // cartocss: "#exols_restricted_geology_latitude_webmercator{polygon-fill: #4daf4a;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}"
+            cartocss: "#exols_restricted_geology_latitude_webmercator{polygon-fill: #000000;polygon-opacity: 0.5;line-color: #FFF;line-width: 0;line-opacity: 1;}"
         });
         el.elevationConstraintNoOkLS = layer.createSubLayer({
           sql: "SELECT * FROM exols_elevation_constraint_landing_sites",
@@ -189,8 +224,8 @@ At the last part of the cartodbData() function, there are defined the infowindow
         });
         el.elevationConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_elevation_constraint",
-          cartocss: "#exols_elevation_constraint{polygon-fill: #000000;polygon-opacity: 0.7;line-color: #FFF; line-width: 0.5;line-opacity: 1;}",
-          interactivity: ['description']
+          cartocss: "#exols_elevation_constraint{polygon-fill: #000000;polygon-opacity: 0.5;line-color: #FFF;line-width: 0;line-opacity: 1;}",
+          // interactivity: ['description']
         });
         el.geoOkConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_geological_age_ok",
@@ -198,7 +233,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
         });
         el.geoNoOkContraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_geological_age_not_ok",
-          cartocss: "#exols_geological_age_not_ok{ polygon-fill: #000000;polygon-opacity: 0.7;line-color: #FFF;line-width: 0.5;line-opacity: 1;}",
+          cartocss: "#exols_geological_age_not_ok{ polygon-fill: #000000;polygon-opacity: 0.5;line-color: #FFF;line-width: 0;line-opacity: 1;}",
           interactivity: ['description']
         });
         el.nomenclatorGlobal = layer.createSubLayer({
@@ -220,6 +255,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
         el.landingSite8 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_eight",
           cartocss: style2,
+          interactivity: ['description']
         });
         el.dashellipses3 = layer.createSubLayer({
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2018 WHERE id IN (4,8)",
@@ -424,6 +460,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
 
     // set the interactivity of the CartoDB sublayers.It allows to add infowindows and tooltips.
         el.landingSite.setInteraction(true);
+        el.landingSite8.setInteraction(true);
         el.geoNoOkContraint.setInteraction(true);
         el.latConstraint.setInteraction(true);
         el.latAreaOk.setInteraction(true);
@@ -554,6 +591,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
       // add infowindow with the name and the description of the landing site. The description is inside the "description"
       // column of the exols_exomars_landing_sites_four table
       cdb.vis.Vis.addInfowindow(el.map, el.landingSite, ['description']);
+      cdb.vis.Vis.addInfowindow(el.map, el.landingSite8, ['description']);
 
       // hide all cartodb layers when the map element is loaded
       el.landingSite8.hide();

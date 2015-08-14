@@ -12,8 +12,9 @@
     background-color:rgba(0, 0, 0, 0.5);
     z-index:1000;
     border-radius: 15px;
-    padding-top: 5px;
-    padding-left: 25px;
+    /*padding-top: 5px;
+    padding-left: 25px;*/
+    padding: 10px 0px 10px 25px;
     color: #fff;
     top:20px;
     left: 20px;
@@ -30,20 +31,27 @@
 
   #slides_container h1{
     color: #eee;
-    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:"Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
 
   }
    #slides_container h3{
     color: #eee;
-    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:Montserrat, "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin-bottom: 20px;
   }
+
+   #slides_container h3::after{
+     display: none;
+   }
+
   #slides_container p{
-    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    /*font-family:"Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    font-size:13px;
     color: #ccc;
   }
   #slides_container .slide .btn-info{
     border-radius: 30px;
-    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:"Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size:13px;
     margin-left: 25%;
    }
@@ -61,9 +69,13 @@
     height: 10px;
   }
   #hide_story p{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 12px;
     color: #666;
     width: 30%;
+    /*margin: 0px;
+    padding: 0px;*/
+
   }
   #hide_story p:hover{
     cursor: pointer;
