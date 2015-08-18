@@ -17,6 +17,11 @@ At the last part of the cartodbData() function, there are defined the infowindow
       } else {
         el.story.go(0,seq.step(0));
       }
+      window.onhashchange = function() {
+       var chapter = parseInt(location.hash.replace('#', ''), 10);
+        el.story.go(chapter);
+        checkIndex(chapter);
+      }
     }
 
 // call data from cartoDB account
