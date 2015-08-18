@@ -145,7 +145,7 @@ function slideZero() {
   }
   el.landingSite.hide();
   el.dashellipses4.hide();
-  el.nomenclatorGlobal.hide();
+  el.nomenclatorGlobal.show();
   el.nomenclatorRegional.hide();
   el.geoNoOkContraint.hide();
 // layers to hide when clicking buttons (not following the story order)

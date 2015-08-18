@@ -132,7 +132,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
     '  text-halo-fill: #FFF;',
     '  text-halo-radius: 0;',
     '  text-dy: -10;',
-    '  text-allow-overlap: false;',
+    '  text-allow-overlap: true;',
     '  text-placement: point;',
     '  text-placement-type: simple;',
     '}'
@@ -170,28 +170,61 @@ At the last part of the cartodbData() function, there are defined the infowindow
       ].join('\n');
 
 // style fot the layer el.nomenclatorGlobal
+  // var style4 = [
+  //   '#exols_mars_nomenclature_webmercator_ls{',
+  //     '	 marker-placement: point;',
+  //     '	 marker-line-color: #31a354;',
+  //     '	 marker-width: 1;',
+  //     '	 marker-line-opacity: 1;',
+  //     '	 marker-line-width: 3;',
+  //     '	 marker-type: ellipse;',
+  //     '	 marker-fill: #fff;',
+  //     '	 marker-fill-opacity: 0;',
+  //     '	 text-name: [name];',
+  //     '  text-face-name: "DejaVu Sans Book";',
+  //     '  text-size: 10;',
+  //     '  text-label-position-tolerance: 0;',
+  //     '  text-fill: #FFF;',
+  //     '  text-halo-fill: #000;',
+  //     '  text-halo-radius: 1;',
+  //     '  text-dx: 0;',
+  //     '  text-allow-overlap: true;',
+  //     '  text-placement: point;',
+  //   '}'
+  //   ].join("\n");
+
   var style4 = [
-    '#exols_mars_nomenclature_webmercator_ls{',
-      '	 marker-placement: point;',
-      '	 marker-line-color: #31a354;',
-      '	 marker-width: 1;',
-      '	 marker-line-opacity: 1;',
-      '	 marker-line-width: 3;',
-      '	 marker-type: ellipse;',
-      '	 marker-fill: #fff;',
-      '	 marker-fill-opacity: 0;',
-      '	 text-name: [name];',
-      '  text-face-name: "DejaVu Sans Book";',
-      '  text-size: 10;',
-      '  text-label-position-tolerance: 0;',
-      '  text-fill: #FFF;',
-      '  text-halo-fill: #000;',
-      '  text-halo-radius: 1;',
-      '  text-dx: 0;',
-      '  text-allow-overlap: true;',
-      '  text-placement: point;',
+    '#exols_mars_nomenclature{',
+    '  marker-fill-opacity: 0;',
+    '  marker-line-color: #FFF;',
+    '  marker-line-width: 1.5;',
+    '  marker-line-opacity: 0;',
+    '  marker-placement: point;',
+    '  marker-type: ellipse;',
+    '  marker-width: 10;',
+    '  marker-fill: #FF6600;',
+    '  marker-allow-overlap: true;',
+    '}',
+    '#exols_mars_nomenclature::labels {',
+    '  [feature_type="Planitia, planitiae"]{',
+    '  text-name: [feature_name];',
+    '  text-face-name: "Lato Bold";',
+    '  text-size: 14;',
+    '  text-fill: #f2c474;',
+    '  text-label-position-tolerance: 10;',
+    '  text-fill: #FFFFFF;',
+    '  text-halo-fill: #FFF;',
+    '  text-halo-radius: 0;',
+    '  text-dy: 0;',
+    '  text-allow-overlap: true;',
+    '  text-placement: point;',
+    '  text-placement-type: simple;',
+    '  text-transform: uppercase;',
+    '  text-wrap-width: 10;',
+    '  }',
     '}'
     ].join("\n");
+
 
     // define all the CartoDB layers as a sublayers
         el.landingSite = layer.createSubLayer({
@@ -237,7 +270,8 @@ At the last part of the cartodbData() function, there are defined the infowindow
           interactivity: ['description']
         });
         el.nomenclatorGlobal = layer.createSubLayer({
-          sql: "SELECT * FROM exols_mars_nomenclature_webmercator_ls WHERE cartodb_id IN(84,56,7,6,43,11,3,67)",
+          // sql: "SELECT * FROM exols_mars_nomenclature_webmercator_ls WHERE cartodb_id IN(84,56,7,6,43,11,3,67)",
+          sql: "SELECT * FROM exols_mars_nomenclature",
           cartocss:  style4
         });
         el.nomenclatorRegional = layer.createSubLayer({
