@@ -10,8 +10,15 @@ At the last part of the cartodbData() function, there are defined the infowindow
   var startStory = function() {
       if (location.hash != "") {
         var chapter = parseInt(location.hash.replace('#', ''), 10);
-        el.story.go(chapter);
+        //el.story.go(chapter);
         checkIndex(chapter);
+        window.onhashchange = function(){
+          var chapter1 = parseInt(location.hash.replace('#', ''), 10);
+          el.story.go(chapter1,seq.step(chapter1));
+          //checkIndex(chapter);
+          $("li").removeClass("active");
+          $("li#" + chapter1).addClass("active");
+        }
         $("li").removeClass("active");
         $("li#" + chapter).addClass("active");
       } else {
@@ -19,6 +26,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
       }
 
     }
+
 
 // call data from cartoDB account
   var cartodbData = function(){
@@ -631,11 +639,6 @@ At the last part of the cartodbData() function, there are defined the infowindow
       // add all cartoDB subLayers into the map
       el.map.addLayer(layer, false);
       startStory();
-      window.onhashchange = function() {
-       startStory();
-      }
-
-
 
 
     });
