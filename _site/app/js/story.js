@@ -152,6 +152,7 @@ function slideZero() {
   el.landingSite8.show();
   el.latConstraint.hide();
   el.geoConstraint.hide();
+  el.latAreaOk.hide();
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
   el.elevationConstraintNoOkLS.hide();
@@ -782,5 +783,6 @@ function initOdyssey(O) {
   } else {
     el.story.go(0,seq.step(0));
   }
+
 
 }
