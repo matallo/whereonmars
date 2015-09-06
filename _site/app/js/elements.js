@@ -23,6 +23,8 @@ var el = {
   Oxia: null,  // coordinates of the center of Oxia Planum.
   Mawrth: null,  // coordinates of the center of Mawrth Vallis.
   center: null,  // coordinates of the center of the overview.
+  center: null,  // coordinates of the center of the 4 candidate view.
+
   // legends
 
   legendElevation: null, // legend of the "Elevation constraint" chapter.
@@ -30,6 +32,8 @@ var el = {
   lengendMOLA: null, // legend of the "Mars Orbiter Laser Altimeter (MOLA)" chapter.
   legendEllipses: null, // legend of the landing sites chapters (Aram Dorsum, Hypanis Vallis, Oxia Planum and Mawrth Vallis).
   legendLandingSite: null, // legend of the "Defining the landing sites" chapter.
+  legendCLS: null, // legend of the candidate landing sites
+  
   // CartoDB layers
 
   landingSite: null, // layer that contains the current four candidate landing sites.

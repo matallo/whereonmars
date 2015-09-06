@@ -67,7 +67,7 @@ var initMap = function(){
             el.hrsc[i]= L.tileLayer(data.rows[i].url,{
             tms:true,
             minZoom: 7,
-            opacity: 0.5,
+            opacity: 1.0,
             unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed
             updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
             maxNativeZoom: 9
@@ -158,7 +158,7 @@ var initMap = function(){
       for (i = 0; i < data.total_rows; i++){
         el.hirise[i] = new L.tileLayer(data.rows[i].url,{
           tms:true,
-          opacity: 0.5,
+          opacity: 1.0,
           minZoom: 9,
           unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed
           updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
@@ -208,5 +208,6 @@ var initMap = function(){
   el.Oxia = new L.LatLng(18.2, -24.55);
   el.Mawrth = new L.LatLng(22.16, -17.95);
   el.center = new L.LatLng(15,-11);
+  el.center4 = new L.LatLng(18,-30);
 
 } // finish initMap function

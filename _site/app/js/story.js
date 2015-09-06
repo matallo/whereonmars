@@ -103,6 +103,12 @@ function click(el) {
     /* Block legend */
     // The legends are added to the map depending on the slide. Are added in this way to avoid to load them everytime that the user change
     // the slides of the story.
+
+    if (index == 0){
+      $('#map').append(el.legendCLS.render().el);
+    } else {
+      $('#map:last-child').remove(el.legendCLS.render().el);
+    }
     if (index == 1){
       $('#map').append(el.lengendMOLA.render().el);
     } else {
@@ -172,7 +178,7 @@ function slideZero() {
   el.legendGeology.hide();
   el.legendEllipses.hide();
   el.legendLandingSite.hide();
-
+  el.legendCLS.show();
 };
 
 // Altitude constrain
@@ -659,7 +665,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(8),
           O.Parallel(
-            el.map.actions.setView(el.center,5,true),
+            el.map.actions.setView(el.center4,5,true),
             slides.activate(8),
             O.Location.changeHash('8'),
             emitSlideChange

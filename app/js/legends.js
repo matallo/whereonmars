@@ -3,6 +3,16 @@ In this script, the different legends of the app are defined. You can change the
 The legends are called into the map in story.js file.
 */
 // legend for the elevation
+
+
+el.legendCLS = new cdb.geo.ui.Legend({
+     type: "custom",
+     data: [
+       { name: "Candidate Landing Sites", value: "#FF2900" },
+       { name: "Proposed Landing Sites", value: "#FFFFFF" }
+     ]
+   });
+
 el.legendElevation = new cdb.geo.ui.Legend({
      type: "custom",
      data: [

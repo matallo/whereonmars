@@ -8,14 +8,14 @@ function titleZero(){
   $("li#0").addClass("active");
   if ($("li#0").hasClass("active")){
     $("#title").empty();
-    $("#title").text("Overview");
+    $("#title").text("Introduction");
   }
 }
 function titleOne(){
   $("li#1").addClass("active");
   if ($("li#1").hasClass("active")){
     $("#title").empty();
-    $("#title").text("Altitude constraint");
+    $("#title").text("Elevation constraint");
   }
 }
 function titleTwo(){
@@ -64,6 +64,6 @@ function titleEight(){
   $("li#8").addClass("active");
   if ($("li#8").hasClass("active")){
     $("#title").empty();
-    $("#title").text("The end");
+    $("#title").text("What's next?");
   }
 }

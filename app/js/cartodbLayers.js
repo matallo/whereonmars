@@ -377,9 +377,9 @@ At the last part of the cartodbData() function, there are defined the infowindow
           cartocss: style1,
           interactivity: ['description']
          });
-         el.latConstraint = layer.createSubLayer({
+        el.latConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_lat_constraints",
-          cartocss: '#exols_lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}',
+          cartocss: '#exols_lat_constraints{polygon-fill: #000000;polygon-opacity: 0.2;line-color: #f40202;line-width: 1;line-opacity: 1;}',
           interactivity: ['description']
         });
         el.latAreaOk = layer.createSubLayer({
@@ -402,7 +402,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
         });
         el.elevationConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_elevation_constraint",
-          cartocss: "#exols_elevation_constraint{polygon-fill: #000000;polygon-opacity: 0.5;line-color: #FFF;line-width: 0;line-opacity: 1;}",
+          cartocss: "#exols_elevation_constraint{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #FFF;line-width: 0;line-opacity: 1;}",
           interactivity: ['description']
         });
         el.geoOkConstraint = layer.createSubLayer({
@@ -411,7 +411,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
         });
         el.geoNoOkContraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_geological_age_not_ok",
-          cartocss: "#exols_geological_age_not_ok{ polygon-fill: #000000;polygon-opacity: 0.5;line-color: #FFF;line-width: 0;line-opacity: 1;}",
+          cartocss: "#exols_geological_age_not_ok{ polygon-fill: #000000;polygon-opacity: 0.4;line-color: #FFF;line-width: 0;line-opacity: 1;}",
           interactivity: ['description']
         });
         el.nomenclatorGlobal = layer.createSubLayer({
