@@ -44,6 +44,9 @@ var el = {
   geoNoOkContraint: null, //  layer that contains the geological area with no interest for the ExoMars 2018 mission.
   nomenclatorGlobal: null, // layer that contains the nomenclator names of craters (for the overview)
   nomenclatorRegional: null, // layer that contains the nomenclator names of craters (for the landing sites view)
+
+  marsls: null, // layer that contains other Mars landing sites
+
   // Landing ellipses
   ellipses1: null,
   ellipses2: null,
@@ -62,6 +65,5 @@ var el = {
   dashellipses6: null,
   dashellipses7: null,
   dashellipses8: null,
-
 
 };
