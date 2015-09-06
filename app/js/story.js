@@ -129,7 +129,7 @@ function click(el) {
     } else {
       $('#map:last-child').remove(el.legendLandingSite.render().el);
     }
-    if (index == 7 || index == 8 || index == 9 || index == 10){
+    if (index == 4 || index == 5 || index == 6 || index == 7){
       $('#map').append(el.legendEllipses.render().el);
     } else {
       $('#map:last-child').remove(el.legendEllipses.render().el);
@@ -219,10 +219,11 @@ function slideOne() {
   el.dashellipses8.hide();
   //legends
   el.lengendMOLA.show();
-  el.legendElevation.show();
+  el.legendElevation.hide();
   el.legendGeology.hide();
   el.legendEllipses.hide();
   el.legendLandingSite.hide();
+  el.legendCLS.hide();
 };
 
 // Latitude constraint landing sites
@@ -267,6 +268,7 @@ function slideTwo() {
   el.legendGeology.hide();
   el.legendEllipses.hide();
   el.legendLandingSite.hide();
+  el.legendCLS.hide();
 };
 
 // Geological constraint
@@ -307,9 +309,10 @@ function slideThree() {
   //legends
   el.lengendMOLA.hide();
   el.legendElevation.hide();
-  el.legendGeology.show();
+  el.legendGeology.hide();
   el.legendEllipses.hide();
   el.legendLandingSite.hide();
+  el.legendCLS.hide();
 };
 
 // Mawrth Vallis
@@ -321,11 +324,11 @@ function slideFour() {
   }
   el.marsls.show();
   el.ellipses4.show();
-  el.ellipses8.show();
+  el.ellipses8.hide();
   el.ellipses3.hide();
   el.ellipses7.hide();
   el.dashellipses4.show();
-  el.dashellipses8.show();
+  el.dashellipses8.hide();
   el.dashellipses3.hide();
   el.dashellipses7.hide();
   // layers to hide when clicking buttons (not following the story order)
@@ -353,6 +356,7 @@ function slideFour() {
   el.legendGeology.hide();
   el.legendEllipses.show();
   el.legendLandingSite.hide();
+  el.legendCLS.hide();
 };
 
 // Oxia Planum
@@ -366,9 +370,9 @@ el.marsls.show();
 el.ellipses2.hide();
 el.ellipses3.show();
 el.ellipses6.hide();
-el.ellipses7.show();
+el.ellipses7.hide();
 el.dashellipses3.show();
-el.dashellipses7.show();
+el.dashellipses7.hide();
 el.dashellipses2.hide();
 el.dashellipses6.hide();
 // layers to hide when clicking buttons (not following the story order)
@@ -396,6 +400,7 @@ el.legendElevation.hide();
 el.legendGeology.hide();
 el.legendEllipses.show();
 el.legendLandingSite.hide();
+el.legendCLS.hide();
 };
 
 // Hypanis Vallis
@@ -409,10 +414,10 @@ function slideSix() {
   el.ellipses1.hide();
   el.ellipses2.show();
   el.ellipses5.hide();
-  el.ellipses6.show();
+  el.ellipses6.hide();
   el.dashellipses2.show();
   el.dashellipses5.hide();
-  el.dashellipses6.show();
+  el.dashellipses6.hide();
 
   // layers to hide when clicking buttons (not following the story order)
   el.nomenclatorGlobal.show();
@@ -440,6 +445,7 @@ function slideSix() {
   el.legendGeology.hide();
   el.legendEllipses.show();
   el.legendLandingSite.hide();
+  el.legendCLS.hide();
 };
 
 // Aram Dorsum
@@ -451,14 +457,15 @@ function slideSeven(){
   }
   el.marsls.show();
   el.landingSite.hide();
+  el.landingSite8.hide();
   el.latConstraint.hide();
   el.latAreaOk.hide();
   el.geoConstraint.hide();
   el.duneConstraint.hide();
   el.ellipses1.show();
-  el.ellipses5.show();
+  el.ellipses5.hide();
   el.dashellipses1.show();
-  el.dashellipses5.show();
+  el.dashellipses5.hide();
   el.nomenclatorRegional.hide();
   el.elevationConstraintNoOkLS.hide();
   // layers to hide when clicking buttons (not following the story order)
@@ -483,6 +490,7 @@ function slideSeven(){
   el.legendGeology.hide();
   el.legendEllipses.show();
   el.legendLandingSite.hide();
+  el.legendCLS.hide();
 };
 
 
@@ -528,6 +536,7 @@ function slideEight() {
   el.legendGeology.hide();
   el.legendEllipses.hide();
   el.legendLandingSite.hide();
+  el.legendCLS.hide();
 };
 
 

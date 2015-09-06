@@ -31,8 +31,7 @@ el.legendGeology = new cdb.geo.ui.Legend({
 el.legendEllipses = new cdb.geo.ui.Legend({
      type: "custom",
      data: [
-       { name: "Landing ellipse 2018", value: "#FCDC3B" },
-       { name: "Landing ellipse 2020", value: "#00B2EE" }
+       { name: "Landing ellipses", value: "#FCDC3B" }
      ]
    });
 el.legendLandingSite = new cdb.geo.ui.Legend({
@@ -48,7 +47,7 @@ el.legendLandingSite = new cdb.geo.ui.Legend({
 el.lengendMOLA = new cdb.geo.ui.Legend({
      type: "choropleth",
      data: [
-       { value: "-9 km          MOLA altitudes" },
+       { value: "-9 km&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MOLA altitudes" },
        { value: "          +14 km" },
        { value: "#070610" },//1 -9 km
        { value: "#2F2C4B" },//2
