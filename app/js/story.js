@@ -137,10 +137,10 @@ function slideZero() {
     el.map.removeLayer(el.basemapMOLAShadedColor);
     el.map.addLayer(el.basemapCelestia);
   }
+  el.marsls.show();
   el.landingSite.hide();
   el.dashellipses4.hide();
   el.nomenclatorGlobal.show();
-  el.marsls.show();
   el.nomenclatorRegional.hide();
   el.geoNoOkContraint.hide();
 // layers to hide when clicking buttons (not following the story order)
@@ -182,7 +182,7 @@ function slideOne() {
     el.map.removeLayer(el.basemapCelestia);
     el.map.addLayer(el.basemapMOLAShadedColor);
   }
-
+  el.marsls.show();
   el.landingSite.hide();
   el.elevationConstraint.show();
   el.latConstraint.hide();
@@ -212,7 +212,7 @@ function slideOne() {
   el.dashellipses7.hide();
   el.dashellipses8.hide();
   //legends
-  el.lengendMOLA.hide();
+  el.lengendMOLA.show();
   el.legendElevation.show();
   el.legendGeology.hide();
   el.legendEllipses.hide();
@@ -223,21 +223,22 @@ function slideOne() {
 function slideTwo() {
   if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapMOLAShadedColor)){
     el.map.removeLayer(el.basemapViking);
-    el.map.removeLayer(el.basemapMOLAShadedColor);
-    el.map.addLayer(el.basemapCelestia);
+    el.map.removeLayer(el.basemapCelestia);
+    el.map.addLayer(el.basemapMOLAShadedColor);
   }
+  el.marsls.show();
   el.latConstraint.show();
-  el.latAreaOk.show();
+  el.latAreaOk.hide();
   el.geoConstraint.hide();
   el.geoNoOkContraint.hide();
-  el.elevationConstraint.hide();
-  el.landingSite8.hide();
+  el.elevationConstraint.show();
+  el.landingSite8.show();
   el.landingSite.hide();
   el.duneConstraint.hide();
   el.nomenclatorRegional.hide();
   el.elevationConstraintNoOkLS.hide();
   // layers to hide when clicking buttons (not following the story order)
-  el.nomenclatorGlobal.hide();
+  el.nomenclatorGlobal.show();
   el.ellipses1.hide();
   el.ellipses2.hide();
   el.ellipses3.hide();
@@ -255,7 +256,7 @@ function slideTwo() {
   el.dashellipses7.hide();
   el.dashellipses8.hide();
   //legends
-  el.lengendMOLA.hide();
+  el.lengendMOLA.show();
   el.legendElevation.hide();
   el.legendGeology.hide();
   el.legendEllipses.hide();
@@ -264,19 +265,20 @@ function slideTwo() {
 
 // Geological constraint
 function slideThree() {
-  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapCelestia)){
+  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapMOLAShadedColor)){
     el.map.removeLayer(el.basemapViking);
-    el.map.removeLayer(el.basemapCelestia);
-    el.map.addLayer(el.basemapMOLAShadedColor);
+    el.map.removeLayer(el.basemapMOLAShadedColor);
+    el.map.addLayer(el.basemapCelestia);
   }
-  el.landingSite8.hide();
-  el.latConstraint.hide();
+  el.marsls.show();
+  el.landingSite8.show();
+  el.latConstraint.show();
   el.latAreaOk.hide();
   el.geoConstraint.hide();
   el.duneConstraint.hide();
   el.geoNoOkContraint.show();
   // layers to hide when clicking buttons (not following the story order)
-  el.nomenclatorGlobal.hide();
+  el.nomenclatorGlobal.show();
   el.nomenclatorRegional.hide();
   el.elevationConstraint.hide();
   el.elevationConstraintNoOkLS.hide();
@@ -311,6 +313,7 @@ function slideFour() {
     el.map.removeLayer(el.basemapMOLAShadedColor);
     el.map.addLayer(el.basemapViking);
   }
+  el.marsls.show();
   el.ellipses4.show();
   el.ellipses8.show();
   el.ellipses3.hide();
@@ -320,7 +323,7 @@ function slideFour() {
   el.dashellipses3.hide();
   el.dashellipses7.hide();
   // layers to hide when clicking buttons (not following the story order)
-  el.nomenclatorGlobal.hide();
+  el.nomenclatorGlobal.show();
   el.landingSite8.hide();
   el.landingSite.hide();
   el.latConstraint.hide();
@@ -353,6 +356,7 @@ if (el.map.hasLayer(el.basemapMOLAShadedColor) || el.map.hasLayer(el.basemapCele
   el.map.removeLayer(el.basemapMOLAShadedColor);
   el.map.addLayer(el.basemapViking);
 }
+el.marsls.show();
 el.ellipses2.hide();
 el.ellipses3.show();
 el.ellipses6.hide();
@@ -362,7 +366,7 @@ el.dashellipses7.show();
 el.dashellipses2.hide();
 el.dashellipses6.hide();
 // layers to hide when clicking buttons (not following the story order)
-el.nomenclatorGlobal.hide();
+el.nomenclatorGlobal.show();
 el.landingSite8.hide();
 el.landingSite.hide();
 el.latConstraint.hide();
@@ -395,6 +399,7 @@ function slideSix() {
     el.map.removeLayer(el.basemapMOLAShadedColor);
     el.map.addLayer(el.basemapViking);
   }
+  el.marsls.show();
   el.ellipses1.hide();
   el.ellipses2.show();
   el.ellipses5.hide();
@@ -404,7 +409,7 @@ function slideSix() {
   el.dashellipses6.show();
 
   // layers to hide when clicking buttons (not following the story order)
-  el.nomenclatorGlobal.hide();
+  el.nomenclatorGlobal.show();
   el.landingSite8.hide();
   el.landingSite.hide();
   el.latConstraint.hide();
@@ -438,6 +443,7 @@ function slideSeven(){
     el.map.removeLayer(el.basemapMOLAShadedColor);
     el.map.addLayer(el.basemapViking);
   }
+  el.marsls.show();
   el.landingSite.hide();
   el.latConstraint.hide();
   el.latAreaOk.hide();
@@ -447,10 +453,10 @@ function slideSeven(){
   el.ellipses5.show();
   el.dashellipses1.show();
   el.dashellipses5.show();
-  el.nomenclatorRegional.show();
+  el.nomenclatorRegional.hide();
   el.elevationConstraintNoOkLS.hide();
   // layers to hide when clicking buttons (not following the story order)
-  el.nomenclatorGlobal.hide();
+  el.nomenclatorGlobal.show();
   el.elevationConstraint.hide();
   el.geoNoOkContraint.hide();
   el.ellipses2.hide();
@@ -481,20 +487,20 @@ function slideEight() {
     el.map.removeLayer(el.basemapMOLAShadedColor);
     el.map.addLayer(el.basemapCelestia);
   }
-  el.nomenclatorGlobal.hide();
+  el.marsls.show();
+  el.nomenclatorGlobal.show();
   el.nomenclatorRegional.hide();
   el.ellipses4.hide();
   el.ellipses8.hide();
-  el.landingSite.show();
+  el.landingSite.hide();
   el.dashellipses4.hide();
   el.dashellipses8.hide();
   // layers to hide when clicking buttons (not following the story order)
-  el.nomenclatorGlobal.hide();
-  el.elevationConstraintNoOkLS.hide();
-  el.landingSite8.hide();
+  el.elevationConstraintNoOkLS.hide(); // <-
+  el.landingSite8.show();
   el.latConstraint.hide();
   el.latAreaOk.hide();
-  el.geoConstraint.hide();
+  el.geoConstraint.hide(); // <-
   el.duneConstraint.hide();
   el.elevationConstraint.hide();
   el.geoNoOkContraint.hide();
@@ -653,7 +659,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(8),
           O.Parallel(
-            el.map.actions.setView(el.center,3,true),
+            el.map.actions.setView(el.center,5,true),
             slides.activate(8),
             O.Location.changeHash('8'),
             emitSlideChange

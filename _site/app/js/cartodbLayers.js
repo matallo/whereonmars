@@ -403,7 +403,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
         el.elevationConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_elevation_constraint",
           cartocss: "#exols_elevation_constraint{polygon-fill: #000000;polygon-opacity: 0.5;line-color: #FFF;line-width: 0;line-opacity: 1;}",
-          // interactivity: ['description']
+          interactivity: ['description']
         });
         el.geoOkConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_geological_age_ok",
