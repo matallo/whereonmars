@@ -80,7 +80,7 @@ function click(el) {
   // check the index being returned by trackCurrentSlide()
   var checkIndex = function(index) {
     switch(index){
-      case 0: slideZero(),hide(),titleZero(),console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#11").removeClass("active");
+      case 0: slideZero(),hide(),titleZero(),console.log(index),$("#0").addClass("active"),$("#1").removeClass("active"),$("#8").removeClass("active");
       break;
       case 1: slideOne(),hide(),titleOne(),console.log(index),$("#0").removeClass("active") ,$("#1").addClass("active"),$("#2").removeClass("active");
       break;
@@ -96,13 +96,7 @@ function click(el) {
       break;
       case 7: slideSeven(),hide(),titleSeven(),console.log(index), $("#6").removeClass("active") ,$("#7").addClass("active"),$("#8").removeClass("active");
       break;
-      case 8: slideEight(),hide(),titleEight(),console.log(index), $("#7").removeClass("active") ,$("#8").addClass("active"),$("#9").removeClass("active");
-      break;
-      case 9: slideNine(),hide(),titleNine(),console.log(index), $("#8").removeClass("active") ,$("#9").addClass("active"),$("#10").removeClass("active");
-      break;
-      case 10: slideTen(),hide(),titleTen(),console.log(index), $("#9").removeClass("active") ,$("#10").addClass("active"),$("#11").removeClass("active");
-      break;
-      case 11: slideEleven(),show(),titleEleven(),console.log(index), $("#10").removeClass("active") ,$("#11").addClass("active"),$("#0").removeClass("active");
+      case 8: slideEight(),show(),titleEight(),console.log(index), $("#7").removeClass("active") ,$("#8").addClass("active"),$("#0").removeClass("active");
       break;
     };
 
@@ -136,7 +130,7 @@ function click(el) {
       }
 }
 
-  // intro
+// Overview
 function slideZero() {
   if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapMOLAShadedColor)){
     el.map.removeLayer(el.basemapViking);
@@ -180,54 +174,9 @@ function slideZero() {
   el.legendLandingSite.hide();
 
 };
-// MOLA Shaded presentation
+
+// Altitude constrain
 function slideOne() {
-  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapCelestia)){
-    el.map.removeLayer(el.basemapViking);
-    el.map.removeLayer(el.basemapCelestia);
-    el.map.addLayer(el.basemapMOLAShadedColor);
-  }
-  el.landingSite.hide();
-  el.dashellipses4.hide();
-  el.nomenclatorGlobal.show();
-  el.nomenclatorRegional.hide();
-  el.geoNoOkContraint.hide();
-  el.legendElevation.hide();
-// layers to hide when clicking buttons (not following the story order)
-  el.landingSite8.show();
-  el.marsls.show();
-  el.latConstraint.hide();
-  el.latAreaOk.hide();
-  el.geoConstraint.hide();
-  el.duneConstraint.hide();
-  el.elevationConstraint.hide();
-  el.elevationConstraintNoOkLS.hide();
-  el.ellipses1.hide();
-  el.ellipses2.hide();
-  el.ellipses3.hide();
-  el.ellipses4.hide();
-  el.ellipses5.hide();
-  el.ellipses6.hide();
-  el.ellipses7.hide();
-  el.ellipses8.hide();
-  el.dashellipses1.hide();
-  el.dashellipses2.hide();
-  el.dashellipses3.hide();
-  el.dashellipses5.hide();
-  el.dashellipses6.hide();
-  el.dashellipses7.hide();
-  el.dashellipses8.hide();
-  //legends
-  el.lengendMOLA.show();
-  el.legendElevation.hide();
-  el.legendGeology.hide();
-  el.legendEllipses.hide();
-  el.legendLandingSite.hide();
-  };
-
-
-// function two slideTwo() elevation constrain
-function slideTwo() {
   if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapCelestia)){
     el.map.removeLayer(el.basemapViking);
     el.map.removeLayer(el.basemapCelestia);
@@ -269,8 +218,9 @@ function slideTwo() {
   el.legendEllipses.hide();
   el.legendLandingSite.hide();
 };
-// latitude constraint landing sites
-function slideThree() {
+
+// Latitude constraint landing sites
+function slideTwo() {
   if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapMOLAShadedColor)){
     el.map.removeLayer(el.basemapViking);
     el.map.removeLayer(el.basemapMOLAShadedColor);
@@ -311,8 +261,9 @@ function slideThree() {
   el.legendEllipses.hide();
   el.legendLandingSite.hide();
 };
-// geological constraint
-function slideFour() {
+
+// Geological constraint
+function slideThree() {
   if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapCelestia)){
     el.map.removeLayer(el.basemapViking);
     el.map.removeLayer(el.basemapCelestia);
@@ -351,82 +302,124 @@ function slideFour() {
   el.legendGeology.show();
   el.legendEllipses.hide();
   el.legendLandingSite.hide();
-
 };
-// Mix of constraints
-function slideFive() {
-  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapMOLAShadedColor)){
-    el.map.removeLayer(el.basemapViking);
+
+// Mawrth Vallis
+function slideFour() {
+  if (el.map.hasLayer(el.basemapMOLAShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+    el.map.removeLayer(el.basemapCelestia);
     el.map.removeLayer(el.basemapMOLAShadedColor);
-    el.map.addLayer(el.basemapCelestia);
+    el.map.addLayer(el.basemapViking);
   }
-  el.elevationConstraint.hide();
-  el.latConstraint.show();
-  el.latAreaOk.show();
-  el.geoConstraint.show();
-  el.geoNoOkContraint.hide();
-  el.elevationConstraintNoOkLS.show();
-  el.landingSite8.show();
-  el.duneConstraint.hide();
-  el.nomenclatorRegional.hide();
-  el.landingSite.hide();
+  el.ellipses4.show();
+  el.ellipses8.show();
+  el.ellipses3.hide();
+  el.ellipses7.hide();
+  el.dashellipses4.show();
+  el.dashellipses8.show();
+  el.dashellipses3.hide();
+  el.dashellipses7.hide();
   // layers to hide when clicking buttons (not following the story order)
   el.nomenclatorGlobal.hide();
-  el.ellipses1.hide();
-  el.ellipses2.hide();
-  el.ellipses3.hide();
-  el.ellipses4.hide();
-  el.ellipses5.hide();
-  el.ellipses6.hide();
-  el.ellipses7.hide();
-  el.ellipses8.hide();
-  el.dashellipses1.hide();
-  el.dashellipses2.hide();
-  el.dashellipses3.hide();
-  el.dashellipses4.hide();
-  el.dashellipses5.hide();
-  el.dashellipses6.hide();
-  el.dashellipses7.hide();
-  el.dashellipses8.hide();
-  //legends
-  el.lengendMOLA.hide();
-  el.legendElevation.hide();
-  el.legendGeology.hide();
-  el.legendEllipses.hide();
-  el.legendLandingSite.show();
-};
-// 4 landing sites
-function slideSix() {
-  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapMOLAShadedColor)){
-    el.map.removeLayer(el.basemapViking);
-    el.map.removeLayer(el.basemapMOLAShadedColor);
-    el.map.addLayer(el.basemapCelestia);
-  }
-  el.landingSite.show();
+  el.landingSite8.hide();
+  el.landingSite.hide();
   el.latConstraint.hide();
   el.latAreaOk.hide();
   el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.elevationConstraint.hide();
   el.geoNoOkContraint.hide();
   el.elevationConstraintNoOkLS.hide();
-  el.landingSite8.hide();
-  el.duneConstraint.hide();
-  el.nomenclatorRegional.hide();
-  // layers to hide when clicking buttons (not following the story order)
-  el.nomenclatorGlobal.hide();
-  el.elevationConstraint.hide();
   el.ellipses1.hide();
   el.ellipses2.hide();
-  el.ellipses3.hide();
-  el.ellipses4.hide();
   el.ellipses5.hide();
   el.ellipses6.hide();
+  el.dashellipses1.hide();
+  el.dashellipses2.hide();
+  el.dashellipses5.hide();
+  el.dashellipses6.hide();
+  //legends
+  el.lengendMOLA.hide();
+  el.legendElevation.hide();
+  el.legendGeology.hide();
+  el.legendEllipses.show();
+  el.legendLandingSite.hide();
+};
+
+// Oxia Planum
+function slideFive() {
+if (el.map.hasLayer(el.basemapMOLAShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+  el.map.removeLayer(el.basemapCelestia);
+  el.map.removeLayer(el.basemapMOLAShadedColor);
+  el.map.addLayer(el.basemapViking);
+}
+el.ellipses2.hide();
+el.ellipses3.show();
+el.ellipses6.hide();
+el.ellipses7.show();
+el.dashellipses3.show();
+el.dashellipses7.show();
+el.dashellipses2.hide();
+el.dashellipses6.hide();
+// layers to hide when clicking buttons (not following the story order)
+el.nomenclatorGlobal.hide();
+el.landingSite8.hide();
+el.landingSite.hide();
+el.latConstraint.hide();
+el.latAreaOk.hide();
+el.geoConstraint.hide();
+el.duneConstraint.hide();
+el.elevationConstraint.hide();
+el.geoNoOkContraint.hide();
+el.elevationConstraintNoOkLS.hide();
+el.ellipses1.hide();
+el.ellipses4.hide();
+el.ellipses5.hide();
+el.ellipses8.hide();
+el.dashellipses1.hide();
+el.dashellipses4.hide();
+el.dashellipses5.hide();
+el.dashellipses8.hide();
+//legends
+el.lengendMOLA.hide();
+el.legendElevation.hide();
+el.legendGeology.hide();
+el.legendEllipses.show();
+el.legendLandingSite.hide();
+};
+
+// Hypanis Vallis
+function slideSix() {
+  if (el.map.hasLayer(el.basemapMOLAShadedColor) || el.map.hasLayer(el.basemapCelestia)){
+    el.map.removeLayer(el.basemapCelestia);
+    el.map.removeLayer(el.basemapMOLAShadedColor);
+    el.map.addLayer(el.basemapViking);
+  }
+  el.ellipses1.hide();
+  el.ellipses2.show();
+  el.ellipses5.hide();
+  el.ellipses6.show();
+  el.dashellipses2.show();
+  el.dashellipses5.hide();
+  el.dashellipses6.show();
+
+  // layers to hide when clicking buttons (not following the story order)
+  el.nomenclatorGlobal.hide();
+  el.landingSite8.hide();
+  el.landingSite.hide();
+  el.latConstraint.hide();
+  el.latAreaOk.hide();
+  el.geoConstraint.hide();
+  el.duneConstraint.hide();
+  el.elevationConstraint.hide();
+  el.geoNoOkContraint.hide();
+  el.ellipses3.hide();
+  el.ellipses4.hide();
   el.ellipses7.hide();
   el.ellipses8.hide();
   el.dashellipses1.hide();
-  el.dashellipses2.hide();
   el.dashellipses3.hide();
   el.dashellipses4.hide();
-  el.dashellipses5.hide();
   el.dashellipses6.hide();
   el.dashellipses7.hide();
   el.dashellipses8.hide();
@@ -434,9 +427,10 @@ function slideSix() {
   el.lengendMOLA.hide();
   el.legendElevation.hide();
   el.legendGeology.hide();
-  el.legendEllipses.hide();
+  el.legendEllipses.show();
   el.legendLandingSite.hide();
 };
+
 // Aram Dorsum
 function slideSeven(){
   if (el.map.hasLayer(el.basemapMOLAShadedColor) || el.map.hasLayer(el.basemapCelestia)){
@@ -479,136 +473,9 @@ function slideSeven(){
   el.legendLandingSite.hide();
 };
 
-  // Hypanis Vallis
-function slideEight() {
-  if (el.map.hasLayer(el.basemapMOLAShadedColor) || el.map.hasLayer(el.basemapCelestia)){
-    el.map.removeLayer(el.basemapCelestia);
-    el.map.removeLayer(el.basemapMOLAShadedColor);
-    el.map.addLayer(el.basemapViking);
-  }
-  el.ellipses1.hide();
-  el.ellipses2.show();
-  el.ellipses5.hide();
-  el.ellipses6.show();
-  el.dashellipses2.show();
-  el.dashellipses5.hide();
-  el.dashellipses6.show();
-
-  // layers to hide when clicking buttons (not following the story order)
-  el.nomenclatorGlobal.hide();
-  el.landingSite8.hide();
-  el.landingSite.hide();
-  el.latConstraint.hide();
-  el.latAreaOk.hide();
-  el.geoConstraint.hide();
-  el.duneConstraint.hide();
-  el.elevationConstraint.hide();
-  el.geoNoOkContraint.hide();
-  el.ellipses3.hide();
-  el.ellipses4.hide();
-  el.ellipses7.hide();
-  el.ellipses8.hide();
-  el.dashellipses1.hide();
-  el.dashellipses3.hide();
-  el.dashellipses4.hide();
-  el.dashellipses6.hide();
-  el.dashellipses7.hide();
-  el.dashellipses8.hide();
-  //legends
-  el.lengendMOLA.hide();
-  el.legendElevation.hide();
-  el.legendGeology.hide();
-  el.legendEllipses.show();
-  el.legendLandingSite.hide();
-};
-
-  // Oxia Planum
-function slideNine() {
-  if (el.map.hasLayer(el.basemapMOLAShadedColor) || el.map.hasLayer(el.basemapCelestia)){
-    el.map.removeLayer(el.basemapCelestia);
-    el.map.removeLayer(el.basemapMOLAShadedColor);
-    el.map.addLayer(el.basemapViking);
-  }
-  el.ellipses2.hide();
-  el.ellipses3.show();
-  el.ellipses6.hide();
-  el.ellipses7.show();
-  el.dashellipses3.show();
-  el.dashellipses7.show();
-  el.dashellipses2.hide();
-  el.dashellipses6.hide();
-  // layers to hide when clicking buttons (not following the story order)
-  el.nomenclatorGlobal.hide();
-  el.landingSite8.hide();
-  el.landingSite.hide();
-  el.latConstraint.hide();
-  el.latAreaOk.hide();
-  el.geoConstraint.hide();
-  el.duneConstraint.hide();
-  el.elevationConstraint.hide();
-  el.geoNoOkContraint.hide();
-  el.elevationConstraintNoOkLS.hide();
-  el.ellipses1.hide();
-  el.ellipses4.hide();
-  el.ellipses5.hide();
-  el.ellipses8.hide();
-  el.dashellipses1.hide();
-  el.dashellipses4.hide();
-  el.dashellipses5.hide();
-  el.dashellipses8.hide();
-  //legends
-  el.lengendMOLA.hide();
-  el.legendElevation.hide();
-  el.legendGeology.hide();
-  el.legendEllipses.show();
-  el.legendLandingSite.hide();
-};
-
-
-// Mawrth Vallis
-function slideTen() {
-  if (el.map.hasLayer(el.basemapMOLAShadedColor) || el.map.hasLayer(el.basemapCelestia)){
-    el.map.removeLayer(el.basemapCelestia);
-    el.map.removeLayer(el.basemapMOLAShadedColor);
-    el.map.addLayer(el.basemapViking);
-  }
-  el.ellipses4.show();
-  el.ellipses8.show();
-  el.ellipses3.hide();
-  el.ellipses7.hide();
-  el.dashellipses4.show();
-  el.dashellipses8.show();
-  el.dashellipses3.hide();
-  el.dashellipses7.hide();
-  // layers to hide when clicking buttons (not following the story order)
-  el.nomenclatorGlobal.hide();
-  el.landingSite8.hide();
-  el.landingSite.hide();
-  el.latConstraint.hide();
-  el.latAreaOk.hide();
-  el.geoConstraint.hide();
-  el.duneConstraint.hide();
-  el.elevationConstraint.hide();
-  el.geoNoOkContraint.hide();
-  el.elevationConstraintNoOkLS.hide();
-  el.ellipses1.hide();
-  el.ellipses2.hide();
-  el.ellipses5.hide();
-  el.ellipses6.hide();
-  el.dashellipses1.hide();
-  el.dashellipses2.hide();
-  el.dashellipses5.hide();
-  el.dashellipses6.hide();
-  //legends
-  el.lengendMOLA.hide();
-  el.legendElevation.hide();
-  el.legendGeology.hide();
-  el.legendEllipses.show();
-  el.legendLandingSite.hide();
-};
 
   // End of the story/overview
-function slideEleven() {
+function slideEight() {
   if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapMOLAShadedColor) ){
     el.map.removeLayer(el.basemapViking);
     el.map.removeLayer(el.basemapMOLAShadedColor);
@@ -650,6 +517,52 @@ function slideEleven() {
   el.legendEllipses.hide();
   el.legendLandingSite.hide();
 };
+
+
+// // Mix of constraints --- May be reused for last slide...
+// function slideFive() {
+//   if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapMOLAShadedColor)){
+//     el.map.removeLayer(el.basemapViking);
+//     el.map.removeLayer(el.basemapMOLAShadedColor);
+//     el.map.addLayer(el.basemapCelestia);
+//   }
+//   el.elevationConstraint.hide();
+//   el.latConstraint.show();
+//   el.latAreaOk.show();
+//   el.geoConstraint.show();
+//   el.geoNoOkContraint.hide();
+//   el.elevationConstraintNoOkLS.show();
+//   el.landingSite8.show();
+//   el.duneConstraint.hide();
+//   el.nomenclatorRegional.hide();
+//   el.landingSite.hide();
+//   // layers to hide when clicking buttons (not following the story order)
+//   el.nomenclatorGlobal.hide();
+//   el.ellipses1.hide();
+//   el.ellipses2.hide();
+//   el.ellipses3.hide();
+//   el.ellipses4.hide();
+//   el.ellipses5.hide();
+//   el.ellipses6.hide();
+//   el.ellipses7.hide();
+//   el.ellipses8.hide();
+//   el.dashellipses1.hide();
+//   el.dashellipses2.hide();
+//   el.dashellipses3.hide();
+//   el.dashellipses4.hide();
+//   el.dashellipses5.hide();
+//   el.dashellipses6.hide();
+//   el.dashellipses7.hide();
+//   el.dashellipses8.hide();
+//   //legends
+//   el.lengendMOLA.hide();
+//   el.legendElevation.hide();
+//   el.legendGeology.hide();
+//   el.legendEllipses.hide();
+//   el.legendLandingSite.show();
+// };
+
+
 // start initOdyssey fucntion (it is called in the main.js)
 function initOdyssey(O) {
 
@@ -703,7 +616,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(4),
           O.Parallel(
-            el.map.actions.setView(el.center,3),
+            el.map.actions.setView(el.Mawrth,9),
             slides.activate(4),
             O.Location.changeHash('4'),
             emitSlideChange
@@ -712,7 +625,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(5),
           O.Parallel(
-            el.map.actions.setView(el.center,3),
+            el.map.actions.setView(el.Oxia,9),
             slides.activate(5),
             O.Location.changeHash('5'),
             emitSlideChange
@@ -721,7 +634,7 @@ function initOdyssey(O) {
     .addState(
         seq.step(6),
           O.Parallel(
-            el.map.actions.setView(el.center,4),
+            el.map.actions.setView(el.Hypanis,9),
             slides.activate(6),
             O.Location.changeHash('6'),
             emitSlideChange
@@ -740,42 +653,13 @@ function initOdyssey(O) {
     .addState(
         seq.step(8),
           O.Parallel(
-            el.map.actions.setView(el.Hypanis,9),
+            el.map.actions.setView(el.center,3,true),
             slides.activate(8),
             O.Location.changeHash('8'),
             emitSlideChange
           )
     )
 
-    .addState(
-        seq.step(9),
-          O.Parallel(
-            el.map.actions.setView(el.Oxia,9),
-            slides.activate(9),
-            O.Location.changeHash('9'),
-            emitSlideChange
-          )
-    )
-
-    .addState(
-        seq.step(10),
-          O.Parallel(
-            el.map.actions.setView(el.Mawrth,9),
-            slides.activate(10),
-            O.Location.changeHash('10'),
-            emitSlideChange
-          )
-    )
-
-    .addState(
-        seq.step(11),
-          O.Parallel(
-            el.map.actions.setView(el.center,3,true),
-            slides.activate(11),
-            O.Location.changeHash('11'),
-            emitSlideChange
-          )
-      )
 
 // anchor permanent link to each slide
 
