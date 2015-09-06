@@ -1,5 +1,5 @@
-url: https://nmanaud.github.io
-baseurl: /whereonmars
+url: http://www.whereonmars.com/ #https://nmanaud.github.io
+baseurl: #/whereonmars
 
 # Site settings
 title: Where On Mars?
