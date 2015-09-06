@@ -100,6 +100,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
     '}'
     ].join('\n');
 
+    // Candidate landing Sites
     var style2 = [
     '@selected: #FF2900;',
     '@discarded: #4c1010;',

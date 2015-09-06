@@ -208,21 +208,3 @@
       $("li").removeClass("active");
       $(this).addClass("active");
     });
-
-    $("li#9").click(function(){
-      el.story.go(9,seq.step(9));
-      $("li").removeClass("active");
-      $(this).addClass("active");
-    });
-
-    $("li#10").click(function(){
-      el.story.go(10,seq.step(10));
-      $("li").removeClass("active");
-      $(this).addClass("active");
-    });
-
-    $("li#11").click(function(){
-      el.story.go(11,seq.step(11));
-      $("li").removeClass("active");
-      $(this).addClass("active");
-    });
