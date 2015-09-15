@@ -14,6 +14,7 @@ var initMap = function(){
         zoom: 3,
         minZoom: 2,
         zoomControl: false,
+        attributionControl: false,
       });
 
   // control zoom and control scale
@@ -44,6 +45,7 @@ var initMap = function(){
     el.basemapMOLAShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-color/{z}/{x}/{y}.png', {
      tms: true,
      maxNativeZoom: 6,
+     attribution: 'NASA/MOLA',
     }).setZIndex(0);
 
     // define the Celestia basemap
@@ -55,6 +57,7 @@ var initMap = function(){
     el.basemapViking = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/viking_mdim21_global/{z}/{x}/{y}.png', {
      tms:true,
      maxNativeZoom: 7,
+     attribution: 'NASA/Viking MDIM2.1'
     }).setZIndex(0);
 
   // call the SQL API from cartodb
@@ -68,6 +71,7 @@ var initMap = function(){
             tms:true,
             minZoom: 7,
             opacity: 1.0,
+            attribution: 'ESA/HRSC',
             unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed
             updateWhenIdle: false, // If false, new tiles are loaded during panning, otherwise only after it (when true)
             maxNativeZoom: 9
@@ -160,6 +164,7 @@ var initMap = function(){
           tms:true,
           opacity: 1.0,
           minZoom: 9,
+          attribution: 'NASA/HIRISE',
           unloadInvisibleTiles: true, // If true, all the tiles that are not visible after panning are removed
           updateWhenIdle: true, // If false, new tiles are loaded during panning, otherwise only after it (when true)
           maxNativeZoom: 16
@@ -208,6 +213,6 @@ var initMap = function(){
   el.Oxia = new L.LatLng(18.2, -24.55);
   el.Mawrth = new L.LatLng(22.16, -17.95);
   el.center = new L.LatLng(15,-11);
-  el.center4 = new L.LatLng(18,-30);
+  el.center4 = new L.LatLng(16,-32);
 
 } // finish initMap function

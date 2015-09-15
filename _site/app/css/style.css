@@ -39,10 +39,11 @@
 
 	}
 
-	/* different styles for the leaflet plugins */
+	/* different styles for the leaflet plugins
 	.leaflet-control-attribution {
 		display: none!important;
 	}
+	*/
 	.leaflet-control-scale{
 		bottom: -55px;
 		right: 10px;

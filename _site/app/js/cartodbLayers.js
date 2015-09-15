@@ -319,7 +319,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
     '    }',
     '  }',
     '  [zoom>=6]{',
-    '    [diameter>=50][diameter<=500]{',
+    '    [diameter>=50][diameter<=500][feature_name!="Aram Dorsum"]{',
     '      text-name: [feature_name];',
     '      text-face-name: "Lato Bold";',
     '      text-fill: @feature;',
