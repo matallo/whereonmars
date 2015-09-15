@@ -1,4 +1,4 @@
-url: https://nmanaud.github.io
+#url: https://nmanaud.github.io
 baseurl: /whereonmars
 
 # Site settings
@@ -46,30 +46,8 @@ people:
     - title: linkedin
       url: #
 
-# - name: Elliot Sefton-Nash
-#   pic: 4
-#   position: Planetary Scientist at UCL/London
-#   social:
-#     - title: twitter
-#       url: #
-#     - title: facebook
-#       url: #
-#     - title: google-plus
-#       url: #
-#
 # - name: Carla Iriberri
 #   pic: 5
-#   position: Lead Developer
-#   social:
-#     - title: twitter
-#       url: #
-#     - title: facebook
-#       url: #
-#     - title: google-plus
-#       url: #
-#
-# - name: Daniel Carrión
-#   pic: 6
 #   position: Lead Developer
 #   social:
 #     - title: twitter
@@ -84,15 +62,15 @@ people:
 social:
   - title: twitter
     url: http://twitter.com/whereonmars
-  - title: facebook
-    url: https://www.facebook.com/whereonmars
+#  - title: facebook
+#    url: https://www.facebook.com/whereonmars
   - title: github
     url: http://nmanaud.github.com/whereonmars
 
 # Postal address (add as many lines as necessary)
-address:
-  - line: 3481 Melrose Place
-  - line: Beverly Hills, CA 90210
+#address:
+#  - line: 3481 Melrose Place
+#  - line: Beverly Hills, CA 90210
 
 # Build settings
 markdown: kramdown
