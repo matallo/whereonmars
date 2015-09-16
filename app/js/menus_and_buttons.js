@@ -139,7 +139,7 @@
   .mouseleave(function(){
     $("#circlePrev").css({
       "background-color": "#EFC481",
-      "opacity": 0.5
+      "opacity": 0.7
     })
   });
   $("#navButtons .next")
@@ -152,7 +152,7 @@
     .mouseleave(function(){
       $("#circleNext").css({
         "background-color": "#EFC481",
-        "opacity": 0.5
+        "opacity": 0.7
       })
     });
 

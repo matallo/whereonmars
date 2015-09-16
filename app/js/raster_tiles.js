@@ -14,7 +14,6 @@ var initMap = function(){
         zoom: 3,
         minZoom: 2,
         zoomControl: false,
-        attributionControl: false,
       });
 
   // control zoom and control scale

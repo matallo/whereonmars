@@ -38,6 +38,9 @@ At the last part of the cartodbData() function, there are defined the infowindow
   .on('done', function(layer) {
       layer.setZIndex(100); // all cartoDB layer will be above all the baselayers
       var sublayer = layer.getSubLayer(0);
+
+      //sublayer.infowindow.set('template', $('#infowindow_template').html());
+
     // The variables style1, style2, style3 and style4 define the styles of the layers  landingSite, landingSite8,nomenclatorGlobal
     // and nomenclatorRegional. They have been defined in this way to define better the labels of the layers.
 
@@ -769,7 +772,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
 
       // add infowindow with the name and the description of the landing site. The description is inside the "description"
       // column of the exols_exomars_landing_sites_four table
-      cdb.vis.Vis.addInfowindow(el.map, el.landingSite, ['description']);
+      //cdb.vis.Vis.addInfowindow(el.map, el.landingSite, ['description']);
       cdb.vis.Vis.addInfowindow(el.map, el.landingSite8, ['description']);
 
       // hide all cartodb layers when the map element is loaded

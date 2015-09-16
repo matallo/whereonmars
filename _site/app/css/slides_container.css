@@ -81,3 +81,12 @@
     cursor: pointer;
     font-size: 13px;
   }
+
+  p.story-tip {
+    border:1px dashed #aaa;
+    padding:5px;
+    color:#aaa!important;
+    font-style: italic;
+    font-size:12px!important;
+    line-height: 120%!important;
+  }
