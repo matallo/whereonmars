@@ -17,7 +17,7 @@ var initMap = function(){
       });
 
   // control zoom and control scale
-    new L.control.zoom({position : 'bottomright'}).addTo(el.map);
+    new L.control.zoom({position : 'topright'}).addTo(el.map);
     new L.control.scale({metric: true,imperial: false, position: 'bottomright'}).addTo(el.map);
 
   // define graticule
