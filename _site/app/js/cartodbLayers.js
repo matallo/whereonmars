@@ -639,6 +639,22 @@ At the last part of the cartodbData() function, there are defined the infowindow
             el.elevationConstraint.hide();
           }
         });
+        var $marsls = $('#marsls')
+          $marsls.change(function(){
+          if ($marsls.is(':checked')){
+            el.marsls.show();
+          }else{
+            el.marsls.hide();
+          }
+        });
+        var $nomenclature = $('#nomenclature')
+          $nomenclature.change(function(){
+          if ($nomenclature.is(':checked')){
+            el.nomenclatorGlobal.show();
+          }else{
+            el.nomenclatorGlobal.hide();
+          }
+        });
 
     // set the interactivity of the CartoDB sublayers.It allows to add infowindows and tooltips.
         el.landingSite.setInteraction(true);

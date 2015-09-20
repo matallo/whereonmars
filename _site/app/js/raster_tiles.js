@@ -38,6 +38,7 @@ var initMap = function(){
     el.basemapMOLANoShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola_color-noshade_global/{z}/{x}/{y}.png', {
      tms:true,
      maxNativeZoom: 6,
+     opacity:0.5,
     });
 
     // define the color MOLA basemap

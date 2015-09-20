@@ -19,7 +19,13 @@
   padding-left: 10px;
   opacity: 0.8;
   display:none;
+  font-size: 12px;
 }
+
+#accordion h4 {
+  font-size: 14px;
+}
+
 #hide_menu{
   position: absolute;
   top: 90px;
@@ -37,12 +43,6 @@
   background-size: 70% auto;
   opacity: 1;
 }
-
-/* image */
-/*#hide_menu img{
-  height: 20px;
-  width: auto;
-}*/
 
 /* 2- Title */
 

@@ -94,7 +94,7 @@
 
     // A group of functions to resize the slide_container
     function heightSmall(){
-      $('#slides_container').height('4%')
+      $('#slides_container').height('6%')
     };
     function widthSmall(){
 

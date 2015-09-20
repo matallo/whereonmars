@@ -87,12 +87,15 @@
 				<!-- SLIDE 0 -->
 				<div class="slide">
 					<h3>Introduction</h3>
-					<p>Before the end of this decade, the first european ExoMars 2018 rover will land on Mars in search for signs of life! <b>But where to land ?</b></p>
-          <p>In December 2013, scientists have been tasked to propose scientifically compelling landing sites, which comply to the main engineering constraints for a safe landing and operation.</p>
-          <p>Out of the eight landing sites proposed and discussed in March 2014, four candidates have been selected for further detailed analysis.
+					<p>Before the end of this decade, the first european ExoMars 2018 rover will land on Mars in search for signs of life!
+            <b>But where to land ?</b></p>
+          <p>In December 2013, scientists have been tasked to propose scientifically compelling landing sites,
+            yet allowing a safe landing and operation of the rover.</p>
+          <p>Out of the eight landing sites proposed and discussed in March 2014, four candidates
+            have been selected for further analysis.
           <!-- <em>Mawrth Vallis</em>, <em>Oxia Planum</em>, <em>Hypanis Vallis</em> and <em>Aram Dorsum</em>.</p> -->
           <p class="story-tip">
-          Use the navigation controls at the bottom of the map to follow a story explaining key landing site selection constraints, and
+          Explore the map or use the bottom navigation controls to follow a story explaining the main landing site selection constraints, and
           letting you explore each candidate at high-resolution.</p>
 				</div>
 
@@ -171,7 +174,9 @@
           The year before launch, the European Space Agency will make the final decision,
           based on a recommendation from the Landing Site Selection Working Group (LSSWG).</p>
 				  <p><b>Stay tuned!</b></p>
-          <p><em>Visit the <a href="http://whereonmars.co">"Where On Mars?"</a>
+          <p><em>Follow <a href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fwhereonmars.co%2Fapp%2F&ref_src=twsrc%5Etfw&region=follow_link&screen_name=whereonmars&tw_p=followbutton">@whereonmars</a> on Twitter,
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          and visit the <a href="http://whereonmars.co">"Where On Mars?"</a>
           home page to learn more about the ExoMars 2018 mission, and this visualisation project.</em></p>
         </div>
 
@@ -184,29 +189,29 @@
   <!-- <div id = "hide_menu"><img src="css/images/layers.png" alt="Layer_switcher"></div> -->
   <div id = "hide_menu" alt="Switch Layers"></div>
         <div id ="accordion">
-          <h4>Basemaps</h4>
+          <h4>Global Basemaps</h4>
           <div>
-            <input type= "checkbox" name = "raster" id = "MOLA1"></input>
-            <label for="MOLA1"></label>
-            <span style ="display: inline-block;">Grayscale MOLA</span>
+            <input type= "checkbox" name = "raster" id = "shaded"></input>
+            <label for="shaded"></label>
+            <span style ="display: inline-block;"> Shaded Color (Celestia) Texture</span>
           </br>
             <input type= "checkbox" name = "raster" id = "MOLA2"></input>
             <label for="MOLA2"></label>
-            <span style ="display: inline-block;"> Shaded color MOLA</span>
-          </br>
-            <input type= "checkbox" name = "raster" id = "MOLA3"></input>
-            <label for="MOLA3"></label>
-            <span style ="display: inline-block;"> No-shaded color MOLA</span>
-          </br>
-            <input type= "checkbox" name = "raster" id = "shaded"></input>
-            <label for="shaded"></label>
-            <span style ="display: inline-block;"> Celestia </span>
+            <span style ="display: inline-block;"> Shaded Color MOLA Elevation</span>
           </br>
             <input type= "checkbox" name = "raster" id = "viking"></input>
             <label for="viking"></label>
-            <span style ="display: inline-block;"> Viking </span>
+            <span style ="display: inline-block;"> Colorized Viking MDIM2.1</span>
+          </br>
+            <input type= "checkbox" name = "raster" id = "MOLA1"></input>
+            <label for="MOLA1"></label>
+            <span style ="display: inline-block;"> Shaded Grayscale MOLA Elevation</span>
+          </br>
+            <input type= "checkbox" name = "raster" id = "MOLA3"></input>
+            <label for="MOLA3"></label>
+            <span style ="display: inline-block;"> Color MOLA Elevation</span>
         </div>
-        <h4>HRSC</h4>
+        <h4>HRSC Mosaics</h4>
         <div>
           <input type= "checkbox" name = "raster" id = "HRSC1"></input>
           <label for="HRSC1"></label>
@@ -224,7 +229,7 @@
           <label for="HRSC4"></label>
           <span style ="display: inline-block;">Mawrth Vallis</span>
         </div>
-        <h4>HiRISE</h4>
+        <h4>HiRISE Mosaics</h4>
         <div>
           <input type= "checkbox" name = "raster" id = "HIRISE1"></input>
           <label for="HIRISE1"></label>
@@ -243,7 +248,7 @@
           <span style ="display: inline-block;">Mawrth Vallis</span>
         </div>
         <!-- define landing sites-->
-        <h4>Center of landing sites</h4>
+        <!-- <h4>Center of landing sites</h4>
         <div>
           <input type= "checkbox" name = "vector" id = "landingSiteEight"></input>
           <label for="landingSiteEight"></label>
@@ -252,27 +257,40 @@
           <input type= "checkbox" name = "vector" id = "landingSite4"></input>
           <label for="landingSite4"></label>
           <span style ="display: inline-block;">Current Candidate Landing Sites</span>
-
+        </div> -->
+        <h4>Landing Sites and Context</h4>
+        <div>
+          <input type= "checkbox" name = "vector" id = "landingSiteEight"></input>
+          <label for="landingSiteEight"></label>
+          <span style ="display: inline-block;">ExoMars 2018 Landing Sites</span>
+        <br/>
+          <input type= "checkbox" name = "vector" id = "nomenclature"></input>
+          <label for="nomenclature"></label>
+          <span style ="display: inline-block;">Mars Nomenclature</span>
+        <br/>
+          <input type= "checkbox" name = "vector" id = "marsls"></input>
+          <label for="marsls"></label>
+          <span style ="display: inline-block;">Previous Mars Landing Sites</span>
         </div>
-        <h4>Landing sites 2018</h4>
+        <h4>Landing Ellipses</h4>
         <div>
           <input type= "checkbox" name = "vector" id = "ellipsesAram1"></input>
           <label for="ellipsesAram1"></label>
-          <span style ="display: inline-block;">Landing ellipses of Aram Dorsum</span>
+          <span style ="display: inline-block;">Landing ellipses for Aram Dorsum</span>
           <br/>
           <input type= "checkbox" name = "vector" id = "ellipsesHypanis1"></input>
           <label for="ellipsesHypanis1"></label>
-          <span style ="display: inline-block;">Landing ellipses of Hypanis Vallis</span>
+          <span style ="display: inline-block;">Landing ellipses for Hypanis Vallis</span>
           <br/>
           <input type= "checkbox" name = "vector" id = "ellipsesOxia1"></input>
           <label for="ellipsesOxia1"></label>
-          <span style ="display: inline-block;">Landing ellipses of Oxia Planum</span>
+          <span style ="display: inline-block;">Landing ellipses for Oxia Planum</span>
           <br/>
           <input type= "checkbox" name = "vector" id = "ellipsesMawrth1"></input>
           <label for="ellipsesMawrth1"></label>
-          <span style ="display: inline-block;">Landing ellipses of Mawrth Vallis</span>
+          <span style ="display: inline-block;">Landing ellipses for Mawrth Vallis</span>
         </div>
-        <h4>Landing sites 2020</h4>
+        <!-- <h4>Landing sites 2020</h4>
         <div>
           <input type= "checkbox" name = "vector" id = "ellipsesAram2"></input>
           <label for="ellipsesAram2"></label>
@@ -293,24 +311,24 @@
           <input type= "checkbox" name = "vector" id = "torque2020"></input>
           <label for="torque2020"></label>
           <span style ="display: inline-block;">Landing ellipses animated point Aram Dorsum</span>
-        </div>
-        <h4>Contraints</h4>
+        </div> -->
+        <h4>Landing Site Contraints</h4>
         <div>
+          <input type= "checkbox" name = "vector" id = "constraint4"></input>
+          <label for="constraint4"></label>
+          <span style ="display: inline-block;">Elevation constraint</span>
+          </br>
           <input type= "checkbox" name = "vector" id = "constraint1"></input>
           <label for="constraint1"></label>
           <span style ="display: inline-block;">Latitude constraint</span>
           <br/>
-          <input type= "checkbox" name = "vector" id = "constraint2"></input>
+          <!-- <input type= "checkbox" name = "vector" id = "constraint2"></input>
           <label for="constraint2"></label>
-          <span style ="display: inline-block;">Geological constraint</span>
-          <br/>
+          <span style ="display: inline-block;">Valid geological area</span>
+          <br/> -->
           <input type= "checkbox" name = "vector" id = "constraint3"></input>
           <label for="constraint3"></label>
-          <span style ="display: inline-block;">Not valid geological area</span>
-          <br/>
-          <input type= "checkbox" name = "vector" id = "constraint4"></input>
-          <label for="constraint4"></label>
-          <span style ="display: inline-block;">Elevation constraint</span>
+          <span style ="display: inline-block;">Geological constraint</span>
         </div>
 
       </div>
