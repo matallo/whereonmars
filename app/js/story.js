@@ -228,7 +228,7 @@ function slideOne() {
 
 // Latitude constraint landing sites
 function slideTwo() {
-  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapMOLAShadedColor)){
+  if (el.map.hasLayer(el.basemapViking) || el.map.hasLayer(el.basemapCelestia)){
     el.map.removeLayer(el.basemapViking);
     el.map.removeLayer(el.basemapCelestia);
     el.map.addLayer(el.basemapMOLAShadedColor);

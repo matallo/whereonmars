@@ -37,7 +37,8 @@
    #slides_container h3{
     color: #eee;
     font-family:Montserrat, "Helvetica Neue",Helvetica,Arial,sans-serif;
-    margin-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
   }
 
    #slides_container h3::after{
@@ -48,6 +49,7 @@
     /*font-family:"Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;*/
     font-size:13px;
     color: #ccc;
+    margin-bottom: 12px;
   }
   #slides_container .slide .btn-info{
     border-radius: 30px;
@@ -65,19 +67,19 @@
     font-size: 30px;
   }
 
-  #hide_story{
-    height: 10px;
-  }
-  #hide_story p{
+  /*#hide_story{
+    height: auto;
+  }*/
+
+  #hide_story span{
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 12px;
     color: #666;
     width: 30%;
-    /*margin: 0px;
-    padding: 0px;*/
-
+    margin: 0px;
   }
-  #hide_story p:hover{
+
+  #hide_story span:hover{
     cursor: pointer;
     font-size: 13px;
   }
