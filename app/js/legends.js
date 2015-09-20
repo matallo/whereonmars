@@ -47,7 +47,7 @@ el.legendLandingSite = new cdb.geo.ui.Legend({
 el.lengendMOLA = new cdb.geo.ui.Legend({
      type: "choropleth",
      data: [
-       { value: "-9 km&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MOLA altitudes" },
+       { value: "-9 km&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MOLA altitudes" },
        { value: "          +14 km" },
        { value: "#070610" },//1 -9 km
        { value: "#2F2C4B" },//2

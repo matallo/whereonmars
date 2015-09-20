@@ -32,6 +32,7 @@
 	/* Legends*/
 	.cartodb-legend{
 		left: 20px;
+		bottom: 20px!important;
 		width: 250px;
 		height: auto;
 		background-color: #FFF;
