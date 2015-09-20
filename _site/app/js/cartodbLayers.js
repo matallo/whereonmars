@@ -389,7 +389,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
          sql: "SELECT * FROM exols_lat_area_ok",
          cartocss: '#exols_lat_constraints{polygon-fill: #377eb8;polygon-opacity: 0.2;line-opacity: 0;}',
          interactivity: ['description']
-       });
+        });
         el.geoConstraint = layer.createSubLayer({
             sql: "SELECT * FROM exols_restricted_geology_latitude_webmercator",
             // cartocss: "#exols_restricted_geology_latitude_webmercator{polygon-fill: #4daf4a;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}"
@@ -431,7 +431,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
           cartocss: "#exols_exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity: 0.3; line-dasharray: 10, 4;}"
         });
         el.dashellipses2 = layer.createSubLayer({
-          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2018 WHERE id IN (2,7)",
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2018 WHERE id IN (10,11)",
           cartocss: "#exols_exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
         });
         el.landingSite8 = layer.createSubLayer({
@@ -440,7 +440,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
           interactivity: ['description']
         });
         el.dashellipses3 = layer.createSubLayer({
-          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2018 WHERE id IN (4,8)",
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2018 WHERE id IN (12,13)",
           cartocss: "#exols_exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
         });
         el.dashellipses4 = layer.createSubLayer({
@@ -471,12 +471,12 @@ At the last part of the cartodbData() function, there are defined the infowindow
          });
 
          el.ellipses2 = layer.createSubLayer({
-          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id = 2",
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id = 10",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
           interactivity: ['description']
           });
          el.ellipses3 = layer.createSubLayer({
-          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id =3",
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id =11",
           cartocss: '#exols_exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
           interactivity: ['description']
          });
