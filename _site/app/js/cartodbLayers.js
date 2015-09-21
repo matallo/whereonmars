@@ -685,14 +685,14 @@ At the last part of the cartodbData() function, there are defined the infowindow
       // A tooltip with text will appear in the layers when mouse hover
       var a = new cdb.geo.ui.Tooltip({
                 layer: el.geoNoOkContraint,
-                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content">{{description}}</div></div>',
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
                 width: 200,
                 position: 'top|right'
             });
             $('body').append(a.render().el);
       var b = new cdb.geo.ui.Tooltip({
                 layer: el.latConstraint,
-                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content">{{description}}</div></div>',
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
                 width: 200,
                 position: 'top|right'
             });
@@ -762,7 +762,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
             $('body').append(d8.render().el);
       var e = new cdb.geo.ui.Tooltip({
                 layer: el.latAreaOk,
-                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content">{{description}}</div></div>',
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
                 width: 200,
                 position: 'top|right'
             });
@@ -798,10 +798,10 @@ At the last part of the cartodbData() function, there are defined the infowindow
       //cdb.vis.Vis.addInfowindow(el.map, el.landingSite, ['description']);
       cdb.vis.Vis.addInfowindow(el.map, el.landingSite8, ['description']);
 
-      cdb.vis.Vis.addInfowindow(el.map, el.ellipses1, ['description']);
-      cdb.vis.Vis.addInfowindow(el.map, el.ellipses2, ['description']);
-      cdb.vis.Vis.addInfowindow(el.map, el.ellipses3, ['description']);
-      cdb.vis.Vis.addInfowindow(el.map, el.ellipses4, ['description']);
+      // cdb.vis.Vis.addInfowindow(el.map, el.ellipses1, ['description']);
+      // cdb.vis.Vis.addInfowindow(el.map, el.ellipses2, ['description']);
+      // cdb.vis.Vis.addInfowindow(el.map, el.ellipses3, ['description']);
+      // cdb.vis.Vis.addInfowindow(el.map, el.ellipses4, ['description']);
 
 
 
