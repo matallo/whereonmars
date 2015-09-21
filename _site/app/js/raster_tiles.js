@@ -209,8 +209,8 @@ var initMap = function(){
 
   // define coordinates of the center of the different Landing Sites
   el.Aram = new L.LatLng(7.87, -11.2);
-  el.Hypanis = new L.LatLng(11.8, -45.04);
-  el.Oxia = new L.LatLng(18.2, -24.55);
+  el.Hypanis = new L.LatLng(11.97, -46.15);
+  el.Oxia = new L.LatLng(18.4, -24.24);
   el.Mawrth = new L.LatLng(22.16, -17.95);
   el.center = new L.LatLng(15,-11);
   el.center4 = new L.LatLng(16,-32);

@@ -430,8 +430,10 @@ At the last part of the cartodbData() function, there are defined the infowindow
           sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2018 WHERE id IN (1,6)",
           cartocss: "#exols_exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity: 0.3; line-dasharray: 10, 4;}"
         });
+
+        // Hypanis Vallis IN (10,11)",
         el.dashellipses2 = layer.createSubLayer({
-          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2018 WHERE id IN (10,11)",
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2018 WHERE id IN (14,15)",
           cartocss: "#exols_exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
         });
         el.landingSite8 = layer.createSubLayer({
@@ -439,8 +441,10 @@ At the last part of the cartodbData() function, there are defined the infowindow
           cartocss: style2,
           interactivity: ['description']
         });
+
+        // Oxia Planum IN (12,13)",
         el.dashellipses3 = layer.createSubLayer({
-          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2018 WHERE id IN (12,13)",
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_2018 WHERE id IN (16,17)",
           cartocss: "#exols_exomars_landing_sites_ellipses_2018{line-color: #FCDC3B; line-width: 2;line-opacity:  0.3; line-dasharray: 10, 4;}"
         });
         el.dashellipses4 = layer.createSubLayer({
@@ -470,13 +474,16 @@ At the last part of the cartodbData() function, there are defined the infowindow
           interactivity: ['description']
          });
 
+         //Hypanis Vallis id=10
          el.ellipses2 = layer.createSubLayer({
-          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id = 10",
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id = 12",
           cartocss: '#exols_exomars_landing_sites_ellipses_union{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
           interactivity: ['description']
           });
+
+         // Oxia Planum id=12
          el.ellipses3 = layer.createSubLayer({
-          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id =11",
+          sql: "SELECT * FROM exols_exomars_landing_sites_ellipses_union WHERE id =13",
           cartocss: '#exols_exomars_landing_sites_ellipses_corrected{line-color: #FCDC3B; line-width: 2;line-opacity: 1;}',
           interactivity: ['description']
          });
@@ -678,14 +685,14 @@ At the last part of the cartodbData() function, there are defined the infowindow
       // A tooltip with text will appear in the layers when mouse hover
       var a = new cdb.geo.ui.Tooltip({
                 layer: el.geoNoOkContraint,
-                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content">{{description}}</div></div>',
                 width: 200,
                 position: 'top|right'
             });
             $('body').append(a.render().el);
       var b = new cdb.geo.ui.Tooltip({
                 layer: el.latConstraint,
-                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content">{{description}}</div></div>',
                 width: 200,
                 position: 'top|right'
             });
@@ -699,14 +706,14 @@ At the last part of the cartodbData() function, there are defined the infowindow
             $('body').append(c.render().el);
       var d1 = new cdb.geo.ui.Tooltip({
                 layer: el.ellipses1,
-                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content">{{description}}</div></div>',
                 width: 200,
                 position: 'top|right'
             });
             $('body').append(d1.render().el);
       var d2 = new cdb.geo.ui.Tooltip({
               layer: el.ellipses2,
-              template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+              template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content">{{description}}</div></div>',
               width: 200,
               position: 'top|right'
           });
@@ -720,42 +727,42 @@ At the last part of the cartodbData() function, there are defined the infowindow
             $('body').append(d3.render().el);
       var d4 = new cdb.geo.ui.Tooltip({
               layer: el.ellipses4,
-              template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+              template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content">{{description}}</div></div>',
               width: 200,
               position: 'top|right'
           });
           $('body').append(d4.render().el);
       var d5 = new cdb.geo.ui.Tooltip({
                 layer: el.ellipses5,
-                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content">{{description}}</div></div>',
                 width: 200,
                 position: 'top|right'
             });
             $('body').append(d5.render().el);
      var d6 = new cdb.geo.ui.Tooltip({
               layer: el.ellipses6,
-              template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+              template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content">{{description}}</div></div>',
               width: 200,
               position: 'top|right'
           });
           $('body').append(d6.render().el);
       var d7 = new cdb.geo.ui.Tooltip({
                 layer: el.ellipses7,
-                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content">{{description}}</div></div>',
                 width: 200,
                 position: 'top|right'
             });
             $('body').append(d7.render().el);
       var d8 = new cdb.geo.ui.Tooltip({
                 layer: el.ellipses8,
-                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content">{{description}}</div></div>',
                 width: 200,
                 position: 'top|right'
             });
             $('body').append(d8.render().el);
       var e = new cdb.geo.ui.Tooltip({
                 layer: el.latAreaOk,
-                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{description}}</p></div></div>',
+                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content">{{description}}</div></div>',
                 width: 200,
                 position: 'top|right'
             });
@@ -790,6 +797,13 @@ At the last part of the cartodbData() function, there are defined the infowindow
       // column of the exols_exomars_landing_sites_four table
       //cdb.vis.Vis.addInfowindow(el.map, el.landingSite, ['description']);
       cdb.vis.Vis.addInfowindow(el.map, el.landingSite8, ['description']);
+
+      cdb.vis.Vis.addInfowindow(el.map, el.ellipses1, ['description']);
+      cdb.vis.Vis.addInfowindow(el.map, el.ellipses2, ['description']);
+      cdb.vis.Vis.addInfowindow(el.map, el.ellipses3, ['description']);
+      cdb.vis.Vis.addInfowindow(el.map, el.ellipses4, ['description']);
+
+
 
       // hide all cartodb layers when the map element is loaded
       el.landingSite8.hide();
