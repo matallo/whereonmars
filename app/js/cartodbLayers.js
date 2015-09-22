@@ -397,7 +397,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
         });
         el.elevationConstraintNoOkLS = layer.createSubLayer({
           sql: "SELECT * FROM exols_elevation_constraint_landing_sites",
-            cartocss: "#exols_elevation_constraint_landing_sites{polygon-fill: #000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 0;}"
+            cartocss: "#exols_elevation_constraint_landing_sites{polygon-fill: #000;polygon-opacity: 0.5;line-color: #f40202;line-width: 1;line-opacity: 0;}"
         });
         el.duneConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_dune_field_usgs",
