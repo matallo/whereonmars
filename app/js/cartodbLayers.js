@@ -382,7 +382,7 @@ At the last part of the cartodbData() function, there are defined the infowindow
          });
         el.latConstraint = layer.createSubLayer({
           sql: "SELECT * FROM exols_lat_constraints",
-          cartocss: '#exols_lat_constraints{polygon-fill: #000000;polygon-opacity: 0.2;line-color: #f40202;line-width: 1;line-opacity: 1;}',
+          cartocss: '#exols_lat_constraints{polygon-fill: #000000;polygon-opacity: 0.4;line-color: #f40202;line-width: 1;line-opacity: 1;}',
           interactivity: ['description']
         });
         el.latAreaOk = layer.createSubLayer({
