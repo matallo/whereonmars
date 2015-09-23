@@ -27,34 +27,37 @@ var initMap = function(){
 
     el.graticule = L.simpleGraticule(el.graticuleOptions).addTo(el.map);
 
+    //baseURL = 'http://gislab.esac.esa.int/data/whereonmars/';
+    baseURL = 'http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/';
+
     // define MOLA gray basemap
-    el.basemapMOLAGray = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-gray/{z}/{x}/{y}.png', {
+    el.basemapMOLAGray = new L.tileLayer(baseURL+'mola-gray/{z}/{x}/{y}.png', {
      tms:true,
      maxNativeZoom: 9,
     }).setZIndex(0);
 
 
     // define the no shaded color MOLA basemap
-    el.basemapMOLANoShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola_color-noshade_global/{z}/{x}/{y}.png', {
+    el.basemapMOLANoShadedColor = new L.tileLayer(baseURL+'mola_color-noshade_global/{z}/{x}/{y}.png', {
      tms:true,
      maxNativeZoom: 6,
      opacity:0.5,
     });
 
     // define the color MOLA basemap
-    el.basemapMOLAShadedColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-color/{z}/{x}/{y}.png', {
+    el.basemapMOLAShadedColor = new L.tileLayer(baseURL+'mola-color/{z}/{x}/{y}.png', {
      tms: true,
      maxNativeZoom: 6,
      attribution: 'NASA/MOLA',
     }).setZIndex(0);
 
     // define the Celestia basemap
-    el.basemapCelestia = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/celestia_mars-shaded-16k_global/{z}/{x}/{y}.png', {
+    el.basemapCelestia = new L.tileLayer(baseURL+'celestia_mars-shaded-16k_global/{z}/{x}/{y}.png', {
      tms:true,
      maxNativeZoom: 5,
    }).addTo(el.map).setZIndex(0);
    // define the Viking basemap
-    el.basemapViking = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/viking_mdim21_global/{z}/{x}/{y}.png', {
+    el.basemapViking = new L.tileLayer(baseURL+'viking_mdim21_global/{z}/{x}/{y}.png', {
      tms:true,
      maxNativeZoom: 7,
      attribution: 'NASA/Viking MDIM2.1'
@@ -67,7 +70,7 @@ var initMap = function(){
      el.hrsc = {};
      // loop that read each row of cartodb table and add  hrsc layers
          for (i = 0; i < data.total_rows; i++){
-            el.hrsc[i]= L.tileLayer(data.rows[i].url,{
+            el.hrsc[i]= L.tileLayer(baseURL+data.rows[i].url,{
             tms:true,
             minZoom: 7,
             opacity: 1.0,
@@ -160,7 +163,7 @@ var initMap = function(){
     .done(function(data){
       el.hirise = {};
       for (i = 0; i < data.total_rows; i++){
-        el.hirise[i] = new L.tileLayer(data.rows[i].url,{
+        el.hirise[i] = new L.tileLayer(baseURL+data.rows[i].url,{
           tms:true,
           opacity: 1.0,
           minZoom: 9,
