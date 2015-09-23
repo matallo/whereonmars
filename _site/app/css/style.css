@@ -23,8 +23,12 @@
 	#map > div.cartodb-infowindow > div > div.cartodb-popup-content-wrapper{
 		width: 300px;
 		max-width: none;
-
 	}
+
+	/*#map > div.cartodb-infowindow > div > div.cartodb-popup-content-wrapper > div > div > div.jspPane > h4{
+	  display: none!important;
+	}*/
+
 	/*  logo cartodb */
 	.cartodb-logo{
 		display: none!important;
