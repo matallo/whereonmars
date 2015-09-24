@@ -21,30 +21,30 @@ color:
 people:
 - name: Nicolas Manaud
   pic: 1
-  position: Project Initiator
+  position: ESAC Project Initiator
   social:
     - title: twitter
-      url: #
-    - title: linkedin
-      url: #
+      url: https://twitter.com/nmanaud
+    - title: github
+      url:  https://github.com/nmanaud
 
 - name: Oriol Boix
   pic: 2
-  position: Front-End Developer Intern
+  position: Geospatial Front-End Developer Intern
   social:
     - title: twitter
-      url: #
-    - title: linkedin
-      url: #
+      url: https://twitter.com/oriolbx
+    - title: github
+      url:  https://github.com/oriolbx
 
 - name: Andrew Hill
   pic: 3
-  position: CartoDB Support
+  position: CartoDB Co-supervisor & Support
   social:
     - title: twitter
-      url: #
-    - title: linkedin
-      url: #
+      url: https://twitter.com/andrewxhill
+    - title: github
+      url: https://github.com/andrewxhill
 
 # - name: Carla Iriberri
 #   pic: 5
