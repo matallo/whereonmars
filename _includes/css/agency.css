@@ -810,7 +810,12 @@ ul.social-buttons li a {
 ul.social-buttons li a:hover,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:active {
-    background-color: #{{ site.color.primary }};
+    background-color: #666;
+    /*#{{ site.color.primary }};*/
+}
+ul.social-buttons.square li a {
+    border-radius: 0%;
+    padding: 0px!important;
 }
 
 .btn:focus,
