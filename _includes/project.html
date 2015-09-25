@@ -69,7 +69,7 @@
                         <p class="text-muted">{{ member.position }}</p>
                         <ul class="list-inline social-buttons">
                             {% for network in member.social %}
-                            <li><a href="{{ network.url }}"><i class="fa fa-{{ network.title }}"></i></a>
+                            <li><a href="{{ network.url }}" target="_blank"><i class="fa fa-{{ network.title }}"></i></a>
                             {% endfor %}
 
                         </ul>
@@ -92,33 +92,36 @@
                </div>
             </div>
 
-
-
             <div class="row text-center">
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-send fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-circle fa-stack-2x text-primary" style="color:#55acee;"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Share</h4>
+                    <h4 class="service-heading">Share and Follow</h4>
                     <p class="text-muted">
-                      "Where On Mars?" is an interactive map visualisation of the
-                      ESA's ExoMars 2018 rover candidate landing sites.
                       If you like this interactive map, spread the word
-                      and share it with your friends or co-workers!
-<!-- <ul class="list-inline social-buttons square">
-  <li><a href=""><i class="fa fa-twitter"></i></a></li>
-  <li><a href=""><i class="fa fa-facebook"></i></a></li>
-</ul> -->
-                      <!-- <a href="https://twitter.com/intent/tweet">Twitter</a>,
-                      <a href="https://twitter.com/intent/tweet">Facebook</a>,
-                      <a href="https://twitter.com/intent/tweet">Twitter</a>, or send them an
-                      <a href="https://twitter.com/intent/tweet">email</a>. -->
+                      and share it with your friends or co-workers on
+                      <a href="https://twitter.com/intent/tweet?text=url=http://whereonmars.co&via=@whereonmars">Twitter</a>,
+                      <a href="http://www.facebook.com/sharer/sharer.php?u=http://whereonmars.co">Facebook</a>,
+                      <a href="http://plus.google.com/share?url=http://whereonmars.co">Google+</a>.
+                      The content of the map will be updated and
+                      enriched throughout the landing site selection process.
+                      Stay tuned and <a href="https://twitter.com/intent/follow?screen_name=whereonmars">
+                      Follow us</a> on Twitter.
+                      <!-- <a href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fwhereonmars.co%2Fapp%2F&ref_src=twsrc%5Etfw&region=follow_link&screen_name=whereonmars&tw_p=followbutton">@whereonmars</a> on Twitter</p>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> -->
+
+                      <!-- <ul class="list-inline social-buttons square">
+                        <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                        <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                      </ul> -->
+
                     </p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-circle fa-stack-2x text-primary" style="color:#4dc247;"></i>
                         <i class="fa fa-comments fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Give Feedback</h4>
@@ -132,7 +135,7 @@
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-circle fa-stack-2x text-primary" style="color:#666;"></i>
                         <i class="fa fa-github fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Reuse and Improve</h4>
@@ -151,15 +154,52 @@
                 <div class="col-lg-12 text-center">
                     <h3 class="section-heading">Acknowledgments</h3>
                     <!-- <h3 class="section-subheading text-muted"></h3> -->
+                  </br></br>
                 </div>
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                  <p class="medium text-muted">
+
+                <!-- <div class="col-lg-10 col-lg-offset-1 text-center">
                   </br>
-                    We acknowledge the <a href="">ESAC</a> HR Service and the Science Operations Department for having organised and funded this ESAC Trainee Project, part of the <a href="http://www.esa.int/About_Us/Careers_at_ESA/Student_placements2" target="_blank">ESA Student Placement</a>.
-                    We acknowledge the <a href="">CartoDB</a> team in Madrid for its enthousiasm and amazing support: Carla, Dani, Javier Santana, Alejandro.
-                    We acknowledge advice and data provided by the
-                  <a href="https://www.ucl.ac.uk/earth-sciences/research/rpif" target="_blank">UK NASA RPIF</a> at UCL. Peter Grindrod and Elliot.
-                 </p>
+                    <p class="text-muted">We acknowledge the ESAC HR Service and the
+                    Science Operations Department for having organised and funded
+                    this <a href="http://www.sciops.esa.int/index.php?project=ESACTRAINEES&page=index" target="_blank">ESAC Trainee Project</a>,
+                    part of the ESA Student Placement</a>.</p>
+                    <p class="text-muted">We wish to warmly thank all the folks at <a href="https://cartodb.com/team" target="_blank">CartoDB</a>
+                    in Madrid for their hospitality, enthousiasm and amazing support:</br>
+                    <b>Carla Iriberri</b>, <b>Dani Carrión</b>, <b>Javi Santana</b>, <b>Alejandro Martínez</b>, and <b>Carlos Matallín</b>.</p>
+                    <p class="text-muted">We acknowledge advice and data provided by the
+                    <a href="https://www.ucl.ac.uk/earth-sciences/research/rpif" target="_blank">UK NASA RPIF</a> at UCL:
+                    <b>Peter Grindrod</b> (<a href="http://www.petergrindrod.net/stuff/blog" target="_blank">blog</a>) and
+                    <b>Elliot Elliot Sefton-Nash</b>.</p>
+                    <p class="text-muted">We also would thank you the
+                    <a href="http://exploration.esa.int/mars/53454-exomars-2018-landing-site-selection-working-group/" target="_blank">
+                    Landing Site Selection Working Group (LSSWG)</a>
+                    for supporting this project, in particular:</br>
+                    <b>Jorge Vago</b> (ExoMars Project Scientist), and <b>Ernst Hauber</b> (Planetary Geologist at DLR/Berlin).</p>
+               </div> -->
+
+               <div class="col-md-3">
+                 <p class="text-muted">We acknowledge the ESAC HR Service and the
+                 Science Operations Department for having organised and funded
+                 this <a href="http://www.sciops.esa.int/index.php?project=ESACTRAINEES&page=index" target="_blank">ESAC Trainee Project</a>,
+                 part of the ESA Student Placement</a>.</p>
+               </div>
+               <div class="col-md-3">
+                 <p class="text-muted">We wish to warmly thank all the folks at <a href="https://cartodb.com/team" target="_blank">CartoDB</a>
+                 in Madrid for their hospitality, enthousiasm and amazing support:
+                 <b>Carla Iriberri</b>, <b>Dani Carrión</b>, <b>Javi Santana</b>, <b>Alejandro Martínez</b>, and <b>Carlos Matallín</b>.</p>
+               </div>
+               <div class="col-md-3">
+                 <p class="text-muted">We acknowledge advice and data provided by the
+                 <a href="https://www.ucl.ac.uk/earth-sciences/research/rpif" target="_blank">UK NASA RPIF</a> at UCL:
+                 <b>Peter Grindrod</b> (<a href="http://www.petergrindrod.net/stuff/blog" target="_blank">blog</a>) and
+                 <b>Elliot Elliot Sefton-Nash</b>.</p>
+               </div>
+               <div class="col-md-3">
+                 <p class="text-muted">We also would thank you the
+                 <a href="http://exploration.esa.int/mars/53454-exomars-2018-landing-site-selection-working-group/" target="_blank">
+                 Landing Site Selection Working Group (LSSWG)</a>
+                 for supporting this project, in particular:
+                 <b>Jorge Vago</b> (ExoMars Project Scientist), and <b>Ernst Hauber</b> (Planetary Geologist at DLR/Berlin).</p>
                </div>
             </div>
 
