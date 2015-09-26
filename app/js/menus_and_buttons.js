@@ -132,31 +132,29 @@
   $("#navButtons .prev")
   .mouseover(function(){
     $("#circlePrev").css({
-      "background-color": "#EFC481",
+      "background-color": "#F4F4F4", //"#EFC481",
       "opacity": 1
     })
   })
   .mouseleave(function(){
     $("#circlePrev").css({
-      "background-color": "#EFC481",
+      "background-color": "#fff", //"#EFC481",
       "opacity": 0.7
     })
   });
   $("#navButtons .next")
     .mouseover(function(){
       $("#circleNext").css({
-        "background-color": "#EFC481",
+        "background-color": "#F4F4F4", //"#EFC481",
         "opacity": 1
       })
     })
     .mouseleave(function(){
       $("#circleNext").css({
-        "background-color": "#EFC481",
+        "background-color": "#fff", //"#EFC481",
         "opacity": 0.7
       })
     });
-
-
 
 
 /* 4- Navigation dots */
