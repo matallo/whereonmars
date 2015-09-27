@@ -1,23 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@whereonmars" />
-<meta name="twitter:creator" content="@nmanaud" />
-<meta property="og:url" content="http://whereonmars.co" />
-<meta property="og:title" content="Where On Mars?" />
-<meta property="og:description" content="An interactive map visualisation of the ESA's ExoMars 2018 rover candidate landing sites" />
-<meta property="og:image" content="http://whereonmars.co/img/about/4.jpg" />
-</head>
-<body style="background-color:#43342f;">
+---
+layout: default
+---
 
-<div style="width:200px; position:relative; margin-left:auto; margin-right:auto; margin-top:150px;">
-	<img src="./img/wom-logo.png" width="200px"></>
-</div>
-<div style="width:400px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
- font-size:20px; font-style:italic; font-weight:300; text-align:center; line-height:140%; color:#62504a;
-  margin-left:auto; margin-right:auto; margin-top:100px;">coming soon...
-</div>
+<div class="home">
 
-</body>
-</html>
+  <h1>Posts</h1>
+
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>

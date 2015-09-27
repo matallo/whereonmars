@@ -550,7 +550,7 @@ section h3.section-subheading {
 }
 
 
-.timeline>li .timeline-image a {
+/*.timeline>li .timeline-image a {
     color: #fff;
 }
 .timeline>li .timeline-image a:hover,
@@ -559,8 +559,7 @@ section h3.section-subheading {
                              a.active {
     color: #fff;
     text-decoration: none;
-    background-color: #D14D3C;
-}
+}*/
 
 .timeline>li.timeline-inverted>.timeline-panel {
     float: right;
