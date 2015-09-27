@@ -13,7 +13,7 @@ color:
 
 
   primary: EFAF3D
-  secondary: E49929 #D14D3C
+  secondary: D14D3C #E49929 #D14D3C
 
   secondary-dark: 341a13
 
@@ -21,7 +21,7 @@ color:
 people:
 - name: Nicolas Manaud
   pic: 1
-  position: ESAC Project Initiator
+  position: ESAC Trainee Project Lead
   social:
     - title: twitter
       url: https://twitter.com/nmanaud
@@ -30,7 +30,7 @@ people:
 
 - name: Oriol Boix
   pic: 2
-  position: Geospatial Front-End Developer Intern
+  position: Geospatial Data & Front-End Developer
   social:
     - title: twitter
       url: https://twitter.com/oriolbx
