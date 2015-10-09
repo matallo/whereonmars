@@ -37,15 +37,24 @@ people:
     - title: github
       url:  https://github.com/oriolbx
 
-- name: Andrew Hill
+- name: Carla Iriberri
   pic: 3
-  position: Project Co-supervisor & CartoDB Support
+  position: CartoDB Support
+  social:
+    - title: twitter
+      url: https://twitter.com/iriberri1
+    - title: github
+      url: https://github.com/iriberri
+      
+- name: Andrew Hill
+  pic: 4
+  position: Project Co-supervisor
   social:
     - title: twitter
       url: https://twitter.com/andrewxhill
     - title: github
       url: https://github.com/andrewxhill
-
+      
 # - name: Carla Iriberri
 #   pic: 5
 #   position: Lead Developer
