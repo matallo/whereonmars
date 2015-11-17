@@ -1,76 +1,62 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mars Basemaps</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css"/>
+  <title>CartoDB base map explorer</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="leaflet.css" />
+  <script src="leaflet.js"></script>
+  <script type="text/javascript" src="leaflet-hash.js"></script>
+
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    html, body, #map {
+      height: 100%;
+    }
+  </style>
 </head>
-<style>
-html, body, #map {
-width:100%; height:100%; padding:0px; margin:0px;
-}
-</style>
 <body>
-	<div id="map"></div>
+  <div id="map"></div>
 
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([51.505, -0.09], 3);
+    var hash = new L.Hash(map);
 
-	<script>
+    L.tileLayer('http://{s}.api.cartocdn.com/base-midnight/{z}/{x}/{y}.png', {
+      maxZoom: 11,
+      attribution: 'CartoDB base map, data from <a href="http://openstreetmap.org">OpenStreetMap</a>'
+    }).addTo(map);
 
-var initMap = function(){
-		var map = L.map('map').setView([11.8,-45.04], 3);
+    var cmAttr = 'CartoDB base map, data from <a href="http://openstreetmap.org">OpenStreetMap</a>',
+                 cmUrl = 'http://{s}.api.cartocdn.com/{styleId}/{z}/{x}/{y}.png';
 
-		var basemapTexture = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/celestia_mars-shaded-16k_global/{z}/{x}/{y}.png', {
-			maxNativeZoom: 9,
-			zoom: 3,
-			tms: true,
-			attribution: 'gislab'
-		}).addTo(map).setZIndex(0);
+    var base_antique = L.tileLayer(cmUrl, {styleId: "base-antique", attribution: cmAttr});
+    var base_midnight = L.tileLayer(cmUrl, {styleId: "base-midnight", attribution: cmAttr});
+    var base_dark = L.tileLayer(cmUrl, {styleId: "base-dark", attribution: cmAttr});
+    var base_flatblue = L.tileLayer(cmUrl, {styleId: "base-flatblue", attribution: cmAttr});
+    var base_light = L.tileLayer(cmUrl, {styleId: "base-light", attribution: cmAttr});
+    var base_light_nolabels = L.tileLayer(cmUrl, {styleId: "base-light-nolabels", attribution: cmAttr});
+    var base_eco = L.tileLayer(cmUrl, {styleId: "base-eco", attribution: cmAttr});
 
-		var basemapMOLAGrey = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-gray/{z}/{x}/{y}.png', {
-		  attribution: 'MOLA',
-		  tms:true,
-		  maxNativeZoom: 9,
-		}).addTo(map).setZIndex(0);
-
-		var basemapMOLAColor = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola-color/{z}/{x}/{y}.png', {
-		  attribution: 'MOLA',
-		  tms: true,
-	    maxNativeZoom: 6,
-		}).addTo(map).setZIndex(0);
-
-
-		var basemapViking = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/viking_mdim21_global/{z}/{x}/{y}.png', {
-		  attribution: 'Viking',
-		  tms:true,
-		  maxNativeZoom: 7,
-		}).addTo(map).setZIndex(0);
+    var baseLayers = {
+      "Midnight": base_midnight,
+      "Antique": base_antique,
+      "Dark": base_dark,
+      "FlatBlue": base_flatblue,
+      "Light": base_light,
+      "Light-No labels": base_light_nolabels,
+      "Base Eco": base_eco
+    };
 
 
-		var overlay = new L.tileLayer('http://gislab.esac.esa.int/data/whereonmars/mola_color-noshade_global/{z}/{x}/{y}.png', {
-			tms: true,
-			opacity:0.4,
-			attribution: 'MOLA'
-		}).addTo(map).setZIndex(2);
-
-		var baseMaps = {
-		  "Mars Texture": basemapTexture,
-			"MOLA Shaded Grey": basemapMOLAGrey,
-			"MOLA Shaded Color": basemapMOLAColor,
-			"Viking MDIM 2.1. Color": basemapViking
-		};
-
-		var overlayMaps = {
-		  "MOLA no-shade color": overlay
-		}
-
-		L.control.layers(baseMaps, overlayMaps).addTo(map);
-	}
+    L.control.layers(baseLayers).addTo(map);
 
 
-	initMap();
-
-	</script>
+  </script>
 </body>
 </html>
